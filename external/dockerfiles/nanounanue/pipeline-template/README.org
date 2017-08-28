@@ -1,0 +1,110 @@
+* /Pipeline template/
+
+Plantilla para /pipelines/ usando ~Luigi~
+
+
+
+
+** Instrucciones rápidas
+
+** Prerequisitos
+
+- =docker=
+- =ag=
+- =hub=
+- =git flow=
+- =docker-compose=
+- =docker-machine=
+
+** Instalando
+
+
+1. Copia el template a un repositorio  tuyo (en el ejemplo *nanounanue*, e.g. mi
+   usuario de github) especificando el nombre del proyecto que quieres (en el ejemplo, *jitomate*)
+
+#+BEGIN_SRC sh
+curl -fsSL https://raw.githubusercontent.com/nanounanue/pipeline-template/master/installer.sh | bash -- /dev/stdin -p jitomate -u nanounanue
+#+END_SRC
+
+1. Crea 5 nodos usando =docker-machine=, por ejemplo usando =virtualbox= como
+   =driver=
+
+#+BEGIN_SRC sh 
+export MACHINE_DRIVER=virtualbox
+for N in $(seq 1 5); do
+   docker-machine create node$N
+done
+#+END_SRC
+
+2. Crea un =swarm=
+
+
+#+BEGIN_SRC sh 
+eval $(docker-machine env node1)
+
+docker swarm init --advertise-addr $(docker-machine ip node1)
+
+TOKEN=$(docker swarm join-token -q manager)
+for N in $(seq 2 5); do
+  eval $(docker-machine env node$N)
+  docker swarm join --token $TOKEN $(docker-machine  ip node1):2377
+done
+eval $(docker-machine env node1)
+
+
+docker node ls
+#+END_SRC
+
+*NOTA*: Si tienes problemas, ingresa a cada una de las máquinas
+
+
+
+3. Crea un =registry= local al =swarm=
+
+#+BEGIN_SRC sh 
+ docker service create --name registry --publish 5000:5000 registry:2
+#+END_SRC
+
+
+4. Clona el repositorio en el =nodo1=
+
+4. Registra las imágenes contenidas en =infraestructura=
+
+#+BEGIN_SRC sh 
+infraestructura/registrar.sh 
+#+END_SRC
+
+
+4. Instala y ejecuta el pipeline 
+
+
+
+
+#+BEGIN_SRC sh 
+make setup 
+
+make run 
+#+END_SRC
+
+
+** Ejecutando pruebas
+
+** /Deployment/
+
+
+** Construido con...
+
+   - [[some.url][Some URL]]
+   -
+   -
+
+** ¿Cómo contribuir?
+
+
+** Autores
+
+** Licencia
+
+** Agradecimientos
+
+ - Plantilla de [[https://gist.github.com/PurpleBooth/109311bb0361f32d87a2][README]] 
