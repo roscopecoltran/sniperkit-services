@@ -73,11 +73,11 @@ ENV APP_DATA_DIR=${APP_DATA_DIR} \
 
 # app configuration filepath
 # main component - config filepath
-ARG APP_CONF_FILEPATH="${APP_CONF_FILEPATH:-"$APP_DIR_SHARED/conf.d/$APP_CONF_FILENAME"}"  
+ARG APP_CONF_FILEPATH=${APP_CONF_FILEPATH:-"$APP_DIR_SHARED/conf.d/$APP_CONF_FILENAME"}
 
 # install script (will look after install-{SCRIPT_SLUG}.sh)
 # list of component(s) to install
-ARG APP_INSTALL_SCRIPTS="${APP_INSTALL_SCRIPTS:-"pip3 libgit2 searx searx-admin"}"         
+ARG APP_INSTALL_SCRIPTS=${APP_INSTALL_SCRIPTS:-"pip3 libgit2 searx searx-admin"}       
 
 # List of app-specific APK(s) packages required to install and compile the main component
 ARG APK_BUILD_CUSTOM=${APK_BUILD_CUSTOM:-"  tree build-base libffi-dev openssl-dev libxslt-dev libxml2-dev openssl-dev \
