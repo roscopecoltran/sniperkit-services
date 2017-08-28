@@ -43,7 +43,7 @@ ARG IS_BUILD=${IS_BUILD:-"TRUE"}
 ARG HAS_USER=${HAS_USER:-"TRUE"}
 
 # Set env variables
-ARG DOCKER_SERVICES=${DOCKER_SERVICES:-"postgres"}
+ARG DOCKER_SERVICES=${DOCKER_SERVICES:-"mysql"}
 ARG DOCKER_SHARED_FOLDERS=${DOCKER_SHARED_FOLDERS:-"ssl,load,conf.d,logs,data,data/db"}
 
 # Install Gosu to /usr/local/bin/gosu
