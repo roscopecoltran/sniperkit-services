@@ -53,6 +53,6 @@ RUN \
 COPY ./docker/internal/ /scripts
 COPY ./shared/ /shared/
 
-ENTRYPOINT ["/scripts/docker/entrypoint.sh"]
+ENTRYPOINT ["/scripts/entrypoint.sh"]
 
 EXPOSE 7379

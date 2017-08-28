@@ -15,9 +15,9 @@ FROM alpine:3.6
 LABEL maintainer "Luc Michalski <michalski.luc@gmail.com>"
 
 ## Set Environment Variables
-	ARG MEMCACHED_VERSION=1.5.1
-	ARG MEMCACHED_SHA1=e5b7e4e562eb99fdfa67d71697cc6744d3e9663f
-    ENV ZABBIX_HOSTNAME=memcached-app
+ARG MEMCACHED_VERSION=1.5.1
+ARG MEMCACHED_SHA1=e5b7e4e562eb99fdfa67d71697cc6744d3e9663f
+ENV ZABBIX_HOSTNAME=memcached-app
 
 ## Install
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added

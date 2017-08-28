@@ -1,0 +1,6 @@
+version: '2.1'
+# version: '3'
+# services:
+#   apache:
+#     extra_hosts:
+#         - "example.dev:127.0.0.1"
