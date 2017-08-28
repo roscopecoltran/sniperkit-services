@@ -1,0 +1,6 @@
+/elasticsearch/elasticsearch/
+/neo4jdata/
+/node_modules/
+/public/bower_components/
+.DS_Store
+*.log

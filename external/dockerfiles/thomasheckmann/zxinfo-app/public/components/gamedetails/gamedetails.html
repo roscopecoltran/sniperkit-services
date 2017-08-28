@@ -1,0 +1,382 @@
+<md-dialog aria-label="ZX INFO" class="fullscreen-dialog" flex=80>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Share" ng-click="toogleShareUrl()">
+                <md-icon md-svg-icon="images/icons/share-arrow.svg" aria-label="Share"></md-icon>
+            </md-button>
+            <h2>{{item.fulltitle}} - {{item._id}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon md-svg-src="images/icons/ic_close_white_24px.svg" aria-label="Close dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div ng-cloak>
+            <input ng-model="shareurl" aria-label="Share URL" style="min-width: 100%;" ng-if="showshareurl">
+            <md-content>
+                <md-tabs md-dynamic-height md-autoselect md-border-bottom>
+                    <md-tab label="details">
+                        <md-content>
+                            <div class="md-dialog-content">
+                                <div layout-gt-sm="row" layout="column" layout-nowrap layout-margin layout-align="start center" layout-align-gt-sm="start start">
+                                    <aside flex-gt-sm="40" flex-order-gt-sm="2" flex="none">
+                                        <div style="width: 256px;" class="detail-slider">
+                                            <jk-carousel data="imageArray" item-template-url="'components/gamedetails/carousel-item.html'" max-width="256" max-height="218">
+                                            </jk-carousel>
+                                        </div>
+                                    </aside>
+                                    <main flex-gt-sm="60" flex-order-gt-sm="1">
+                                        <table id="table" class="table table-bordered md-body-1 shadow-z-1">
+                                            <tbody>
+                                            <tr>
+                                                <td><strong>Full title</strong></td>
+                                                <td>{{item.fulltitle}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Also known as</strong></td>
+                                                <td>{{item.alsoknownas}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Year</strong></td>
+                                                <td>{{item.yearofrelease}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Publisher</strong></td>
+                                                <td>
+                                                    <div ng-repeat="p in item.publisher"><a ng-href="/publisher/{{p.name|urlencode}}" ng-click="cancel()">{{ p.name}}</a> ({{p.country}})
+                                                        <br ng-hide="$last" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Machine</strong></td>
+                                                <td><a href="/entries?machinetype={{item.machinetype|urlencode}}" ng-click="cancel()">{{item.machinetype}}</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Type</strong></td>
+                                                <td><a href="/entries?genretype={{item.type}}" ng-click="cancel()">{{item.type}}</a><span ng-hide="!item.subtype"> / <a href="/entries?genretype={{item.type}}&genresubtype={{item.subtype}}" ng-click="cancel()">{{item.subtype}}</a></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Number of players</strong></td>
+                                                <td>{{item.numberofplayers}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Controls</strong></td>
+                                                <td>
+                                                    <div ng-repeat="c in item.controls">
+                                                        {{c.control}}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Rereleases</strong></td>
+                                                <td>
+                                                    <div ng-repeat="n in item.releases|filter:{seq:'!0'}:strict"><a ng-href="/publisher/{{n.name|urlencode}}" ng-click="cancel()">{{n.name}}</a> ({{n.country}})
+                                                        <span ng-hide="!n.as_title"> - as {{n.as_title}}</span>
+                                                        <br ng-hide="$last" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Author(s)</strong></td>
+                                                <td>
+                                                    <div ng-repeat="n in item.authors">
+                                                        <div ng-if="n.group"><a ng-href="/publisher/{{n.group|urlencode}}" ng-click="cancel()">{{n.group}}</a> (<span ng-repeat="a in n.authors"><a ng-href="/publisher/{{a|urlencode}}" ng-click="cancel()">{{a}}</a>, </span>)</div>
+                                                        <div ng-if="!n.group"><span ng-repeat="a in n.authors"><a ng-href="/publisher/{{a|urlencode}}" ng-click="cancel()">{{a}}</a>, </span></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Role(s)</strong></td>
+                                                <td>
+                                                    <div ng-repeat="n in item.roles">{{n.name}}: {{n.role}}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- ZXDB combined inspiredby and tie-in license -->
+                                            <tr>
+                                                <td><strong>Licensed</strong></td>
+                                                <td>
+                                                    <div ng-repeat="n in item.licensed">{{n.name}}({{n.country}}) - {{n.type}}: {{n.originalname}}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>ISBN</strong></td>
+                                                <td>{{item.isbn}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Message language</strong></td>
+                                                <td>{{item.messagelanguage}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Original publication</strong></td>
+                                                <td>{{item.originalpublication}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Original price</strong></td>
+                                                <td>
+                                                    <div ng-repeat="n in item.originalprice">
+                                                        {{n.amount}} {{n.currency}} - {{n.license}}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Budget price</strong></td>
+                                                <td>{{item.amount}} {{item.currency}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Availability</strong></td>
+                                                <td>{{item.availability}}
+                                                    <div><span ng-repeat="f in item.availableformat track by $index">{{f}}<span ng-hide="$last">, </span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Protection</strong></td>
+                                                <td>
+                                                    <div ng-repeat="speedload in item.protectionscheme track by $index">{{speedload}}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Authored</strong></td>
+                                                <td>
+                                                    <div ng-repeat="n in item.authored">
+                                                        <a ng-if="n.publisher" href="" ng-click="getGameByPublisher(n.title, n.publisher)">{{n.title}}</a> - {{n.publisher}}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Authoring</strong></td>
+                                                <td>
+                                                    <div ng-repeat="n in item.authoring">
+                                                        <a href="" ng-click="getGameByPublisher(n.title, n.publisher)">{{n.title}}</a> - {{n.publisher}}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- ZXDB Addtional=features + -->
+                                            <tr>
+                                                <td><strong>Additional info</strong></td>
+                                                <td>
+                                                    <!-- features -->
+                                                    <div ng-repeat="n in item.features">{{n.text}} - <a ng-href="/group/{{n.id|urlencode}}/{{n.name|urlencode}}/games" ng-click="cancel()">{{n.name}}</a></div>
+                                                    <!-- sites -->
+                                                    <div ng-repeat="n in item.sites">Listed on <a href="{{n.link}}">{{n.sitename}}</a></div>
+                                                    <!-- part of compilation -->
+                                                    <div ng-repeat="n in item.incompilations">Appears on {{n.type}} <a href="" ng-click="getGameByPublisher(n.title, n.publisher)">{{n.title}}</a></div>
+                                                    <!-- book typeins -->
+                                                    <div ng-repeat="n in item.booktypeins">Published as Type-in in the book {{n.title}}</div>
+                                                    <!-- part of compilation -->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Series</strong></td>
+                                                <td>
+                                                    <div ng-repeat="n in item.series">
+                                                        <a ng-if="n.publisher" href="" ng-click="getGameByPublisher(n.title, n.publisher)">{{n.title}}</a> - {{n.publisher}}
+                                                        <span ng-if="!n.publisher">{{n.title}} ({{n.publisher}})</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>SPOT</strong></td>
+                                                <td>{{item.spotcomments}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Known errors</strong></td>
+                                                <td>
+                                                    <div ng-if="item.knownerrors">Yes</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Remarks</strong></td>
+                                                <td>{{item.remarks}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Other systems</strong></td>
+                                                <td>
+                                                    <div ng-repeat="n in item.othersystems"><a href="{{n.url}}" target="_blank">{{n.name}}</a></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Score</strong></td>
+                                                <td>
+                                                    <div ng-if="item.score.score">{{item.score.score}} ({{item.score.votes}})</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Contents</strong></td>
+                                                <td>
+                                                    <div ng-repeat="n in item.contents">{{n.side}} {{n.sequence}}. <a href="" ng-click="getGameByPublisher(n.title, n.publisher)">{{n.title}}</a> - {{n.publisher}}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </main>
+                                </div>
+                                <div>
+                                    <md-toolbar class="md-accent">
+                                        <div class="md-toolbar-tools">
+                                            <span class="md-body">More like this...</span>
+                                        </div>
+                                    </md-toolbar>
+                                    <md-content layout="column" layout-gt-sm="row" layout-nowrap layout-margin layout-align="start center" layout-align-gt-sm="start start">
+                                        <md-card flex="auto" ng-repeat="e in morelikethis" md-whiteframe="3">
+                                            <img ng-click="getGameByPublisher(e.fulltitle, e.publisher[0].name)" ng-src="{{e._loadscreen}}" class="md-media-md">
+                                            <md-card-content>
+                                                <div md-truncate class="md-body" style="text-align: center">{{e.fulltitle}}</div>
+                                            </md-card-content>
+                                        </md-card>
+                                    </md-content>
+                                </div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="files" ng-disabled="item.downloads.length==0">
+                        <md-content class="md-padding">
+                            <div class="table-responsive-vertical shadow-z-1">
+                                <table id="table" class="table table-bordered md-body-1">
+                                    <thead>
+                                        <tr>
+                                            <th>Filename</th>
+                                            <th>Type/Format</th>
+                                            <th>Protection Scheme</th>
+                                            <th>Original</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="s in item.downloads">
+                                            <td data-title="Filename" md-highlight-text="s.filename" md-highlight-flags="gi">{{s.url}}</td>
+                                            <td data-title="Type/Format">{{s.type}}
+                                                <br/>{{s.format}}&nbsp;</td>
+                                            <td data-title="Protection Scheme">{{s.encodingscheme}}&nbsp;</td>
+                                            <td data-title="Original">
+                                                <md-checkbox ng-disabled="true" aria-label="Original release" ng-checked="s.origin.startsWith('Original release');"></md-checkbox>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="tosec" ng-disabled="!item.tosec">
+                        <md-content class="md-padding">
+                            <div class="table-responsive-vertical shadow-z-1">
+                                <table id="table" class="table table-bordered md-body-1">
+                                    <thead>
+                                        <tr>
+                                            <th>Rom URL</th>
+                                            <th>Rom Type</th>
+                                            <th>Size</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="s in item.tosec">
+                                            <td data-title="Rom URL" md-highlight-text="s.filename" md-highlight-flags="gi">{{s.url}}</td>
+                                            <td data-title="Rom Type">{{s.type}}</td>
+                                            <td data-title="Size">{{s.size}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="additionals" ng-disabled="item.additionals.length==0">
+                        <md-content class="md-padding">
+                            <div class="table-responsive-vertical shadow-z-1">
+                                <table id="table" class="table table-bordered md-body-1">
+                                    <thead>
+                                        <tr>
+                                            <th>Filename</th>
+                                            <th>Type/Format</th>
+                                            <th>Size</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="s in item.additionals">
+                                            <td data-title="Filename" md-highlight-text="s.filename" md-highlight-flags="gi">{{s.url}}</td>
+                                            <td data-title="Type/Format">{{s.type}}
+                                                <br/>{{s.format}}&nbsp;</td>
+                                            <td data-title="Size">{{s.size}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="reviews" ng-disabled="item.magazinereview.length==0">
+                        <md-content flex layout-padding md-colors="{background: 'default-primary-hue-1'}" ng-show='item.magazinereview.length > 0'>
+                            <md-list class="md-dense" flex layout="row" layout-xs="row" layout-wrap>
+                                <md-list-item ng-repeat="mag in magazinenames" ng-click="filterByMagazine(mag.name)" flex-xs="50" flex-sm="33" flex-md="33" flex-lg="25" flex-xl="25">
+                                    <span ng-class="mag.name === magsearch.magazine ? 'md-body-2' : 'md-body-1'">{{mag.name}} ({{mag.count}})</span></md-list-item>
+                            </md-list>
+                        </md-content>
+                        <md-content class="md-padding">
+                            <div class="table-responsive-vertical shadow-z-1">
+                                <table id="table" class="table table-bordered md-body-1">
+                                    <thead>
+                                        <tr>
+                                            <th>Magazine</th>
+                                            <th>Issue/Page</th>
+                                            <th>Link</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="s in item.magazinereview|filter:magsearch:strict">
+                                            <td data-title="Magazine"><a target="_blank" ng-href="{{s.maglink}}">{{s.magazine}}</a></td>
+                                            <td data-title="Issue/Page">{{s.issue}}/p{{s.page}}</td>
+                                            <td data-title="Link"><a target="_blank" ng-href="{{s.link}}" ng-if="s.link">ZXSR Review</a>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="adverts" ng-disabled="item.adverts.length==0">
+                        <md-content class="md-padding">
+                            <div class="table-responsive-vertical shadow-z-1">
+                                <table id="table" class="table table-bordered md-body-1">
+                                    <thead>
+                                        <tr>
+                                            <th>Magazine</th>
+                                            <th>Issue/Page</th>
+                                            <th>Type</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="s in item.adverts">
+                                            <td data-title="Magazine">{{s.magazine}}</td>
+                                            <td data-title="Issue/Page">{{s.issue}}/p{{s.page}}</td>
+                                            <td data-title="Type">{{s.magazine_type}}&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="reference." ng-disabled="item.magazines.length==0">
+                        <md-content class="md-padding">
+                            <div class="table-responsive-vertical shadow-z-1">
+                                <table id="table" class="table table-bordered md-body-1">
+                                    <thead>
+                                        <tr>
+                                            <th>Magazine</th>
+                                            <th>Issue/Page</th>
+                                            <th>Type</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="s in item.magazines">
+                                            <td data-title="Magazine">{{s.magazine}}</td>
+                                            <td data-title="Issue/Page">{{s.issue}}/p{{s.page}}</td>
+                                            <td data-title="Type">{{s.magazine_type}}&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </md-content>
+                    </md-tab>
+            </md-content>
+        </div>
+    </md-dialog-content>
+</md-dialog>

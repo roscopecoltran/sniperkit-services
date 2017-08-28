@@ -1,0 +1,21 @@
+{
+  "name": "zxinfo-app",
+  "description": "ZXINFO APP written for AngularJS",
+  "version": "1.0.0",
+  "homepage": "https://github.com/thomasheckmann/zxinfo-app",
+  "private": true,
+  "dependencies": {
+    "elasticsearch": "13.0.1",
+    "angular": "1.6.5",
+    "angular-route": "1.6.5",
+    "angular-animate": "1.6.5",
+    "angular-aria": "1.6.5",
+    "angular-resource": "1.6.5",
+    "angular-sanitize": "1.6.5",
+    "angular-material": "^1.1.4",
+    "angular-jk-carousel": "^0.1.9",
+    "angular-material-sidemenu": "^1.0.1",
+    "angular-messages": "v1.6.5",
+    "angular-material-expansion-panel": "^0.7.2"
+  }
+}

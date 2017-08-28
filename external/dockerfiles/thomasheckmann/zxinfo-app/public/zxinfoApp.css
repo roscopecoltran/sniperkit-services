@@ -1,0 +1,8 @@
+/**
+ * Detail dialog - no padding
+ */
+
+div .md-dialog-content {
+    padding: 0px;
+}
+

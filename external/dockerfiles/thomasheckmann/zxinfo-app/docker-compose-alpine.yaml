@@ -1,0 +1,68 @@
+version: '2'
+
+services:
+  zxinfo-es-alpine:
+    image: "elasticsearch:2.4.4-alpine"
+    volumes:
+      - ./elasticsearch:/usr/share/elasticsearch/data
+      - ./elasticsearch:/usr/share/elasticsearch/config
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    expose:
+      - "9200"
+      - "9300"
+    networks:
+      - zxinfo_net
+  
+  zxinfo-neo4j:
+    image: "neo4j:3.2"
+    volumes:
+      - ./neo4jdata:/data
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    expose:
+      - "7474"
+      - "7687"
+    environment:
+      NEO4J_AUTH: none
+    networks:
+      - zxinfo_net
+
+  zxinfo-services-alpine:
+    depends_on:
+      - zxinfo-es-alpine
+    build:
+      context: ../zxinfo-services
+      dockerfile: Dockerfile-alpine
+    ports:
+      - "8300:3000"
+    expose:
+      - "8300"
+    links:
+        - "zxinfo-es-alpine:zxinfo-es"
+    environment:
+      NODE_ENV: production
+    networks:
+      - zxinfo_net
+
+  zxinfo-app-alpine:
+    depends_on:
+      - zxinfo-services-alpine
+      - zxinfo-es-alpine
+    build:
+      context: ../zxinfo-app
+      dockerfile: Dockerfile-alpine
+    ports:
+      - "8200:3000"
+    expose:
+      - "8200"
+    environment:
+      NODE_ENV: production
+    networks:
+      - zxinfo_net
+
+networks:
+  zxinfo_net:
+    driver: bridge

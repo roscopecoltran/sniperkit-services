@@ -1,0 +1,47 @@
+version: '2'
+
+services:
+  zxinfo-es:
+    image: "elasticsearch:2.4.4"
+    volumes:
+      - ./elasticsearch:/usr/share/elasticsearch/data
+      - ./elasticsearch:/usr/share/elasticsearch/config
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    expose:
+      - "9200"
+      - "9300"
+    networks:
+      - zxinfo_net
+  
+  zxinfo-services:
+    depends_on:
+      - zxinfo-es
+    build: ../zxinfo-services
+    ports:
+      - "8300:3000"
+    expose:
+      - "8300"
+    environment:
+      NODE_ENV: container
+    networks:
+      - zxinfo_net
+
+  zxinfo-app:
+    depends_on:
+      - zxinfo-services
+      - zxinfo-es
+    build: ../zxinfo-app
+    ports:
+      - "8200:3000"
+    expose:
+      - "8200"
+    environment:
+      NODE_ENV: container
+    networks:
+      - zxinfo_net
+
+networks:
+  zxinfo_net:
+    driver: bridge

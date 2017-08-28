@@ -1,0 +1,32 @@
+FROM node:7.4.0
+
+
+
+
+
+# Add our user and group first to make sure their IDs get assigned consistently
+RUN groupadd -r app && useradd -r -g app -m -d /usr/src/app app 
+
+# Create app directory
+RUN mkdir -p /usr/src/app
+# Bundle app source
+COPY . /usr/src/app
+
+# Install app dependencies
+COPY package.json /usr/src/app/
+COPY bower.json /usr/src/app/
+COPY .bowerrc /usr/src/app/
+
+RUN chown -R app:app /usr/src/app
+WORKDIR /usr/src/app
+
+# Install bower - globally
+RUN npm install --global bower
+
+USER app
+RUN npm install
+
+# Default express port
+EXPOSE 3000
+
+CMD [ "npm", "start" ]

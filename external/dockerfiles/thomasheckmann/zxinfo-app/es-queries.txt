@@ -1,0 +1,645 @@
+
+# FIND ALL LOADING SCREENS (Arcade or Adventure)
+{
+ "_source": [
+    "fulltitle",
+    "type",
+    "_id",
+    "additionals.url",
+    "additionals.type"
+  ],
+  "size": 1,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "nested": {
+            "path": "additionals",
+            "query": {
+              "bool": {
+                "must": [
+                  { "match": { "additionals.type": "Loading screen" }}
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filter": {
+      "bool": {
+      "should": [
+        {
+          "match": {
+            "type": "Arcade"
+          }
+        },
+        {
+          "match": {
+            "type": "Adventure"
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+    {
+      "fulltitle.raw": {
+        "order": "asc"
+      }
+    }
+  ]
+}
+
+# FIND ALL GAME TYPES (type)
+{
+"size": 0,
+   "aggs": {
+      "types": {
+         "terms": {
+         "size" : 0,
+            "field": "type",
+            "order" : { "_term" : "asc" }
+         }
+      }
+   }
+}
+
+# FIND ALL PUBLISHER STARTING WITH 'O' SORT BY PUBLISHER.NAME
+POST _search
+{
+   "_source": [
+      "fulltitle",
+      "publisher.name"
+   ],
+   "query": {
+      "nested": {
+         "path": "publisher",
+         "filter": {
+            "query": {
+               "prefix": {
+                  "publisher.name.raw": "O"
+               }
+            }
+         }
+      }
+   },
+   "sort": {
+      "publisher.name.raw": {
+         "order": "asc",
+         "nested_path": "publisher"
+      }
+   }
+}
+
+# FIND ALL UNIQUE PUBLISHERS, AGGREGATION NESTED OBJECT
+POST _search
+{
+   "size": 0,
+   "aggs": {
+      "publisher": {
+         "nested": {
+            "path": "publisher"
+         },
+         "aggs": {
+            "name": {
+               "terms": {
+                  "field": "publisher.name.raw",
+                  "order": {
+                     "_term": "asc"
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+# COMBINED
+POST _search
+{
+    "size": 0,
+   "_source": [
+      "fulltitle",
+      "publisher.name"
+   ],
+   "query": {
+      "nested": {
+         "path": "publisher",
+         "filter": {
+            "query": {
+               "prefix": {
+                  "publisher.name.raw": "O"
+               }
+            }
+         }
+      }
+   },
+   "aggs": {
+      "publisher": {
+         "nested": {
+            "path": "publisher"
+         },
+         "aggs": {
+            "name": {
+               "terms": {
+                   "size": 0,
+                  "field": "publisher.name.raw",
+                  "order": {
+                     "_term": "asc"
+                  }
+               }
+            }
+         }
+      }
+   },
+   "sort": {
+      "publisher.name.raw": {
+         "order": "asc",
+         "nested_path": "publisher"
+      }
+   }
+}
+
+# STARTS WITH USING REGEXP (Every publisher not starting with a-z or A-Z)
+POST _search
+{
+    "size": 0,
+   "_source": [
+      "fulltitle",
+      "publisher.name",
+      "publisher.name.raw"
+   ],
+   "query": {
+      "nested": {
+         "path": "publisher",
+         "filter": {
+            "query": {
+               "regexp": {
+                  "publisher.name.raw": "[^A-Za-z]{1}.*"
+               }
+            }
+         }
+      }
+   },
+   "aggs": {
+      "publisher": {
+         "nested": {
+            "path": "publisher"
+         },
+         "aggs": {
+            "name": {
+               "terms": {
+                   "size": 0,
+                  "field": "publisher.name.raw",
+                  "order": {
+                     "_term": "asc"
+                  }
+               }
+            }
+         }
+      }
+   },
+   "sort": {
+      "publisher.name.raw": {
+         "order": "asc",
+         "nested_path": "publisher"
+      }
+   }
+}
+
+### UNSORTED
+POST _search
+{
+   "_source": [
+      "fulltitle",
+      "type",
+      "_id",
+      "additionals.url",
+      "additionals.type"
+   ],
+   "size": 1,
+   "query": {
+      "bool": {
+         "must": [
+            {
+               "nested": {
+                  "path": "additionals",
+                  "query": {
+                     "bool": {
+                        "must": [
+                           {
+                              "match": {
+                                 "additionals.type": "Loading screen"
+                              }
+                           }
+                        ]
+                     }
+                  }
+               }
+            }
+         ]
+      }
+   },
+   "filter": {
+      "bool": {
+         "should": [
+            {
+               "match": {
+                  "type": "Arcade"
+               }
+            },
+            {
+               "match": {
+                  "type": "Adventure"
+               }
+            }
+         ]
+      }
+   },
+   "sort": [
+      {
+         "fulltitle.raw": {
+            "order": "asc"
+         }
+      }
+   ]
+}
+
+POST _search
+{
+"size": 0,
+   "aggs": {
+      "types": {
+         "terms": {
+         "size" : 0,
+            "field": "type",
+            "order" : { "_term" : "asc" }
+         }
+      }
+   }
+}
+
+POST _search
+{
+   "size": 0,
+   "aggs": {
+      "publisher": {
+         "nested": {
+            "path": "publisher"
+         },
+         "aggs": {
+            "name": {
+               "terms": {
+                  "field": "publisher.name.raw",
+                  "order": {
+                     "_term": "asc"
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+
+POST _search
+{
+   "query": {
+      "match_all": {}
+   },
+   "filter": {
+      "bool": {
+         "should": [
+            {
+               "match": {
+                  "type": "Arcade"
+               }
+            },
+            {
+               "match": {
+                  "type": "Adventure"
+               }
+            }
+         ]
+      }
+   },
+   "sort": [
+      {
+         "fulltitle.raw": {
+            "order": "asc"
+         }
+      }
+   ]
+}
+
+POST _search
+{
+   "size": 0,
+   "aggs": {
+      "publisher": {
+         "nested": {
+            "path": "publisher"
+         },
+         "aggs": {
+            "name": {
+               "terms": {
+                   "size":0,
+                  "field": "publisher.name.raw",
+                  "order": {
+                     "_term": "asc"
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+POST _search
+{
+    "size": 0,
+   "_source": [
+      "fulltitle",
+      "publisher.name",
+      "publisher.name.raw"
+   ],
+   "query": {
+      "nested": {
+         "path": "publisher",
+         "filter": {
+            "query": {
+               "regexp": {
+                  "publisher.name.raw": "[^A-Za-z]{1}.*"
+               }
+            }
+         }
+      }
+   },
+   "aggs": {
+      "publisher": {
+         "nested": {
+            "path": "publisher"
+         },
+         "aggs": {
+            "name": {
+               "terms": {
+                   "size": 0,
+                  "field": "publisher.name.raw",
+                  "include": "[^A-Za-z]{1}.*",
+                  "order": {
+                     "_term": "asc"
+                  }
+               }
+            }
+         }
+      }
+   },
+   "sort": {
+      "publisher.name.raw": {
+         "order": "asc",
+         "nested_path": "publisher"
+      }
+   }
+}
+
+POST _search
+{
+   "size": 0,
+   "query": {
+      "nested": {
+         "path": "authors",
+         "filter": {
+            "query": {
+               "regexp": {
+                  "authors.authors.raw": "[Aa]{1}.*"
+               }
+            }
+         }
+      }
+   }
+   ,
+   "aggs": {
+      "authors": {
+         "nested": {
+            "path": "authors"
+         },
+         "aggs": {
+            "name": {
+               "terms": {
+                  "size": 0,
+                  "field": "authors.authors.raw",
+                  "include": "[Aa].*",
+                  "order": {
+                     "_term": "asc"
+                  }
+               }
+            }
+         }
+      }
+   },
+   "sort": {
+      "authors.authors.raw": {
+         "order": "asc",
+         "nested_path": "authors"
+      }
+   }
+}
+
+
+POST _search
+{
+   "_source": [
+      "fulltitle",
+      "publisher.name",
+      "authors.authors"
+   ],
+   "size": 0,
+   "query": {
+      "bool": {
+         "should": [
+            {
+               "nested": {
+                  "path": "publisher",
+                  "filter": {
+                     "query": {
+                        "regexp": {
+                           "publisher.name.raw": "[^A-Za-z]{1}.*"
+                        }
+                     }
+                  }
+               }
+            },
+            {
+               "nested": {
+                  "path": "authors",
+                  "filter": {
+                     "query": {
+                        "regexp": {
+                           "authors.authors.raw": "[^A-Za-z]{1}.*"
+                        }
+                     }
+                  }
+               }
+            }
+         ]
+      }
+   },
+   "aggs": {
+      "publisher": {
+         "nested": {
+            "path": "publisher"
+         },
+         "aggs": {
+            "name": {
+               "terms": {
+                   "size": 0,
+                  "field": "publisher.name.raw",
+                  "include": "[^A-Za-z]{1}.*",
+                  "order": {
+                     "_term": "asc"
+                  }
+               }
+            }
+         }
+      },
+        "authors": {
+         "nested": {
+            "path": "authors"
+         },
+         "aggs": {
+            "name": {
+               "terms": {
+                   "size": 0,
+                  "field": "authors.authors.raw",
+                  "include": "[^A-Za-z]{1}.*",
+                  "order": {
+                     "_term": "asc"
+                  }
+               }
+            }
+         }
+      }
+    
+   }
+}
+
+POST _search
+{
+    "query": {
+    "exists" : { "field" : "modifiedby" }
+    }
+}
+
+POST _search
+{
+   "query": {
+      "match_all": {}
+   },
+   "filter": {
+      "bool": {
+         "should": [
+            {
+               "match": {
+                  "originalpublication": "unknown"
+               }
+            }
+         ]
+      }
+   },
+   "sort": [
+      {
+         "fulltitle.raw": {
+            "order": "asc"
+         }
+      }
+   ]
+}
+
+POST _search
+{
+   "query": {
+      "bool": {
+         "must": [
+            {
+               "query": {
+                  "regexp": {
+                     "fulltitle.raw": "[A-a]{1}.*"
+                  }
+               }
+            }
+         ]
+      }
+   }
+}
+
+POST _search
+{
+   "query": {
+      "bool": {
+         "must": [
+            {
+               "query": {
+                  "regexp": {
+                     "fulltitle.raw": "[Aa]{1}.*"
+                  }
+               }
+            },
+            {
+               "nested": {
+                  "path": "additionals",
+                  "query": {
+                     "bool": {
+                        "must": {
+                           "match": {
+                              "additionals.type": "Loading screen"
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         ]
+      }
+   }
+}
+
+
+POST _search
+{
+   "query": {
+      "bool": {
+         "must": [
+            {
+               "nested": {
+                  "path": "additionals",
+                  "query": {
+                     "bool": {
+                        "must": [
+                           {
+                              "match": {
+                                 "additionals.type": "Loading screen"
+                              }
+                           }
+                        ]
+                     }
+                  }
+               }
+            },
+            {
+               "match": {
+                  "type": "Arcade"
+               }
+            }
+         ]
+      }
+   },
+   "sort": [
+      {
+         "fulltitle.raw": {
+            "order": "asc"
+         }
+      }
+   ]
+}

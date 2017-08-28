@@ -1,0 +1,35 @@
+<md-content flex layout-padding layout-margin layout="column" layout-align="center center" ng-cloak>
+    <section id="random">
+        <div style="width: 256px;" class="random-slider">
+            <jk-carousel data="imageArrayRnd5" item-template-url="'home/carousel-item.html'" auto-slide="true" max-width="256" max-height="218">
+            </jk-carousel>
+        </div>
+    </section>
+    <section id="main" layout="row" layout-align="center center" layout-fill>
+        <div flex-xs="100" flex-sm="75" flex="50" layout-nowrap>
+            <md-content class="md-whiteframe-1dp">
+                <form ng-submit="search1()">
+                    <md-autocomplete required md-input-id="autocomplete" md-selected-item="hctrl.selectedItem" md-search-text-change="hctrl.searchTextChange(hctrl.searchText)" md-search-text="hctrl.searchText" md-selected-item-change="hctrl.selectedItemChange(item)" md-items="item in hctrl.suggest(hctrl.searchText)" md-item-text="item.text" md-min-length="3" md-dropdown-items="5" placeholder="What is your favorite game?">
+                        <md-item-template>
+                            <span md-highlight-text="hctrl.searchText" md-highlight-flags="gi">{{item.text}}</span>
+                        </md-item-template>
+                    </md-autocomplete>
+                    <button flex hidden type="submit">Search</button>
+                </form>
+            </md-content>
+        </div>
+    </section>
+    <section id="credits" layout="row" class="md-caption" layout-align="center end">
+        <div>
+            <p>Special thanks goes to:
+                <ul>
+                    <li>Einar Saukas, the creator of ZXDB.</li>
+                    <li><a href="http://spectrumcomputing.co.uk/">Spectrum Computing</a> the official ZXDB frontend.</li>
+                    <li>Contributors to <a href="http://www.worldofspectrum.org">World of Spectrum</a> intially created and maintained by Martijn van der Heide.</li>
+                    <li>Captain Black, hosting assets.</li>
+                </ul>
+            </p>
+            <p>Source code on <a href="https://github.com/thomasheckmann/zxinfo-app">github.</a> - You can contact me: <i>thomas(a)kolbeck(dot)dk</i></p>
+        </div>
+    </section>
+</md-content>

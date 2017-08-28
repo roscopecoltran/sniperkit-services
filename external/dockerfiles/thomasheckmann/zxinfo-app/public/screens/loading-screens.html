@@ -1,0 +1,10 @@
+<md-content flex md-colors="{background: 'default-primary-hue-1'}">
+    <md-tabs md-selected="selectedIndex" md-dynamic-height md-border-bottom md-autoselect layout-fill>
+        <md-tab ng-repeat="tab in tabs" ng-disabled="tab.disabled" label="{{tab.title}}">
+            <div>
+                <!-- SEARCH RESULT -->
+                <zx-screen-result ng-model="result"></zx-screen-result>
+            </div>
+        </md-tab>
+    </md-tabs>
+</md-content>
