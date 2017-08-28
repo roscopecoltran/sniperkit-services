@@ -7,7 +7,8 @@ echo
 
 DIR=$(dirname "$0")
 echo "$DIR"
-. ${DIR}/common.sh
+cd /scripts
+. ./common.sh
 
 # python v2.x & v3.x
 alias python=python3

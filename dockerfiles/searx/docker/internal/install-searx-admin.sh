@@ -7,7 +7,8 @@ echo
 
 DIR=$(dirname "$0")
 echo "$DIR"
-. ${DIR}/common.sh
+cd /scripts
+. ./common.sh
 
 # Set temp environment vars
 export SEARX_ADMIN_VCS_URI=${SEARX_ADMIN_VCS_URI:-"github.com/kvch/searx-admin.git"}

@@ -7,7 +7,8 @@ echo
 
 DIR=$(dirname "$0")
 echo "$DIR"
-. ${DIR}/common.sh
+cd /scripts
+. ./common.sh
 
 function repoSizeDisparity {
 # Checks the size difference between your current repo, and the size of that 

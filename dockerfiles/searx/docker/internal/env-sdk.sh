@@ -7,5 +7,6 @@ echo
 
 DIR=$(dirname "$0")
 echo "$DIR"
-. ${DIR}/common.sh
+cd /scripts
+. ./common.sh
 
