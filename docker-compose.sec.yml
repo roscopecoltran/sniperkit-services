@@ -4,7 +4,7 @@ services:
   setoolkit:
     image: setoolkit:${SETOOLKIT_VERSION}-alpine3.6
     build:
-      context: "./setoolkit"
+      context: "./dockerfiles/setoolkit"
       dockerfile: setoolkit-alpine.dockerfile
     container_name: setoolkit-${SETOOLKIT_VERSION}
     volumes_from:
@@ -15,7 +15,7 @@ services:
   sqlmap:
     image: sqlmap:${SQLMAP_VERSION}-alpine3.6
     build:
-      context: "./sqlmap"
+      context: "./dockerfiles/sqlmap"
       dockerfile: sqlmap-alpine.dockerfile
     container_name: sqlmap-${SQLMAP_VERSION}
     volumes_from:

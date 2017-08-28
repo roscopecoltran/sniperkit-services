@@ -1,13 +1,13 @@
 ###########################################################################
-#		  
-#  Build the image:                                               		  
-#    $ docker build -t searx --no-cache . 									# longer but more accurate
-#    $ docker build -t searx . 												# faster but increase mistakes
-#                                                                 		  
-#  Run the container:                                             		  
+#         
+#  Build the image:                                                       
+#    $ docker build -t searx --no-cache .                                   # longer but more accurate
+#    $ docker build -t searx .                                              # faster but increase mistakes
+#                                                                         
+#  Run the container:                                                     
 #    $ docker run -it --rm -v $(pwd)/shared:/shared -p 8888:8888 searx
 #    $ docker run -d --name searx -p 8888:8888 -v $(pwd)/shared:/shared searx
-#                                                              		  
+#                                                                     
 ###########################################################################
 
 ## LEVEL1 ###############################################################################################################
@@ -22,14 +22,19 @@ ARG APP_HOME=${APP_HOME:-"/app"}
 # main component - config file
 ARG APP_CONF_FILENAME="${APP_CONF_FILENAME:-"settings-default.yml"}"                       
 
-# workdir - runtime
-WORKDIR /app
+# remote
+ARG APP_CONF_REMOTE_FILENAME=${APP_CONF_REMOTE_FILENAME:-"settings.yml"}                         
+ARG APP_CONF_REMOTE_FILEPATH=${APP_CONF_REMOTE_FILEPATH:-"/shared/conf.d/$APP_CONF_REMOTE_FILENAME"}
+
+## container runtime
+
+WORKDIR ${APP_HOME}/${APP_USER}                                                            
 
 # exposed port(s)
-# EXPOSE 2889
+EXPOSE 8888 8889
 
 # shared volume(s)
-# VOLUME ["/shared", "/etc/$APP_USER"]
+# VOLUME ["/shared/data/$APP_USER", "/shared/logs/$APP_USER", "/shared/conf.d"]     
 
 # shell script switching between modes at runtime
 ENTRYPOINT ["/scripts/entrypoint.sh"]                                                      
@@ -38,7 +43,9 @@ ENTRYPOINT ["/scripts/entrypoint.sh"]
 
 ## LEVEL2 ###############################################################################################################
 
-## LEVEL3 ###############################################################################################################
+# List of directories and sub-folders to pre-create in the container image
+ARG DOCKER_SERVICES=${DOCKER_SERVICES:-"$APP_USER"}
+ARG DOCKER_SHARED_FOLDERS=${DOCKER_SHARED_FOLDERS:-"ssl,load,conf.d,logs,data"}
 
 # key dirs
 ARG APP_DIR_SHARED_LABEL="${APP_DIR_SHARED_LABEL:-"shared"}"
@@ -81,7 +88,7 @@ ARG APP_INSTALL_SCRIPTS=${APP_INSTALL_SCRIPTS:-"pip3 libgit2 searx searx-admin"}
 
 # List of app-specific APK(s) packages required to install and compile the main component
 ARG APK_BUILD_CUSTOM=${APK_BUILD_CUSTOM:-"  tree build-base libffi-dev openssl-dev libxslt-dev libxml2-dev openssl-dev \
-											python3-dev py3-pip"}
+                                            python3-dev py3-pip"}
 
 # List of app-specific APK(s) packages required by the main component during the runtime
 ARG APK_RUNTIME_CUSTOM=${APK_RUNTIME_CUSTOM:-"make python3 libxml2 libxslt tini"}
@@ -104,9 +111,7 @@ ARG IS_KEEP_RUNTIME=${IS_KEEP_RUNTIME:-"TRUE"}
 ARG IS_KEEP_BUILD=${IS_KEEP_BUILD:-"TRUE"}
 ARG IS_KEEP_INSTALL=${IS_KEEP_INSTALL:-"TRUE"}
 
-# List of directories and sub-folders to pre-create in the container image
-ARG DOCKER_SERVICES=${DOCKER_SERVICES:-"aiohttp/admin"}
-ARG DOCKER_SHARED_FOLDERS=${DOCKER_SHARED_FOLDERS:-"ssl,load,conf.d,logs,data"}
+## LEVEL3 ###############################################################################################################
 
 # Download and Install Gosu utility
 ARG HELPER_GOSU_VERSION=${HELPER_GOSU_VERSION:-"1.10"}
@@ -125,11 +130,11 @@ ARG APK_INTERACTIVE_COMMON=${APK_INTERACTIVE_COMMON:-"nano bash tree"}
 
 # List of APK(s) forwarded from build-args to env vars (nb. need to be toggled by a dev/prod flag)
 ENV APK_BUILD_COMMON=${APK_BUILD_COMMON} \
-	APK_RUNTIME_COMMON=${APK_RUNTIME_COMMON} \
-	APK_INTERACTIVE_COMMON=${APK_INTERACTIVE_COMMON} \	
-	APK_BUILD_CUSTOM_COMMON=${APK_BUILD_CUSTOM_COMMON} \
-	APK_RUNTIME_CUSTOM=${APK_RUNTIME_CUSTOM} \
-	APK_INTERACTIVE_CUSTOM=${APK_INTERACTIVE_CUSTOM}
+    APK_RUNTIME_COMMON=${APK_RUNTIME_COMMON} \
+    APK_INTERACTIVE_COMMON=${APK_INTERACTIVE_COMMON} \  
+    APK_BUILD_CUSTOM_COMMON=${APK_BUILD_CUSTOM_COMMON} \
+    APK_RUNTIME_CUSTOM=${APK_RUNTIME_CUSTOM} \
+    APK_INTERACTIVE_CUSTOM=${APK_INTERACTIVE_CUSTOM}
 
 # Set python specifc variables for running apps from the container
 # PYTHONUNBUFFERED: Force stdin, stdout and stderr to be totally unbuffered. (equivalent to `python -u`)
@@ -144,10 +149,10 @@ ENV PYTHONUNBUFFERED=1 \
 ## LEVEL4 ###############################################################################################################
 
 # Copy the main configuration file to a recurrent and specific destination filepath.
-ADD ./shared/conf.d/${APP_CONF_FILENAME} ${APP_DIR_SHARED}/conf.d/${APP_CONF_FILENAME}
+ADD ${APP_CONF_LOCAL_FILEPATH} ${APP_CONF_REMOTE_FILEPATH}
 
 # Copy any specific or generic script/helpers to the container. (nb, need to keep only the ENTRYPOINT script, and its deps, in prod)
-COPY ./docker /scripts
+COPY ./docker/internal /scripts
 
 ## LEVEL5 ###############################################################################################################
 
@@ -185,8 +190,6 @@ RUN \
         done \
         && tree ${APP_DIR_SHARED} \
     \
-    && chmod a+x /scripts/*.sh \
-    && find /scripts -name "*.sh" -exec chmod a+x {} \; \
     && cd /scripts \
     && for SCRIPT in ${APP_INSTALL_SCRIPTS}; do \
         echo -e "  *** SCRIPT: ${SCRIPT}" \

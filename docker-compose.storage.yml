@@ -4,7 +4,7 @@ services:
   postgres:
     image: postgres:${POSTGRES_VERSION}-alpine3.6
     build:
-      context: "./postgres"
+      context: "./dockerfiles/postgres"
       dockerfile: postgres${POSTGRES_VERSION}-alpine.dockerfile
     container_name: postgres-${POSTGRES_VERSION}
     ports:
@@ -19,7 +19,7 @@ services:
   mysql:
     image: mysql:${MYSQL_VERSION}-alpine3.6
     build:
-      context: "./mysql"
+      context: "./dockerfiles/mysql"
       dockerfile: mysql${MYSQL_VERSION}-alpine.dockerfile
     container_name: mysql-${MYSQL_VERSION}
     ports:
@@ -34,7 +34,7 @@ services:
   mariadb:
     image: mariadb:${MARIADB_VERSION}-alpine3.6
     build:
-      context: "./mariadb"
+      context: "./dockerfiles/mariadb"
       dockerfile: mariadb${MARIADB_VERSION}-alpine.dockerfile
     container_name: mariadb-${MARIADB_VERSION}
     ports:
@@ -50,7 +50,7 @@ services:
     image: mongo:${MONGODB_VERSION}-alpine3.6
     container_name: mongodb-${MONGODB_VERSION}
     build:
-      context: "./mongodb"
+      context: "./dockerfiles/mongodb"
       dockerfile: mongodb-alpine.dockerfile
     ports:
     - 27017:27017
@@ -66,7 +66,7 @@ services:
   redis:
     image: redis:${REDIS_VERSION}-alpine3.6
     build:
-      context: "./redis"
+      context: "./dockerfiles/redis"
       dockerfile: redis${REDIS_VERSION}-alpine.dockerfile
     container_name: redis-${REDIS_VERSION}
     ports:
@@ -81,7 +81,7 @@ services:
   webdis:
     image: webdis:0.1.3-alpine3.6
     build:
-      context: "./webdis"
+      context: "./dockerfiles/webdis"
       dockerfile: webdis-alpine.dockerfile
     container_name: webdis-0.1.3
     ports:
