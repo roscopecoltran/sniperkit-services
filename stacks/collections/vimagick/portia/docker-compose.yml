@@ -1,8 +1,0 @@
-portia:
-  image: vimagick/portia
-  container_name: portia
-  ports:
-    - "9001:9001"
-  volumes:
-    - ./data:/app/slyd/data
-  restart: always

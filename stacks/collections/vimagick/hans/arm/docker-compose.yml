@@ -1,8 +1,0 @@
-hans:
-  image: easypi/hans-arm
-  environment:
-    - SERVER=1.2.3.4
-    - PASSWORD=password
-  net: host
-  privileged: yes
-  restart: always

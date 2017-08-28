@@ -1,9 +1,0 @@
-tinc:
-  image: easypi/tinc-arm
-  volumes:
-    - ./tinc:/etc/tinc
-  environment:
-    - NETNAME=netname
-  net: host
-  privileged: yes
-  restart: unless-stopped

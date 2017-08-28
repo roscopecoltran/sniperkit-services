@@ -1,7 +1,0 @@
-collectd:
-  image: vimagick/collectd
-  volumes:
-    - ./data:/etc/collectd
-  pid: host
-  net: host
-  restart: always

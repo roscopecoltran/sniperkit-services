@@ -1,5 +1,0 @@
-django-cms:
-  image: vimagick/django-cms
-  ports:
-    - "8000:80"
-  restart: always

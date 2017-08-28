@@ -1,6 +1,0 @@
-murmur:
-  image: easypi/murmur-arm
-  ports:
-    - "64738:64738/tcp"
-    - "64738:64738/udp"
-  restart: always

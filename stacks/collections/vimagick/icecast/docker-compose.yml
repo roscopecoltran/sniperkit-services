@@ -1,5 +1,0 @@
-icecast:
-  image: vimagick/icecast
-  ports:
-    - "8000:8000"
-  restart: always

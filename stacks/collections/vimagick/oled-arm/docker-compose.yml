@@ -1,4 +1,0 @@
-oled:
-  image: easypi/oled-arm
-  devices:
-    - /dev/i2c-1

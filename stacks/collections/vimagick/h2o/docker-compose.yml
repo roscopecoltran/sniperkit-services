@@ -1,7 +1,0 @@
-h2o:
-  image: vimagick/h2o-arm
-  ports:
-    - "8080:80"
-  volumes:
-    - "./html:/var/www/html"
-  restart: always

@@ -1,5 +1,0 @@
-dokuwiki:
-    image: vimagick/dokuwiki
-    ports:
-        - "8000:80"
-    restart: always

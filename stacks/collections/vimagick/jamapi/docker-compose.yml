@@ -1,5 +1,0 @@
-jamapi:
-  image: vimagick/jamapi
-  ports:
-    - "5000:5000"
-  restart: always

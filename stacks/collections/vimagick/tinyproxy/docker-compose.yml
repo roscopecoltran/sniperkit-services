@@ -1,5 +1,0 @@
-tinyproxy:
-  image: vimagick/tinyproxy
-  ports:
-    - "8888:8888"
-  restart: always

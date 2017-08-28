@@ -1,6 +1,0 @@
-vnstat:
-  image: vimagick/vnstat
-  volumes:
-    - ./data:/var/lib/vnstat
-  net: host
-  restart: always

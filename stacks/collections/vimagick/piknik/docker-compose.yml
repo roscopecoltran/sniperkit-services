@@ -1,7 +1,0 @@
-piknik:
-  image: vimagick/piknik
-  ports:
-    - "8075:8075"
-  volumes:
-    - ./piknik.toml:/etc/piknik.toml
-  restart: always

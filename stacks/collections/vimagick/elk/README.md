@@ -1,6 +1,0 @@
-ELK
-===
-
-- Elasticsearch
-- Logstash
-- Kibana
