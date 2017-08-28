@@ -1,0 +1,1 @@
+docker run --rm -it --link master:master --net sparkproofofconcept_default  --volumes-from spark-datastore spark-submit:latest spark-submit --packages org.apache.spark:spark-streaming-kafka-0-8-assembly_2.11:2.1.1 --master spark://172.22.0.4:7077 /data/sparkContextExample.py

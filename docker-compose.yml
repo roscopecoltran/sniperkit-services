@@ -1,0 +1,131 @@
+version: '2'
+services:
+  zookeeper:
+      container_name: "zookeeper"
+      image: "wurstmeister/zookeeper"
+      environment:
+        ZOOKEPER_ADVERTISED_HOST_NAME: "zookeeper"
+        ZOOKEPER_ADVERTISED_PORT: "2181"
+      ports:
+        - "2181:2181"
+
+  kafka:
+      container_name: "kafka"
+      image: "wurstmeister/kafka"
+      environment:
+        KAFKA_ADVERTISED_HOST_NAME: "kafka"
+        KAFKA_ADVERTISED_PORT: "9092"
+        KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+        KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+        KAFKA_CREATE_TOPICS: "raw_data:1:1,aggregated_data:1:1"
+      volumes:
+        - /private/var/run/docker.sock:/var/run/docker.sock
+      ports:
+        - "9092:9092"
+      links:
+        - zookeeper
+      depends_on:
+        - zookeeper
+
+  redis:
+      container_name: "redis-base"
+      image: 'redis:3.0-alpine'
+      environment:
+        REDIS_ADVERTISED_HOST_NAME: "redis"
+      volumes:
+        - /redis_data
+      ports:
+        - '6379:6379'
+
+  producer:
+      container_name: "kafka_producer"
+      image : "producer_test:latest"
+      environment:
+        KAFKA_HOST: "kafka"
+        KAFKA_PORT: "9092"
+        RAW_DATA_TOPIC: "raw_data"
+      volumes:
+        - ./producer/producer.py:/usr/app/src/producer.py
+      command: python -u /usr/app/src/producer.py
+      links:
+        - kafka
+        - zookeeper
+      depends_on:
+        - kafka
+
+  consumer:
+      container_name: "kafka_consumer"
+      image: "consumer_test:latest"
+      environment:
+        KAFKA_HOST: "kafka"
+        KAFKA_PORT: "9092"
+        RAW_DATA_TOPIC: "aggregated_data"
+        AGGREGATED_DATA_TOPIC: "aggregated_data"
+      volumes:
+        - ./consumer/consumer.py:/usr/app/src/consumer.py
+      command: python -u /usr/app/src/consumer.py
+      links:
+        - kafka
+        - zookeeper
+      depends_on:
+        - kafka
+
+  # mongodb:
+  #     container_name : mongodb
+  #     image : "mongodb"
+  #     ports:
+  #       - "27017:27017"
+  #     links:
+  #       - kafka
+  
+  spark-drive:
+      container_name: "spark-drive"
+      image: "spark-drive:latest"
+
+  spark-master:
+      container_name: "spark-master"
+      image: "spark-master:latest"
+      volumes_from:
+        - spark-drive
+      ports:
+        - "8080:8080"
+        - "7077:7077"
+      links:
+        - kafka
+
+  spark-slave1:
+      container_name: "spark-slave1"
+      image: "spark-slave:latest"
+      volumes_from:
+        - spark-drive
+      ports:
+        - "8081:8081"
+      cpu_shares: 2000
+      mem_limit: 1g
+      depends_on:
+        - spark-master
+
+  spark_submit:
+      image: "spark-submit:latest"
+      volumes_from: 
+        - spark-drive
+      links:
+        - spark-master
+      command: spark-submit --packages org.apache.spark:spark-streaming-kafka-0-8-assembly_2.11:2.1.1 --master spark://spark-master:7077 /data/spark_context_example.py
+
+  # spark-slave2:
+  #     container_name: "spark-slave2"
+  #     image: "spark-slave:latest"
+  #     volumes_from:
+  #       - spark-drive
+  #     ports:
+  #       - "8082:8081"
+  #     cpu_shares: 2000
+  #     mem_limit: 1g
+  #     depends_on:
+  #       - spark-master
+
+
+
+
+    
