@@ -1,0 +1,18 @@
+nodebb:
+  image: vimagick/nodebb
+  ports:
+    - "4567:4567"
+  links:
+    - redis
+  volumes:
+    - ./data:/var/lib/nodebb
+    - /usr/src/nodebb/build
+  restart: always
+
+redis:
+  image: redis:alpine
+  ports:
+    - "127.0.0.1:6379:6379"
+  volumes:
+    - ./data:/data
+  restart: always
