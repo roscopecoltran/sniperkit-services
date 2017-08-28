@@ -1,0 +1,14 @@
+<md-content flex md-colors="{background: 'default-primary-hue-1'}">
+    <md-tabs md-selected="selectedIndex" md-dynamic-height md-border-bottom md-autoselect>
+        <md-tab ng-repeat="tab in tabs" ng-disabled="tab.disabled" label="{{tab.title}}" ng-click="togglePublisherTab()">
+            <div ng-show="showPublisherIndex">
+                <md-list class="md-dense" layout="row" layout-wrap layout-xs="row" >
+                    <md-list-item ng-repeat="pub in tab.publishers" ng-href="/publisher/{{pub.name}}" flex-xs="50" flex-sm="33" flex-md="33" flex-lg="33" flex-xl="33">
+                        <span class="md-body-1">{{pub.name}} ({{pub.count}})</span></md-list-item>
+                </md-list>
+            </div>
+        </md-tab>
+    </md-tabs>
+</md-content>
+<!-- SEARCH RESULT -->
+<zx-search-result-grid ng-model="result"></zx-search-result-grid>

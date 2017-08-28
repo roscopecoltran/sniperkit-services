@@ -1,0 +1,167 @@
+<md-content flex layout-padding class="md-whiteframe-4dp">
+    <!-- MACHINE TYPE -->
+    <md-expansion-panel md-component-id="panelMachineType" ng-show="result.facets.all_entries.machinetypes.filtered_machinetypes.buckets.length > 0">
+        <md-expansion-panel-collapsed>
+            <div class="md-title">Machine type</div>
+            <div class="md-summary">{{result.facets.all_entries.machinetypes.filtered_machinetypes.buckets.length}} option(s) available</div>
+            <md-expansion-panel-icon></md-expansion-panel-icon>
+        </md-expansion-panel-collapsed>
+        <md-expansion-panel-expanded>
+            <md-expansion-panel-header>
+                <div class="md-title">Machine type</div>
+                <div class="md-summary">Summary...</div>
+                <md-expansion-panel-icon></md-expansion-panel-icon>
+            </md-expansion-panel-header>
+            <md-expansion-panel-content>
+                <div layout-wrap layout-xs="column" layout-sm="row" layout="row">
+                    <div flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" ng-repeat="item in result.facets.all_entries.machinetypes.filtered_machinetypes.buckets">
+                        <md-checkbox ng-click="toggle(item.key, machinetypeselected)" ng-checked="exists(item.key, machinetypeselected)">{{item.key}} ({{item.doc_count}})
+                        </md-checkbox>
+                    </div>
+                </div>
+            </md-expansion-panel-content>
+            <md-expansion-panel-footer>
+                <div flex></div>
+                <md-button class="md-warn" ng-click="$panel.collapse()">Collapse</md-button>
+            </md-expansion-panel-footer>
+        </md-expansion-panel-expanded>
+    </md-expansion-panel>
+    <!-- CONTROLS -->
+    <md-expansion-panel md-component-id="panelControl" ng-show="result.facets.all_entries.controls.controls.filtered_controls.buckets.length > 0">
+        <md-expansion-panel-collapsed>
+            <div class="md-title">Controls</div>
+            <div class="md-summary">{{result.facets.all_entries.controls.controls.filtered_controls.buckets.length}} option(s) available</div>
+            <md-expansion-panel-icon></md-expansion-panel-icon>
+        </md-expansion-panel-collapsed>
+        <md-expansion-panel-expanded>
+            <md-expansion-panel-header>
+                <div class="md-title">Controls</div>
+                <div class="md-summary">Summary...</div>
+                <md-expansion-panel-icon></md-expansion-panel-icon>
+            </md-expansion-panel-header>
+            <md-expansion-panel-content>
+                <div layout-wrap layout-xs="column" layout-sm="row" layout="row">
+                    <div flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" ng-repeat="item in result.facets.all_entries.controls.controls.filtered_controls.buckets">
+                        <md-checkbox ng-click="toggle(item.key, controlselected)" ng-checked="exists(item.key, controlselected)">{{item.key}} ({{item.doc_count}})
+                        </md-checkbox>
+                    </div>
+                </div>
+            </md-expansion-panel-content>
+            <md-expansion-panel-footer>
+                <div flex></div>
+                <md-button class="md-warn" ng-click="$panel.collapse()">Collapse</md-button>
+            </md-expansion-panel-footer>
+        </md-expansion-panel-expanded>
+    </md-expansion-panel>
+    <!-- MULTIPLAYER MODE -->
+    <md-expansion-panel md-component-id="panelMultiplayerMode" ng-show="result.facets.all_entries.multiplayermode.filtered_multiplayermode.buckets.length > 0">
+        <md-expansion-panel-collapsed>
+            <div class="md-title">Multiplayer mode</div>
+            <div class="md-summary">{{result.facets.all_entries.multiplayermode.filtered_multiplayermode.buckets.length}} option(s) available</div>
+            <md-expansion-panel-icon></md-expansion-panel-icon>
+        </md-expansion-panel-collapsed>
+        <md-expansion-panel-expanded>
+            <md-expansion-panel-header>
+                <div class="md-title">Multiplayer mode</div>
+                <div class="md-summary">Summary...</div>
+                <md-expansion-panel-icon></md-expansion-panel-icon>
+            </md-expansion-panel-header>
+            <md-expansion-panel-content>
+                <div layout-wrap layout-xs="column" layout-sm="row" layout="row">
+                    <div flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" ng-repeat="item in result.facets.all_entries.multiplayermode.filtered_multiplayermode.buckets">
+                        <md-checkbox ng-click="toggle(item.key, multiplayermodeselected)" ng-checked="exists(item.key, multiplayermodeselected)">{{item.key}} ({{item.doc_count}})
+                        </md-checkbox>
+                    </div>
+                </div>
+            </md-expansion-panel-content>
+            <md-expansion-panel-footer>
+                <div flex></div>
+                <md-button class="md-warn" ng-click="$panel.collapse()">Collapse</md-button>
+            </md-expansion-panel-footer>
+        </md-expansion-panel-expanded>
+    </md-expansion-panel>
+    <!-- MULTIPLAYER TYPE -->
+    <md-expansion-panel md-component-id="panelMultiplayerType" ng-show="result.facets.all_entries.multiplayertype.filtered_multiplayertype.buckets.length > 0">
+        <md-expansion-panel-collapsed>
+            <div class="md-title">Multiplayer type</div>
+            <div class="md-summary">{{result.facets.all_entries.multiplayertype.filtered_multiplayertype.buckets.length}} option(s) available</div>
+            <md-expansion-panel-icon></md-expansion-panel-icon>
+        </md-expansion-panel-collapsed>
+        <md-expansion-panel-expanded>
+            <md-expansion-panel-header>
+                <div class="md-title">Multiplayer type</div>
+                <div class="md-summary">Summary...</div>
+                <md-expansion-panel-icon></md-expansion-panel-icon>
+            </md-expansion-panel-header>
+            <md-expansion-panel-content>
+                <div layout-wrap layout-xs="column" layout-sm="row" layout="row">
+                    <div flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" ng-repeat="item in result.facets.all_entries.multiplayertype.filtered_multiplayertype.buckets">
+                        <md-checkbox ng-click="toggle(item.key, multiplayertypeselected)" ng-checked="exists(item.key, multiplayertypeselected)">{{item.key}} ({{item.doc_count}})
+                        </md-checkbox>
+                    </div>
+                </div>
+            </md-expansion-panel-content>
+            <md-expansion-panel-footer>
+                <div flex></div>
+                <md-button class="md-warn" ng-click="$panel.collapse()">Collapse</md-button>
+            </md-expansion-panel-footer>
+        </md-expansion-panel-expanded>
+    </md-expansion-panel>
+    <!-- AVAILABILITY -->
+    <md-expansion-panel md-component-id="panelAvailability" ng-show="result.facets.all_entries.availability.filtered_availability.buckets.length > 0">
+        <md-expansion-panel-collapsed>
+            <div class="md-title">Availability</div>
+            <div class="md-summary">{{result.facets.all_entries.availability.filtered_availability.buckets.length}} option(s) available</div>
+            <md-expansion-panel-icon></md-expansion-panel-icon>
+        </md-expansion-panel-collapsed>
+        <md-expansion-panel-expanded>
+            <md-expansion-panel-header>
+                <div class="md-title">Availability</div>
+                <div class="md-summary">Summary...</div>
+                <md-expansion-panel-icon></md-expansion-panel-icon>
+            </md-expansion-panel-header>
+            <md-expansion-panel-content>
+                <div layout-wrap layout-xs="column" layout-sm="row" layout="row">
+                    <div flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" ng-repeat="item in result.facets.all_entries.availability.filtered_availability.buckets">
+                        <md-checkbox ng-click="toggle(item.key, availabilityselected)" ng-checked="exists(item.key, availabilityselected)">{{item.key}} ({{item.doc_count}})
+                        </md-checkbox>
+                    </div>
+                </div>
+            </md-expansion-panel-content>
+            <md-expansion-panel-footer>
+                <div flex></div>
+                <md-button class="md-warn" ng-click="$panel.collapse()">Collapse</md-button>
+            </md-expansion-panel-footer>
+        </md-expansion-panel-expanded>
+    </md-expansion-panel>
+    <!-- ORIGINAL PUBLICATION -->
+    <md-expansion-panel md-component-id="panelOriginalPublication" ng-show="result.facets.all_entries.originalpublication.filtered_originalpublication.buckets.length > 0">
+        <md-expansion-panel-collapsed>
+            <div class="md-title">Original publication</div>
+            <div class="md-summary">{{result.facets.all_entries.originalpublication.filtered_originalpublication.buckets.length}} option(s) available</div>
+            <md-expansion-panel-icon></md-expansion-panel-icon>
+        </md-expansion-panel-collapsed>
+        <md-expansion-panel-expanded>
+            <md-expansion-panel-header>
+                <div class="md-title">Original publication</div>
+                <div class="md-summary">Summary...</div>
+                <md-expansion-panel-icon></md-expansion-panel-icon>
+            </md-expansion-panel-header>
+            <md-expansion-panel-content>
+                <div layout-wrap layout-xs="column" layout-sm="row" layout="row">
+                    <div flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" ng-repeat="item in result.facets.all_entries.originalpublication.filtered_originalpublication.buckets">
+                        <md-checkbox ng-click="toggle(item.key, originalpublicationselected)" ng-checked="exists(item.key, originalpublicationselected)">{{item.key}} ({{item.doc_count}})
+                        </md-checkbox>
+                    </div>
+                </div>
+            </md-expansion-panel-content>
+            <md-expansion-panel-footer>
+                <div flex></div>
+                <md-button class="md-warn" ng-click="$panel.collapse()">Collapse</md-button>
+            </md-expansion-panel-footer>
+        </md-expansion-panel-expanded>
+    </md-expansion-panel>
+    <md-button ng-click="search()" class="md-raised">FILTER</md-button>
+</md-content>
+<!-- SEARCH RESULT -->
+<zx-search-result-grid ng-model="result"></zx-search-result-grid>

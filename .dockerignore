@@ -1,0 +1,11 @@
+.DS_Store
+*/.DS_Store
+.gitignore
+*/.gitignore
+/elasticsearch/
+/neo4jdata/
+node_modules/*
+public/bower_components/*
+*.log
+start.sh
+*.md

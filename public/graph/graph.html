@@ -1,0 +1,102 @@
+<div ng-controller="GraphCtrl as app" ng-cloak>
+       <md-content flex layout-padding layout="column">
+            <form name="authorsForm">
+                <p>Enter the names of any two ZX Spectrum programmers to see how they are connected!</p>
+                <div layout-gt-sm="row" layout="column">
+                    <md-autocomplete md-selected-item="app.selectedItem1" md-search-text-change="app.searchText1Change(author1)" md-search-text="author1" md-selected-item-change="app.selectedItem1Change(item)" md-items="item in app.querySearch(author1)" md-item-text="item.text" md-min-length="2" md-max-length="64" md-dropdown-items="10" md-floating-label="Favorite ZX Spectrum programmer" md-input-name="autocompleteAuthor1" flex required>
+                        <md-item-template>
+                            <span md-highlight-text="author1" md-highlight-flags="gi">{{item.text}}</span>
+                        </md-item-template>
+                        <div ng-messages="authorsForm.autocompleteAuthor1.$error" ng-if="authorsForm.autocompleteAuthor1.$touched">
+                            <div ng-message="required">You <b>must</b> type name of a programmer</div>
+                            <div ng-message="md-require-match">Please select an existing programmer.</div>
+                            <div ng-message="minlength">Name is too short.</div>
+                            <div ng-message="maxlength">Name is too long.</div>
+                        </div>
+                    </md-autocomplete>
+                    <md-autocomplete md-selected-item="app.selectedItem2" md-search-text-change="app.searchText2Change(author2)" md-search-text="author2" md-selected-item-change="app.selectedItem2Change(item)" md-items="item in app.querySearch(author2)" md-item-text="item.text" md-min-length="2" md-max-length="64" md-dropdown-items="10" md-floating-label="Another ZX Spectrum programmer you like" md-input-name="autocompleteAuthor2" flex required>
+                        <md-item-template>
+                            <span md-highlight-text="author2" md-highlight-flags="gi">{{item.text}}</span>
+                        </md-item-template>
+                        <div ng-messages="authorsForm.autocompleteAuthor2.$error" ng-if="authorsForm.autocompleteAuthor2.$touched">
+                            <div ng-message="required">You <b>must</b> type name of a programmer</div>
+                            <div ng-message="md-require-match">Please select an existing programmer.</div>
+                            <div ng-message="minlength">Name is too short.</div>
+                            <div ng-message="maxlength">Name is too long.</div>
+                        </div>
+                    </md-autocomplete>
+                </div>
+
+                <div>
+                    <fieldset class="standard">
+                        <legend>Filtering options</legend>
+                        <div layout-wrap layout-gt-sm="row">
+                            <div flex-gt-sm="33">
+                                <md-checkbox ng-model="app.allEntries" aria-label="Include all">
+                                    Include all types (not only games)
+                                </md-checkbox>
+                            </div>
+                            <div flex-gt-sm="33">
+                                <md-checkbox ng-model="app.allReReleases" aria-label="Include re-releases">
+                                    Include relation re-released
+                                </md-checkbox>
+                            </div>
+                            <div flex-gt-sm="33">
+                                <md-checkbox ng-model="app.allSteps" aria-label="Any path length">
+                                    Consider more than 6 steps
+                                </md-checkbox>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <md-button ng-click="app.findPath()" class="md-raised">GO!</md-button>
+            </form>
+        </md-content>
+        <md-content layout-padding ng-show='app.degrees.length==0'>
+            <div>Ooops! you got me, didn't find a relation.</div>
+        </md-content>
+        <md-content ng-show='app.degrees' ng-cloak layout="row" layout-align="center center">
+            <div flex="100" flex-gt-xs="50">
+                <md-content>
+                    <md-list>
+                        <md-list-item class="md-dense md-1-line" ng-repeat="item in app.degrees">
+                            <div ng-show='item.type=="Game"||item.type=="Compilation"||item.type=="Book"||item.type=="Demo"||item.type=="Misc"||item.type=="Utility"||item.type=="Hardware"' layout-fill md-whiteframe="5" class="speech-bubble md-list-item-text">
+                                <p class="md-body"><a ng-href="http://sinclair.kolbeck.dk/details/{{('0000000' + item.id).slice(-7)}}"" target="_blank">{{item.title}}</a></p>
+                            </div>
+                            <div ng-show='item.type=="Video_game"' layout-fill md-whiteframe="5" class="speech-bubble md-list-item-text">
+                                <p><a ng-href="{{item.url}}" target="_blank">{{item.name}}</a></p>
+                            </div>
+                            <div ng-show='item.type=="Author"' layout-fill md-whiteframe="5" class="speech-bubble md-list-item-text">
+                                <p><a ng-href="http://sinclair.kolbeck.dk/publisher/{{item.name}}" target="_blank">{{item.name}}</a></p>
+                            </div>
+                            <div ng-show='item.type=="Publisher"' layout-fill md-whiteframe="5" class="speech-bubble md-list-item-text">
+                                <p><a ng-href="http://sinclair.kolbeck.dk/publisher/{{item.name}}" target="_blank">{{item.name}}</a></p>
+                            </div>
+                            <div ng-show='item.type=="Inspiration"' layout-fill md-whiteframe="5" class="speech-bubble md-list-item-text">
+                                <p>{{item.name}}</p>
+                            </div>
+                            <div ng-show='item.relationtype=="WRITTEN_BY"' layout-fill class="md-list-item-text" style="text-align: center;">
+                                <p class="md-body-2">({{item.level}}) {{item.text}} {{item.item}}</p>
+                            </div>
+                            <div ng-show='item.relationtype=="RE_RELEASED_BY"' layout-fill class="md-list-item-text" style="text-align: center;">
+                                <p class="md-body-2">({{item.level}}) {{item.text}}</p>
+                            </div>
+                            <div ng-show='item.relationtype=="PUBLISHED_BY"' layout-fill class="md-list-item-text" style="text-align: center;">
+                                <p class="md-body-2">({{item.level}}) {{item.text}} {{item.item}}</p>
+                            </div>
+                            <div ng-show='item.relationtype=="PART_OF_COMPILATION"' layout-fill class="md-list-item-text" style="text-align: center;">
+                                <p class="md-body-2">({{item.level}}) {{item.text}}</p>
+                            </div>
+                            <div ng-show='item.relationtype=="INSPIRED_BY"' layout-fill class="md-list-item-text" style="text-align: center;">
+                                <p class="md-body-2">({{item.level}}) {{item.text}} {{item.item}}</p>
+                            </div>
+                            <div ng-show='item.relationtype=="MAJOR_CLONE_OF"' layout-fill class="md-list-item-text" style="text-align: center;">
+                                <p class="md-body-2">({{item.level}}) {{item.text}} {{item.item}}</p>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </md-content>
+            </div>
+        </md-content>
+</div>

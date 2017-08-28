@@ -1,0 +1,14 @@
+<div>
+    <form ng-submit="search1()" layout-fill>
+        <md-content layout="column">
+            <md-autocomplete required md-input-id="autocomplete" md-selected-item="sctrl.selectedItem" md-search-text-change="sctrl.searchTextChange(sctrl.searchText)" md-search-text="sctrl.searchText" md-selected-item-change="sctrl.selectedItemChange(item)" md-items="item in sctrl.suggest(sctrl.searchText)" md-item-text="item.text" md-min-length="3" md-dropdown-items="5" placeholder="What is your favorite game?">
+                <md-item-template>
+                    <span md-highlight-text="sctrl.searchText" md-highlight-flags="gi">{{item.text}}</span>
+                </md-item-template>
+            </md-autocomplete>
+            <button hidden type="submit">Search</button>
+        </md-content>
+    </form>
+</div>
+<!-- SEARCH RESULT -->
+<zx-search-result-grid ng-model="sctrl.result"></zx-search-result-grid>

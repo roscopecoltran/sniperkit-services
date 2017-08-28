@@ -1,0 +1,12 @@
+<md-content flex layout-padding md-colors="{background: 'default-primary-hue-1'}" class="md-whiteframe-4dp" ng-show='subtypes.length>0'>
+    <md-list class="md-primary md-hue-3 md-dense" layout="row" layout-wrap>
+        <md-list-item ng-repeat="subtype in subtypes track by $index" ng-href="/entries?genretype={{genretype}}&genresubtype={{subtype.name}}" flex-xs="50" flex-sm="33" flex-md="33" flex-lg="25" flex-xl="25">
+            <span ng-class="subtype.name === genresubtype ? 'md-body-2' : 'md-body-1'">{{subtype.name}} ({{subtype.count}})</span>
+        </md-list-item>
+    </md-list>
+</md-content>
+<!-- SEARCH BAR -->
+<md-content flex layout-padding ng-hide="result.timeTook" class="md-whiteframe-4dp">
+</md-content>
+<!-- SEARCH RESULT -->
+<zx-search-result-grid ng-model="result"></zx-search-result-grid>

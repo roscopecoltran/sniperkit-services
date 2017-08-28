@@ -1,0 +1,40 @@
+<md-progress-linear ng-show="searching" md-mode="indeterminate"></md-progress-linear>
+<md-toolbar layout="row" class="md-accent" ng-show="result.timeTook && !searching" md-whiteframe="3" >
+    <div class="md-toolbar-tools" id="searchstats">
+        {{(result.hits | number) || 0}} {{result.resultsLabel || 'results'}} ({{(result.timeTook || 0)}}ms)
+    </div>
+</md-toolbar>
+<md-content layout="row" layout-wrap layout-xs="row" ng-controller="GameDetailsCtrl">
+    <div flex flex-xs="100" flex-sm="50" flex-md="50" flex-lg="33" flex-xl="33" ng-repeat="gameitem in result.results" class="container">
+        <md-card ng-click="showGameDetails($event, gameitem._id)" md-whiteframe="3" >
+            <md-card-header>
+                <md-card-header-text>
+                    <span class="md-title" style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{ gameitem.fulltitle }}</span>
+                    <span class="md-subhead">{{ gameitem.yearofrelease }}<span ng-repeat="p in gameitem.publisher">
+                            <a ng-href="/publisher/{{p.name|urlencode}}" ng-click="$event.stopPropagation()">{{ p.name}}</a> ({{p.country}})
+                            <span ng-hide="$last"> / </span>
+                        </span>
+                    </span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-title>
+                <md-card-title-media><img ng-src="{{gameitem._loadscreen}}" class="md-media-md"></md-card-title-media>
+                <md-card-title-text>
+                    <span class="md-caption">{{ gameitem.machinetype }}</span>
+                    <span class="md-caption">{{ gameitem.type }}</span>
+                    <br/>
+                    <span class="md-caption">{{ gameitem.availability }}</span>
+                    <div><span class="md-caption" ng-repeat="f in gameitem.availableformat track by $index">{{f}} <span ng-hide="$last">, </span></span></div>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <div class="md-caption" ng-repeat="(key, value) in gameitem.highlight">{{app.labels[key]}}: <span class="highlight" ng-bind-html="value.length == 1 ? value : value[0]"></span></div>          
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>
+<div layout="row" layout-align="center center">
+    <md-button class="md-fab md-mini md-primary" ng-show="!allResults && !searching" ng-click="loadMore()" aria-label="More">
+        <md-icon md-svg-icon="images/icons/ic_expand_more_white_24px.svg"></md-icon>
+    </md-button>({{page}})
+</div>

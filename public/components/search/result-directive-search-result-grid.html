@@ -1,0 +1,34 @@
+<md-progress-linear ng-show="searching" md-mode="indeterminate"></md-progress-linear>
+<md-toolbar layout="row" class="md-accent" ng-show="result.timeTook && !searching" md-whiteframe="3">
+    <div class="md-toolbar-tools" id="searchstats">
+        {{(result.hits | number) || 0}} {{result.resultsLabel || 'results'}} ({{(result.timeTook || 0)}}ms)
+    </div>
+</md-toolbar>
+<md-content ng-controller="GameDetailsCtrl" layout="row" layout-xs="row" layout-wrap layout-margin layout-fill>
+    <!-- CARD -->
+    <md-card flex="auto" ng-repeat="gameitem in result.results" md-whiteframe="3">
+        <img ng-click="showGameDetails($event, gameitem._id)" ng-src="{{gameitem._loadscreen}}" class="md-card-image">
+        <md-card-content>
+            <md-truncate>
+                <div class="md-title" ng-click="showGameDetails($event, gameitem._id)">{{ gameitem.fulltitle }}</div>
+                <div class="md-subhead">{{ gameitem.yearofrelease }}
+                    <span md-truncate ng-repeat="p in gameitem.publisher">
+                        <a md-truncate ng-href="/publisher/{{p.name|urlencode}}" ng-click="$event.stopPropagation()">{{ p.name}}</a> ({{p.country}})
+                        <span ng-hide="$last"> / </span>
+                    </span>
+                </div>
+                <div>
+                    <a href="/entries?machinetype={{gameitem.machinetype|urlencode}}" ng-click="$event.stopPropagation()">{{gameitem.machinetype}}</a>
+                    <br><a href="/entries?genretype={{gameitem.type}}" ng-click="$event.stopPropagation()">{{gameitem.type}}</a> / {{ gameitem.availability }}
+                </div>
+                <div class="md-caption" ng-repeat="(key, value) in gameitem.highlight">{{labels[key]}}: <span class="highlight" ng-bind-html="value.length == 1 ? value : value[0]"></span></div>
+            </md-truncate>
+        </md-card-content>
+    </md-card>
+    <!-- CARD -->
+</md-content>
+<div layout="row" layout-align="center center">
+    <md-button class="md-fab md-mini md-primary" ng-show="!allResults && !searching &&result.timeTook" ng-click="loadMore()" aria-label="More">
+        <md-icon md-svg-icon="images/icons/ic_expand_more_white_24px.svg"></md-icon>
+    </md-button>
+</div>

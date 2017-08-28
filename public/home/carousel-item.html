@@ -1,0 +1,6 @@
+<section>
+    <div class="random-slider-caption md-caption">{{slideItem.title}}</div>
+    <div class="random-slider-image" ng-controller="GameDetailsCtrl">
+        <img ng-click="showGameDetails($event, slideItem.id)" ng-src="{{slideItem.src}}" />
+    </div>
+</section>

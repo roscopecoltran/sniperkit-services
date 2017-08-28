@@ -1,0 +1,2 @@
+angular.module("SinclairAppCfg", [])
+.constant("EnvironmentConfig", {"env_name":"development","es_host":"http://localhost:9200","es_apiVersion":"2.4","zxinfo_index":"zxinfo_games","zxinfo_type":"zxinfo_games","zxinfo_suggests_index":"zxinfo_suggests","zxinfo_suggests_type_title":"zxinfo_suggests_type_title","log":"debug","api_url":"http://localhost:8300/api","media_url":"http://incubator.kolbeck.dk/media","page_size":20,"neo4jurl":"bolt://localhost:7687","zxinfo_suggests_author_index":"zxinfo_suggests_author","zxinfo_suggests_author_type_title":"zxinfo_suggests_author"});
