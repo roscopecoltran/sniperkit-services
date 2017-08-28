@@ -1,0 +1,14 @@
+services:
+  crane:
+    image: michaelsauter/golang:1.8
+    rm: true
+    interactive: true
+    tty: true
+    volume: ["$GOPATH:/go"]
+    workdir: /go/src/github.com/michaelsauter/crane
+    cmd: ["bash"]
+
+accelerated-mounts:
+  "$GOPATH:/go":
+    uid: 1000
+    gid: 1000
