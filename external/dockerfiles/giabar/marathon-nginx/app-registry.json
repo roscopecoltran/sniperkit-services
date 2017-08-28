@@ -1,0 +1,17 @@
+{
+  "id": "registry",
+  "cpus": 0.5,
+  "mem": 256.0,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "registry:2",
+      "forcePullImage": true,
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 0, "hostPort": 0 }
+      ]
+    }
+  }
+}
+
