@@ -1,0 +1,12 @@
+.DS_Store*
+.idea/
+node_modules
+.hubot_history
+redis
+container/hubot_slack_secret.yml
+container/hubot_spark_secret.yml
+app.env
+app.env-e
+data
+test.data
+

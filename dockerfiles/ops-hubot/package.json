@@ -1,0 +1,22 @@
+{
+  "name": "ops-bot",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Raja. Soundaramourty <rajasoun@icloud.com>",
+  "description": "Assists Raja in Mangaing the Infra",
+  "dependencies": {
+    "foreman": "^2.0.0",
+    "hubot": "^2.19.0",
+    "hubot-auth": "^2.1.0",
+    "hubot-diagnostics": "0.0.1",
+    "hubot-links": "0.0.1",
+    "hubot-redis-brain": "0.0.3",
+    "hubot-scripts": "^2.17.2",
+    "hubot-seen": "^1.0.1",
+    "hubot-slack": "^4.3.4",
+    "hubot-spark": "^2.0.0"
+  },
+  "engines": {
+    "node": "7.8.x"
+  }
+}

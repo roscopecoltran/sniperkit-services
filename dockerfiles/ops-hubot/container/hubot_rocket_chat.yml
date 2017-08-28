@@ -1,0 +1,61 @@
+version: '2'
+
+services:
+
+  start_dependencies:
+    image: rajasoun/wait-for-it:0.1
+    container_name: "wait-for-it"
+    depends_on:
+      - mongo
+      - rocketchat
+    command: mongo:27017 rocketchat:13000
+
+  mongo:
+    image: mongo:3.2
+    container_name: mongo
+    restart: unless-stopped
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - "27017:27017"
+
+  rocketchat:
+    image: rocketchat/rocket.chat:latest
+    container_name: rocketchat
+    restart: unless-stopped
+    volumes:
+      - ./uploads:/app.env/uploads
+    environment:
+      - PORT=13000
+      - ROOT_URL=http://tracker.learn.cisco:13000/
+      - MONGO_URL=mongodb://mongo:27017/rocketchat
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASS=supersecret
+      - ADMIN_EMAIL=rajasoun@mailinator.com
+      - MAIL_URL=smtp://smtp.email
+    depends_on:
+      - mongo
+    ports:
+      - 13000:13000
+
+
+  hubot:
+    image: rocketchat/hubot-rocketchat:latest
+    container_name: hubot
+    restart: unless-stopped
+    environment:
+      - ROCKETCHAT_URL=rocketchat:13000
+      - ROCKETCHAT_ROOM=
+      - LISTEN_ON_ALL_PUBLIC=true
+      - ROCKETCHAT_USER=bot
+      - ROCKETCHAT_PASSWORD=bot
+      - BOT_NAME=bot
+      - ROCKETCHAT_AUTH=password
+      - EXTERNAL_SCRIPTS=hubot-help,hubot-seen,hubot-links,hubot-diagnostics
+    depends_on:
+      - rocketchat
+    volumes:
+      - ./scripts:/home/hubot/scripts
+    ports:
+      - 3001:8080
+

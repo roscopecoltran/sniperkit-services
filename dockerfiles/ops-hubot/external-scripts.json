@@ -1,0 +1,6 @@
+[
+  "hubot-diagnostics",
+  "hubot-redis-brain",
+  "hubot-auth",
+  "hubot-seen"
+]
