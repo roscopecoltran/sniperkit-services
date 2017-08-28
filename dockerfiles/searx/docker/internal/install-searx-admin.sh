@@ -10,6 +10,9 @@ echo "$DIR"
 cd /scripts
 . ./common.sh
 
+alias python=python3
+alias pip=pip3
+
 # Set temp environment vars
 export SEARX_ADMIN_VCS_URI=${SEARX_ADMIN_VCS_URI:-"github.com/kvch/searx-admin.git"}
 export SEARX_ADMIN_VCS_BRANCH=${SEARX_ADMIN_VCS_BRANCH:-"master"}
