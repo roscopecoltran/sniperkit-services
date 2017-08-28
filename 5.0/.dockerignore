@@ -1,0 +1,22 @@
+# Ignore .git folder
+.git*
+.gitignore
+
+logstash-logo.png
+LICENSE
+README.md
+docker-compose.yml
+.DS_Store
+build
+release
+Makefile
+VERSION
+
+scripts/*
+
+nginx_data/nginx-ingest-pipeline.json
+nginx_data/nginx_json_logs
+nginx_data/nginx_json_template.json
+nginx_data/nginx-dashboard
+nginx_data/nginx_json_kibana.json
+nginx_data/nginx_json_logstash.conf

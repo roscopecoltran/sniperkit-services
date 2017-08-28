@@ -1,0 +1,10 @@
+{
+  "visState": "{\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"geoip.city_name.raw\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{},\"title\":\"Total Hits by City\"}", 
+  "description": "", 
+  "title": "Total Hits by City", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"nginx_json_elastic_stack_example\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+  }
+}

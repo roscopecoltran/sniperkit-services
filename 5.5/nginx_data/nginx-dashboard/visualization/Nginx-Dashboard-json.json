@@ -1,0 +1,10 @@
+{
+  "visState": "{\"type\":\"markdown\",\"params\":{\"markdown\":\"#### Sample Dashboard for Nginx logs\\nSimple dashboard for exploring & visualizing web traffic by analyzing nginx logs. This dashboard is included as a part of the [Getting Started with ELK](https://github.com/asawariS/test/tree/master/nginx) repo on Github.\\n\\n**Example visualizations in the dashboard include:**\\n* Number of total & unique visitors \\n* Map show web traffic from various locations\\n* Pie chart of traffic by operating systems\\n\\nFeel free to explore & modify the dashboards to your hearts content. Ask questions, test hypothesis, diagnose issues!\\n\\n**Happy exploration!!!**\"},\"aggs\":[],\"listeners\":{},\"title\":\"Nginx Dashboard\"}", 
+  "description": "", 
+  "title": "Nginx Dashboard", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+  }
+}

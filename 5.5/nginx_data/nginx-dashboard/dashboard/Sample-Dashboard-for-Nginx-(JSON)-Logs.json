@@ -1,0 +1,20 @@
+{
+  "hits": 0,
+  "timeFrom": "2015-05-10T19:10:56.990Z",
+  "timeRestore": true,
+  "description": "",
+  "title": "Sample Dashboard for Nginx (JSON) Logs",
+  "uiStateJSON": "{\"P-5\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-2\":{\"mapZoom\":3,\"mapCenter\":[38.95940879245423,-33.486328125]}}",
+  "panelsJSON": "[{\"col\":1,\"id\":\"Nginx-Dashboard-json\",\"panelIndex\":8,\"row\":1,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"col\":4,\"id\":\"Traffic-vs.-Location-json\",\"panelIndex\":2,\"row\":1,\"size_x\":9,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Unique-Visits-json\",\"panelIndex\":3,\"row\":5,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":4,\"id\":\"Total-Requests-by-City-json\",\"panelIndex\":5,\"row\":5,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"col\":7,\"id\":\"Traffic-by-Country-ampersand-OS\",\"panelIndex\":9,\"row\":5,\"size_x\":6,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Total-Requests-json\",\"panelIndex\":6,\"row\":7,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Bytes-vs.-Time-json\",\"panelIndex\":7,\"row\":9,\"size_x\":12,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Non-200-Response-Code-vs.-Time-json\",\"panelIndex\":4,\"row\":13,\"size_x\":12,\"size_y\":4,\"type\":\"visualization\"}]",
+  "timeTo": "2015-06-10T19:10:56.990Z",
+  "optionsJSON": "{\"darkTheme\":false}",
+  "version": 1,
+  "refreshInterval": {
+    "pause": false,
+    "display": "Off",
+    "value": 0
+  },
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"meta\":{\"index\":\"nginx_json_elastic_stack_example\",\"key\":\"user_agent.os.raw\",\"value\":\"Debian\",\"disabled\":false,\"negate\":true,\"alias\":null,\"apply\":true},\"query\":{\"match\":{\"user_agent.os.raw\":{\"query\":\"Debian\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}},{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "visState": "{\"type\":\"tile_map\",\"params\":{\"mapType\":\"Scaled Circle Markers\",\"isDesaturated\":true,\"heatMaxZoom\":16,\"heatMinOpacity\":0.1,\"heatRadius\":25,\"heatBlur\":15,\"heatNormalizeData\":true,\"addTooltip\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"geohash_grid\",\"schema\":\"segment\",\"params\":{\"field\":\"geoip.location\",\"autoPrecision\":true,\"mapZoom\":2,\"mapCenter\":[11.523087506868514,9.4921875],\"precision\":2}}],\"listeners\":{},\"title\":\"Traffic vs. Location\"}", 
+  "description": "", 
+  "title": "Traffic vs. Location", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"nginx_json_elastic_stack_example\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+  }
+}

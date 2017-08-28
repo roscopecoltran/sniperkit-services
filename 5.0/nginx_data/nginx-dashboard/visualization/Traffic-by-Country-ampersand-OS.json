@@ -1,0 +1,10 @@
+{
+  "visState": "{\"title\":\"Traffic by Country & OS\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true,\"legendPosition\":\"right\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"geoip.country_name.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":false}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"user_agent.os.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "Traffic by Country & OS", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"nginx_json_elastic_stack_example\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"index\":\"nginx_json_elastic_stack_example\",\"key\":\"user_agent.os\",\"value\":\"Other\",\"disabled\":false,\"negate\":true,\"apply\":true,\"alias\":null},\"query\":{\"match\":{\"user_agent.os\":{\"query\":\"Other\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+  }
+}
