@@ -1,7 +1,8 @@
 ---
 version: '2'
 
-#extra_hosts:
+# version: '3'
+# extra_hosts:
 #  - "cassandra:${CASSANDRA_IP:-localhost}"
 #  - "mysql:${MYSQL_IP:-localhost}"
 #  - "mariadb:${MARIABD_IP:-localhost}"
@@ -361,6 +362,22 @@ services:
     env_file:
     - "./dockerfiles/sphinx/sphinx.config.env"
 
+  gogs:
+    image: bhuisgen/alpine-gogs
+    build:
+      context: "./dockerfiles/gogs"
+      dockerfile: gogs-alpine.dockerfile
+    ports:
+      - "3000:3000"
+      - "2222:22"
+    volumes_from:
+    - data
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    #    #- /srv/data:/var/lib/gogs
+    env_file:
+    - "./dockerfiles/gogs/gogs.config.env"
+    
   setoolkit:
     image: "${DOCKER_HUB_ACCOUNT}/setoolkit:${SETOOLKIT_VERSION}-py${SETOOLKIT_PY_VERSION}-alpine3.6"
     container_name: "setoolkit-${SETOOLKIT_VERSION}"
