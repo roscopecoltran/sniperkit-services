@@ -1,0 +1,13 @@
+#!/usr/bin/with-contenv bash
+
+
+if [ ! -f /tmp/state/10-dockerd ]; then
+
+        mkdir -p /tmp/state/
+	echo 'Initialization Complete' >/tmp/state/10-dockerd
+fi
+
+echo ''
+echo '** Starting Docker in Docker'
+exec dockerd --experimental --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=btrfs
+
