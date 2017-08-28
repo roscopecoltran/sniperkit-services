@@ -1,0 +1,7 @@
+netdata:
+  image: vimagick/netdata
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock:ro
+  net: host
+  pid: host
+  restart: always
