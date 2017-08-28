@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: open-ocr-worker-rc
+spec:
+  replicas: 1
+  selector:
+    name: open-ocr-worker
+  template:
+    metadata:
+      labels:
+        name: open-ocr-worker
+    spec:
+      containers:
+        - name: open-ocr-worker
+          image: tleyden5iwx/open-ocr
+          env:
+            - name: RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rabbit-mq-password
+                  key: password
+          command:
+            - open-ocr-worker
+            - -amqp_uri=amqp://admin:$(RABBITMQ_PASSWORD)@rabbitmq-service/
+
