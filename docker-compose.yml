@@ -1,0 +1,65 @@
+##-----------
+## Use services as required. Comment out unwanted ones.
+##-----------
+
+zookeeper:
+  extends:
+    file: zookeeper/docker-compose.yml
+    service: zookeeper
+
+hbase:
+  extends:
+    file: hbase/docker-compose.yml
+    service: hbase
+  links:
+    - zookeeper:zk
+
+kafka:
+  extends:
+    file: kafka/docker-compose.yml
+    service: kafka
+  links:
+    - zookeeper:zk
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock    
+
+kafka-manager:
+  extends:
+    file: kafka/docker-compose.yml
+    service: kafka-manager
+  links:
+    - zookeeper:zk
+    - kafka:kafka
+
+nimbus:
+  extends:
+    file: storm/docker-compose.yml
+    service: nimbus
+  links: 
+    - zookeeper:zk
+
+supervisor:
+  extends:
+    file: storm/docker-compose.yml
+    service: supervisor
+  links: 
+    - nimbus:nimbus
+    - zookeeper:zk
+
+ui:
+  extends:
+    file: storm/docker-compose.yml
+    service: ui
+  links: 
+    - nimbus:nimbus
+    - zookeeper:zk
+
+hadoop:
+  extends:
+    file: hadoop/docker-compose.yml
+    service: hadoop
+
+pig:
+  extends:
+    file: hadoop/docker-compose.yml
+    service: pig
