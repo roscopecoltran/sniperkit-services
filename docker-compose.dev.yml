@@ -1,11 +1,12 @@
-version: '2'
+---
+version: '2.1'
 services:
-
+  # golang - devzone
   golang:
-    image: ${DOCKER_HUB_ACCOUNT}/golang:${GOLANG_VERSION}-alpine3.6
+    image: "${DOCKER_HUB_ACCOUNT}/golang:${GOLANG_VERSION}-alpine3.6"
     build:
       context: "./dockerfiles/golang"
-      dockerfile: golang${GOLANG_VERSION}-alpine.dockerfile
+      dockerfile: "golang${GOLANG_VERSION}-alpine.dockerfile"
     container_name: golang-${GOLANG_VERSION}
     volumes_from:
     - data
@@ -21,13 +22,13 @@ services:
     - sphinx
     env_file:
     - "./golang/golang.config.env"
-
+  # php - devzone
   php:
-    image: ${DOCKER_HUB_ACCOUNT}/php-fpm:7.0-alpine3.6
+    image: "${DOCKER_HUB_ACCOUNT}/php-fpm:7.0-alpine3.6"
     build:
       context: "./dockerfiles/php"
-      dockerfile: php-7.0-fpm-alpine.dockerfile
-    container_name: php-7.0-fpm
+      dockerfile: "php-7.0-fpm-alpine.dockerfile"
+    container_name: "php-7.0-fpm"
     volumes_from:
     - data
     expose:
