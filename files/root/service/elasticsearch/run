@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# reset permissions after docker volume remount
+chown -R elasticsearch:elasticsearch /var/lib/elasticsearch /opt/elasticsearch
+
+exec s6-setuidgid elasticsearch /opt/elasticsearch/bin/elasticsearch 2>&1
