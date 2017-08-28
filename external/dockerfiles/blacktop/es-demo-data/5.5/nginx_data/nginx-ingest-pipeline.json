@@ -1,0 +1,23 @@
+{
+    "description": "nginx pipeline",
+    "processors": [{
+        "user_agent": {
+            "field": "agent"
+        }
+    }, {
+        "date": {
+            "field": "time",
+            "formats": ["dd/MMM/YYYY:HH:mm:ss Z"]
+        }
+    }, {
+        "grok": {
+            "field": "request",
+            "patterns": ["%{WORD:request_action} %{DATA:request1} HTTP/%{NUMBER:http_version}"]
+        }
+    }, {
+        "geoip": {
+            "field": "remote_ip",
+            "properties": ["country_name","city_name","location","ip"]
+        }
+    }]
+}
