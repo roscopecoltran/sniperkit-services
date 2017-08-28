@@ -1,0 +1,25 @@
+@import "../valo/valo.scss";
+
+@mixin customtheme {
+  @include valo;
+
+  .disable-opacity {
+    opacity: 1 !important;
+  }
+
+  .v-button.v-disabled:hover {
+    cursor: not-allowed !important;
+  }
+
+  .customer-form td  {
+    padding-top: 30px !important;
+  }
+
+  .msg-error-custom {
+    color: #a94442;
+    background-color: #f2dede;
+    padding: 15px;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+  }
+}
