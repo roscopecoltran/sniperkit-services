@@ -1,0 +1,4 @@
+-e git+https://github.com/phovea/phovea_server.git@develop#egg=phovea_server
+-e git+https://github.com/Caleydo/pathfinder_ccle.git@master#egg=pathfinder_ccle
+py2neo>=2.0.4
+pydotplus==2.0.2
