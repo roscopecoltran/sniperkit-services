@@ -1,0 +1,20 @@
+ES-curator:
+  image: elasticfence/docker-curator
+  environment:
+    ELASTICSEARCH_AUTH: "admin:elasticFence"
+    INTERVAL_IN_HOURS: 24
+    OLDER_THAN_IN_DAYS: 7
+    ELASTICSEARCH_HOST: es1
+  stdin_open: true
+  tty: true
+  links:
+  - elasticfence:es1
+elasticfence:
+  image: qxip/docker-elasticfence
+  tty: true
+  ports:
+  - "9200:9200/tcp"
+  - "5606:5606/tcp"
+  environment:
+    ELASTICSEARCH_USER: "admin"
+    ELASTICSEARCH_PASS: "elasticFence"
