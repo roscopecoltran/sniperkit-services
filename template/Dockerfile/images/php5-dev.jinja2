@@ -1,0 +1,98 @@
+{% import 'Dockerfile/docker.jinja2'    as docker %}
+{% import 'Dockerfile/provision.jinja2' as provision %}
+{% import 'Dockerfile/services.jinja2'  as services %}
+
+
+{% macro alpine(role='') -%}
+# Install development environment
+RUN /usr/local/bin/apk-install \
+        # Install tools
+        graphviz \
+        # Install php development stuff
+        php5-xdebug \
+        # Tools
+        nano \
+        vim \
+    {{ services.phpDev() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
+{%- endmacro %}
+
+
+{% macro centos(role='') -%}
+# Install development environment
+RUN wget -O - "https://packages.blackfire.io/fedora/blackfire.repo" | tee /etc/yum.repos.d/blackfire.repo \
+    && /usr/local/bin/yum-install \
+        # Install tools
+        graphviz \
+        # Install php development stuff
+        php-pecl-xdebug \
+        blackfire-php \
+        blackfire-agent \
+        # Tools
+        nano \
+        vim \
+    {{ services.phpDev() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
+{%- endmacro %}
+
+{% macro webtatic(role='') -%}
+RUN wget -O - "https://packages.blackfire.io/fedora/blackfire.repo" | tee /etc/yum.repos.d/blackfire.repo \
+    && /usr/local/bin/yum-install \
+        # Install tools
+        graphviz \
+        # Install php development stuff
+        php56w-pecl-xdebug \
+        blackfire-php \
+        blackfire-agent \
+        # Tools
+        nano \
+        vim \
+    {{ services.phpDev() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
+{%- endmacro %}
+
+{% macro debian(role='') -%}
+# Install development environment
+RUN /usr/local/bin/apt-install \
+        gnupg \
+    && wget -O - https://packagecloud.io/gpg.key | apt-key add - \
+    && echo "deb https://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list \
+    && /usr/local/bin/apt-install \
+        # Install tools
+        graphviz \
+        # Install php development stuff
+        php5-xdebug \
+        blackfire-php \
+        blackfire-agent \
+        # Tools
+        nano \
+        vim \
+    {{ services.phpDev() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
+{%- endmacro %}
+
+
+{% macro ubuntu(role='') -%}
+# Install development environment
+RUN /usr/local/bin/apt-install \
+        gnupg \
+    && wget -O - https://packagecloud.io/gpg.key | apt-key add - \
+    && echo "deb https://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list \
+    && /usr/local/bin/apt-install \
+        # Install tools
+        graphviz \
+        # Install php development stuff
+        php5-xdebug \
+        blackfire-php \
+        blackfire-agent \
+        # Tools
+        nano \
+        vim \
+    {{ services.phpDev() }} \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
+{%- endmacro %}

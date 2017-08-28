@@ -1,0 +1,61 @@
+{% import 'Dockerfile/docker.jinja2' as docker %}
+{% import 'Dockerfile/provision.jinja2' as provision %}
+
+{% macro alpine(role='') -%}
+# Install services
+RUN chmod +x /opt/docker/bin/* \
+    && /usr/local/bin/apk-install \
+        supervisor \
+        wget \
+        curl \
+        sed \
+        tzdata \
+    && chmod +s /sbin/gosu \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
+{%- endmacro %}
+
+
+{% macro centos(role='') -%}
+# Install services
+RUN chmod +x /opt/docker/bin/* \
+    && /usr/local/bin/yum-install \
+        supervisor \
+        wget \
+        curl \
+        net-tools \
+        tzdata \
+    && chmod +s /sbin/gosu \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
+{%- endmacro %}
+
+
+{% macro debian(role='') -%}
+# Install packages
+RUN chmod +x /opt/docker/bin/* \
+    && /usr/local/bin/apt-install \
+        supervisor \
+        wget \
+        curl \
+        net-tools \
+        tzdata \
+    && chmod +s /sbin/gosu \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
+{%- endmacro %}
+
+
+{% macro ubuntu(role='') -%}
+# Install services
+RUN chmod +x /opt/docker/bin/* \
+    && /usr/local/bin/apt-install \
+        supervisor \
+        wget \
+        curl \
+        net-tools \
+        tzdata \
+    && chmod +s /sbin/gosu \
+    {{ provision.runBootstrap() }} \
+    {{ docker.cleanup() }}
+{%- endmacro %}

@@ -1,0 +1,12 @@
+{{ docker.fromOfficial("java") }}
+
+{{ docker.version() }}
+
+{{ environment.liquibase('3.5.3', 'com.mysql.jdbc.Driver', '/usr/share/java/mysql.jar') }}
+
+{{ docker.copy('conf/', '/opt/docker/') }}
+
+{{ liquibase.mysql() }}
+
+{{ docker.entrypoint("/entrypoint") }}
+

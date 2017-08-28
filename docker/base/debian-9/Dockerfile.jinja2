@@ -1,0 +1,10 @@
+{{ docker.from("bootstrap", "debian-9") }}
+
+{{ environment.base() }}
+
+{{ docker.copy('conf/', '/opt/docker/') }}
+
+{{ base.debian() }}
+
+{{ docker.entrypoint("/entrypoint") }}
+{{ docker.cmd("supervisord") }}

@@ -1,0 +1,10 @@
+{{ docker.from("bootstrap", "alpine") }}
+
+{{ environment.base() }}
+
+{{ docker.copy('conf/', '/opt/docker/') }}
+
+{{ base.alpine() }}
+
+{{ docker.entrypoint("/entrypoint") }}
+{{ docker.cmd("supervisord") }}
