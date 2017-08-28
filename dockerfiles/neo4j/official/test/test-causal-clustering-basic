@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -o errexit -o nounset
+
+. "$(dirname "$0")/helpers.sh"
+
+readonly image="$1"
+readonly series="$2"
+readonly edition="$3"
+
+if [[ "${series}" == "2.3" ]] || [[ "${series}" == "3.0" ]]; then
+  echo "Skipping: Causal-Clustering not available pre 3.1"
+  exit 0
+fi
+
+if ! [[ "${edition}" == "enterprise" ]]; then
+  echo "Skipping: Causal-Clustering only available in enterprise"
+  exit 0
+fi
+
+if ! which docker-compose >/dev/null; then
+  echo "Skipping: no docker-compose in path"
+  exit 0
+fi
+
+# Make a temp copy of compose file
+mkdir -p tmp/out
+readonly compose_file=$(mktemp tmp/out/XXXXXXXX.yml)
+
+cp "$(dirname "$0")/causal-cluster-compose.yml" "${compose_file}"
+
+readonly cname="core-$(uuidgen)"
+readonly rname="read-$(uuidgen)"
+
+docker_compose_up "${image}" "${compose_file}" "${cname}" "${rname}"
+readonly core_ip="$(docker_compose_ip "${cname}")"
+readonly read_ip="$(docker_compose_ip "${rname}")"
+# Make sure core and read replica are up
+neo4j_wait "${core_ip}" "" "120"
+neo4j_wait "${read_ip}" "" "120"
+
+# create node on core
+neo4j_createnode "${core_ip}" "neo4j:neo"
+# read back on read replica
+neo4j_readnode "${read_ip}" "neo4j:neo"

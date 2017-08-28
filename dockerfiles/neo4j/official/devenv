@@ -1,0 +1,18 @@
+# -*- mode: shell-script -*-
+
+PATH="./build:${PATH}"
+
+if ! which make >/dev/null; then
+    if which apt-get >/dev/null; then
+        sudo apt-get install make
+    else
+        echo "Please install GNU Make 4.0 or later"
+    fi
+fi
+
+if [[ -f devenv.local ]]; then
+    source devenv.local
+    export NEO4J_VERSION
+else
+    echo >&2 "Error: cannot find devenv.local"
+fi
