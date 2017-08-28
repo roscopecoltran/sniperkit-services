@@ -12,11 +12,11 @@
 ###########################################################################
 
 FROM alpine:3.6
-
+LABEL maintainer "Luc Michalski <michalski.luc@gmail.com>"
 
 ## Set Environment Variables
-	ARG MEMCACHED_VERSION=1.4.36
-	ARG MEMCACHED_SHA1=519b417515206b0b95ff9bf14106a891f6a2252e
+	ARG MEMCACHED_VERSION=1.5.1
+	ARG MEMCACHED_SHA1=e5b7e4e562eb99fdfa67d71697cc6744d3e9663f
     ENV ZABBIX_HOSTNAME=memcached-app
 
 ## Install

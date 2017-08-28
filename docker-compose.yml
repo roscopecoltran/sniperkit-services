@@ -202,19 +202,36 @@ services:
     - mysql
     - redis
 
+  memcached:
+    image: "${DOCKER_HUB_ACCOUNT}/memcached:${MEMCACHED_VERSION}-alpine3.6"
+    container_name: memcached-${MEMCACHED_VERSION}
+    build:
+      context: "./dockerfiles/memcached"
+      dockerfile: memcached-alpine.dockerfile
+    ports:
+      - 11211:11211
+    expose:
+    - 11211
+    volumes_from:
+    - data
+    env_file:
+    - "./dockerfiles/memcached/memcached.config.env"
+
   neo4j:
     container_name: neo4j
-    image: neo4j:3.2.0
-    # image: "${DOCKER_HUB_ACCOUNT}/neo4j:${NEO4J_VERSION}-alpine3.6"
-    # build:
-    #  context: "./dockerfiles/neo4j"
-    #  dockerfile: neo4j-alpine.dockerfile
+    #image: neo4j:3.2
+    image: "${DOCKER_HUB_ACCOUNT}/neo4j:${NEO4J_VERSION}-alpine3.6"
+    build:
+      context: "./dockerfiles/neo4j"
+      dockerfile: neo4j-alpine.dockerfile
     ports:
       - 7474:7474
       - 7687:7687
+      - 7473:7473
     expose:
     - 7474
     - 7687
+    - 7473
     volumes_from:
     - data
     # - ./vms/neo4j/data:/data
