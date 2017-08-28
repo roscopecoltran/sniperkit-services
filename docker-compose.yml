@@ -1,0 +1,29 @@
+unbound:
+  image: athlinks/unbound-forwarder
+  restart: always
+  ports:
+  - "53:53/udp"
+  - "53:53"
+  environment:
+  - UPSTREAM_DNS1=8.8.8.8
+  - UPSTREAM_DNS2=8.8.4.4
+  - DO_IPV6=yes
+  - DO_IPV4=yes
+  - DO_UDP=yes
+  - DO_TCP=yes
+  - VERBOSITY=0
+  - NUM_THREADS=1
+  - SO_RCVBUFF=0
+  - SO_SNDBUF=0
+  - SO_REUSEPORT=no
+  - EDNS_BUFFER_SIZE=4096
+  - MSG_CACHE_SIZE=4m
+  - RRSET_CACHE_SIZE=4m
+  - CACHE_MIN_TTL=0
+  - CACHE_MAX_TTL=86400
+  - CACHE_MAX_NEGATIVE_TTL=3600
+  - HIDE_IDENTITY=no
+  - HIDE_VERSION=no
+  - STATISTICS_INTERVAL=0
+  - STATISTICS_CUMULATIVE=no
+  - EXTENDED_STATISTICS=no
