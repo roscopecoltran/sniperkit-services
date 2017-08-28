@@ -1,0 +1,28 @@
+version: '2.0'
+services:
+  _host:
+    depends_on:
+      - db_memcached
+      - db_neo4j_dblp
+      - db_neo4j_pathways
+    links:
+      - 'db_memcached:memcached'
+      - 'db_neo4j_dblp:neo4j_dblp'
+      - 'db_neo4j_pathways:neo4j_pathways'
+  db_memcached:
+    image: memcached:1.4-alpine
+  db_neo4j_dblp:
+    image: caleydo/phovea_neo4j:v1.0
+    volumes:
+    - db_neo4j_dblp:/data
+    environment:
+    - NEO4J_AUTH=none
+  db_neo4j_pathways:
+    image: caleydo/phovea_neo4j:v1.0
+    volumes:
+    - db_neo4j_pathways:/data
+    environment:
+    - NEO4J_AUTH=none
+volumes:
+  db_neo4j_dblp:
+  db_neo4j_pathways:

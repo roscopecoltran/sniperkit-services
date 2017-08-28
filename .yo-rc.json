@@ -1,0 +1,37 @@
+{
+  "generator-phovea": {
+    "type": "lib-slib",
+    "name": "pathfinder_graph",
+    "author": "The Caleydo Team",
+    "githubAccount": "phovea",
+    "modules": [
+      "phovea_server",
+      "phovea_core",
+      "pathfinder_ccle"
+    ],
+    "extensions": [],
+    "sextensions": [
+      {
+        "type": "namespace",
+        "id": "pathfinder_graph",
+        "module": "pathway",
+        "extras": {
+          "namespace": "/api/pathway"
+        }
+      }
+    ],
+    "libraries": [],
+    "unknown": {
+      "requirements": [
+        "py2neo>=2.0.4",
+        "pydotplus==2.0.2"
+      ],
+      "dockerPackages": []
+    },
+    "libraryAliases": {},
+    "libraryExternals": [],
+    "entries": "./index.js",
+    "ignores": [],
+    "today": "Sun, 05 Feb 2017 09:23:22 GMT"
+  }
+}
