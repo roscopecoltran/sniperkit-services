@@ -1,0 +1,8 @@
+.DS_Store
+*.txt
+*.zip
+*.bloom
+*.pyc
+build
+release
+*.bu
