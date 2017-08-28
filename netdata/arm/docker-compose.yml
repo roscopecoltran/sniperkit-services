@@ -1,0 +1,7 @@
+netdata:
+  image: easypi/netdata-arm
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock:ro
+  net: host
+  pid: host
+  restart: always

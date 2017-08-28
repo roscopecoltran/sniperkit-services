@@ -1,0 +1,16 @@
+scrapyd:
+  image: vimagick/scrapyd
+  ports:
+    - "6800:6800"
+  volumes:
+    - ./data:/var/lib/scrapyd
+    - /usr/local/lib/python2.7/dist-packages
+  restart: always
+
+scrapy:
+  image: vimagick/scrapyd
+  command: bash
+  volumes:
+    - .:/code
+  working_dir: /code
+  restart: always
