@@ -20,6 +20,11 @@ else
 	ls -l
 fi
 
+# PYTHON_VERSION=$(which python)
+# PIP_VERSION=$(which pip)
+alias python=python3
+alias pip=pip3
+
 case "$1" in
 
   'interactive')
