@@ -1,0 +1,145 @@
+version: '3'
+
+# The .env file is for production use with server-specific configurations
+
+services:
+# Frontend web proxy for accessing services and providing TLS encryption
+  nginx:
+    build: ./nginx
+    container_name: md2k-nginx
+    restart: always
+    ports:
+      - "443:443"
+      - "8080:80"
+    links:
+      - apiserver
+      - grafana
+      - jupyter
+
+
+  apiserver:
+    build: ../CerebralCortex-APIServer
+    container_name: md2k-api-server
+    restart: always
+    expose:
+      - 80
+    links:
+      - mysql
+      - kafka
+      - minio
+    depends_on:
+      - mysql
+    environment:
+      - MINIO_HOST=${MINIO_HOST:-minio}
+      - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY:-ZngmrLWgbSfZUvgocyeH}
+      - MINIO_SECRET_KEY=${MINIO_SECRET_KEY:-IwUnI5w0f5Hf1v2qVwcr}
+      - MYSQL_HOST=${MYSQL:-mysql}
+      - MYSQL_DB_USER=${MYSQL_ROOT_USER:-root}
+      - MYSQL_DB_PASS=${MYSQL_ROOT_PASSWORD:-random_root_password}
+      - KAFKA_HOST=${KAFKA_HOST:-kafka}
+      - JWT_SECRET_KEY=${MINIO_SECRET_KEY:-IwUnI5w0f5Hf1v2qVwcr}
+      - FLASK_HOST=${FLASK_HOST:-0.0.0.0}
+      - FLASK_PORT=${FLASK_PORT:-80}
+      - FLASK_DEBUG=${FLASK_DEBUG:-False}
+    volumes:
+      - temp-storage:/data
+
+# Data vizualizations
+  grafana:
+    image: "grafana/grafana"
+    container_name: md2k-grafana
+    restart: always
+    expose:
+      - 3000
+    links:
+      - influxdb
+    environment:
+      - GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s:%(http_port)s/grafana/
+      # - GF_INSTALL_PLUGINS=raintank-worldping-app,grafana-clock-panel,grafana-simple-json-datasource
+    volumes:
+      - timeseries-storage:/var/lib/grafana
+      # - timeseries-storage:/etc/grafana
+
+  influxdb:
+    image: "influxdb:alpine"
+    container_name: md2k-influxdb
+    restart: always
+    expose:
+      - 8086
+    volumes:
+      - timeseries-storage:/var/lib/influxdb
+
+# Data Science Dashboard Interface
+  jupyter:
+    build: ./md2k-spark-notebook
+    container_name: md2k-spark-notebook
+    restart: always
+    expose:
+      - 8888
+    command: start-notebook.sh --NotebookApp.token=''
+    volumes:
+      - user-storage:/home/jovyan/work
+
+
+# Cerebral Cortex backend
+  kafka:
+    image: wurstmeister/kafka:0.10.2.0
+    container_name: md2k-kafka
+    restart: always
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_MESSAGE_MAX_BYTES: 2000000
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - data-storage:/kafka
+    depends_on:
+      - zookeeper
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: md2k-zookeeper
+    restart: always
+    ports:
+      - "2181:2181"
+
+  mysql:
+    image: "mysql:5.7"
+    container_name: md2k-mysql
+    restart: always
+    expose:
+      - 3306 # Default mysql port
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-random_root_password}
+      - MYSQL_DATABASE=${MYSQL_DATABASE:-cerebralcortex}
+      - MYSQL_USER=${MYSQL_USER:-cerebralcortex}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-cerebralcortex_pass}
+    volumes:
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+      - metadata-storage:/var/lib/mysql
+
+  minio:
+    image: "minio/minio"
+    container_name: md2k-minio
+    restart: always
+    ports:
+      - 9000:9000 # Default minio port
+    environment:
+      - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY:-ZngmrLWgbSfZUvgocyeH}
+      - MINIO_SECRET_KEY=${MINIO_SECRET_KEY:-IwUnI5w0f5Hf1v2qVwcr}
+    command: server /export
+    volumes:
+      - object-storage:/export
+
+
+volumes:
+  object-storage:
+  metadata-storage:
+  data-storage:
+  temp-storage:
+  timeseries-storage:
+  user-storage:
+  log-storage:
