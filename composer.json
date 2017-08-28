@@ -1,0 +1,20 @@
+{
+    "name": "netpoe/elang",
+    "authors": [
+        {
+            "name": "Gus",
+            "email": "yo@soygus.com"
+        }
+    ],
+    "autoload": {
+        "classmap": ["./src", "./lib"],
+        "psr-4": {
+            "Elang\\": "src/",
+            "Elang\\Library\\": "lib/"
+        }
+    },
+    "require": {
+        "wa72/htmlpagedom": "^1.3",
+        "graphaware/neo4j-php-client": "^4.0"
+    }
+}
