@@ -1,0 +1,3 @@
+30 22 * * 7 docker image prune -a -f >/dev/null 2>&1
+30 22 * * 7 docker volume prune -f >/dev/null 2>&1
+30 22 * * 7 docker container prune -f >/dev/null 2>&1
