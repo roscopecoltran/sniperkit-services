@@ -1,0 +1,23 @@
+version: '2'
+services:
+  redis:
+    restart: always
+    image: "redis:alpine"
+    ports:
+    - "6379:6379"
+  docker-dsp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: eyadsibai/docker-dsp:latest
+    ports:
+     - "1994:1994"
+     - "8787:8787"
+    links:
+      - redis:redis
+    # volumes:
+    #  - .:/code
+
+
+
+# should add apache spark docker
