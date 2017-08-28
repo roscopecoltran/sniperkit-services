@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  memcached-app:
+    container_name: memcached-app
+    restart: always
+    image: tiredofit/memcached
+    environment: 
+      - ZABBIX_HOSTNAME=memcached-app
+    networks:
+      - proxy-tier
+
+networks:
+  proxy-tier:
+    external:
+      name: nginx-proxy
+
+
