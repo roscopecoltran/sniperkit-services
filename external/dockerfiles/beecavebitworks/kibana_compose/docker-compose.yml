@@ -1,0 +1,20 @@
+
+version: '2'
+services:
+  elastic:
+    build: alpine-elastic
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+  kibana:
+    build: alpine-kibana
+    ports:
+      - "5601:5601"
+    links:
+      - elastic
+  fluentd:
+    build: alpine-fluentd
+    ports:
+      - "24224:24224"
+    links:
+      - elastic
