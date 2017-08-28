@@ -1,0 +1,5 @@
+{{ docker.from("base-app") }}
+
+{{ ssh.ubuntu() }}
+
+{{ docker.expose('22') }}

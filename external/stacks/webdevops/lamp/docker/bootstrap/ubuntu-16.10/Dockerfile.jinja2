@@ -1,0 +1,11 @@
+{{ baselayout.dockerStage() }}
+
+{{ docker.fromOfficial("ubuntu", "16.10") }}
+
+{{ docker.version() }}
+
+{{ environment.general() }}
+
+{{ baselayout.copy() }}
+
+{{ bootstrap.ubuntu() }}

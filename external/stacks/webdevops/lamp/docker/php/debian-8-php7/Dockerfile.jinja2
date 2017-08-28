@@ -1,0 +1,9 @@
+{{ docker.from("base-app", "debian-8") }}
+
+{{ environment.web() }}
+
+{{ docker.copy('conf/', '/opt/docker/') }}
+
+{{ php7.debianSury('jessie') }}
+
+{{ docker.expose('9000') }}

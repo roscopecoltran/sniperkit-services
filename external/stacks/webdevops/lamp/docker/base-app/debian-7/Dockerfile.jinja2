@@ -1,0 +1,7 @@
+{{ docker.from("base", "debian-7") }}
+
+{{ environment.baseApp() }}
+
+{{ docker.copy('conf/', '/opt/docker/') }}
+
+{{ baseapp.debian() }}

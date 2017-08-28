@@ -1,0 +1,9 @@
+{{ docker.from("base-app", "debian-9") }}
+
+{{ environment.web() }}
+
+{{ docker.copy('conf/', '/opt/docker/') }}
+
+{{ php7.debian9() }}
+
+{{ docker.expose('9000') }}

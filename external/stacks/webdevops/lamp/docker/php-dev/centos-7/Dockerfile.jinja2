@@ -1,0 +1,5 @@
+{{ docker.from("php", "centos-7") }}
+
+{{ docker.copy('conf/', '/opt/docker/') }}
+
+{{ php5dev.centos() }}

@@ -1,0 +1,7 @@
+{{ docker.from("base", "centos-7") }}
+
+{{ environment.baseApp() }}
+
+{{ docker.copy('conf/', '/opt/docker/') }}
+
+{{ baseapp.centos() }}

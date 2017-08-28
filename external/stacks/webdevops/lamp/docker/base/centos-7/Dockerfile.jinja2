@@ -1,0 +1,10 @@
+{{ docker.from("bootstrap", "centos-7") }}
+
+{{ environment.base() }}
+
+{{ docker.copy('conf/', '/opt/docker/') }}
+
+{{ base.centos() }}
+
+{{ docker.entrypoint("/entrypoint") }}
+{{ docker.cmd("supervisord") }}
