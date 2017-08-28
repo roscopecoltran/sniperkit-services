@@ -1,0 +1,28 @@
+machine:
+  services:
+    - docker
+
+general:
+  build_dir: "1.6"
+
+dependencies:
+  cache_directories:
+    - "~/docker"
+  override:
+    - docker info
+    - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
+    - docker build -t blacktop_rekall .
+    - mkdir -p ~/docker; docker save blacktop_rekall > ~/docker/image.tar
+
+test:
+  override:
+    - docker run blacktop_rekall --version
+deployment:
+  # master:
+  #   branch: master
+  #   commands:
+  #     - eval $(docker run gliderlabs/pagebuilder circleci-cmd)
+  release:
+    branch: release
+    commands:
+      - make release
