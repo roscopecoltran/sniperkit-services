@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+version = '1.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+	compile 'com.sparkjava:spark-core:2.5'
+	testCompile 'junit:junit:4.+'
+	runtime files(org.gradle.internal.jvm.Jvm.current().toolsJar)
+}
+
+task fatJar (type: Jar) {
+	manifest {
+		attributes 'Implementation-Title': 'HBS first micro service',
+		'Implementation-Version': version,
+		'Main-Class': 'com.github.joelhandwell.HelloWorld'
+	}
+	baseName = 'java-all'
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	with jar
+}
+
+jar.dependsOn fatJar
