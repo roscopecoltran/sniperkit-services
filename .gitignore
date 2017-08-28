@@ -1,0 +1,75 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+*.egg-info
+
+# Logs
+*.log
+
+# C extensions
+*.so
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+
+
+# Porquerías de MacOS
+.DS_Store
+
+# Documentación de Sphinx
+docs/_build
+
+# Los datos no se suben a git
+**/data/*.json
+**/data/*.pl
+
+# Bases de datos
+*.db
+
+# Logs de instalación
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Pruebas unitarias / Coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+
+# Documentación de Mkdocs
+site/
+
+# Archivos de datos
+*.xlsx
+*.dat
+*.tsv
+*.psv
+*.sqlite
+*.doc*
+*.xls*
+*.pdf
+*.ppt*
+*.sqlite
+
+# De la construcción de imágenes y contenedores
+**/.built*
+**/*_built*
+**/.data_built*
+**/.infrastructure_built*
+**/.network_built*
+**/.running*
+**/.images_built*
+
+# Basura de Emacs
+**/.#*
