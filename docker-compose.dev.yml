@@ -1,0 +1,44 @@
+version: '2'
+services:
+
+  golang:
+    image: golang:${GOLANG_VERSION}-alpine3.6
+    build:
+      context: "./golang"
+      dockerfile: golang${GOLANG_VERSION}-alpine.dockerfile
+    container_name: golang-${GOLANG_VERSION}
+    volumes_from:
+    - data
+    expose:
+    - 9000
+    links:
+    - webdis
+    - redis
+    - postgres
+    - mariadb
+    - mysql
+    - mongodb
+    - sphinx
+    env_file:
+    - "./golang/golang.config.env"
+
+  php:
+    image: php-fpm:7.0-alpine3.6
+    build:
+      context: "./php"
+      dockerfile: php-7.0-fpm-alpine.dockerfile
+    container_name: php-7.0-fpm
+    volumes_from:
+    - data
+    expose:
+    - 9000
+    links:
+    - webdis
+    - redis
+    - postgres
+    - mariadb
+    - mysql
+    - mongodb
+    - sphinx
+    env_file:
+    - "./php/php.config.env"

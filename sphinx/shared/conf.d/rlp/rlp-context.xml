@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<contextconfig>
+    <properties>
+        <property name="com.basistech.jla.deep_compound_decomposition"
+                  value="true"/>
+        <property name="com.basistech.ecn.FormKCNormalization" value="true"/>
+        <property name="com.basistech.ecn.mapoffsets" value="true"/>
+    </properties>
+    <languageprocessors>
+        <languageprocessor>Encoding and Character Normalizer</languageprocessor>
+        <languageprocessor>Sentence Breaker</languageprocessor>
+        <languageprocessor>Script Region Locator</languageprocessor>
+        <languageprocessor>Chinese Language Analyzer</languageprocessor>
+        <languageprocessor>Japanese Language Analyzer</languageprocessor>
+        <languageprocessor>Korean Language Analyzer</languageprocessor>
+    </languageprocessors>
+</contextconfig>

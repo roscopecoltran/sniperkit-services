@@ -1,0 +1,14 @@
+https://github.com/johnymontana/CourseCatalog
+https://github.com/johnymontana/CourseCatalog/blob/master/load_coursera.py
+
+### cool section
+https://github.com/umeboshi2/annexation
+https://github.com/umeboshi2/annexation/blob/master/tumblr/scripts/add-blog.py
+https://github.com/linea-it/dri
+https://github.com/linea-it/dri/blob/master/api/product/serializers.py
+
+https://github.com/zaiyou12/findissue
+https://github.com/zaiyou12/findissue/blob/master/app/models.py
+
+https://github.com/wowdd1/xlinkBook
+https://github.com/phaustin/pythonlibs/tree/master/diskinventory

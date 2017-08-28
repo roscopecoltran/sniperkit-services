@@ -1,0 +1,4 @@
+https://github.com/peterhend/schools
+https://github.com/zilnhoj/verify_reporting
+https://github.com/idyllchow/crawl_news/blob/master/pipelines.py
+https://github.com/hasgeek/hasjob

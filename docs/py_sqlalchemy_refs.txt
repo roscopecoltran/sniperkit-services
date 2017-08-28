@@ -1,0 +1,35 @@
+https://github.com/MrKiven/ECache
+https://github.com/RazerM/sqlalchemy_aio
+https://github.com/loverajoel/sqlalchemy-elasticquery
+https://github.com/reimandlab/ActiveDriverDB/blob/master/website/berkley_db.py
+https://github.com/deepakyadav9/itemcatalog/blob/master/database_setup.py
+https://github.com/pylover/sqlalchemy-media
+
+
+## Cool stuff
+
+https://github.com/kvesteri/sqlalchemy-searchable
+https://github.com/kvesteri/sqlalchemy-i18n
+https://github.com/jfinkels/flask-restless
+https://github.com/jmagnusson/sqlalchemy-geonames
+https://github.com/podhmo/alchemyjsonschema
+https://github.com/TAPPGuild/sqlalchemy-models
+https://github.com/llazzaro/pystock
+https://github.com/colinhiggs/pyramid-jsonapi
+https://github.com/thegeorgeous/flask-cqlalchemy
+https://github.com/chop-dbhi/data-models-sqlalchemy
+https://github.com/chop-dbhi/data-models-sqlalchemy/blob/master/dmsa/makers.py
+https://github.com/inkmonk/flask-sqlalchemy-booster
+
+https://github.com/alexkuz/sqlalchemy-flux-serializer
+
+https://github.com/coleifer/peewee/tree/master/examples/twitter
+https://github.com/ponyorm/pony/blob/orm/pony/orm/examples/compositekeys.py
+https://github.com/Niemzok/vizcatalog-project/blob/master/db_setup.py
+
+https://github.com/nelhage/github-downloader/blob/master/models.py
+
+https://github.com/akashasia/do-list/blob/master/database/todo.py
+
+###### topics !
+https://github.com/tumani1/vcms/tree/develop/models

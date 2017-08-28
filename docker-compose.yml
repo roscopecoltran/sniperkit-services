@@ -1,0 +1,331 @@
+---
+version: '2'
+services:
+  data:
+    image: tianon/true
+    volumes:
+    - "./shared/dicts:/shared/dicts"
+    - "./shared/ssl:/shared/ssl"
+    - "./shared/www:/var/www"
+    - "./shared/html:/var/www/html"
+    - "./aiohttp/admin/shared/logs:/shared/logs/aiohttp_admin"
+    - "./aiohttp/admin/shared/data:/shared/data/aiohttp_admin"
+    - "./aiohttp/admin/shared/conf.d:/shared/data/conf.d"
+    - "./mongodb/shared/logs:/shared/logs/mongodb"
+    - "./mongodb/shared/data:/shared/data/mongodb"
+    - "./mongodb/shared/conf.d:/shared/data/conf.d"
+    - "./mariadb/shared/logs:/shared/logs/mariadb"
+    - "./mariadb/shared/data:/shared/data/mariadb"
+    - "./mariadb/shared/conf.d:/shared/data/conf.d"
+    - "./mysql/shared/logs:/shared/logs/mysql"
+    - "./mysql/shared/data:/shared/data/mysql"
+    - "./mysql/shared/conf.d:/shared/data/conf.d"
+    - "./postgres/shared/logs:/shared/logs/postgres"
+    - "./postgres/shared/data:/shared/data/postgres"
+    - "./postgres/shared/conf.d:/shared/data/conf.d"
+    - "./redis/shared/logs:/shared/logs/redis"
+    - "./redis/shared/data:/shared/data/redis"
+    - "./redis/shared/conf.d:/shared/data/conf.d"
+    - "./webdis/shared/logs:/shared/logs/webdis"
+    - "./webdis/shared/data:/shared/data/webdis"
+    - "./webdis/shared/conf.d:/shared/data/conf.d"
+    - "./nodejs/shared/logs:/shared/logs/nodejs"
+    - "./nodejs/shared/data:/shared/data/nodejs"
+    - "./nodejs/shared/conf.d:/shared/data/conf.d"
+    - "./sphinx/shared/logs:/shared/logs/sphinx"
+    - "./sphinx/shared/data:/shared/data/sphinx"
+    - "./sphinx/shared/conf.d:/shared/data/conf.d"
+    - "./gitsome/shared/logs:/shared/logs/gitsome"
+    - "./gitsome/shared/data:/shared/data/gitsome"
+    - "./gitsome/shared/conf.d:/shared/data/conf.d"
+    - "./sqlmap/shared/logs:/shared/logs/sqlmap"
+    - "./sqlmap/shared/data:/shared/data/sqlmap"
+    - "./sqlmap/shared/conf.d:/shared/data/conf.d"
+    - "./setoolkit/shared/logs:/shared/logs/setoolkit"
+    - "./setoolkit/shared/data:/shared/data/setoolkit"
+    - "./setoolkit/shared/conf.d:/shared/data/conf.d"
+    - "./celery/shared/logs:/shared/logs/celery"
+    - "./celery/shared/data:/shared/data/celery"
+    - "./celery/shared/conf.d:/shared/data/conf.d"
+  nginx:
+    image: nginx:1.11.3-alpine
+    build:
+      context: "./nginx"
+      dockerfile: nginx-1.11.3-alpine.dockerfile
+    container_name: nginx-1.11.3
+    volumes_from:
+    - data
+    ports:
+    - 80:80
+    - 443:443
+    links:
+    - php
+    - golang
+    - nodejs
+  nodejs:
+    image: nodejs:${NODEJS_VERSION}-alpine3.6
+    build:
+      context: "./nodejs"
+      dockerfile: nodejs${NODEJS_VERSION}-alpine.dockerfile
+    container_name: nodejs-${NODEJS_VERSION}
+    volumes_from:
+    - data
+    ports:
+    - 8000:8000
+    expose:
+    - 8000
+    links:
+    - webdis
+    - redis
+    - postgres
+    - mariadb
+    - mysql
+    - mongodb
+    env_file:
+    - "./nodejs/nodejs.config.env"
+  golang:
+    image: golang:${GOLANG_VERSION}-alpine3.6
+    build:
+      context: "./golang"
+      dockerfile: golang${GOLANG_VERSION}-alpine.dockerfile
+    container_name: golang-${GOLANG_VERSION}
+    volumes_from:
+    - data
+    expose:
+    - 9000
+    links:
+    - webdis
+    - redis
+    - postgres
+    - mariadb
+    - mysql
+    - mongodb
+    - sphinx
+    env_file:
+    - "./golang/golang.config.env"
+  php:
+    image: php-fpm:7.0-alpine3.6
+    build:
+      context: "./php"
+      dockerfile: php-7.0-fpm-alpine.dockerfile
+    container_name: php-7.0-fpm
+    volumes_from:
+    - data
+    expose:
+    - 9000
+    links:
+    - webdis
+    - redis
+    - postgres
+    - mariadb
+    - mysql
+    - mongodb
+    - sphinx
+    env_file:
+    - "./php/php.config.env"
+  postgres:
+    image: postgres:${POSTGRES_VERSION}-alpine3.6
+    build:
+      context: "./postgres"
+      dockerfile: postgres${POSTGRES_VERSION}-alpine.dockerfile
+    container_name: postgres-${POSTGRES_VERSION}
+    ports:
+    - 5432:5432
+    expose:
+    - 3306
+    volumes_from:
+    - data
+    env_file:
+    - "./postgres/postgres.config.env"
+  mysql:
+    image: mysql:${MYSQL_VERSION}-alpine3.6
+    build:
+      context: "./mysql"
+      dockerfile: mysql${MYSQL_VERSION}-alpine.dockerfile
+    container_name: mysql-${MYSQL_VERSION}
+    ports:
+    - 3306:3306
+    expose:
+    - 3306
+    volumes_from:
+    - data
+    env_file:
+    - "./mysql/mysql.config.env"
+  mariadb:
+    image: mariadb:${MARIADB_VERSION}-alpine3.6
+    build:
+      context: "./mariadb"
+      dockerfile: mariadb${MARIADB_VERSION}-alpine.dockerfile
+    container_name: mariadb-${MARIADB_VERSION}
+    ports:
+    - 3307:3306
+    expose:
+    - 3307
+    volumes_from:
+    - data
+    env_file:
+    - "./mariadb/mariadb.config.env"
+  celery:
+    build:
+      context: "./celery"
+      dockerfile: celery-alpine.dockerfile
+    entrypoint: "/opt/entrypoint.sh"
+    env_file:
+    - "./celery/celery.config.env"
+    volumes_from:
+    - data
+    links:
+    - mysql
+    - redis
+  aiohttp_admin:
+    image: aiohttp_admin:py3.6-alpine3.6
+    container_name: aiohttp-admin
+    build:
+      context: "./aiohttp/admin"
+      dockerfile: aiohttp_admin.dockerfile
+    ports:
+    - 9001:9001
+    expose:
+    - 9001
+    depends_on:
+    - webdis
+    - redis
+    - postgres
+    - mysql
+    - mongodb
+    links:
+    - webdis
+    - redis
+    - postgres
+    - mysql
+    - mongodb
+    volumes_from:
+    - data
+    env_file:
+    - "./aiohttp/admin/aiohttp_admin.config.env"
+  mongodb:
+    image: mongo:${MONGODB_VERSION}-alpine3.6
+    container_name: mongodb-${MONGODB_VERSION}
+    build:
+      context: "./mongodb"
+      dockerfile: mongodb-alpine.dockerfile
+    ports:
+    - 27017:27017
+    - 27018:27018
+    - 27019:27019
+    - 28017:28017
+    expose:
+    - 27017
+    - 27018
+    - 27019
+    - 28017
+    volumes_from:
+    - data
+    env_file:
+    - "./mongodb/mongodb.config.env"
+    entrypoint:
+    - mongod
+    command:
+    - "--smallfiles"
+    - "--dbpath"
+    - "/shared/data/mongodb"
+  gitsome:
+    image: gitsome:${GITSOME_VERSION}-py3.5-alpine3.4
+    container_name: gitsome-${GITSOME_VERSION}
+    build:
+      context: "./gitsome"
+      dockerfile: gitsome-alpine.dockerfile
+    volumes_from:
+    - data
+    env_file:
+    - "./gitsome/gitsome.config.env"
+    command:
+    - dev
+  searx:
+    image: searx:latest-alpine3.6
+    container_name: searx
+    build:
+      context: "./searx"
+      dockerfile: searx-alpine.dockerfile
+    ports:
+    - 8888:8888
+    - 8889:8889
+    expose:
+    - 8888
+    - 8889
+    volumes_from:
+    - data
+    env_file:
+    - "./searx/searx.config.env"
+    command:
+    - dev
+  redis:
+    image: redis:${REDIS_VERSION}-alpine3.6
+    container_name: redis-${REDIS_VERSION}
+    build:
+      context: "./redis"
+      dockerfile: redis${REDIS_VERSION}-alpine.dockerfile
+    ports:
+    - 6379:6379
+    expose:
+    - 6379
+    volumes_from:
+    - data
+    env_file:
+    - "./redis/redis.config.env"
+  webdis:
+    image: webdis:latest-${WEBDIS_VERSION}-alpine3.6
+    container_name: webdis-${WEBDIS_VERSION}
+    build:
+      context: "./webdis"
+      dockerfile: webdis-alpine.dockerfile
+    ports:
+    - 7379:7379
+    expose:
+    - 7379
+    volumes_from:
+    - data
+    env_file:
+    - "./webdis/webdis.config.env"
+  sphinx:
+    image: sphinx:${SPHINX_VERSION}-alpine3.6
+    container_name: sphinx-${SPHINX_VERSION}
+    build:
+      context: "./sphinx"
+      dockerfile: sphinx-alpine.dockerfile
+    volumes_from:
+    - data
+    links:
+    - mariadb
+    - mysql
+    - postgres
+    depends_on:
+    - mariadb
+    - mysql
+    - postgres
+    ports:
+    - 9306:9306
+    expose:
+    - 9306
+    env_file:
+    - "./sphinx/sphinx.config.env"
+  setoolkit:
+    image: setoolkit:${SETOOLKIT_VERSION}-py${SETOOLKIT_PY_VERSION}-alpine3.6
+    container_name: setoolkit-${SETOOLKIT_VERSION}
+    build:
+      context: "./setoolkit"
+      dockerfile: setoolkit-alpine.dockerfile
+    volumes_from:
+    - data
+    env_file:
+    - "./setoolkit/setoolkit.config.env"
+  sqlmap:
+    image: sqlmap:${SQLMAP_VERSION}-py${SQLMAP_PY_VERSION}-alpine3.6
+    container_name: sqlmap-${SQLMAP_VERSION}
+    build:
+      context: "./sqlmap"
+      dockerfile: sqlmap-alpine.dockerfile
+    volumes_from:
+    - data
+    env_file:
+    - "./sqlmap/sqlmap.config.env"

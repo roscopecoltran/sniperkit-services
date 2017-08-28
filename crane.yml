@@ -1,0 +1,66 @@
+groups:
+  default:
+    - data
+    - mariadb
+    - sphinx
+    - redis
+    - aiohttp_admin
+  #workspace:
+  #  - sniperkit
+  engines:
+    - searx
+    - sphinx
+    #- elastic-v5
+    #- elastic-v2
+    #- elastic-v1
+    #- solr
+  #metrics:
+  #  - kibana5
+  #  - kibana6
+  #  - kibi
+  #logs:
+  #  - forwarder
+  #  - filebeat
+  stacks:
+  #  - elk
+    - aiohttp_admin
+  #  - lemp
+  #  - elk5
+  cache:
+    - redis
+    - webdis
+  sniper:
+    - data
+    - mariadb
+    - sphinx
+    - mongodb
+    - redis
+    - webdis
+  lemp:
+    - data
+    - nginx
+    - mariadb
+    - mongodb
+    - sphinx
+  kv:
+    - redis
+  sql:
+    - postgres
+    - mariadb
+  nosql:
+    - mongodb
+    # - cassandra
+  #graph:
+  #  - neo4j
+  search:
+    - sphinx
+  dev:
+    - php
+    - golang
+    - nodejs
+    #- python
+
+accelerated-mounts:
+  "$PWD/shared:/shared":
+    uid: 1000
+    gid: 1000

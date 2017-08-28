@@ -1,0 +1,1 @@
+https://github.com/inspirehep/inspire-next/blob/master/docker-compose.deps.yml

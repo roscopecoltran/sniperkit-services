@@ -1,0 +1,4 @@
+pexpect
+pycrypto
+pyopenssl 
+pefile

@@ -1,0 +1,4 @@
+https://github.com/rinas7/StackOverflowSnippets/blob/master/get_so_tags.py
+https://github.com/infinitebrew/kaggle_comp/blob/master/MLE_keyowrds.py
+https://github.com/infinitebrew/kaggle_comp/blob/master/topwordsROC.py
+https://github.com/wlainer/ia-recruiter

@@ -1,0 +1,28 @@
+#! /bin/bash
+
+###################################################
+##                                               ##
+##      DOCKERFUNC FILE CREATED BY KIKEPUMA      ##
+##                                               ##
+###################################################
+# https://backtrackacademy.com/articulo/docker-para-penetration-testing-security-treaning
+
+hck_install()
+{
+    docker pull kalilinux/kali-linux-docker && \
+    docker pull owasp/zap2docker-stable && \
+    docker pull wpscanteam/wpscan && \
+    docker pull pandrew/metasploit && \
+    docker pull citizenstig/dvwa && \
+    docker pull wpscanteam/vulnerablewordpress && \
+    docker pull hmlio/vaas-cve-2014-6271 && \
+    docker pull hmlio/vaas-cve-2014-0160  && \
+    docker pull opendns/security-ninjas && \
+    docker pull usertaken/archlinux-pentest-lxde && \
+    docker pull diogomonica/docker-bench-security && \
+    docker pull ismisepaul/securityshepherd && \
+    docker pull danmx/docker-owasp-webgoat && \
+    docker-compose build && docker-compose up && \
+    docker pull citizenstig/nowasp && \
+    docker pull bkimminich/juice-shop
+}

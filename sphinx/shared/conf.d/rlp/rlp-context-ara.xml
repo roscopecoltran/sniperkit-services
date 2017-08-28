@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!DOCTYPE contextconfig SYSTEM "http://www.basistech.com/dtds/2003/contextconfig.dtd">
+<!-- 
+An experimental RLP context definition for the Arabic language processing 
+by RLPTokenizer.  This is meant to be optimal but has not been tested
+extensively.  Use it at your own risk.
+
+If you use this with Solr, these postXxxxx attributes can be used
+in the <token> element for the RLPTokenizerFactory class in schema.xml:
+	postWord (true by default)
+	postNormalizedToken (flase)
+	postStem (flase)
+	postLemma (flase)
+	postPartOfSpeech (true; set it false if RLPPOSFilter is not in use)
+	postRoot (flase)
+ -->
+<contextconfig>
+  <properties>
+    <property name="com.basistech.ala.lemmas" value="true"/><!-- Set this false if postLemma="false" -->
+    <property name="com.basistech.ala.roots" value="true"/><!-- Set this false  if postRoot="false" -->
+  </properties>
+  <languageprocessors>
+    <languageprocessor>Sentence Breaker</languageprocessor>
+    <languageprocessor>Word Breaker</languageprocessor>    
+    <languageprocessor>Arabic Language Analyzer</languageprocessor>
+  </languageprocessors>
+</contextconfig>

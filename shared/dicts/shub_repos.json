@@ -1,0 +1,7119 @@
+{
+  "project-templates": {
+    "0rpc": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/0rpc/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/0rpc/%(name)s"
+    },
+    "0x5e": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/0x5e/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/0x5e/%(name)s"
+    },
+    "10se1ucgo": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/10se1ucgo/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/10se1ucgo/%(name)s"
+    },
+    "521xueweihan": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/521xueweihan/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/521xueweihan/%(name)s"
+    },
+    "AlessandroZ": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/AlessandroZ/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/AlessandroZ/%(name)s"
+    },
+    "AppScale": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/AppScale/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/AppScale/%(name)s"
+    },
+    "Bitmessage": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Bitmessage/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Bitmessage/%(name)s"
+    },
+    "ClusterHQ": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/ClusterHQ/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/ClusterHQ/%(name)s"
+    },
+    "CouchPotato": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/CouchPotato/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/CouchPotato/%(name)s"
+    },
+    "DanMcInerney": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/DanMcInerney/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/DanMcInerney/%(name)s"
+    },
+    "Eloston": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Eloston/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Eloston/%(name)s"
+    },
+    "Gallopsled": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Gallopsled/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Gallopsled/%(name)s"
+    },
+    "Guake": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Guake/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Guake/%(name)s"
+    },
+    "HelloZeroNet": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/HelloZeroNet/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/HelloZeroNet/%(name)s"
+    },
+    "Hironsan": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Hironsan/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Hironsan/%(name)s"
+    },
+    "HypothesisWorks": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/HypothesisWorks/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/HypothesisWorks/%(name)s"
+    },
+    "Jahaja": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Jahaja/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Jahaja/%(name)s"
+    },
+    "JakeWharton": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/JakeWharton/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/JakeWharton/%(name)s"
+    },
+    "JuanPotato": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/JuanPotato/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/JuanPotato/%(name)s"
+    },
+    "Katee": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Katee/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Katee/%(name)s"
+    },
+    "KeyboardFire": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/KeyboardFire/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/KeyboardFire/%(name)s"
+    },
+    "Kinto": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Kinto/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Kinto/%(name)s"
+    },
+    "Lasagne": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Lasagne/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Lasagne/%(name)s"
+    },
+    "LewisVo": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/LewisVo/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/LewisVo/%(name)s"
+    },
+    "MagicStack": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/MagicStack/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/MagicStack/%(name)s"
+    },
+    "Miserlou": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Miserlou/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Miserlou/%(name)s"
+    },
+    "MobSF": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/MobSF/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/MobSF/%(name)s"
+    },
+    "MobileChromeApps": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/MobileChromeApps/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/MobileChromeApps/%(name)s"
+    },
+    "MongoEngine": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/MongoEngine/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/MongoEngine/%(name)s"
+    },
+    "NVIDIA": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/NVIDIA/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/NVIDIA/%(name)s"
+    },
+    "NervanaSystems": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/NervanaSystems/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/NervanaSystems/%(name)s"
+    },
+    "Newmu": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Newmu/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Newmu/%(name)s"
+    },
+    "PeterDing": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/PeterDing/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/PeterDing/%(name)s"
+    },
+    "PokemonGoF": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/PokemonGoF/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/PokemonGoF/%(name)s"
+    },
+    "PyCQA": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/PyCQA/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/PyCQA/%(name)s"
+    },
+    "PyMySQL": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/PyMySQL/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/PyMySQL/%(name)s"
+    },
+    "Pylons": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Pylons/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Pylons/%(name)s"
+    },
+    "Qix-": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Qix-/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Qix-/%(name)s"
+    },
+    "RaRe-Technologies": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/RaRe-Technologies/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/RaRe-Technologies/%(name)s"
+    },
+    "Rochester-NRT": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Rochester-NRT/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Rochester-NRT/%(name)s"
+    },
+    "RocketMap": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/RocketMap/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/RocketMap/%(name)s"
+    },
+    "Russell91": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Russell91/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Russell91/%(name)s"
+    },
+    "Shougo": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Shougo/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Shougo/%(name)s"
+    },
+    "SideBarEnhancements-org": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/SideBarEnhancements-org/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/SideBarEnhancements-org/%(name)s"
+    },
+    "SirVer": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/SirVer/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/SirVer/%(name)s"
+    },
+    "StackStorm": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/StackStorm/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/StackStorm/%(name)s"
+    },
+    "SublimeCodeIntel": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/SublimeCodeIntel/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/SublimeCodeIntel/%(name)s"
+    },
+    "SublimeText-Markdown": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/SublimeText-Markdown/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/SublimeText-Markdown/%(name)s"
+    },
+    "Supervisor": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Supervisor/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Supervisor/%(name)s"
+    },
+    "Theano": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Theano/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Theano/%(name)s"
+    },
+    "Tribler": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Tribler/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Tribler/%(name)s"
+    },
+    "USArmyResearchLab": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/USArmyResearchLab/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/USArmyResearchLab/%(name)s"
+    },
+    "Uberi": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Uberi/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Uberi/%(name)s"
+    },
+    "Urinx": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Urinx/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Urinx/%(name)s"
+    },
+    "Valloric": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Valloric/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Valloric/%(name)s"
+    },
+    "VitaliyRodnenko": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/VitaliyRodnenko/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/VitaliyRodnenko/%(name)s"
+    },
+    "XX-net": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/XX-net/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/XX-net/%(name)s"
+    },
+    "Yelp": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Yelp/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Yelp/%(name)s"
+    },
+    "Zulko": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/Zulko/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/Zulko/%(name)s"
+    },
+    "a1studmuffin": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/a1studmuffin/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/a1studmuffin/%(name)s"
+    },
+    "adobe-fonts": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/adobe-fonts/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/adobe-fonts/%(name)s"
+    },
+    "affinelayer": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/affinelayer/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/affinelayer/%(name)s"
+    },
+    "ageitgey": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/ageitgey/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/ageitgey/%(name)s"
+    },
+    "aio-libs": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/aio-libs/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/aio-libs/%(name)s"
+    },
+    "airbnb": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/airbnb/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/airbnb/%(name)s"
+    },
+    "ajalt": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/ajalt/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/ajalt/%(name)s"
+    },
+    "ajenti": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/ajenti/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/ajenti/%(name)s"
+    },
+    "alexjc": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/alexjc/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/alexjc/%(name)s"
+    },
+    "amoffat": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/amoffat/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/amoffat/%(name)s"
+    },
+    "amperser": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/amperser/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/amperser/%(name)s"
+    },
+    "amscanne": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/amscanne/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/amscanne/%(name)s"
+    },
+    "amueller": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/amueller/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/amueller/%(name)s"
+    },
+    "andymccurdy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/andymccurdy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/andymccurdy/%(name)s"
+    },
+    "anishathalye": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/anishathalye/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/anishathalye/%(name)s"
+    },
+    "ansible": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/ansible/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/ansible/%(name)s"
+    },
+    "apache": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/apache/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/apache/%(name)s"
+    },
+    "apenwarr": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/apenwarr/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/apenwarr/%(name)s"
+    },
+    "apprenticeharper": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/apprenticeharper/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/apprenticeharper/%(name)s"
+    },
+    "arielf": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/arielf/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/arielf/%(name)s"
+    },
+    "asciimoo": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/asciimoo/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/asciimoo/%(name)s"
+    },
+    "asciinema": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/asciinema/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/asciinema/%(name)s"
+    },
+    "atlassian": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/atlassian/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/atlassian/%(name)s"
+    },
+    "avinassh": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/avinassh/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/avinassh/%(name)s"
+    },
+    "awentzonline": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/awentzonline/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/awentzonline/%(name)s"
+    },
+    "aws": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/aws/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/aws/%(name)s"
+    },
+    "awslabs": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/awslabs/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/awslabs/%(name)s"
+    },
+    "aziz": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/aziz/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/aziz/%(name)s"
+    },
+    "banga": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/banga/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/banga/%(name)s"
+    },
+    "beetbox": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/beetbox/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/beetbox/%(name)s"
+    },
+    "benoitc": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/benoitc/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/benoitc/%(name)s"
+    },
+    "binux": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/binux/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/binux/%(name)s"
+    },
+    "blaze": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/blaze/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/blaze/%(name)s"
+    },
+    "bokeh": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/bokeh/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/bokeh/%(name)s"
+    },
+    "borgbackup": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/borgbackup/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/borgbackup/%(name)s"
+    },
+    "boto": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/boto/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/boto/%(name)s"
+    },
+    "bottlepy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/bottlepy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/bottlepy/%(name)s"
+    },
+    "buildbot": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/buildbot/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/buildbot/%(name)s"
+    },
+    "bup": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/bup/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/bup/%(name)s"
+    },
+    "burnash": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/burnash/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/burnash/%(name)s"
+    },
+    "byt3bl33d3r": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/byt3bl33d3r/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/byt3bl33d3r/%(name)s"
+    },
+    "carltongibson": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/carltongibson/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/carltongibson/%(name)s"
+    },
+    "celery": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/celery/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/celery/%(name)s"
+    },
+    "certbot": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/certbot/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/certbot/%(name)s"
+    },
+    "chainer": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/chainer/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/chainer/%(name)s"
+    },
+    "channelcat": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/channelcat/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/channelcat/%(name)s"
+    },
+    "chaosbot": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/chaosbot/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/chaosbot/%(name)s"
+    },
+    "chrippa": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/chrippa/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/chrippa/%(name)s"
+    },
+    "chriskiehl": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/chriskiehl/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/chriskiehl/%(name)s"
+    },
+    "chrissimpkins": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/chrissimpkins/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/chrissimpkins/%(name)s"
+    },
+    "christabor": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/christabor/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/christabor/%(name)s"
+    },
+    "chubin": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/chubin/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/chubin/%(name)s"
+    },
+    "clips": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/clips/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/clips/%(name)s"
+    },
+    "cloudera": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/cloudera/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/cloudera/%(name)s"
+    },
+    "cloudtools": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/cloudtools/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/cloudtools/%(name)s"
+    },
+    "codelucas": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/codelucas/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/codelucas/%(name)s"
+    },
+    "coleifer": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/coleifer/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/coleifer/%(name)s"
+    },
+    "commaai": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/commaai/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/commaai/%(name)s"
+    },
+    "coursera-dl": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/coursera-dl/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/coursera-dl/%(name)s"
+    },
+    "crsmithdev": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/crsmithdev/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/crsmithdev/%(name)s"
+    },
+    "cyrus-and": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/cyrus-and/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/cyrus-and/%(name)s"
+    },
+    "cython": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/cython/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/cython/%(name)s"
+    },
+    "dabeaz": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/dabeaz/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/dabeaz/%(name)s"
+    },
+    "dae": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/dae/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/dae/%(name)s"
+    },
+    "darknessomi": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/darknessomi/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/darknessomi/%(name)s"
+    },
+    "david-gpu": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/david-gpu/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/david-gpu/%(name)s"
+    },
+    "davidhalter": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/davidhalter/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/davidhalter/%(name)s"
+    },
+    "dbader": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/dbader/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/dbader/%(name)s"
+    },
+    "dbcli": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/dbcli/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/dbcli/%(name)s"
+    },
+    "deepmind": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/deepmind/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/deepmind/%(name)s"
+    },
+    "deis": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/deis/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/deis/%(name)s"
+    },
+    "detailyang": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/detailyang/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/detailyang/%(name)s"
+    },
+    "devstructure": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/devstructure/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/devstructure/%(name)s"
+    },
+    "devttys0": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/devttys0/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/devttys0/%(name)s"
+    },
+    "diafygi": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/diafygi/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/diafygi/%(name)s"
+    },
+    "digitalocean": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/digitalocean/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/digitalocean/%(name)s"
+    },
+    "divio": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/divio/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/divio/%(name)s"
+    },
+    "djaiss": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/djaiss/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/djaiss/%(name)s"
+    },
+    "django": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/django/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/django/%(name)s"
+    },
+    "django-compressor": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/django-compressor/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/django-compressor/%(name)s"
+    },
+    "django-crispy-forms": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/django-crispy-forms/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/django-crispy-forms/%(name)s"
+    },
+    "django-extensions": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/django-extensions/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/django-extensions/%(name)s"
+    },
+    "django-haystack": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/django-haystack/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/django-haystack/%(name)s"
+    },
+    "django-oscar": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/django-oscar/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/django-oscar/%(name)s"
+    },
+    "django-tastypie": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/django-tastypie/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/django-tastypie/%(name)s"
+    },
+    "docker": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/docker/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/docker/%(name)s"
+    },
+    "docopt": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/docopt/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/docopt/%(name)s"
+    },
+    "donnemartin": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/donnemartin/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/donnemartin/%(name)s"
+    },
+    "douban": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/douban/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/douban/%(name)s"
+    },
+    "drduh": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/drduh/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/drduh/%(name)s"
+    },
+    "dropbox": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/dropbox/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/dropbox/%(name)s"
+    },
+    "dschep": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/dschep/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/dschep/%(name)s"
+    },
+    "dyve": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/dyve/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/dyve/%(name)s"
+    },
+    "eastlakeside": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/eastlakeside/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/eastlakeside/%(name)s"
+    },
+    "edx": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/edx/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/edx/%(name)s"
+    },
+    "eliangcs": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/eliangcs/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/eliangcs/%(name)s"
+    },
+    "emirozer": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/emirozer/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/emirozer/%(name)s"
+    },
+    "emre": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/emre/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/emre/%(name)s"
+    },
+    "encode": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/encode/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/encode/%(name)s"
+    },
+    "equinusocio": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/equinusocio/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/equinusocio/%(name)s"
+    },
+    "eriklindernoren": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/eriklindernoren/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/eriklindernoren/%(name)s"
+    },
+    "etianen": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/etianen/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/etianen/%(name)s"
+    },
+    "etsy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/etsy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/etsy/%(name)s"
+    },
+    "eudicots": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/eudicots/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/eudicots/%(name)s"
+    },
+    "euske": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/euske/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/euske/%(name)s"
+    },
+    "evilsocket": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/evilsocket/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/evilsocket/%(name)s"
+    },
+    "explosion": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/explosion/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/explosion/%(name)s"
+    },
+    "fabric": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/fabric/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/fabric/%(name)s"
+    },
+    "facebook": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/facebook/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/facebook/%(name)s"
+    },
+    "facebookarchive": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/facebookarchive/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/facebookarchive/%(name)s"
+    },
+    "facebookincubator": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/facebookincubator/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/facebookincubator/%(name)s"
+    },
+    "facebookresearch": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/facebookresearch/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/facebookresearch/%(name)s"
+    },
+    "faif": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/faif/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/faif/%(name)s"
+    },
+    "fail2ban": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/fail2ban/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/fail2ban/%(name)s"
+    },
+    "falconry": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/falconry/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/falconry/%(name)s"
+    },
+    "fastmonkeys": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/fastmonkeys/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/fastmonkeys/%(name)s"
+    },
+    "fchollet": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/fchollet/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/fchollet/%(name)s"
+    },
+    "feross": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/feross/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/feross/%(name)s"
+    },
+    "fivesheep": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/fivesheep/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/fivesheep/%(name)s"
+    },
+    "flask-admin": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/flask-admin/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/flask-admin/%(name)s"
+    },
+    "flask-restful": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/flask-restful/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/flask-restful/%(name)s"
+    },
+    "floydhub": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/floydhub/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/floydhub/%(name)s"
+    },
+    "fogleman": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/fogleman/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/fogleman/%(name)s"
+    },
+    "frappe": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/frappe/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/frappe/%(name)s"
+    },
+    "freedomofpress": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/freedomofpress/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/freedomofpress/%(name)s"
+    },
+    "fxsjy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/fxsjy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/fxsjy/%(name)s"
+    },
+    "gaubert": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/gaubert/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/gaubert/%(name)s"
+    },
+    "geekcomputers": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/geekcomputers/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/geekcomputers/%(name)s"
+    },
+    "gelstudios": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/gelstudios/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/gelstudios/%(name)s"
+    },
+    "getpelican": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/getpelican/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/getpelican/%(name)s"
+    },
+    "getredash": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/getredash/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/getredash/%(name)s"
+    },
+    "getsentry": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/getsentry/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/getsentry/%(name)s"
+    },
+    "gevent": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/gevent/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/gevent/%(name)s"
+    },
+    "giampaolo": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/giampaolo/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/giampaolo/%(name)s"
+    },
+    "gleitz": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/gleitz/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/gleitz/%(name)s"
+    },
+    "gnemoug": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/gnemoug/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/gnemoug/%(name)s"
+    },
+    "gongjianhui": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/gongjianhui/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/gongjianhui/%(name)s"
+    },
+    "google": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/google/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/google/%(name)s"
+    },
+    "gorakhargosh": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/gorakhargosh/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/gorakhargosh/%(name)s"
+    },
+    "graphific": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/graphific/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/graphific/%(name)s"
+    },
+    "graphql-python": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/graphql-python/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/graphql-python/%(name)s"
+    },
+    "gregmalcolm": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/gregmalcolm/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/gregmalcolm/%(name)s"
+    },
+    "gunthercox": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/gunthercox/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/gunthercox/%(name)s"
+    },
+    "hanc00l": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/hanc00l/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/hanc00l/%(name)s"
+    },
+    "harelba": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/harelba/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/harelba/%(name)s"
+    },
+    "hephaest0s": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/hephaest0s/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/hephaest0s/%(name)s"
+    },
+    "hhatto": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/hhatto/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/hhatto/%(name)s"
+    },
+    "home-assistant": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/home-assistant/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/home-assistant/%(name)s"
+    },
+    "honza": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/honza/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/honza/%(name)s"
+    },
+    "houtianze": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/houtianze/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/houtianze/%(name)s"
+    },
+    "humphd": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/humphd/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/humphd/%(name)s"
+    },
+    "huntergregal": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/huntergregal/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/huntergregal/%(name)s"
+    },
+    "hylang": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/hylang/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/hylang/%(name)s"
+    },
+    "i-tu": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/i-tu/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/i-tu/%(name)s"
+    },
+    "iBaa": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/iBaa/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/iBaa/%(name)s"
+    },
+    "iambus": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/iambus/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/iambus/%(name)s"
+    },
+    "ibab": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/ibab/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/ibab/%(name)s"
+    },
+    "idank": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/idank/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/idank/%(name)s"
+    },
+    "ipython": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/ipython/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/ipython/%(name)s"
+    },
+    "isnowfy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/isnowfy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/isnowfy/%(name)s"
+    },
+    "isocpp": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/isocpp/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/isocpp/%(name)s"
+    },
+    "jakubroztocil": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jakubroztocil/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jakubroztocil/%(name)s"
+    },
+    "jaredks": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jaredks/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jaredks/%(name)s"
+    },
+    "jasperproject": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jasperproject/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jasperproject/%(name)s"
+    },
+    "jayfk": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jayfk/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jayfk/%(name)s"
+    },
+    "jazzband": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jazzband/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jazzband/%(name)s"
+    },
+    "jeanphix": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jeanphix/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jeanphix/%(name)s"
+    },
+    "jeffkaufman": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jeffkaufman/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jeffkaufman/%(name)s"
+    },
+    "jeffknupp": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jeffknupp/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jeffknupp/%(name)s"
+    },
+    "jgm": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jgm/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jgm/%(name)s"
+    },
+    "jiaaro": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jiaaro/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jiaaro/%(name)s"
+    },
+    "jisaacks": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jisaacks/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jisaacks/%(name)s"
+    },
+    "jmcarp": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jmcarp/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jmcarp/%(name)s"
+    },
+    "joelgrus": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/joelgrus/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/joelgrus/%(name)s"
+    },
+    "joestump": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/joestump/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/joestump/%(name)s"
+    },
+    "joke2k": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/joke2k/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/joke2k/%(name)s"
+    },
+    "jokkedk": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jokkedk/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jokkedk/%(name)s"
+    },
+    "jonathanslenders": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jonathanslenders/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jonathanslenders/%(name)s"
+    },
+    "jopohl": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jopohl/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jopohl/%(name)s"
+    },
+    "jorgebastida": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jorgebastida/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jorgebastida/%(name)s"
+    },
+    "josephmisiti": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/josephmisiti/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/josephmisiti/%(name)s"
+    },
+    "joshnewlan": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/joshnewlan/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/joshnewlan/%(name)s"
+    },
+    "jostmey": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jostmey/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jostmey/%(name)s"
+    },
+    "jsvine": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jsvine/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jsvine/%(name)s"
+    },
+    "junyanz": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/junyanz/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/junyanz/%(name)s"
+    },
+    "jupyterhub": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jupyterhub/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jupyterhub/%(name)s"
+    },
+    "jwilder": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/jwilder/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/jwilder/%(name)s"
+    },
+    "kachayev": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/kachayev/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/kachayev/%(name)s"
+    },
+    "kamyu104": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/kamyu104/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/kamyu104/%(name)s"
+    },
+    "karpathy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/karpathy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/karpathy/%(name)s"
+    },
+    "kbengine": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/kbengine/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/kbengine/%(name)s"
+    },
+    "kemayo": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/kemayo/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/kemayo/%(name)s"
+    },
+    "kennethreitz": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/kennethreitz/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/kennethreitz/%(name)s"
+    },
+    "keon": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/keon/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/keon/%(name)s"
+    },
+    "kivy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/kivy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/kivy/%(name)s"
+    },
+    "kootenpv": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/kootenpv/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/kootenpv/%(name)s"
+    },
+    "kovidgoyal": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/kovidgoyal/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/kovidgoyal/%(name)s"
+    },
+    "kstenerud": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/kstenerud/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/kstenerud/%(name)s"
+    },
+    "kylemcdonald": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/kylemcdonald/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/kylemcdonald/%(name)s"
+    },
+    "larsenwork": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/larsenwork/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/larsenwork/%(name)s"
+    },
+    "lauris": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/lauris/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/lauris/%(name)s"
+    },
+    "lbryio": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/lbryio/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/lbryio/%(name)s"
+    },
+    "lebinh": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/lebinh/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/lebinh/%(name)s"
+    },
+    "lektor": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/lektor/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/lektor/%(name)s"
+    },
+    "lengstrom": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/lengstrom/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/lengstrom/%(name)s"
+    },
+    "lihaoyi": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/lihaoyi/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/lihaoyi/%(name)s"
+    },
+    "lisa-lab": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/lisa-lab/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/lisa-lab/%(name)s"
+    },
+    "littlecodersh": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/littlecodersh/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/littlecodersh/%(name)s"
+    },
+    "liuwons": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/liuwons/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/liuwons/%(name)s"
+    },
+    "livid": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/livid/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/livid/%(name)s"
+    },
+    "locustio": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/locustio/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/locustio/%(name)s"
+    },
+    "longld": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/longld/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/longld/%(name)s"
+    },
+    "lra": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/lra/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/lra/%(name)s"
+    },
+    "maebert": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/maebert/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/maebert/%(name)s"
+    },
+    "mahmoud": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mahmoud/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mahmoud/%(name)s"
+    },
+    "mail-in-a-box": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mail-in-a-box/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mail-in-a-box/%(name)s"
+    },
+    "mailpile": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mailpile/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mailpile/%(name)s"
+    },
+    "mantl": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mantl/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mantl/%(name)s"
+    },
+    "marshmallow-code": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/marshmallow-code/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/marshmallow-code/%(name)s"
+    },
+    "martinblech": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/martinblech/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/martinblech/%(name)s"
+    },
+    "matplotlib": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/matplotlib/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/matplotlib/%(name)s"
+    },
+    "matrix-org": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/matrix-org/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/matrix-org/%(name)s"
+    },
+    "maxbbraun": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/maxbbraun/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/maxbbraun/%(name)s"
+    },
+    "mchristopher": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mchristopher/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mchristopher/%(name)s"
+    },
+    "mher": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mher/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mher/%(name)s"
+    },
+    "micahflee": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/micahflee/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/micahflee/%(name)s"
+    },
+    "midgetspy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/midgetspy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/midgetspy/%(name)s"
+    },
+    "miguelgrinberg": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/miguelgrinberg/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/miguelgrinberg/%(name)s"
+    },
+    "miloyip": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/miloyip/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/miloyip/%(name)s"
+    },
+    "minimaxir": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/minimaxir/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/minimaxir/%(name)s"
+    },
+    "mininet": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mininet/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mininet/%(name)s"
+    },
+    "misterch0c": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/misterch0c/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/misterch0c/%(name)s"
+    },
+    "mitmproxy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mitmproxy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mitmproxy/%(name)s"
+    },
+    "mkdocs": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mkdocs/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mkdocs/%(name)s"
+    },
+    "mnielsen": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mnielsen/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mnielsen/%(name)s"
+    },
+    "mobolic": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mobolic/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mobolic/%(name)s"
+    },
+    "mongodb": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mongodb/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mongodb/%(name)s"
+    },
+    "mooz": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mooz/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mooz/%(name)s"
+    },
+    "mopidy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mopidy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mopidy/%(name)s"
+    },
+    "mps-youtube": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/mps-youtube/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/mps-youtube/%(name)s"
+    },
+    "n1nj4sec": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/n1nj4sec/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/n1nj4sec/%(name)s"
+    },
+    "nate-parrott": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/nate-parrott/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/nate-parrott/%(name)s"
+    },
+    "networkx": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/networkx/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/networkx/%(name)s"
+    },
+    "newsapps": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/newsapps/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/newsapps/%(name)s"
+    },
+    "nicolargo": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/nicolargo/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/nicolargo/%(name)s"
+    },
+    "nltk": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/nltk/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/nltk/%(name)s"
+    },
+    "noamraph": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/noamraph/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/noamraph/%(name)s"
+    },
+    "nodejs": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/nodejs/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/nodejs/%(name)s"
+    },
+    "nryoung": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/nryoung/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/nryoung/%(name)s"
+    },
+    "numba": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/numba/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/numba/%(name)s"
+    },
+    "numenta": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/numenta/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/numenta/%(name)s"
+    },
+    "nvbn": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/nvbn/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/nvbn/%(name)s"
+    },
+    "nvdv": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/nvdv/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/nvdv/%(name)s"
+    },
+    "nvie": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/nvie/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/nvie/%(name)s"
+    },
+    "nylas": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/nylas/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/nylas/%(name)s"
+    },
+    "odoo": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/odoo/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/odoo/%(name)s"
+    },
+    "omab": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/omab/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/omab/%(name)s"
+    },
+    "openai": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/openai/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/openai/%(name)s"
+    },
+    "openpaperwork": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/openpaperwork/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/openpaperwork/%(name)s"
+    },
+    "openstack": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/openstack/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/openstack/%(name)s"
+    },
+    "orakaro": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/orakaro/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/orakaro/%(name)s"
+    },
+    "p-e-w": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/p-e-w/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/p-e-w/%(name)s"
+    },
+    "pallets": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pallets/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pallets/%(name)s"
+    },
+    "pandas-dev": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pandas-dev/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pandas-dev/%(name)s"
+    },
+    "paramiko": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/paramiko/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/paramiko/%(name)s"
+    },
+    "pavelgonchar": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pavelgonchar/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pavelgonchar/%(name)s"
+    },
+    "pennersr": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pennersr/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pennersr/%(name)s"
+    },
+    "phusion": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/phusion/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/phusion/%(name)s"
+    },
+    "pinax": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pinax/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pinax/%(name)s"
+    },
+    "pixie-lang": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pixie-lang/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pixie-lang/%(name)s"
+    },
+    "plasma-disassembler": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/plasma-disassembler/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/plasma-disassembler/%(name)s"
+    },
+    "platformio": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/platformio/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/platformio/%(name)s"
+    },
+    "plotly": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/plotly/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/plotly/%(name)s"
+    },
+    "posativ": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/posativ/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/posativ/%(name)s"
+    },
+    "powerline": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/powerline/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/powerline/%(name)s"
+    },
+    "prakhar1989": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/prakhar1989/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/prakhar1989/%(name)s"
+    },
+    "programthink": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/programthink/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/programthink/%(name)s"
+    },
+    "pudo": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pudo/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pudo/%(name)s"
+    },
+    "pybrain": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pybrain/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pybrain/%(name)s"
+    },
+    "pydanny": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pydanny/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pydanny/%(name)s"
+    },
+    "pyeve": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pyeve/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pyeve/%(name)s"
+    },
+    "pyinstaller": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pyinstaller/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pyinstaller/%(name)s"
+    },
+    "pymc-devs": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pymc-devs/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pymc-devs/%(name)s"
+    },
+    "pypa": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pypa/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pypa/%(name)s"
+    },
+    "python": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/python/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/python/%(name)s"
+    },
+    "python-mode": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/python-mode/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/python-mode/%(name)s"
+    },
+    "python-pillow": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/python-pillow/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/python-pillow/%(name)s"
+    },
+    "python-telegram-bot": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/python-telegram-bot/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/python-telegram-bot/%(name)s"
+    },
+    "python-visualization": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/python-visualization/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/python-visualization/%(name)s"
+    },
+    "pytorch": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/pytorch/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/pytorch/%(name)s"
+    },
+    "quantopian": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/quantopian/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/quantopian/%(name)s"
+    },
+    "qutebrowser": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/qutebrowser/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/qutebrowser/%(name)s"
+    },
+    "ranger": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/ranger/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/ranger/%(name)s"
+    },
+    "rbgirshick": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/rbgirshick/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/rbgirshick/%(name)s"
+    },
+    "realpython": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/realpython/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/realpython/%(name)s"
+    },
+    "reddit": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/reddit/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/reddit/%(name)s"
+    },
+    "redecentralize": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/redecentralize/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/redecentralize/%(name)s"
+    },
+    "reinderien": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/reinderien/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/reinderien/%(name)s"
+    },
+    "rembo10": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/rembo10/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/rembo10/%(name)s"
+    },
+    "reorx": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/reorx/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/reorx/%(name)s"
+    },
+    "requests": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/requests/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/requests/%(name)s"
+    },
+    "reverse-shell": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/reverse-shell/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/reverse-shell/%(name)s"
+    },
+    "revolunet": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/revolunet/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/revolunet/%(name)s"
+    },
+    "rg3": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/rg3/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/rg3/%(name)s"
+    },
+    "rhiever": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/rhiever/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/rhiever/%(name)s"
+    },
+    "rolando": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/rolando/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/rolando/%(name)s"
+    },
+    "rtfd": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/rtfd/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/rtfd/%(name)s"
+    },
+    "rushter": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/rushter/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/rushter/%(name)s"
+    },
+    "ryankiros": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/ryankiros/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/ryankiros/%(name)s"
+    },
+    "s3tools": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/s3tools/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/s3tools/%(name)s"
+    },
+    "saltstack": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/saltstack/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/saltstack/%(name)s"
+    },
+    "samshadwell": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/samshadwell/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/samshadwell/%(name)s"
+    },
+    "samuelclay": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/samuelclay/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/samuelclay/%(name)s"
+    },
+    "samuraisam": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/samuraisam/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/samuraisam/%(name)s"
+    },
+    "schematics": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/schematics/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/schematics/%(name)s"
+    },
+    "schollz": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/schollz/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/schollz/%(name)s"
+    },
+    "scikit-learn": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/scikit-learn/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/scikit-learn/%(name)s"
+    },
+    "scipy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/scipy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/scipy/%(name)s"
+    },
+    "scrapy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/scrapy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/scrapy/%(name)s"
+    },
+    "sdispater": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sdispater/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sdispater/%(name)s"
+    },
+    "seatgeek": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/seatgeek/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/seatgeek/%(name)s"
+    },
+    "shadowsocks": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/shadowsocks/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/shadowsocks/%(name)s"
+    },
+    "sightmachine": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sightmachine/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sightmachine/%(name)s"
+    },
+    "sivel": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sivel/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sivel/%(name)s"
+    },
+    "sixohsix": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sixohsix/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sixohsix/%(name)s"
+    },
+    "sloria": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sloria/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sloria/%(name)s"
+    },
+    "snare": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/snare/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/snare/%(name)s"
+    },
+    "soimort": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/soimort/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/soimort/%(name)s"
+    },
+    "sokolovstas": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sokolovstas/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sokolovstas/%(name)s"
+    },
+    "somerandomdude": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/somerandomdude/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/somerandomdude/%(name)s"
+    },
+    "songrotek": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/songrotek/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/songrotek/%(name)s"
+    },
+    "soumith": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/soumith/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/soumith/%(name)s"
+    },
+    "sovereign": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sovereign/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sovereign/%(name)s"
+    },
+    "spadgos": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/spadgos/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/spadgos/%(name)s"
+    },
+    "spinnaker": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/spinnaker/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/spinnaker/%(name)s"
+    },
+    "spotify": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/spotify/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/spotify/%(name)s"
+    },
+    "spyder-ide": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/spyder-ide/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/spyder-ide/%(name)s"
+    },
+    "sqlmapproject": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sqlmapproject/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sqlmapproject/%(name)s"
+    },
+    "sripathikrishnan": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sripathikrishnan/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sripathikrishnan/%(name)s"
+    },
+    "sshwsfc": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sshwsfc/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sshwsfc/%(name)s"
+    },
+    "stamparm": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/stamparm/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/stamparm/%(name)s"
+    },
+    "statsmodels": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/statsmodels/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/statsmodels/%(name)s"
+    },
+    "stephenmcd": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/stephenmcd/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/stephenmcd/%(name)s"
+    },
+    "sublimehq": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sublimehq/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sublimehq/%(name)s"
+    },
+    "sylnsfar": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sylnsfar/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sylnsfar/%(name)s"
+    },
+    "sympy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/sympy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/sympy/%(name)s"
+    },
+    "taigaio": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/taigaio/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/taigaio/%(name)s"
+    },
+    "tangqiaoboy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/tangqiaoboy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/tangqiaoboy/%(name)s"
+    },
+    "taobao": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/taobao/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/taobao/%(name)s"
+    },
+    "tensorflow": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/tensorflow/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/tensorflow/%(name)s"
+    },
+    "tflearn": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/tflearn/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/tflearn/%(name)s"
+    },
+    "tgalal": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/tgalal/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/tgalal/%(name)s"
+    },
+    "thearn": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/thearn/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/thearn/%(name)s"
+    },
+    "thumbor": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/thumbor/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/thumbor/%(name)s"
+    },
+    "timgrossmann": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/timgrossmann/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/timgrossmann/%(name)s"
+    },
+    "timothycrosley": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/timothycrosley/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/timothycrosley/%(name)s"
+    },
+    "tornadoweb": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/tornadoweb/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/tornadoweb/%(name)s"
+    },
+    "tqdm": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/tqdm/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/tqdm/%(name)s"
+    },
+    "trustedsec": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/trustedsec/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/trustedsec/%(name)s"
+    },
+    "tschellenbach": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/tschellenbach/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/tschellenbach/%(name)s"
+    },
+    "tweepy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/tweepy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/tweepy/%(name)s"
+    },
+    "twisted": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/twisted/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/twisted/%(name)s"
+    },
+    "ujjwalkarn": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/ujjwalkarn/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/ujjwalkarn/%(name)s"
+    },
+    "viewfinderco": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/viewfinderco/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/viewfinderco/%(name)s"
+    },
+    "vinta": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/vinta/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/vinta/%(name)s"
+    },
+    "waditu": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/waditu/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/waditu/%(name)s"
+    },
+    "wagtail": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/wagtail/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/wagtail/%(name)s"
+    },
+    "wal-e": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/wal-e/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/wal-e/%(name)s"
+    },
+    "wbond": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/wbond/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/wbond/%(name)s"
+    },
+    "webpy": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/webpy/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/webpy/%(name)s"
+    },
+    "what-studio": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/what-studio/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/what-studio/%(name)s"
+    },
+    "whtsky": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/whtsky/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/whtsky/%(name)s"
+    },
+    "wifiphisher": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/wifiphisher/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/wifiphisher/%(name)s"
+    },
+    "wireservice": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/wireservice/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/wireservice/%(name)s"
+    },
+    "worldveil": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/worldveil/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/worldveil/%(name)s"
+    },
+    "wrobstory": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/wrobstory/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/wrobstory/%(name)s"
+    },
+    "wting": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/wting/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/wting/%(name)s"
+    },
+    "wuub": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/wuub/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/wuub/%(name)s"
+    },
+    "xchaoinfo": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/xchaoinfo/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/xchaoinfo/%(name)s"
+    },
+    "xiyouMc": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/xiyouMc/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/xiyouMc/%(name)s"
+    },
+    "xonsh": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/xonsh/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/xonsh/%(name)s"
+    },
+    "yahoo": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/yahoo/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/yahoo/%(name)s"
+    },
+    "yandex": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/yandex/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/yandex/%(name)s"
+    },
+    "yenchenlin": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/yenchenlin/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/yenchenlin/%(name)s"
+    },
+    "yhat": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/yhat/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/yhat/%(name)s"
+    },
+    "yidao620c": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/yidao620c/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/yidao620c/%(name)s"
+    },
+    "youfou": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/youfou/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/youfou/%(name)s"
+    },
+    "ytisf": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/ytisf/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/ytisf/%(name)s"
+    },
+    "yunjey": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/yunjey/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/yunjey/%(name)s"
+    },
+    "zsdonghao": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/zsdonghao/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/zsdonghao/%(name)s"
+    },
+    "zulip": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/zulip/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/zulip/%(name)s"
+    },
+    "zzzeek": {
+      "branches": [
+        "master"
+      ],
+      "gitweb": "http://github.com/zzzeek/%(name)s/commit/%%(sha)s",
+      "uri": "http://github.com/zzzeek/%(name)s"
+    }
+  },
+  "projects": {
+    "0rpc": {
+      "zerorpc-python": {
+        "branches": [
+          "master"
+        ],
+        "template": "0rpc"
+      }
+    },
+    "0x5e": {
+      "wechat-deleted-friends": {
+        "branches": [
+          "master"
+        ],
+        "template": "0x5e"
+      }
+    },
+    "10se1ucgo": {
+      "DisableWinTracking": {
+        "branches": [
+          "master"
+        ],
+        "template": "10se1ucgo"
+      }
+    },
+    "521xueweihan": {
+      "HelloGitHub": {
+        "branches": [
+          "master"
+        ],
+        "template": "521xueweihan"
+      }
+    },
+    "AlessandroZ": {
+      "LaZagne": {
+        "branches": [
+          "master"
+        ],
+        "template": "AlessandroZ"
+      }
+    },
+    "AppScale": {
+      "appscale": {
+        "branches": [
+          "master"
+        ],
+        "template": "AppScale"
+      }
+    },
+    "Bitmessage": {
+      "PyBitmessage": {
+        "branches": [
+          "master"
+        ],
+        "template": "Bitmessage"
+      }
+    },
+    "ClusterHQ": {
+      "flocker": {
+        "branches": [
+          "master"
+        ],
+        "template": "ClusterHQ"
+      }
+    },
+    "CouchPotato": {
+      "CouchPotatoServer": {
+        "branches": [
+          "master"
+        ],
+        "template": "CouchPotato"
+      }
+    },
+    "DanMcInerney": {
+      "wifijammer": {
+        "branches": [
+          "master"
+        ],
+        "template": "DanMcInerney"
+      }
+    },
+    "Eloston": {
+      "ungoogled-chromium": {
+        "branches": [
+          "master"
+        ],
+        "template": "Eloston"
+      }
+    },
+    "Gallopsled": {
+      "pwntools": {
+        "branches": [
+          "dev"
+        ],
+        "template": "Gallopsled"
+      }
+    },
+    "Guake": {
+      "guake": {
+        "branches": [
+          "master"
+        ],
+        "template": "Guake"
+      }
+    },
+    "HelloZeroNet": {
+      "ZeroNet": {
+        "branches": [
+          "master"
+        ],
+        "template": "HelloZeroNet"
+      }
+    },
+    "Hironsan": {
+      "BossSensor": {
+        "branches": [
+          "master"
+        ],
+        "template": "Hironsan"
+      }
+    },
+    "HypothesisWorks": {
+      "hypothesis-python": {
+        "branches": [
+          "master"
+        ],
+        "template": "HypothesisWorks"
+      }
+    },
+    "Jahaja": {
+      "psdash": {
+        "branches": [
+          "master"
+        ],
+        "template": "Jahaja"
+      }
+    },
+    "JakeWharton": {
+      "pidcat": {
+        "branches": [
+          "master"
+        ],
+        "template": "JakeWharton"
+      }
+    },
+    "JuanPotato": {
+      "Legofy": {
+        "branches": [
+          "master"
+        ],
+        "template": "JuanPotato"
+      }
+    },
+    "Katee": {
+      "quietnet": {
+        "branches": [
+          "master"
+        ],
+        "template": "Katee"
+      }
+    },
+    "KeyboardFire": {
+      "mkcast": {
+        "branches": [
+          "master"
+        ],
+        "template": "KeyboardFire"
+      }
+    },
+    "Kinto": {
+      "kinto": {
+        "branches": [
+          "master"
+        ],
+        "template": "Kinto"
+      }
+    },
+    "Lasagne": {
+      "Lasagne": {
+        "branches": [
+          "master"
+        ],
+        "template": "Lasagne"
+      }
+    },
+    "LewisVo": {
+      "Awesome-Linux-Software": {
+        "branches": [
+          "master"
+        ],
+        "template": "LewisVo"
+      }
+    },
+    "MagicStack": {
+      "asyncpg": {
+        "branches": [
+          "master"
+        ],
+        "template": "MagicStack"
+      },
+      "uvloop": {
+        "branches": [
+          "master"
+        ],
+        "template": "MagicStack"
+      }
+    },
+    "Miserlou": {
+      "Zappa": {
+        "branches": [
+          "master"
+        ],
+        "template": "Miserlou"
+      }
+    },
+    "MobSF": {
+      "Mobile-Security-Framework-MobSF": {
+        "branches": [
+          "master"
+        ],
+        "template": "MobSF"
+      }
+    },
+    "MobileChromeApps": {
+      "mobile-chrome-apps": {
+        "branches": [
+          "master"
+        ],
+        "template": "MobileChromeApps"
+      }
+    },
+    "MongoEngine": {
+      "mongoengine": {
+        "branches": [
+          "master"
+        ],
+        "template": "MongoEngine"
+      }
+    },
+    "NVIDIA": {
+      "DIGITS": {
+        "branches": [
+          "master"
+        ],
+        "template": "NVIDIA"
+      }
+    },
+    "NervanaSystems": {
+      "neon": {
+        "branches": [
+          "master"
+        ],
+        "template": "NervanaSystems"
+      }
+    },
+    "Newmu": {
+      "dcgan_code": {
+        "branches": [
+          "master"
+        ],
+        "template": "Newmu"
+      }
+    },
+    "PeterDing": {
+      "iScript": {
+        "branches": [
+          "master"
+        ],
+        "template": "PeterDing"
+      }
+    },
+    "PokemonGoF": {
+      "PokemonGo-Bot": {
+        "branches": [
+          "master"
+        ],
+        "template": "PokemonGoF"
+      }
+    },
+    "PyCQA": {
+      "pycodestyle": {
+        "branches": [
+          "master"
+        ],
+        "template": "PyCQA"
+      }
+    },
+    "PyMySQL": {
+      "PyMySQL": {
+        "branches": [
+          "master"
+        ],
+        "template": "PyMySQL"
+      }
+    },
+    "Pylons": {
+      "pyramid": {
+        "branches": [
+          "master"
+        ],
+        "template": "Pylons"
+      }
+    },
+    "Qix-": {
+      "better-exceptions": {
+        "branches": [
+          "master"
+        ],
+        "template": "Qix-"
+      }
+    },
+    "RaRe-Technologies": {
+      "gensim": {
+        "branches": [
+          "develop"
+        ],
+        "template": "RaRe-Technologies"
+      }
+    },
+    "Rochester-NRT": {
+      "RocAlphaGo": {
+        "branches": [
+          "develop"
+        ],
+        "template": "Rochester-NRT"
+      }
+    },
+    "RocketMap": {
+      "RocketMap": {
+        "branches": [
+          "develop"
+        ],
+        "template": "RocketMap"
+      }
+    },
+    "Russell91": {
+      "pythonpy": {
+        "branches": [
+          "master"
+        ],
+        "template": "Russell91"
+      }
+    },
+    "Shougo": {
+      "deoplete.nvim": {
+        "branches": [
+          "master"
+        ],
+        "template": "Shougo"
+      }
+    },
+    "SideBarEnhancements-org": {
+      "SideBarEnhancements": {
+        "branches": [
+          "st3"
+        ],
+        "template": "SideBarEnhancements-org"
+      }
+    },
+    "SirVer": {
+      "ultisnips": {
+        "branches": [
+          "master"
+        ],
+        "template": "SirVer"
+      }
+    },
+    "StackStorm": {
+      "st2": {
+        "branches": [
+          "master"
+        ],
+        "template": "StackStorm"
+      }
+    },
+    "SublimeCodeIntel": {
+      "SublimeCodeIntel": {
+        "branches": [
+          "master"
+        ],
+        "template": "SublimeCodeIntel"
+      }
+    },
+    "SublimeText-Markdown": {
+      "MarkdownEditing": {
+        "branches": [
+          "master"
+        ],
+        "template": "SublimeText-Markdown"
+      }
+    },
+    "Supervisor": {
+      "supervisor": {
+        "branches": [
+          "master"
+        ],
+        "template": "Supervisor"
+      }
+    },
+    "Theano": {
+      "Theano": {
+        "branches": [
+          "master"
+        ],
+        "template": "Theano"
+      }
+    },
+    "Tribler": {
+      "tribler": {
+        "branches": [
+          "devel"
+        ],
+        "template": "Tribler"
+      }
+    },
+    "USArmyResearchLab": {
+      "Dshell": {
+        "branches": [
+          "master"
+        ],
+        "template": "USArmyResearchLab"
+      }
+    },
+    "Uberi": {
+      "speech_recognition": {
+        "branches": [
+          "master"
+        ],
+        "template": "Uberi"
+      }
+    },
+    "Urinx": {
+      "WeixinBot": {
+        "branches": [
+          "master"
+        ],
+        "template": "Urinx"
+      }
+    },
+    "Valloric": {
+      "YouCompleteMe": {
+        "branches": [
+          "master"
+        ],
+        "template": "Valloric"
+      }
+    },
+    "VitaliyRodnenko": {
+      "geeknote": {
+        "branches": [
+          "master"
+        ],
+        "template": "VitaliyRodnenko"
+      }
+    },
+    "XX-net": {
+      "XX-Net": {
+        "branches": [
+          "master"
+        ],
+        "template": "XX-net"
+      }
+    },
+    "Yelp": {
+      "dumb-init": {
+        "branches": [
+          "master"
+        ],
+        "template": "Yelp"
+      },
+      "elastalert": {
+        "branches": [
+          "master"
+        ],
+        "template": "Yelp"
+      },
+      "mrjob": {
+        "branches": [
+          "master"
+        ],
+        "template": "Yelp"
+      }
+    },
+    "Zulko": {
+      "moviepy": {
+        "branches": [
+          "master"
+        ],
+        "template": "Zulko"
+      }
+    },
+    "a1studmuffin": {
+      "SpaceshipGenerator": {
+        "branches": [
+          "master"
+        ],
+        "template": "a1studmuffin"
+      }
+    },
+    "adobe-fonts": {
+      "source-code-pro": {
+        "branches": [
+          "master"
+        ],
+        "template": "adobe-fonts"
+      }
+    },
+    "affinelayer": {
+      "pix2pix-tensorflow": {
+        "branches": [
+          "master"
+        ],
+        "template": "affinelayer"
+      }
+    },
+    "ageitgey": {
+      "face_recognition": {
+        "branches": [
+          "master"
+        ],
+        "template": "ageitgey"
+      }
+    },
+    "aio-libs": {
+      "aiohttp": {
+        "branches": [
+          "master"
+        ],
+        "template": "aio-libs"
+      }
+    },
+    "airbnb": {
+      "knowledge-repo": {
+        "branches": [
+          "master"
+        ],
+        "template": "airbnb"
+      },
+      "superset": {
+        "branches": [
+          "master"
+        ],
+        "template": "airbnb"
+      }
+    },
+    "ajalt": {
+      "fuckitpy": {
+        "branches": [
+          "master"
+        ],
+        "template": "ajalt"
+      }
+    },
+    "ajenti": {
+      "ajenti": {
+        "branches": [
+          "1.x"
+        ],
+        "template": "ajenti"
+      }
+    },
+    "alexjc": {
+      "neural-doodle": {
+        "branches": [
+          "master"
+        ],
+        "template": "alexjc"
+      },
+      "neural-enhance": {
+        "branches": [
+          "master"
+        ],
+        "template": "alexjc"
+      }
+    },
+    "amoffat": {
+      "sh": {
+        "branches": [
+          "master"
+        ],
+        "template": "amoffat"
+      }
+    },
+    "amperser": {
+      "proselint": {
+        "branches": [
+          "master"
+        ],
+        "template": "amperser"
+      }
+    },
+    "amscanne": {
+      "huptime": {
+        "branches": [
+          "master"
+        ],
+        "template": "amscanne"
+      }
+    },
+    "amueller": {
+      "word_cloud": {
+        "branches": [
+          "master"
+        ],
+        "template": "amueller"
+      }
+    },
+    "andymccurdy": {
+      "redis-py": {
+        "branches": [
+          "master"
+        ],
+        "template": "andymccurdy"
+      }
+    },
+    "anishathalye": {
+      "git-remote-dropbox": {
+        "branches": [
+          "master"
+        ],
+        "template": "anishathalye"
+      },
+      "neural-style": {
+        "branches": [
+          "master"
+        ],
+        "template": "anishathalye"
+      }
+    },
+    "ansible": {
+      "ansible": {
+        "branches": [
+          "devel"
+        ],
+        "template": "ansible"
+      }
+    },
+    "apache": {
+      "incubator-airflow": {
+        "branches": [
+          "master"
+        ],
+        "template": "apache"
+      }
+    },
+    "apenwarr": {
+      "sshuttle": {
+        "branches": [
+          "master"
+        ],
+        "template": "apenwarr"
+      }
+    },
+    "apprenticeharper": {
+      "DeDRM_tools": {
+        "branches": [
+          "master"
+        ],
+        "template": "apprenticeharper"
+      }
+    },
+    "arielf": {
+      "weight-loss": {
+        "branches": [
+          "master"
+        ],
+        "template": "arielf"
+      }
+    },
+    "asciimoo": {
+      "drawille": {
+        "branches": [
+          "master"
+        ],
+        "template": "asciimoo"
+      },
+      "searx": {
+        "branches": [
+          "master"
+        ],
+        "template": "asciimoo"
+      }
+    },
+    "asciinema": {
+      "asciinema": {
+        "branches": [
+          "master"
+        ],
+        "template": "asciinema"
+      }
+    },
+    "atlassian": {
+      "localstack": {
+        "branches": [
+          "master"
+        ],
+        "template": "atlassian"
+      }
+    },
+    "avinassh": {
+      "rockstar": {
+        "branches": [
+          "master"
+        ],
+        "template": "avinassh"
+      }
+    },
+    "awentzonline": {
+      "image-analogies": {
+        "branches": [
+          "master"
+        ],
+        "template": "awentzonline"
+      }
+    },
+    "aws": {
+      "aws-cli": {
+        "branches": [
+          "develop"
+        ],
+        "template": "aws"
+      }
+    },
+    "awslabs": {
+      "aws-shell": {
+        "branches": [
+          "master"
+        ],
+        "template": "awslabs"
+      },
+      "chalice": {
+        "branches": [
+          "master"
+        ],
+        "template": "awslabs"
+      }
+    },
+    "aziz": {
+      "PlainTasks": {
+        "branches": [
+          "master"
+        ],
+        "template": "aziz"
+      }
+    },
+    "banga": {
+      "powerline-shell": {
+        "branches": [
+          "master"
+        ],
+        "template": "banga"
+      }
+    },
+    "beetbox": {
+      "beets": {
+        "branches": [
+          "master"
+        ],
+        "template": "beetbox"
+      }
+    },
+    "benoitc": {
+      "gunicorn": {
+        "branches": [
+          "master"
+        ],
+        "template": "benoitc"
+      }
+    },
+    "binux": {
+      "pyspider": {
+        "branches": [
+          "master"
+        ],
+        "template": "binux"
+      }
+    },
+    "blaze": {
+      "blaze": {
+        "branches": [
+          "master"
+        ],
+        "template": "blaze"
+      }
+    },
+    "bokeh": {
+      "bokeh": {
+        "branches": [
+          "master"
+        ],
+        "template": "bokeh"
+      }
+    },
+    "borgbackup": {
+      "borg": {
+        "branches": [
+          "master"
+        ],
+        "template": "borgbackup"
+      }
+    },
+    "boto": {
+      "boto": {
+        "branches": [
+          "develop"
+        ],
+        "template": "boto"
+      },
+      "boto3": {
+        "branches": [
+          "develop"
+        ],
+        "template": "boto"
+      }
+    },
+    "bottlepy": {
+      "bottle": {
+        "branches": [
+          "master"
+        ],
+        "template": "bottlepy"
+      }
+    },
+    "buildbot": {
+      "buildbot": {
+        "branches": [
+          "master"
+        ],
+        "template": "buildbot"
+      }
+    },
+    "bup": {
+      "bup": {
+        "branches": [
+          "master"
+        ],
+        "template": "bup"
+      }
+    },
+    "burnash": {
+      "gspread": {
+        "branches": [
+          "master"
+        ],
+        "template": "burnash"
+      }
+    },
+    "byt3bl33d3r": {
+      "MITMf": {
+        "branches": [
+          "master"
+        ],
+        "template": "byt3bl33d3r"
+      }
+    },
+    "carltongibson": {
+      "django-filter": {
+        "branches": [
+          "develop"
+        ],
+        "template": "carltongibson"
+      }
+    },
+    "celery": {
+      "celery": {
+        "branches": [
+          "master"
+        ],
+        "template": "celery"
+      }
+    },
+    "certbot": {
+      "certbot": {
+        "branches": [
+          "master"
+        ],
+        "template": "certbot"
+      }
+    },
+    "chainer": {
+      "chainer": {
+        "branches": [
+          "master"
+        ],
+        "template": "chainer"
+      }
+    },
+    "channelcat": {
+      "sanic": {
+        "branches": [
+          "master"
+        ],
+        "template": "channelcat"
+      }
+    },
+    "chaosbot": {
+      "Chaos": {
+        "branches": [
+          "master"
+        ],
+        "template": "chaosbot"
+      }
+    },
+    "chrippa": {
+      "livestreamer": {
+        "branches": [
+          "develop"
+        ],
+        "template": "chrippa"
+      }
+    },
+    "chriskiehl": {
+      "Gooey": {
+        "branches": [
+          "master"
+        ],
+        "template": "chriskiehl"
+      }
+    },
+    "chrissimpkins": {
+      "Hack": {
+        "branches": [
+          "master"
+        ],
+        "template": "chrissimpkins"
+      },
+      "codeface": {
+        "branches": [
+          "master"
+        ],
+        "template": "chrissimpkins"
+      }
+    },
+    "christabor": {
+      "flask_jsondash": {
+        "branches": [
+          "master"
+        ],
+        "template": "christabor"
+      }
+    },
+    "chubin": {
+      "wttr.in": {
+        "branches": [
+          "master"
+        ],
+        "template": "chubin"
+      }
+    },
+    "clips": {
+      "pattern": {
+        "branches": [
+          "master"
+        ],
+        "template": "clips"
+      }
+    },
+    "cloudera": {
+      "hue": {
+        "branches": [
+          "master"
+        ],
+        "template": "cloudera"
+      }
+    },
+    "cloudtools": {
+      "troposphere": {
+        "branches": [
+          "master"
+        ],
+        "template": "cloudtools"
+      }
+    },
+    "codelucas": {
+      "newspaper": {
+        "branches": [
+          "master"
+        ],
+        "template": "codelucas"
+      }
+    },
+    "coleifer": {
+      "peewee": {
+        "branches": [
+          "master"
+        ],
+        "template": "coleifer"
+      }
+    },
+    "commaai": {
+      "research": {
+        "branches": [
+          "master"
+        ],
+        "template": "commaai"
+      }
+    },
+    "coursera-dl": {
+      "coursera-dl": {
+        "branches": [
+          "master"
+        ],
+        "template": "coursera-dl"
+      }
+    },
+    "crsmithdev": {
+      "arrow": {
+        "branches": [
+          "master"
+        ],
+        "template": "crsmithdev"
+      }
+    },
+    "cyrus-and": {
+      "gdb-dashboard": {
+        "branches": [
+          "master"
+        ],
+        "template": "cyrus-and"
+      }
+    },
+    "cython": {
+      "cython": {
+        "branches": [
+          "master"
+        ],
+        "template": "cython"
+      }
+    },
+    "dabeaz": {
+      "curio": {
+        "branches": [
+          "master"
+        ],
+        "template": "dabeaz"
+      }
+    },
+    "dae": {
+      "anki": {
+        "branches": [
+          "master"
+        ],
+        "template": "dae"
+      }
+    },
+    "darknessomi": {
+      "musicbox": {
+        "branches": [
+          "master"
+        ],
+        "template": "darknessomi"
+      }
+    },
+    "david-gpu": {
+      "srez": {
+        "branches": [
+          "master"
+        ],
+        "template": "david-gpu"
+      }
+    },
+    "davidhalter": {
+      "jedi": {
+        "branches": [
+          "master"
+        ],
+        "template": "davidhalter"
+      }
+    },
+    "dbader": {
+      "schedule": {
+        "branches": [
+          "master"
+        ],
+        "template": "dbader"
+      }
+    },
+    "dbcli": {
+      "mycli": {
+        "branches": [
+          "master"
+        ],
+        "template": "dbcli"
+      },
+      "pgcli": {
+        "branches": [
+          "master"
+        ],
+        "template": "dbcli"
+      }
+    },
+    "deepmind": {
+      "learning-to-learn": {
+        "branches": [
+          "master"
+        ],
+        "template": "deepmind"
+      },
+      "sonnet": {
+        "branches": [
+          "master"
+        ],
+        "template": "deepmind"
+      }
+    },
+    "deis": {
+      "deis": {
+        "branches": [
+          "master"
+        ],
+        "template": "deis"
+      }
+    },
+    "detailyang": {
+      "awesome-cheatsheet": {
+        "branches": [
+          "master"
+        ],
+        "template": "detailyang"
+      }
+    },
+    "devstructure": {
+      "blueprint": {
+        "branches": [
+          "master"
+        ],
+        "template": "devstructure"
+      }
+    },
+    "devttys0": {
+      "binwalk": {
+        "branches": [
+          "master"
+        ],
+        "template": "devttys0"
+      }
+    },
+    "diafygi": {
+      "acme-tiny": {
+        "branches": [
+          "master"
+        ],
+        "template": "diafygi"
+      }
+    },
+    "digitalocean": {
+      "netbox": {
+        "branches": [
+          "develop"
+        ],
+        "template": "digitalocean"
+      }
+    },
+    "divio": {
+      "django-cms": {
+        "branches": [
+          "release/3.4.x"
+        ],
+        "template": "divio"
+      }
+    },
+    "djaiss": {
+      "mapsicon": {
+        "branches": [
+          "master"
+        ],
+        "template": "djaiss"
+      }
+    },
+    "django": {
+      "channels": {
+        "branches": [
+          "master"
+        ],
+        "template": "django"
+      },
+      "django": {
+        "branches": [
+          "master"
+        ],
+        "template": "django"
+      }
+    },
+    "django-compressor": {
+      "django-compressor": {
+        "branches": [
+          "develop"
+        ],
+        "template": "django-compressor"
+      }
+    },
+    "django-crispy-forms": {
+      "django-crispy-forms": {
+        "branches": [
+          "dev"
+        ],
+        "template": "django-crispy-forms"
+      }
+    },
+    "django-extensions": {
+      "django-extensions": {
+        "branches": [
+          "master"
+        ],
+        "template": "django-extensions"
+      }
+    },
+    "django-haystack": {
+      "django-haystack": {
+        "branches": [
+          "master"
+        ],
+        "template": "django-haystack"
+      }
+    },
+    "django-oscar": {
+      "django-oscar": {
+        "branches": [
+          "master"
+        ],
+        "template": "django-oscar"
+      }
+    },
+    "django-tastypie": {
+      "django-tastypie": {
+        "branches": [
+          "master"
+        ],
+        "template": "django-tastypie"
+      }
+    },
+    "docker": {
+      "compose": {
+        "branches": [
+          "master"
+        ],
+        "template": "docker"
+      },
+      "docker-py": {
+        "branches": [
+          "master"
+        ],
+        "template": "docker"
+      },
+      "docker-registry": {
+        "branches": [
+          "master"
+        ],
+        "template": "docker"
+      }
+    },
+    "docopt": {
+      "docopt": {
+        "branches": [
+          "master"
+        ],
+        "template": "docopt"
+      }
+    },
+    "donnemartin": {
+      "awesome-aws": {
+        "branches": [
+          "master"
+        ],
+        "template": "donnemartin"
+      },
+      "data-science-ipython-notebooks": {
+        "branches": [
+          "master"
+        ],
+        "template": "donnemartin"
+      },
+      "dev-setup": {
+        "branches": [
+          "master"
+        ],
+        "template": "donnemartin"
+      },
+      "gitsome": {
+        "branches": [
+          "master"
+        ],
+        "template": "donnemartin"
+      },
+      "haxor-news": {
+        "branches": [
+          "master"
+        ],
+        "template": "donnemartin"
+      },
+      "interactive-coding-challenges": {
+        "branches": [
+          "master"
+        ],
+        "template": "donnemartin"
+      },
+      "saws": {
+        "branches": [
+          "master"
+        ],
+        "template": "donnemartin"
+      },
+      "system-design-primer": {
+        "branches": [
+          "master"
+        ],
+        "template": "donnemartin"
+      }
+    },
+    "douban": {
+      "dpark": {
+        "branches": [
+          "master"
+        ],
+        "template": "douban"
+      }
+    },
+    "drduh": {
+      "macOS-Security-and-Privacy-Guide": {
+        "branches": [
+          "master"
+        ],
+        "template": "drduh"
+      }
+    },
+    "dropbox": {
+      "pyston": {
+        "branches": [
+          "master"
+        ],
+        "template": "dropbox"
+      }
+    },
+    "dschep": {
+      "ntfy": {
+        "branches": [
+          "master"
+        ],
+        "template": "dschep"
+      }
+    },
+    "dyve": {
+      "django-bootstrap3": {
+        "branches": [
+          "develop"
+        ],
+        "template": "dyve"
+      }
+    },
+    "eastlakeside": {
+      "interpy-zh": {
+        "branches": [
+          "master"
+        ],
+        "template": "eastlakeside"
+      }
+    },
+    "edx": {
+      "edx-platform": {
+        "branches": [
+          "master"
+        ],
+        "template": "edx"
+      }
+    },
+    "eliangcs": {
+      "http-prompt": {
+        "branches": [
+          "master"
+        ],
+        "template": "eliangcs"
+      }
+    },
+    "emirozer": {
+      "fake2db": {
+        "branches": [
+          "master"
+        ],
+        "template": "emirozer"
+      }
+    },
+    "emre": {
+      "storm": {
+        "branches": [
+          "master"
+        ],
+        "template": "emre"
+      }
+    },
+    "encode": {
+      "django-rest-framework": {
+        "branches": [
+          "master"
+        ],
+        "template": "encode"
+      }
+    },
+    "equinusocio": {
+      "material-theme": {
+        "branches": [
+          "develop"
+        ],
+        "template": "equinusocio"
+      }
+    },
+    "eriklindernoren": {
+      "ML-From-Scratch": {
+        "branches": [
+          "master"
+        ],
+        "template": "eriklindernoren"
+      }
+    },
+    "etianen": {
+      "django-reversion": {
+        "branches": [
+          "master"
+        ],
+        "template": "etianen"
+      }
+    },
+    "etsy": {
+      "logster": {
+        "branches": [
+          "master"
+        ],
+        "template": "etsy"
+      },
+      "skyline": {
+        "branches": [
+          "master"
+        ],
+        "template": "etsy"
+      }
+    },
+    "eudicots": {
+      "Cactus": {
+        "branches": [
+          "master"
+        ],
+        "template": "eudicots"
+      }
+    },
+    "euske": {
+      "pdfminer": {
+        "branches": [
+          "master"
+        ],
+        "template": "euske"
+      }
+    },
+    "evilsocket": {
+      "opensnitch": {
+        "branches": [
+          "master"
+        ],
+        "template": "evilsocket"
+      }
+    },
+    "explosion": {
+      "spaCy": {
+        "branches": [
+          "master"
+        ],
+        "template": "explosion"
+      }
+    },
+    "fabric": {
+      "fabric": {
+        "branches": [
+          "master"
+        ],
+        "template": "fabric"
+      }
+    },
+    "facebook": {
+      "PathPicker": {
+        "branches": [
+          "master"
+        ],
+        "template": "facebook"
+      },
+      "augmented-traffic-control": {
+        "branches": [
+          "master"
+        ],
+        "template": "facebook"
+      },
+      "chisel": {
+        "branches": [
+          "master"
+        ],
+        "template": "facebook"
+      }
+    },
+    "facebookarchive": {
+      "huxley": {
+        "branches": [
+          "master"
+        ],
+        "template": "facebookarchive"
+      },
+      "python-instagram": {
+        "branches": [
+          "master"
+        ],
+        "template": "facebookarchive"
+      }
+    },
+    "facebookincubator": {
+      "prophet": {
+        "branches": [
+          "master"
+        ],
+        "template": "facebookincubator"
+      }
+    },
+    "facebookresearch": {
+      "ParlAI": {
+        "branches": [
+          "master"
+        ],
+        "template": "facebookresearch"
+      }
+    },
+    "faif": {
+      "python-patterns": {
+        "branches": [
+          "master"
+        ],
+        "template": "faif"
+      }
+    },
+    "fail2ban": {
+      "fail2ban": {
+        "branches": [
+          "0.10"
+        ],
+        "template": "fail2ban"
+      }
+    },
+    "falconry": {
+      "falcon": {
+        "branches": [
+          "master"
+        ],
+        "template": "falconry"
+      }
+    },
+    "fastmonkeys": {
+      "stellar": {
+        "branches": [
+          "master"
+        ],
+        "template": "fastmonkeys"
+      }
+    },
+    "fchollet": {
+      "deep-learning-models": {
+        "branches": [
+          "master"
+        ],
+        "template": "fchollet"
+      },
+      "keras": {
+        "branches": [
+          "master"
+        ],
+        "template": "fchollet"
+      }
+    },
+    "feross": {
+      "SpoofMAC": {
+        "branches": [
+          "master"
+        ],
+        "template": "feross"
+      }
+    },
+    "fivesheep": {
+      "chnroutes": {
+        "branches": [
+          "master"
+        ],
+        "template": "fivesheep"
+      }
+    },
+    "flask-admin": {
+      "flask-admin": {
+        "branches": [
+          "master"
+        ],
+        "template": "flask-admin"
+      }
+    },
+    "flask-restful": {
+      "flask-restful": {
+        "branches": [
+          "master"
+        ],
+        "template": "flask-restful"
+      }
+    },
+    "floydhub": {
+      "dl-docker": {
+        "branches": [
+          "master"
+        ],
+        "template": "floydhub"
+      }
+    },
+    "fogleman": {
+      "Minecraft": {
+        "branches": [
+          "master"
+        ],
+        "template": "fogleman"
+      }
+    },
+    "frappe": {
+      "erpnext": {
+        "branches": [
+          "develop"
+        ],
+        "template": "frappe"
+      }
+    },
+    "freedomofpress": {
+      "securedrop": {
+        "branches": [
+          "develop"
+        ],
+        "template": "freedomofpress"
+      }
+    },
+    "fxsjy": {
+      "jieba": {
+        "branches": [
+          "master"
+        ],
+        "template": "fxsjy"
+      }
+    },
+    "gaubert": {
+      "gmvault": {
+        "branches": [
+          "master"
+        ],
+        "template": "gaubert"
+      }
+    },
+    "geekcomputers": {
+      "Python": {
+        "branches": [
+          "master"
+        ],
+        "template": "geekcomputers"
+      }
+    },
+    "gelstudios": {
+      "gitfiti": {
+        "branches": [
+          "master"
+        ],
+        "template": "gelstudios"
+      }
+    },
+    "getpelican": {
+      "pelican": {
+        "branches": [
+          "master"
+        ],
+        "template": "getpelican"
+      }
+    },
+    "getredash": {
+      "redash": {
+        "branches": [
+          "master"
+        ],
+        "template": "getredash"
+      }
+    },
+    "getsentry": {
+      "sentry": {
+        "branches": [
+          "master"
+        ],
+        "template": "getsentry"
+      }
+    },
+    "gevent": {
+      "gevent": {
+        "branches": [
+          "master"
+        ],
+        "template": "gevent"
+      }
+    },
+    "giampaolo": {
+      "psutil": {
+        "branches": [
+          "master"
+        ],
+        "template": "giampaolo"
+      }
+    },
+    "gleitz": {
+      "howdoi": {
+        "branches": [
+          "master"
+        ],
+        "template": "gleitz"
+      }
+    },
+    "gnemoug": {
+      "distribute_crawler": {
+        "branches": [
+          "master"
+        ],
+        "template": "gnemoug"
+      }
+    },
+    "gongjianhui": {
+      "AppleDNS": {
+        "branches": [
+          "master"
+        ],
+        "template": "gongjianhui"
+      }
+    },
+    "google": {
+      "enjarify": {
+        "branches": [
+          "master"
+        ],
+        "template": "google"
+      },
+      "grr": {
+        "branches": [
+          "master"
+        ],
+        "template": "google"
+      },
+      "nogotofail": {
+        "branches": [
+          "dev"
+        ],
+        "template": "google"
+      },
+      "python-fire": {
+        "branches": [
+          "master"
+        ],
+        "template": "google"
+      },
+      "roboto": {
+        "branches": [
+          "master"
+        ],
+        "template": "google"
+      },
+      "seq2seq": {
+        "branches": [
+          "master"
+        ],
+        "template": "google"
+      },
+      "yapf": {
+        "branches": [
+          "master"
+        ],
+        "template": "google"
+      }
+    },
+    "gorakhargosh": {
+      "watchdog": {
+        "branches": [
+          "master"
+        ],
+        "template": "gorakhargosh"
+      }
+    },
+    "graphific": {
+      "DeepDreamVideo": {
+        "branches": [
+          "master"
+        ],
+        "template": "graphific"
+      }
+    },
+    "graphql-python": {
+      "graphene": {
+        "branches": [
+          "master"
+        ],
+        "template": "graphql-python"
+      }
+    },
+    "gregmalcolm": {
+      "python_koans": {
+        "branches": [
+          "master"
+        ],
+        "template": "gregmalcolm"
+      }
+    },
+    "gunthercox": {
+      "ChatterBot": {
+        "branches": [
+          "master"
+        ],
+        "template": "gunthercox"
+      }
+    },
+    "hanc00l": {
+      "wooyun_public": {
+        "branches": [
+          "master"
+        ],
+        "template": "hanc00l"
+      }
+    },
+    "harelba": {
+      "q": {
+        "branches": [
+          "master"
+        ],
+        "template": "harelba"
+      }
+    },
+    "hephaest0s": {
+      "usbkill": {
+        "branches": [
+          "master"
+        ],
+        "template": "hephaest0s"
+      }
+    },
+    "hhatto": {
+      "autopep8": {
+        "branches": [
+          "master"
+        ],
+        "template": "hhatto"
+      }
+    },
+    "home-assistant": {
+      "home-assistant": {
+        "branches": [
+          "dev"
+        ],
+        "template": "home-assistant"
+      }
+    },
+    "honza": {
+      "vim-snippets": {
+        "branches": [
+          "master"
+        ],
+        "template": "honza"
+      }
+    },
+    "houtianze": {
+      "bypy": {
+        "branches": [
+          "master"
+        ],
+        "template": "houtianze"
+      }
+    },
+    "humphd": {
+      "have-fun-with-machine-learning": {
+        "branches": [
+          "master"
+        ],
+        "template": "humphd"
+      }
+    },
+    "huntergregal": {
+      "mimipenguin": {
+        "branches": [
+          "master"
+        ],
+        "template": "huntergregal"
+      }
+    },
+    "hylang": {
+      "hy": {
+        "branches": [
+          "master"
+        ],
+        "template": "hylang"
+      }
+    },
+    "i-tu": {
+      "Hasklig": {
+        "branches": [
+          "master"
+        ],
+        "template": "i-tu"
+      }
+    },
+    "iBaa": {
+      "PlexConnect": {
+        "branches": [
+          "master"
+        ],
+        "template": "iBaa"
+      }
+    },
+    "iambus": {
+      "xunlei-lixian": {
+        "branches": [
+          "master"
+        ],
+        "template": "iambus"
+      }
+    },
+    "ibab": {
+      "tensorflow-wavenet": {
+        "branches": [
+          "master"
+        ],
+        "template": "ibab"
+      }
+    },
+    "idank": {
+      "explainshell": {
+        "branches": [
+          "master"
+        ],
+        "template": "idank"
+      }
+    },
+    "ipython": {
+      "ipython": {
+        "branches": [
+          "master"
+        ],
+        "template": "ipython"
+      }
+    },
+    "isnowfy": {
+      "snownlp": {
+        "branches": [
+          "master"
+        ],
+        "template": "isnowfy"
+      }
+    },
+    "isocpp": {
+      "CppCoreGuidelines": {
+        "branches": [
+          "master"
+        ],
+        "template": "isocpp"
+      }
+    },
+    "jakubroztocil": {
+      "httpie": {
+        "branches": [
+          "master"
+        ],
+        "template": "jakubroztocil"
+      }
+    },
+    "jaredks": {
+      "rumps": {
+        "branches": [
+          "master"
+        ],
+        "template": "jaredks"
+      }
+    },
+    "jasperproject": {
+      "jasper-client": {
+        "branches": [
+          "master"
+        ],
+        "template": "jasperproject"
+      }
+    },
+    "jayfk": {
+      "statuspage": {
+        "branches": [
+          "master"
+        ],
+        "template": "jayfk"
+      }
+    },
+    "jazzband": {
+      "django-debug-toolbar": {
+        "branches": [
+          "master"
+        ],
+        "template": "jazzband"
+      },
+      "pip-tools": {
+        "branches": [
+          "master"
+        ],
+        "template": "jazzband"
+      }
+    },
+    "jeanphix": {
+      "Ghost.py": {
+        "branches": [
+          "dev"
+        ],
+        "template": "jeanphix"
+      }
+    },
+    "jeffkaufman": {
+      "icdiff": {
+        "branches": [
+          "master"
+        ],
+        "template": "jeffkaufman"
+      }
+    },
+    "jeffknupp": {
+      "sandman": {
+        "branches": [
+          "develop"
+        ],
+        "template": "jeffknupp"
+      }
+    },
+    "jgm": {
+      "CommonMark": {
+        "branches": [
+          "master"
+        ],
+        "template": "jgm"
+      }
+    },
+    "jiaaro": {
+      "pydub": {
+        "branches": [
+          "master"
+        ],
+        "template": "jiaaro"
+      }
+    },
+    "jisaacks": {
+      "GitGutter": {
+        "branches": [
+          "master"
+        ],
+        "template": "jisaacks"
+      }
+    },
+    "jmcarp": {
+      "robobrowser": {
+        "branches": [
+          "master"
+        ],
+        "template": "jmcarp"
+      }
+    },
+    "joelgrus": {
+      "data-science-from-scratch": {
+        "branches": [
+          "master"
+        ],
+        "template": "joelgrus"
+      }
+    },
+    "joestump": {
+      "python-oauth2": {
+        "branches": [
+          "master"
+        ],
+        "template": "joestump"
+      }
+    },
+    "joke2k": {
+      "faker": {
+        "branches": [
+          "master"
+        ],
+        "template": "joke2k"
+      }
+    },
+    "jokkedk": {
+      "webgrind": {
+        "branches": [
+          "master"
+        ],
+        "template": "jokkedk"
+      }
+    },
+    "jonathanslenders": {
+      "ptpython": {
+        "branches": [
+          "master"
+        ],
+        "template": "jonathanslenders"
+      },
+      "python-prompt-toolkit": {
+        "branches": [
+          "master"
+        ],
+        "template": "jonathanslenders"
+      },
+      "pyvim": {
+        "branches": [
+          "master"
+        ],
+        "template": "jonathanslenders"
+      }
+    },
+    "jopohl": {
+      "urh": {
+        "branches": [
+          "master"
+        ],
+        "template": "jopohl"
+      }
+    },
+    "jorgebastida": {
+      "glue": {
+        "branches": [
+          "master"
+        ],
+        "template": "jorgebastida"
+      },
+      "gordon": {
+        "branches": [
+          "master"
+        ],
+        "template": "jorgebastida"
+      }
+    },
+    "josephmisiti": {
+      "awesome-machine-learning": {
+        "branches": [
+          "master"
+        ],
+        "template": "josephmisiti"
+      }
+    },
+    "joshnewlan": {
+      "say_what": {
+        "branches": [
+          "master"
+        ],
+        "template": "joshnewlan"
+      }
+    },
+    "jostmey": {
+      "NakedTensor": {
+        "branches": [
+          "master"
+        ],
+        "template": "jostmey"
+      }
+    },
+    "jsvine": {
+      "waybackpack": {
+        "branches": [
+          "master"
+        ],
+        "template": "jsvine"
+      }
+    },
+    "junyanz": {
+      "iGAN": {
+        "branches": [
+          "master"
+        ],
+        "template": "junyanz"
+      }
+    },
+    "jupyterhub": {
+      "jupyterhub": {
+        "branches": [
+          "master"
+        ],
+        "template": "jupyterhub"
+      }
+    },
+    "jwilder": {
+      "nginx-proxy": {
+        "branches": [
+          "master"
+        ],
+        "template": "jwilder"
+      }
+    },
+    "kachayev": {
+      "fn.py": {
+        "branches": [
+          "master"
+        ],
+        "template": "kachayev"
+      }
+    },
+    "kamyu104": {
+      "LeetCode": {
+        "branches": [
+          "master"
+        ],
+        "template": "kamyu104"
+      }
+    },
+    "karpathy": {
+      "neuraltalk": {
+        "branches": [
+          "master"
+        ],
+        "template": "karpathy"
+      }
+    },
+    "kbengine": {
+      "kbengine": {
+        "branches": [
+          "master"
+        ],
+        "template": "kbengine"
+      }
+    },
+    "kemayo": {
+      "sublime-text-git": {
+        "branches": [
+          "master"
+        ],
+        "template": "kemayo"
+      }
+    },
+    "kennethreitz": {
+      "clint": {
+        "branches": [
+          "master"
+        ],
+        "template": "kennethreitz"
+      },
+      "envoy": {
+        "branches": [
+          "master"
+        ],
+        "template": "kennethreitz"
+      },
+      "grequests": {
+        "branches": [
+          "master"
+        ],
+        "template": "kennethreitz"
+      },
+      "httpbin": {
+        "branches": [
+          "master"
+        ],
+        "template": "kennethreitz"
+      },
+      "legit": {
+        "branches": [
+          "develop"
+        ],
+        "template": "kennethreitz"
+      },
+      "osx-gcc-installer": {
+        "branches": [
+          "master"
+        ],
+        "template": "kennethreitz"
+      },
+      "pipenv": {
+        "branches": [
+          "master"
+        ],
+        "template": "kennethreitz"
+      },
+      "records": {
+        "branches": [
+          "master"
+        ],
+        "template": "kennethreitz"
+      },
+      "tablib": {
+        "branches": [
+          "master"
+        ],
+        "template": "kennethreitz"
+      }
+    },
+    "keon": {
+      "algorithms": {
+        "branches": [
+          "master"
+        ],
+        "template": "keon"
+      }
+    },
+    "kivy": {
+      "kivy": {
+        "branches": [
+          "master"
+        ],
+        "template": "kivy"
+      },
+      "python-for-android": {
+        "branches": [
+          "master"
+        ],
+        "template": "kivy"
+      }
+    },
+    "kootenpv": {
+      "whereami": {
+        "branches": [
+          "master"
+        ],
+        "template": "kootenpv"
+      }
+    },
+    "kovidgoyal": {
+      "calibre": {
+        "branches": [
+          "master"
+        ],
+        "template": "kovidgoyal"
+      }
+    },
+    "kstenerud": {
+      "iOS-Universal-Framework": {
+        "branches": [
+          "master"
+        ],
+        "template": "kstenerud"
+      }
+    },
+    "kylemcdonald": {
+      "FreeWifi": {
+        "branches": [
+          "master"
+        ],
+        "template": "kylemcdonald"
+      }
+    },
+    "larsenwork": {
+      "monoid": {
+        "branches": [
+          "master"
+        ],
+        "template": "larsenwork"
+      }
+    },
+    "lauris": {
+      "awesome-scala": {
+        "branches": [
+          "master"
+        ],
+        "template": "lauris"
+      }
+    },
+    "lbryio": {
+      "lbry": {
+        "branches": [
+          "master"
+        ],
+        "template": "lbryio"
+      }
+    },
+    "lebinh": {
+      "ngxtop": {
+        "branches": [
+          "master"
+        ],
+        "template": "lebinh"
+      }
+    },
+    "lektor": {
+      "lektor": {
+        "branches": [
+          "master"
+        ],
+        "template": "lektor"
+      }
+    },
+    "lengstrom": {
+      "fast-style-transfer": {
+        "branches": [
+          "master"
+        ],
+        "template": "lengstrom"
+      }
+    },
+    "lihaoyi": {
+      "macropy": {
+        "branches": [
+          "master"
+        ],
+        "template": "lihaoyi"
+      }
+    },
+    "lisa-lab": {
+      "DeepLearningTutorials": {
+        "branches": [
+          "master"
+        ],
+        "template": "lisa-lab"
+      },
+      "pylearn2": {
+        "branches": [
+          "master"
+        ],
+        "template": "lisa-lab"
+      }
+    },
+    "littlecodersh": {
+      "ItChat": {
+        "branches": [
+          "master"
+        ],
+        "template": "littlecodersh"
+      }
+    },
+    "liuwons": {
+      "wxBot": {
+        "branches": [
+          "master"
+        ],
+        "template": "liuwons"
+      }
+    },
+    "livid": {
+      "v2ex": {
+        "branches": [
+          "master"
+        ],
+        "template": "livid"
+      }
+    },
+    "locustio": {
+      "locust": {
+        "branches": [
+          "master"
+        ],
+        "template": "locustio"
+      }
+    },
+    "longld": {
+      "peda": {
+        "branches": [
+          "master"
+        ],
+        "template": "longld"
+      }
+    },
+    "lra": {
+      "mackup": {
+        "branches": [
+          "master"
+        ],
+        "template": "lra"
+      }
+    },
+    "maebert": {
+      "jrnl": {
+        "branches": [
+          "master"
+        ],
+        "template": "maebert"
+      }
+    },
+    "mahmoud": {
+      "boltons": {
+        "branches": [
+          "master"
+        ],
+        "template": "mahmoud"
+      }
+    },
+    "mail-in-a-box": {
+      "mailinabox": {
+        "branches": [
+          "master"
+        ],
+        "template": "mail-in-a-box"
+      }
+    },
+    "mailpile": {
+      "Mailpile": {
+        "branches": [
+          "master"
+        ],
+        "template": "mailpile"
+      }
+    },
+    "mantl": {
+      "mantl": {
+        "branches": [
+          "master"
+        ],
+        "template": "mantl"
+      }
+    },
+    "marshmallow-code": {
+      "marshmallow": {
+        "branches": [
+          "dev"
+        ],
+        "template": "marshmallow-code"
+      }
+    },
+    "martinblech": {
+      "xmltodict": {
+        "branches": [
+          "master"
+        ],
+        "template": "martinblech"
+      }
+    },
+    "matplotlib": {
+      "matplotlib": {
+        "branches": [
+          "master"
+        ],
+        "template": "matplotlib"
+      }
+    },
+    "matrix-org": {
+      "synapse": {
+        "branches": [
+          "master"
+        ],
+        "template": "matrix-org"
+      }
+    },
+    "maxbbraun": {
+      "trump2cash": {
+        "branches": [
+          "master"
+        ],
+        "template": "maxbbraun"
+      }
+    },
+    "mchristopher": {
+      "PokemonGo-DesktopMap": {
+        "branches": [
+          "master"
+        ],
+        "template": "mchristopher"
+      }
+    },
+    "mher": {
+      "flower": {
+        "branches": [
+          "master"
+        ],
+        "template": "mher"
+      }
+    },
+    "micahflee": {
+      "onionshare": {
+        "branches": [
+          "master"
+        ],
+        "template": "micahflee"
+      }
+    },
+    "midgetspy": {
+      "Sick-Beard": {
+        "branches": [
+          "development"
+        ],
+        "template": "midgetspy"
+      }
+    },
+    "miguelgrinberg": {
+      "flasky": {
+        "branches": [
+          "master"
+        ],
+        "template": "miguelgrinberg"
+      }
+    },
+    "miloyip": {
+      "game-programmer": {
+        "branches": [
+          "master"
+        ],
+        "template": "miloyip"
+      }
+    },
+    "minimaxir": {
+      "big-list-of-naughty-strings": {
+        "branches": [
+          "master"
+        ],
+        "template": "minimaxir"
+      }
+    },
+    "mininet": {
+      "mininet": {
+        "branches": [
+          "master"
+        ],
+        "template": "mininet"
+      }
+    },
+    "misterch0c": {
+      "shadowbroker": {
+        "branches": [
+          "master"
+        ],
+        "template": "misterch0c"
+      }
+    },
+    "mitmproxy": {
+      "mitmproxy": {
+        "branches": [
+          "master"
+        ],
+        "template": "mitmproxy"
+      }
+    },
+    "mkdocs": {
+      "mkdocs": {
+        "branches": [
+          "master"
+        ],
+        "template": "mkdocs"
+      }
+    },
+    "mnielsen": {
+      "neural-networks-and-deep-learning": {
+        "branches": [
+          "master"
+        ],
+        "template": "mnielsen"
+      }
+    },
+    "mobolic": {
+      "facebook-sdk": {
+        "branches": [
+          "master"
+        ],
+        "template": "mobolic"
+      }
+    },
+    "mongodb": {
+      "mongo-python-driver": {
+        "branches": [
+          "master"
+        ],
+        "template": "mongodb"
+      }
+    },
+    "mooz": {
+      "percol": {
+        "branches": [
+          "master"
+        ],
+        "template": "mooz"
+      }
+    },
+    "mopidy": {
+      "mopidy": {
+        "branches": [
+          "develop"
+        ],
+        "template": "mopidy"
+      }
+    },
+    "mps-youtube": {
+      "mps-youtube": {
+        "branches": [
+          "develop"
+        ],
+        "template": "mps-youtube"
+      }
+    },
+    "n1nj4sec": {
+      "pupy": {
+        "branches": [
+          "master"
+        ],
+        "template": "n1nj4sec"
+      }
+    },
+    "nate-parrott": {
+      "Flashlight": {
+        "branches": [
+          "master"
+        ],
+        "template": "nate-parrott"
+      }
+    },
+    "networkx": {
+      "networkx": {
+        "branches": [
+          "master"
+        ],
+        "template": "networkx"
+      }
+    },
+    "newsapps": {
+      "beeswithmachineguns": {
+        "branches": [
+          "master"
+        ],
+        "template": "newsapps"
+      }
+    },
+    "nicolargo": {
+      "glances": {
+        "branches": [
+          "master"
+        ],
+        "template": "nicolargo"
+      }
+    },
+    "nltk": {
+      "nltk": {
+        "branches": [
+          "develop"
+        ],
+        "template": "nltk"
+      }
+    },
+    "noamraph": {
+      "tqdm": {
+        "branches": [
+          "master"
+        ],
+        "template": "noamraph"
+      }
+    },
+    "nodejs": {
+      "node-gyp": {
+        "branches": [
+          "master"
+        ],
+        "template": "nodejs"
+      }
+    },
+    "nryoung": {
+      "algorithms": {
+        "branches": [
+          "master"
+        ],
+        "template": "nryoung"
+      }
+    },
+    "numba": {
+      "numba": {
+        "branches": [
+          "master"
+        ],
+        "template": "numba"
+      }
+    },
+    "numenta": {
+      "nupic": {
+        "branches": [
+          "master"
+        ],
+        "template": "numenta"
+      }
+    },
+    "nvbn": {
+      "thefuck": {
+        "branches": [
+          "master"
+        ],
+        "template": "nvbn"
+      }
+    },
+    "nvdv": {
+      "vprof": {
+        "branches": [
+          "master"
+        ],
+        "template": "nvdv"
+      }
+    },
+    "nvie": {
+      "rq": {
+        "branches": [
+          "master"
+        ],
+        "template": "nvie"
+      }
+    },
+    "nylas": {
+      "sync-engine": {
+        "branches": [
+          "master"
+        ],
+        "template": "nylas"
+      }
+    },
+    "odoo": {
+      "odoo": {
+        "branches": [
+          "10.0"
+        ],
+        "template": "odoo"
+      }
+    },
+    "omab": {
+      "django-social-auth": {
+        "branches": [
+          "master"
+        ],
+        "template": "omab"
+      },
+      "python-social-auth": {
+        "branches": [
+          "master"
+        ],
+        "template": "omab"
+      }
+    },
+    "openai": {
+      "gym": {
+        "branches": [
+          "master"
+        ],
+        "template": "openai"
+      },
+      "universe": {
+        "branches": [
+          "master"
+        ],
+        "template": "openai"
+      }
+    },
+    "openpaperwork": {
+      "paperwork": {
+        "branches": [
+          "unstable"
+        ],
+        "template": "openpaperwork"
+      }
+    },
+    "openstack": {
+      "nova": {
+        "branches": [
+          "master"
+        ],
+        "template": "openstack"
+      }
+    },
+    "orakaro": {
+      "rainbowstream": {
+        "branches": [
+          "master"
+        ],
+        "template": "orakaro"
+      }
+    },
+    "p-e-w": {
+      "maybe": {
+        "branches": [
+          "master"
+        ],
+        "template": "p-e-w"
+      }
+    },
+    "pallets": {
+      "click": {
+        "branches": [
+          "master"
+        ],
+        "template": "pallets"
+      },
+      "flask": {
+        "branches": [
+          "master"
+        ],
+        "template": "pallets"
+      },
+      "jinja": {
+        "branches": [
+          "master"
+        ],
+        "template": "pallets"
+      },
+      "werkzeug": {
+        "branches": [
+          "master"
+        ],
+        "template": "pallets"
+      }
+    },
+    "pandas-dev": {
+      "pandas": {
+        "branches": [
+          "master"
+        ],
+        "template": "pandas-dev"
+      }
+    },
+    "paramiko": {
+      "paramiko": {
+        "branches": [
+          "master"
+        ],
+        "template": "paramiko"
+      }
+    },
+    "pavelgonchar": {
+      "colornet": {
+        "branches": [
+          "master"
+        ],
+        "template": "pavelgonchar"
+      }
+    },
+    "pennersr": {
+      "django-allauth": {
+        "branches": [
+          "master"
+        ],
+        "template": "pennersr"
+      }
+    },
+    "phusion": {
+      "baseimage-docker": {
+        "branches": [
+          "master"
+        ],
+        "template": "phusion"
+      }
+    },
+    "pinax": {
+      "pinax": {
+        "branches": [
+          "master"
+        ],
+        "template": "pinax"
+      }
+    },
+    "pixie-lang": {
+      "pixie": {
+        "branches": [
+          "master"
+        ],
+        "template": "pixie-lang"
+      }
+    },
+    "plasma-disassembler": {
+      "plasma": {
+        "branches": [
+          "master"
+        ],
+        "template": "plasma-disassembler"
+      }
+    },
+    "platformio": {
+      "platformio-core": {
+        "branches": [
+          "develop"
+        ],
+        "template": "platformio"
+      }
+    },
+    "plotly": {
+      "plotly.py": {
+        "branches": [
+          "master"
+        ],
+        "template": "plotly"
+      }
+    },
+    "posativ": {
+      "isso": {
+        "branches": [
+          "master"
+        ],
+        "template": "posativ"
+      }
+    },
+    "powerline": {
+      "powerline": {
+        "branches": [
+          "develop"
+        ],
+        "template": "powerline"
+      }
+    },
+    "prakhar1989": {
+      "Algorithms": {
+        "branches": [
+          "master"
+        ],
+        "template": "prakhar1989"
+      },
+      "docker-curriculum": {
+        "branches": [
+          "master"
+        ],
+        "template": "prakhar1989"
+      }
+    },
+    "programthink": {
+      "zhao": {
+        "branches": [
+          "master"
+        ],
+        "template": "programthink"
+      }
+    },
+    "pudo": {
+      "dataset": {
+        "branches": [
+          "master"
+        ],
+        "template": "pudo"
+      }
+    },
+    "pybrain": {
+      "pybrain": {
+        "branches": [
+          "master"
+        ],
+        "template": "pybrain"
+      }
+    },
+    "pydanny": {
+      "cookiecutter-django": {
+        "branches": [
+          "master"
+        ],
+        "template": "pydanny"
+      }
+    },
+    "pyeve": {
+      "eve": {
+        "branches": [
+          "master"
+        ],
+        "template": "pyeve"
+      }
+    },
+    "pyinstaller": {
+      "pyinstaller": {
+        "branches": [
+          "develop"
+        ],
+        "template": "pyinstaller"
+      }
+    },
+    "pymc-devs": {
+      "pymc3": {
+        "branches": [
+          "master"
+        ],
+        "template": "pymc-devs"
+      }
+    },
+    "pypa": {
+      "pip": {
+        "branches": [
+          "master"
+        ],
+        "template": "pypa"
+      },
+      "pipfile": {
+        "branches": [
+          "master"
+        ],
+        "template": "pypa"
+      },
+      "virtualenv": {
+        "branches": [
+          "master"
+        ],
+        "template": "pypa"
+      }
+    },
+    "python": {
+      "cpython": {
+        "branches": [
+          "master"
+        ],
+        "template": "python"
+      },
+      "mypy": {
+        "branches": [
+          "master"
+        ],
+        "template": "python"
+      }
+    },
+    "python-mode": {
+      "python-mode": {
+        "branches": [
+          "develop"
+        ],
+        "template": "python-mode"
+      }
+    },
+    "python-pillow": {
+      "Pillow": {
+        "branches": [
+          "master"
+        ],
+        "template": "python-pillow"
+      }
+    },
+    "python-telegram-bot": {
+      "python-telegram-bot": {
+        "branches": [
+          "master"
+        ],
+        "template": "python-telegram-bot"
+      }
+    },
+    "python-visualization": {
+      "folium": {
+        "branches": [
+          "master"
+        ],
+        "template": "python-visualization"
+      }
+    },
+    "pytorch": {
+      "pytorch": {
+        "branches": [
+          "master"
+        ],
+        "template": "pytorch"
+      }
+    },
+    "quantopian": {
+      "zipline": {
+        "branches": [
+          "master"
+        ],
+        "template": "quantopian"
+      }
+    },
+    "qutebrowser": {
+      "qutebrowser": {
+        "branches": [
+          "master"
+        ],
+        "template": "qutebrowser"
+      }
+    },
+    "ranger": {
+      "ranger": {
+        "branches": [
+          "master"
+        ],
+        "template": "ranger"
+      }
+    },
+    "rbgirshick": {
+      "py-faster-rcnn": {
+        "branches": [
+          "master"
+        ],
+        "template": "rbgirshick"
+      }
+    },
+    "realpython": {
+      "discover-flask": {
+        "branches": [
+          "master"
+        ],
+        "template": "realpython"
+      }
+    },
+    "reddit": {
+      "reddit": {
+        "branches": [
+          "master"
+        ],
+        "template": "reddit"
+      }
+    },
+    "redecentralize": {
+      "alternative-internet": {
+        "branches": [
+          "master"
+        ],
+        "template": "redecentralize"
+      }
+    },
+    "reinderien": {
+      "mimic": {
+        "branches": [
+          "master"
+        ],
+        "template": "reinderien"
+      }
+    },
+    "rembo10": {
+      "headphones": {
+        "branches": [
+          "master"
+        ],
+        "template": "rembo10"
+      }
+    },
+    "reorx": {
+      "httpstat": {
+        "branches": [
+          "master"
+        ],
+        "template": "reorx"
+      }
+    },
+    "requests": {
+      "requests": {
+        "branches": [
+          "master"
+        ],
+        "template": "requests"
+      }
+    },
+    "reverse-shell": {
+      "routersploit": {
+        "branches": [
+          "master"
+        ],
+        "template": "reverse-shell"
+      }
+    },
+    "revolunet": {
+      "sublimetext-markdown-preview": {
+        "branches": [
+          "master"
+        ],
+        "template": "revolunet"
+      }
+    },
+    "rg3": {
+      "youtube-dl": {
+        "branches": [
+          "master"
+        ],
+        "template": "rg3"
+      }
+    },
+    "rhiever": {
+      "tpot": {
+        "branches": [
+          "master"
+        ],
+        "template": "rhiever"
+      }
+    },
+    "rolando": {
+      "scrapy-redis": {
+        "branches": [
+          "master"
+        ],
+        "template": "rolando"
+      }
+    },
+    "rtfd": {
+      "readthedocs.org": {
+        "branches": [
+          "master"
+        ],
+        "template": "rtfd"
+      }
+    },
+    "rushter": {
+      "MLAlgorithms": {
+        "branches": [
+          "master"
+        ],
+        "template": "rushter"
+      },
+      "data-science-blogs": {
+        "branches": [
+          "master"
+        ],
+        "template": "rushter"
+      }
+    },
+    "ryankiros": {
+      "neural-storyteller": {
+        "branches": [
+          "master"
+        ],
+        "template": "ryankiros"
+      }
+    },
+    "s3tools": {
+      "s3cmd": {
+        "branches": [
+          "master"
+        ],
+        "template": "s3tools"
+      }
+    },
+    "saltstack": {
+      "salt": {
+        "branches": [
+          "develop"
+        ],
+        "template": "saltstack"
+      }
+    },
+    "samshadwell": {
+      "TrumpScript": {
+        "branches": [
+          "master"
+        ],
+        "template": "samshadwell"
+      }
+    },
+    "samuelclay": {
+      "NewsBlur": {
+        "branches": [
+          "master"
+        ],
+        "template": "samuelclay"
+      }
+    },
+    "samuraisam": {
+      "pyapns": {
+        "branches": [
+          "master"
+        ],
+        "template": "samuraisam"
+      }
+    },
+    "schematics": {
+      "schematics": {
+        "branches": [
+          "master"
+        ],
+        "template": "schematics"
+      }
+    },
+    "schollz": {
+      "howmanypeoplearearound": {
+        "branches": [
+          "master"
+        ],
+        "template": "schollz"
+      }
+    },
+    "scikit-learn": {
+      "scikit-learn": {
+        "branches": [
+          "master"
+        ],
+        "template": "scikit-learn"
+      }
+    },
+    "scipy": {
+      "scipy": {
+        "branches": [
+          "master"
+        ],
+        "template": "scipy"
+      }
+    },
+    "scrapy": {
+      "scrapy": {
+        "branches": [
+          "master"
+        ],
+        "template": "scrapy"
+      }
+    },
+    "sdispater": {
+      "pendulum": {
+        "branches": [
+          "master"
+        ],
+        "template": "sdispater"
+      }
+    },
+    "seatgeek": {
+      "fuzzywuzzy": {
+        "branches": [
+          "master"
+        ],
+        "template": "seatgeek"
+      }
+    },
+    "shadowsocks": {
+      "shadowsocks": {
+        "branches": [
+          "rm"
+        ],
+        "template": "shadowsocks"
+      }
+    },
+    "sightmachine": {
+      "SimpleCV": {
+        "branches": [
+          "master"
+        ],
+        "template": "sightmachine"
+      }
+    },
+    "sivel": {
+      "speedtest-cli": {
+        "branches": [
+          "master"
+        ],
+        "template": "sivel"
+      }
+    },
+    "sixohsix": {
+      "twitter": {
+        "branches": [
+          "master"
+        ],
+        "template": "sixohsix"
+      }
+    },
+    "sloria": {
+      "TextBlob": {
+        "branches": [
+          "dev"
+        ],
+        "template": "sloria"
+      }
+    },
+    "snare": {
+      "voltron": {
+        "branches": [
+          "master"
+        ],
+        "template": "snare"
+      }
+    },
+    "soimort": {
+      "you-get": {
+        "branches": [
+          "develop"
+        ],
+        "template": "soimort"
+      }
+    },
+    "sokolovstas": {
+      "SublimeWebInspector": {
+        "branches": [
+          "ST3"
+        ],
+        "template": "sokolovstas"
+      }
+    },
+    "somerandomdude": {
+      "Iconic": {
+        "branches": [
+          "master"
+        ],
+        "template": "somerandomdude"
+      }
+    },
+    "songrotek": {
+      "Deep-Learning-Papers-Reading-Roadmap": {
+        "branches": [
+          "master"
+        ],
+        "template": "songrotek"
+      }
+    },
+    "soumith": {
+      "convnet-benchmarks": {
+        "branches": [
+          "master"
+        ],
+        "template": "soumith"
+      }
+    },
+    "sovereign": {
+      "sovereign": {
+        "branches": [
+          "master"
+        ],
+        "template": "sovereign"
+      }
+    },
+    "spadgos": {
+      "sublime-jsdocs": {
+        "branches": [
+          "master"
+        ],
+        "template": "spadgos"
+      }
+    },
+    "spinnaker": {
+      "spinnaker": {
+        "branches": [
+          "master"
+        ],
+        "template": "spinnaker"
+      }
+    },
+    "spotify": {
+      "luigi": {
+        "branches": [
+          "master"
+        ],
+        "template": "spotify"
+      }
+    },
+    "spyder-ide": {
+      "spyder": {
+        "branches": [
+          "master"
+        ],
+        "template": "spyder-ide"
+      }
+    },
+    "sqlmapproject": {
+      "sqlmap": {
+        "branches": [
+          "master"
+        ],
+        "template": "sqlmapproject"
+      }
+    },
+    "sripathikrishnan": {
+      "redis-rdb-tools": {
+        "branches": [
+          "master"
+        ],
+        "template": "sripathikrishnan"
+      }
+    },
+    "sshwsfc": {
+      "xadmin": {
+        "branches": [
+          "master"
+        ],
+        "template": "sshwsfc"
+      }
+    },
+    "stamparm": {
+      "maltrail": {
+        "branches": [
+          "master"
+        ],
+        "template": "stamparm"
+      }
+    },
+    "statsmodels": {
+      "statsmodels": {
+        "branches": [
+          "master"
+        ],
+        "template": "statsmodels"
+      }
+    },
+    "stephenmcd": {
+      "mezzanine": {
+        "branches": [
+          "master"
+        ],
+        "template": "stephenmcd"
+      }
+    },
+    "sublimehq": {
+      "Packages": {
+        "branches": [
+          "master"
+        ],
+        "template": "sublimehq"
+      }
+    },
+    "sylnsfar": {
+      "qrcode": {
+        "branches": [
+          "master"
+        ],
+        "template": "sylnsfar"
+      }
+    },
+    "sympy": {
+      "sympy": {
+        "branches": [
+          "master"
+        ],
+        "template": "sympy"
+      }
+    },
+    "taigaio": {
+      "taiga-back": {
+        "branches": [
+          "master"
+        ],
+        "template": "taigaio"
+      }
+    },
+    "tangqiaoboy": {
+      "iOSBlogCN": {
+        "branches": [
+          "master"
+        ],
+        "template": "tangqiaoboy"
+      }
+    },
+    "taobao": {
+      "nginx-book": {
+        "branches": [
+          "master"
+        ],
+        "template": "taobao"
+      }
+    },
+    "tensorflow": {
+      "models": {
+        "branches": [
+          "master"
+        ],
+        "template": "tensorflow"
+      },
+      "skflow": {
+        "branches": [
+          "master"
+        ],
+        "template": "tensorflow"
+      }
+    },
+    "tflearn": {
+      "tflearn": {
+        "branches": [
+          "master"
+        ],
+        "template": "tflearn"
+      }
+    },
+    "tgalal": {
+      "yowsup": {
+        "branches": [
+          "master"
+        ],
+        "template": "tgalal"
+      }
+    },
+    "thearn": {
+      "webcam-pulse-detector": {
+        "branches": [
+          "no_openmdao"
+        ],
+        "template": "thearn"
+      }
+    },
+    "thumbor": {
+      "thumbor": {
+        "branches": [
+          "master"
+        ],
+        "template": "thumbor"
+      }
+    },
+    "timgrossmann": {
+      "InstaPy": {
+        "branches": [
+          "master"
+        ],
+        "template": "timgrossmann"
+      }
+    },
+    "timothycrosley": {
+      "hug": {
+        "branches": [
+          "develop"
+        ],
+        "template": "timothycrosley"
+      }
+    },
+    "tornadoweb": {
+      "tornado": {
+        "branches": [
+          "master"
+        ],
+        "template": "tornadoweb"
+      }
+    },
+    "tqdm": {
+      "tqdm": {
+        "branches": [
+          "master"
+        ],
+        "template": "tqdm"
+      }
+    },
+    "trustedsec": {
+      "social-engineer-toolkit": {
+        "branches": [
+          "master"
+        ],
+        "template": "trustedsec"
+      }
+    },
+    "tschellenbach": {
+      "Stream-Framework": {
+        "branches": [
+          "master"
+        ],
+        "template": "tschellenbach"
+      }
+    },
+    "tweepy": {
+      "tweepy": {
+        "branches": [
+          "master"
+        ],
+        "template": "tweepy"
+      }
+    },
+    "twisted": {
+      "twisted": {
+        "branches": [
+          "trunk"
+        ],
+        "template": "twisted"
+      }
+    },
+    "ujjwalkarn": {
+      "DataSciencePython": {
+        "branches": [
+          "master"
+        ],
+        "template": "ujjwalkarn"
+      }
+    },
+    "viewfinderco": {
+      "viewfinder": {
+        "branches": [
+          "master"
+        ],
+        "template": "viewfinderco"
+      }
+    },
+    "vinta": {
+      "awesome-python": {
+        "branches": [
+          "master"
+        ],
+        "template": "vinta"
+      }
+    },
+    "waditu": {
+      "tushare": {
+        "branches": [
+          "master"
+        ],
+        "template": "waditu"
+      }
+    },
+    "wagtail": {
+      "wagtail": {
+        "branches": [
+          "master"
+        ],
+        "template": "wagtail"
+      }
+    },
+    "wal-e": {
+      "wal-e": {
+        "branches": [
+          "master"
+        ],
+        "template": "wal-e"
+      }
+    },
+    "wbond": {
+      "package_control": {
+        "branches": [
+          "master"
+        ],
+        "template": "wbond"
+      }
+    },
+    "webpy": {
+      "webpy": {
+        "branches": [
+          "master"
+        ],
+        "template": "webpy"
+      }
+    },
+    "what-studio": {
+      "profiling": {
+        "branches": [
+          "master"
+        ],
+        "template": "what-studio"
+      }
+    },
+    "whtsky": {
+      "WeRoBot": {
+        "branches": [
+          "develop"
+        ],
+        "template": "whtsky"
+      }
+    },
+    "wifiphisher": {
+      "wifiphisher": {
+        "branches": [
+          "master"
+        ],
+        "template": "wifiphisher"
+      }
+    },
+    "wireservice": {
+      "csvkit": {
+        "branches": [
+          "master"
+        ],
+        "template": "wireservice"
+      }
+    },
+    "worldveil": {
+      "dejavu": {
+        "branches": [
+          "master"
+        ],
+        "template": "worldveil"
+      }
+    },
+    "wrobstory": {
+      "vincent": {
+        "branches": [
+          "master"
+        ],
+        "template": "wrobstory"
+      }
+    },
+    "wting": {
+      "autojump": {
+        "branches": [
+          "master"
+        ],
+        "template": "wting"
+      }
+    },
+    "wuub": {
+      "SublimeREPL": {
+        "branches": [
+          "master"
+        ],
+        "template": "wuub"
+      }
+    },
+    "xchaoinfo": {
+      "fuck-login": {
+        "branches": [
+          "master"
+        ],
+        "template": "xchaoinfo"
+      }
+    },
+    "xiyouMc": {
+      "WebHubBot": {
+        "branches": [
+          "master"
+        ],
+        "template": "xiyouMc"
+      }
+    },
+    "xonsh": {
+      "xonsh": {
+        "branches": [
+          "master"
+        ],
+        "template": "xonsh"
+      }
+    },
+    "yahoo": {
+      "open_nsfw": {
+        "branches": [
+          "master"
+        ],
+        "template": "yahoo"
+      }
+    },
+    "yandex": {
+      "gixy": {
+        "branches": [
+          "master"
+        ],
+        "template": "yandex"
+      }
+    },
+    "yenchenlin": {
+      "DeepLearningFlappyBird": {
+        "branches": [
+          "master"
+        ],
+        "template": "yenchenlin"
+      }
+    },
+    "yhat": {
+      "ggpy": {
+        "branches": [
+          "master"
+        ],
+        "template": "yhat"
+      }
+    },
+    "yidao620c": {
+      "python3-cookbook": {
+        "branches": [
+          "master"
+        ],
+        "template": "yidao620c"
+      }
+    },
+    "youfou": {
+      "wxpy": {
+        "branches": [
+          "master"
+        ],
+        "template": "youfou"
+      }
+    },
+    "ytisf": {
+      "theZoo": {
+        "branches": [
+          "master"
+        ],
+        "template": "ytisf"
+      }
+    },
+    "yunjey": {
+      "pytorch-tutorial": {
+        "branches": [
+          "master"
+        ],
+        "template": "yunjey"
+      }
+    },
+    "zsdonghao": {
+      "tensorlayer": {
+        "branches": [
+          "master"
+        ],
+        "template": "zsdonghao"
+      }
+    },
+    "zulip": {
+      "zulip": {
+        "branches": [
+          "master"
+        ],
+        "template": "zulip"
+      }
+    },
+    "zzzeek": {
+      "sqlalchemy": {
+        "branches": [
+          "master"
+        ],
+        "template": "zzzeek"
+      }
+    }
+  }
+}

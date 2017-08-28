@@ -1,0 +1,8 @@
+app:
+    port: 8889
+    secretkey: 'my-dirty-secret'
+    database_connection_string: 'sqlite:////tmp/users.db'
+
+searx:
+    root: '/path/to/searx'
+    uwsgi_extra_args: ['--venv', 'env']

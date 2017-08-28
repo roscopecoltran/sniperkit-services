@@ -1,0 +1,556 @@
+#!/bin/bash
+
+###################################################
+##                                               ##
+##      DOCKERFUNC FILE CREATED BY KIKEPUMA      ##
+##                                               ##
+###################################################
+
+########################
+#   Helper Functions   #
+########################
+
+# LOAD ALIAS IN THIS SCRIPT #
+dalias(){
+	source $HOME/.dockerfunc 2>/dev/null
+	echo "[+] Docker alias loaded successfully"
+}
+
+# DELETE RUNNING AND STOPPED CONTAINERS #
+drm(){
+	local name=$1		#get the container name
+	local state 		#get the container state
+	state=$(docker inspect --format "{{.State.Running}}" "$name" 2>/dev/null)
+
+	if [[ "$state" == "true" ]]; then 		#if container is running, stop it
+		echo "[+] Stopping ${name} container"
+		docker stop -t 0 "$name" 1>/dev/null 2>/dev/null
+	fi
+
+	echo "[+] Removing ${name} container"
+	docker rm "$name" 1>/dev/null 2>/dev/null 		#remove the container
+	echo "[+] ${name} container has been removed!"
+}
+
+# DELETE ALL #
+drm_all(){
+	echo "[+] Removing containers, volumes and images"
+	drm_all_containers		#remove all containers
+	drm_images				#remove all images
+	echo "[+] Docker is empty now!"
+}
+
+# DELETE ALL CONTAINERS #
+drm_all_containers(){
+	dstop_all								#stop running images
+	drm_stopped_containers	#remove stopped containers
+}
+
+# DELETE UNUSED IMAGES #
+drm_images(){
+	echo "[+] Removing all images"
+	local images
+	images=( $(docker images -q 2>/dev/null) )	#get all images
+	docker rmi "${images[@]}" 2>/dev/null				#remove all images
+}
+
+# REMOVE STOPPED CONTAINERS #
+drm_stopped_containers(){
+	echo "[+] Removing all containers"
+	local containers
+	containers=( $(docker ps -aq 2>/dev/null) )	#get all containers
+	docker rm "${containers[@]}" 2>/dev/null		#remove stopped containers
+
+	"[+] Removing all volumes"
+	local volumes
+	volumes=( $(docker ps --filter status=exited -q 2>/dev/null) )	#get all volumes
+	docker rm -v "${volumes[@]}" 2>/dev/null	 #remove all volumes
+}
+
+# STOP ALL CONTAINERS #
+dstop_all(){
+	echo "[+] Stopping all containers"
+	local containers
+	containers=( $(docker ps -aq 2>/dev/null) )							#get all containers
+	docker stop "${containers[@]}" 1>/dev/null 2>/dev/null	#stop all containers
+}
+
+########################
+#  Create Enviroments  #
+########################
+
+# KALI LINUX LIGHT VERSION #
+_dkali(){
+	_dkalilight		#kali version with most important tools is expected
+}
+
+_dkalilight(){
+	echo "[+] Preparing the enviroment"
+	drm kali 	&>/dev/null	#remove older containers
+	echo "[+] Creating Kali Linux container without hacking tools"
+	#options: background, tty env, host-container shared folder,
+	#install my own kalilight version, remove all the debug messages
+	docker run -dt --name kali -v $HOME/Documents:/sharedfolder cosasdepuma/kalilight
+	echo "[+] Kali Linux Light container has been created successfully!"
+}
+
+# TENSORFLOW MACHINE LEARNING TRAINER #
+_dmachinelearning(){
+	echo "[+] Preparing the enviroment"
+	drm brain &>/dev/null	#remove older containers
+	echo "[+] Creating Machine Learning container with TensorFlow"
+	#options: background, tty env, host-container shared folder,
+	#remove all the debug messages
+	docker run -dt --name brain -v $HOME/Documents:/sharedfolder \
+	cosasdepuma/machinelearning:images
+	echo "[+] Machine Learning with TensorFlow container has been created successfully!"
+}
+
+# BUSYBOX - SANDBOX #
+_dsandbox(){
+	echo "[+] Preparing the enviroment"
+	drm sandbox &>/dev/null #remove older containers
+	echo "[+] Creating BusyBox Sandbox"
+	#options: background, tty env, host-container shared folder,
+	#remove all the debug messages
+	docker run -dt --name sandbox${1} -v $HOME/Documents:/sharedfolder busybox
+	echo "[+] BusyBox Sanbox container has been created successfully!"
+}
+
+# SPOTIFY #
+_dspotify(){  # <- FIX ENTRYPOINT ARGUMENT ->
+	drm spotify
+	docker rmi cosasdepuma/spotify
+
+	mkdir dspotifybuild && cd dspotifybuild
+	#Create Dockerfile
+	echo """FROM ubuntu:14.04
+	MAINTAINER KikePuma thanx2 Terje Larsen
+
+	# Install Spotify and PulseAudio.
+	WORKDIR /usr/src
+	RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886 \
+		&& echo deb http://repository.spotify.com stable non-free > /etc/apt/sources.list.d/spotify.list \
+		&& apt-get update \
+		&& apt-get install -y \
+			spotify-client xdg-utils libxss1 \
+			pulseaudio \
+			ttf-wqy-zenhei \
+		&& apt-get clean \
+		&& echo enable-shm=no >> /etc/pulse/client.conf
+
+	# Spotify data.
+	VOLUME ["/data/cache", "/data/config"]
+	WORKDIR /data
+	RUN mkdir -p /data/cache \
+		&& mkdir -p /data/config
+
+	# PulseAudio server.
+	ENV PULSE_SERVER /run/pulse/native
+
+	COPY docker-entrypoint.sh  /entrypoint.sh
+	ENTRYPOINT ["/entrypoint.sh"]
+
+	CMD ["spotify"]""" > Dockerfile
+	#Create dependencies
+	echo """#!/bin/bash
+	set -e
+
+	if [ \"\$1\" = 'spotify' ]; then
+		USER_UID=\${USER_UID:-1001}
+		USER_GID=\${USER_GID:-1001}
+
+		# create user group
+		if ! getent group spotify >/dev/null; then
+			groupadd -f -g \${USER_GID} spotify
+		fi
+
+		# create user with uid and gid matching that of the host user
+		if ! getent passwd spotify >/dev/null; then
+			adduser --uid \${USER_UID} --gid \${USER_GID} \
+				--disabled-login \
+				--gecos 'Spotify' spotify
+
+			ln -s /data/cache /home/spotify/.cache
+			ln -s /data/config /home/spotify/.config
+		fi
+
+		chown -R spotify:spotify /data
+
+		exec su spotify -c "\$@"
+	fi
+
+	exec "\$@" """ > docker-entrypoint.sh
+	#Build Dockerfile
+	docker build -t cosasdepuma/spotify .
+	#Delete files
+	cd .. && rm -rf dspotifybuild
+}
+
+# STEAM #
+_dsteam(){
+	drm steam &>/dev/null
+
+	docker run -dt \
+	--name steam \
+	-e DISPLAY=$DISPLAY \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	--device /dev/dri/card0 \
+	-v /run/user/$UID/pulse/native:/tmp/pulse \
+	-v /dev/shm:/dev/shm \
+	-v /etc/machine-id:/etc/machine-id \
+	sassmann/ubuntu-steam
+}
+
+########################
+#  Running Containers  #
+########################
+
+# ATOM TEXT EDITOR #
+datom(){
+	drm atom &>/dev/null
+
+	docker run \
+	--detach \
+	--name atom \
+	--volume /tmp/.X11-unix:/tmp/.X11-unix \
+	--volume $PWD:/code \
+	--volume /dev/shm:/dev/shm \
+	--volume $HOME/.config/atom:/root/.config/atom \
+	--volume $HOME/.local/share/atom:/root/.local/share/atom \
+	--volume $HOME/.cache/atom:$HOME/.cache/atom \
+	--workdir /code \
+	--user $(id -u $(whoami)):$(id -g $(whoami)) \
+	--env DISPLAY \
+	jess/atom "$@"
+}
+
+# AUDACITY #
+daudacity(){
+	drm audacity
+
+	docker run --rm \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		-e "DISPLAY=unix${DISPLAY}" \
+		-e QT_DEVICE_PIXEL_RATIO \
+		--device /dev/snd \
+		--group-add audio \
+		-u $(id -u):$(id -g) \
+		--name audacity \
+		jess/audacity
+}
+
+# CATHODE : RETRO TERMINAL #
+dcathode(){
+	drm cathode
+
+	docker run --rm -it \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-e DISPLAY=unix$DISPLAY \
+	-v $HOME:/root \
+	--name cathode \
+	jess/cathode
+}
+
+# DILLINGER.IO #
+ddillinger(){
+	drm dillinger
+
+	docker run -d -t \
+	--name dillinger \
+	--restart="always" \
+	-p 85:8080 \
+	devrealm/dillinger
+
+	echo "[*] Dillinger inicializated in http://localhost:85/"
+}
+
+# ECLIPSE #
+declipse(){
+	drm eclipse
+	docker run -it -e DISPLAY \
+	--name eclipse \
+	-v $HOME:/sharedfolder \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	batmat/docker-eclipse
+}
+# GIMP #
+dgimp(){
+	drm gimp
+
+	docker run -d \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		-u $(id -u):$(id -g) \
+		-e "DISPLAY=unix${DISPLAY}" \
+		-v "${HOME}/Pictures:/root/Pictures" \
+		-v "${HOME}/.gtkrc:/root/.gtkrc" \
+		-e GDK_SCALE \
+		-e GDK_DPI_SCALE \
+		--name gimp \
+		jess/gimp
+}
+
+# GITSOME : GIT HELPER #
+dgitsome(){
+	docker run --rm -it \
+		-v /etc/localtime:/etc/localtime:ro \
+		--name gitsome \
+		--hostname gitsome \
+		-v "${HOME}/.gitsomeconfig:/home/anon/.gitsomeconfig" \
+		-v "${HOME}/.gitsomeconfigurl:/home/anon/.gitsomeconfigurl" \
+		-v $PWD:/Github	-w /Github \
+		jess/gitsome
+}
+
+# HOLLYWOOD : LIKE A HACKER #
+dhollywood(){
+	docker run --rm -it \
+		--name hollywood \
+		jess/hollywood
+}
+
+# HTOP : TASK VIEWER #
+dhtop(){
+	docker run --rm -it \
+		--pid host \
+		--net none \
+		--name htop \
+		jess/htop
+}
+
+# IRC CLIENT #
+dirc() {
+	drm irc &>/dev/null
+	docker run -it --rm -e TERM \
+	--name irc --log-driver=none irssi:alpine
+
+	clear
+}
+
+# KALI LINUX LIGHT VERSION #
+dkali(){
+	kalilight		#kali version with most important tools is expected
+}
+
+dkalilight(){
+	docker start kali 1>/dev/null 2>/dev/null
+	docker exec -it kali bash 2>/dev/null
+}
+
+# TENSORFLOW MACHINE LEARNING TRAINER #
+dbrain(){
+	machinelearning
+}
+
+dmachinelearning(){
+	docker start brain 1>/dev/null 2>/dev/null
+	docker exec -it brain bash 2>/dev/null
+}
+
+# MASSCAN : IP / PORT SCANNER #
+dmasscan(){
+	docker run -it --rm \
+		--log-driver none \
+		--net host \
+		--cap-add NET_ADMIN \
+		--name masscan \
+		jess/masscan "$@"
+}
+
+# NC : NETCAT #
+dnc(){
+	dnetcat "$@"
+}
+
+dnetcat(){
+	docker run --rm -it \
+		--net host \
+		jess/netcat "$@"
+}
+
+# NGINX : WEB SERVER #
+dnginx(){
+	drm nginx &>/dev/null
+
+	docker run -dt \
+		-v $HOME/Nginx:/usr/share/nginx/html \
+		-p 80:80 -p 443:443 \
+		--net host \
+		--name nginx \
+		nginx:alpine
+}
+
+# NMAP #
+dnmap(){
+	docker run --rm -it \
+		--net host \
+		uzyexe/nmap "$@"
+}
+
+# SEND DESKTOP NOTFICATIONS #
+dnotify_osd(){
+	drm notify_osd &>/dev/null
+
+	docker run -d \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		--net none \
+		-v /etc \
+		-v /home/user/.dbus \
+		-v /home/user/.cache/dconf \
+		-e "DISPLAY=unix${DISPLAY}" \
+		--name notify_osd \
+		jess/notify-osd
+}
+
+alias notify-send=dnotify_send
+dnotify_send(){
+	dnotify_osd
+
+	local args=${*:2}
+	docker exec -i notify_osd notify-send "$1" "${args}"
+}
+
+# PANDOC : CHANGE CODE STYLE #
+dpandoc(){
+		docker run --rm \
+		-v $PWD:/sharedfolder \
+		-w /sharedfolder \
+		--name pandoc \
+		jess/pandoc "$@"
+}
+
+# PULSE AUDIO DRIVER #
+dpulseaudio(){
+	drm pulseaudio &>/dev/null
+
+	docker run -d \
+		-v /etc/localtime:/etc/localtime:ro \
+		--device /dev/snd \
+		-p 4713:4713 \
+		--restart always \
+		--group-add audio \
+		--name pulseaudio \
+		jess/pulseaudio
+}
+
+# PYTHON 2.7.13 #
+dpython2(){
+	drm python2
+
+	docker run -it \
+	-v $HOME:/sharedfolder \
+	--name python2 \
+	python:2.7.13 bash
+}
+
+# BUSYBOX - SANDBOX #
+dsandbox(){
+	docker start sandbox${1} &>/dev/null
+	docker exec -it sandbox${1} sh
+}
+
+# SKYPE #
+dskype(){
+	drm skype &>/dev/null
+	drm pulseaudio &>/dev/null
+
+	dpulseaudio
+
+	docker run -d \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		-e "DISPLAY=unix${DISPLAY}" \
+		--link pulseaudio:pulseaudio \
+		-e PULSE_SERVER=pulseaudio \
+		--security-opt seccomp:unconfined \
+		--device /dev/video0 \
+		--group-add video \
+		--group-add audio \
+		--name skype \
+		jess/skype
+
+}
+
+# SPOTIFY #
+dspotify(){
+	if [[ -n "$(docker ps -qaf 'name=spotify')" ]]; then
+		docker restart spotify
+	else
+		xhost +local:docker
+
+		docker run -d \
+			--env=USER_UID=$(id -u) \
+			--env=USER_GID=$(id -g) \
+			--env=DISPLAY=unix$DISPLAY \
+			--volume=/tmp/.X11-unix:/tmp/.X11-unix:ro \
+			--volume=/run/user/$USER_UID/pulse:/run/pulse:ro \
+			--volume=$HOME/.docker-volumes/spotifyconfig:/data/config \
+			--name spotify \
+			cosasdepuma/spotify
+	fi
+
+}
+
+# STEAM #
+dsteam(){
+	#dpulseaudio
+	docker start steam &>/dev/null &
+}
+
+# TELNET CONNECTION #
+dtelnet(){
+	docker run -it --rm \
+		--log-driver none \
+		jess/telnet "$@"
+}
+
+# TRACEROUTE #
+dtraceroute(){
+	docker run --rm -it \
+		--net host \
+		jess/traceroute "$@"
+}
+
+# TRAVIS CI #
+dtravis() {
+	docker run -it --rm \
+	-v $HOME/.travis:/root/.travis \
+	-v $PWD:/usr/src/repo/ro \
+	-w /usr/src/repo \
+	--log-driver none \
+	jess/travis "$@"
+}
+
+# VISUAL STUDIO #
+dvisualstudio(){
+	drm visualstudio &>/dev/null
+
+	docker run -d \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v /tmp/.X11-unix:/tmp/.X11-unix  \
+		-e "DISPLAY=unix${DISPLAY}" \
+		-v $HOME:/home/user/sharedfolder \
+		-v $PWD:/code -w /code \
+		--name visualstudio \
+		jess/vscode
+}
+
+# WIRESHARK #
+dwireshark(){
+	drm wireshark &>/dev/null
+
+	docker run -d \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		-e "DISPLAY=unix${DISPLAY}" \
+		--cap-add NET_RAW \
+		--cap-add NET_ADMIN \
+		--net host \
+		--name wireshark \
+		jess/wireshark
+}
+
+# <----- TEST ZONE ----->

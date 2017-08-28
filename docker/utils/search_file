@@ -1,0 +1,34 @@
+#!/bin/sh
+set -x
+set -e
+
+clear
+echo
+
+DIR=$(dirname "$0")
+echo "$DIR"
+. ${DIR}/internal/common.sh
+. ${DIR}/internal/env-aliases.sh
+. ${DIR}/internal/vcs-git.sh
+
+
+function help() {
+  echo "Usage: search <name> [dir]"
+  echo " - Search <name> from current directory or [dir] if specified."
+  echo " - For files (including links) and directories. Recursive and case-insensitive."
+  echo " - Highlight matched word in search results."
+}
+
+if [ $1 ]
+then
+  DIR="."
+
+  if [ -n "$2" ]
+  then
+  	DIR=$2
+  fi
+
+  find -L $DIR -iname "*$1*" | grep -i $1 --color
+else
+  help
+fi

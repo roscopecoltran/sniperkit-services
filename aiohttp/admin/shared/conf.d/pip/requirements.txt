@@ -1,0 +1,10 @@
+# Luc Michalski - 2017
+-r /shared/conf.d/pip/requirements.dev.txt
+-r /shared/conf.d/pip/requirements.doc.txt
+-r /shared/conf.d/pip/requirements.test.txt
+-r /shared/conf.d/pip/requirements.vcs.txt
+# -r /shared/conf.d/pip/requirements.ai.txt
+# -r /shared/conf.d/pip/requirements.front.txt
+# -r /shared/conf.d/pip/requirements.docker.txt
+# -r /shared/conf.d/pip/requirements.mq.txt
+# -r /shared/conf.d/pip/requirements.db.txt

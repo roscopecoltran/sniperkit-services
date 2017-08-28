@@ -1,0 +1,24 @@
+version: '2'
+services:
+  # security
+  setoolkit:
+    image: setoolkit:${SETOOLKIT_VERSION}-alpine3.6
+    build:
+      context: "./setoolkit"
+      dockerfile: setoolkit-alpine.dockerfile
+    container_name: setoolkit-${SETOOLKIT_VERSION}
+    volumes_from:
+    - data
+    env_file:
+    - "./setoolkit/setoolkit.config.env"
+
+  sqlmap:
+    image: sqlmap:${SQLMAP_VERSION}-alpine3.6
+    build:
+      context: "./sqlmap"
+      dockerfile: sqlmap-alpine.dockerfile
+    container_name: sqlmap-${SQLMAP_VERSION}
+    volumes_from:
+    - data
+    env_file:
+    - "./sqlmap/sqlmap.config.env"

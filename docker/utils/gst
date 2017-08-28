@@ -1,0 +1,78 @@
+#!/bin/sh
+set -x
+set -e
+
+clear
+echo
+
+DIR=$(dirname "$0")
+echo "$DIR"
+. ${DIR}/internal/common.sh
+. ${DIR}/internal/env-aliases.sh
+
+function help () {
+  echo "### Git Staging Tool ###"
+  echo "Usage: gst [command] [search ...]";
+  echo " - Find file names from git status including <search> and execute git command <command> with them"
+  echo " - Supported commands: git add, git unstage, git rm, git discard"
+  echo ""
+}
+
+readonly STATUS_SUCCESS=0
+readonly STATUS_ERROR=1
+
+# `gst help` or `gst --help` to show help 
+if [ "$1" == "help" ] || [ "$1" == "--help" ]
+then
+  help
+  exit $STATUS_SUCCESS
+fi
+
+# If omit options, it will add or rm all files
+if [ "$#" -eq 0 ]
+then
+  command="add --all"
+  search='*'
+else
+  # $command can be specified by first two characters
+  case "$1" in
+    ad* ) command="add" ;;
+    un* ) command="unstage" ;;
+    di* ) command="discard" ;;
+    * ) command=$1
+  esac
+  
+  # $search is in the form of param2|param3 ...
+  shift 1
+  if [ $# -lt 1 ]
+  then
+    search='*' # If omit file names, it takes all files
+  else
+    search=$@
+  fi
+fi
+search=`echo $search | tr ' ' '|'`
+
+#echo "command: $command" # debug
+#echo "search: $search" # debug
+
+# Get files in git status in space separated format
+files=`git status -s | sed 's/^ *//' | tr -s " " | cut -d " " -f 2`
+#echo $files # debug
+
+# Check each file name if it matches input search word and if it does, execute git command
+for f in $files
+do
+  match=`echo $f | grep -iE $search`
+
+  if [ -n "$match" ]
+  then
+    #echo "File found: match=$match search=$search"; # debug
+    git $command $match
+    echo "+ git $command $match"
+  #else
+    #echo "File not found: search=$search"; # debug
+  fi
+done
+
+git status

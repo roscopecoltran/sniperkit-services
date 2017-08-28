@@ -1,0 +1,9 @@
+https://github.com/inspirehep/magpie
+https://github.com/search?l=Python&q=topic%3Amulti-label-classification&type=Repositories&utf8=%E2%9C%93
+https://github.com/quadflor/Quadflor
+https://github.com/quadflor/Quadflor/blob/master/Resources/example/example-fulltext/10001388845.txt
+https://github.com/Nickil21/Indeed-ML-codesprint-2017
+https://github.com/ChristianSch/skml
+
+https://github.com/496080199/inception_web
+
