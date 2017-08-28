@@ -1,0 +1,58 @@
+version: '2'
+
+services:
+  db:
+    container_name: 'demo-db'
+    env_file:
+      - .env
+    image: postgres:9.6-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./templates/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh
+
+  # Image docs here: https://elk-docker.readthedocs.io
+  elk:
+    container_name: 'demo-elk'
+    image: sebp/elk:512
+    ports:
+      - "5601:5601"
+      - "9200:9200"
+      - "5044:5044"
+    volumes:
+      - elk-data:/var/lib/elasticsearch
+
+  memcached:
+    container_name: 'demo-memcached'
+    image: memcached:1.4-alpine
+    ports:
+      - "11211:11211"
+
+  nginx:
+    container_name: 'demo-nginx'
+    extra_hosts:
+     - "dockerhost:${DOCKERHOST_IP}"
+     - "dockerhost_alias:${DOCKERHOST_ALIAS_IP}"
+    image: nginx:1.11-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/html/50x.html:/etc/nginx/html/50x.html
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/ssl
+      - ${PWD}/../docker-demo-app:/app
+
+  redis:
+    container_name: 'demo-redis'
+    image: redis:3.2-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+volumes:
+  elk-data:
+  redis-data:
