@@ -1,0 +1,13 @@
+**/krakend_gin*
+**/krakend_dns*
+**/krakend_mux*
+**/krakend_gorilla*
+**/krakend_negroni*
+**/krakend_httpcache*
+**/krakend_rss*
+**/krakend_jwt*
+server.rsa.crt
+server.rsa.key
+*.json
+*.yml
+*.toml
