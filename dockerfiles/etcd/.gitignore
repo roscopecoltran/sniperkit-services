@@ -1,0 +1,17 @@
+./shared/data/etcd
+./shared/data/etcd/
+./shared/data/etcd/**
+
+./shared/logs/etcd
+./shared/logs/etcd/
+./shared/logs/etcd/**
+
+./shared/logs/etcd
+./shared/logs/etcd/
+./shared/logs/etcd/**
+
+./shared/logs/dist
+./shared/logs/dist/
+./shared/logs/dist/**
+
+*.config.env

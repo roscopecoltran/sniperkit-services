@@ -1,3 +1,4 @@
 *.env
 ./nginx/conf.d/site-available/default.conf
 ./sphinx/sphinx.conf
+*..DS_Store

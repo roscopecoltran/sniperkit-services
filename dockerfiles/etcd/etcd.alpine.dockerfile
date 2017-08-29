@@ -18,7 +18,6 @@ LABEL maintainer "Luc Michalski <michalski.luc@gmail.com>"
 # ARG APP_USER=${APP_USER:-"app"}
 ARG GOSU_VERSION=${GOSU_VERSION:-"1.10"}
 ARG ETCD_VERSION=${ETCD_VERSION:-"3.2.6"}
-ARG ETCD_ENTRYPOINT_DEFAULT_CMD=${ETCD_ENTRYPOINT_DEFAULT_CMD:-"etcd --listen-peer-urls http://0.0.0.0:2380 --listen-client-urls http://0.0.0.0:2379"}
 
 # Install Gosu to /usr/local/sbin/gosu
 ADD https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64 /usr/local/sbin/gosu
@@ -47,7 +46,7 @@ WORKDIR /app
 # Container configuration
 # VOLUME ["/data", "/shared/data"]
 
-VOLUME ["/shared"]
+# VOLUME ["/shared"]
 EXPOSE 2379 2380
 
 ENTRYPOINT ["etcd"]
