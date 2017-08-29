@@ -1,0 +1,8 @@
+# Default values for nfsProvisioner.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nfsProvisioner: sap.io/nfsprovisioner
+storageClassName: managed-nfs-storage
+nfsServer: 10.125.2.77
+path: /container_persistancy/s4h-ml-k8/UserData/

@@ -1,0 +1,5 @@
+apiVersion: storage.k8s.io/v1beta1
+kind: StorageClass
+metadata:
+  name: managed-nfs-storage
+provisioner: sap.io/nfsprovisioner # or choose another name, must match deployment's env PROVISIONER_NAME'

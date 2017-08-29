@@ -1,0 +1,6 @@
+hub:
+    # output of first execution of 'openssl rand -hex 32'
+    cookieSecret: "1b080d8aff464cfe001121a038fc30182206436ca243aa4003b4cc95e47bf9d9"
+token:
+    # output of second execution of 'openssl rand -hex 32'
+    proxy: "1b080d8aff464cfe001121a038fc30182206436ca243aa4003b4cc95e47bf9d9"

@@ -1,0 +1,194 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jupyterhub-shared-data
+  labels:
+    volume: jupyterhub-shared-data
+spec:
+  capacity:
+    storage: {{.Values.storage.shared.size | quote}}
+  accessModes:
+    - ReadWriteMany
+  claimRef:
+    namespace: jupyterhub
+    name: jupyterhub-shared-data
+  nfs:
+    # FIXME: use the right IP from service
+    server: {{.Values.nfsServer | quote}}
+    path: {{.Values.storage.shared.path | quote}} 
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: jupyterhub-shared-data
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{.Values.storage.shared.size | quote}} 
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jupyterhub-public-data
+  labels:
+    volume: jupyterhub-public-data
+spec:
+  capacity:
+    storage: {{.Values.storage.public.size | quote}}
+  accessModes:
+    - ReadWriteMany
+  claimRef:
+    namespace: jupyterhub
+    name: jupyterhub-public-data
+  nfs:
+    # FIXME: use the right IP from service
+    server: {{.Values.nfsServer | quote}}
+    path: {{.Values.storage.public.path | quote}}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: jupyterhub-public-data
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{.Values.storage.public.size | quote}}
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jupyterhub-user-data
+  labels:
+    volume: jupyterhub-user-data
+spec:
+  capacity:
+    storage: {{.Values.storage.user.size | quote}}
+  accessModes:
+    - ReadWriteMany
+  claimRef:
+    namespace: jupyterhub
+    name: jupyterhub-user-data
+  nfs:
+    # FIXME: use the right IP from service
+    server: {{.Values.nfsServer | quote}}
+    path: {{.Values.storage.user.path | quote}}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: jupyterhub-user-data
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{.Values.storage.user.size | quote}}
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nfs-web-config
+data:
+  default.conf: |-
+    server {
+        listen   80;
+            server_name  localhost;
+            root /usr/share/nginx/html;
+            location / {
+                index none;
+                autoindex on;
+                autoindex_exact_size off;
+                autoindex_localtime on;
+        }
+    }
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nfs-web
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nfs-web
+    spec:
+      containers:
+      - name: web
+        image: nginx
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - name: nfs
+            mountPath: "/usr/share/nginx/html"
+          - name: config-volume
+            mountPath: "/etc/nginx/conf.d/"
+      volumes:
+        - name: nfs
+          persistentVolumeClaim:
+            claimName: jupyterhub-user-data
+        - name: config-volume
+          configMap:
+            name: nfs-web-config
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nfs-web
+spec:
+  type: {{.Values.nfsWeb.serviceType.type | quote}}
+  {{ if eq .Values.nfsWeb.serviceType.type "LoadBalancer" -}}
+  {{ if .Values.nfsWeb.serviceType.loadBalancer.publicIP }}
+  loadBalancerIP: {{ .Values.nfsWeb.serviceType.loadBalancer.publicIP }}
+  {{ end }}
+  {{ end }} 
+  ports:
+    - port: 80
+      targetPort: 80
+      {{ if eq .Values.nfsWeb.serviceType.type "NodePort" -}}
+      {{ if .Values.nfsWeb.serviceType.nodePort.port }}
+      nodePort: {{ .Values.nfsWeb.serviceType.nodePort.port }}
+      {{ end }}
+      {{ end }}
+  selector:
+    app: nfs-web
+
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nfs-busybox
+spec:
+  replicas: 1
+  selector:
+    name: nfs-busybox
+  template:
+    metadata:
+      labels:
+        name: nfs-busybox
+    spec:
+      containers:
+      - image: busybox
+        command:
+          - sh
+          - -c
+          - 'while true; do date > /mnt/index.html; hostname >> /mnt/index.html; sleep $(($RANDOM % 5 + 5)); done'
+        imagePullPolicy: IfNotPresent
+        name: busybox
+        volumeMounts:
+          # name must match the volume name below
+          - name: jupyterhub-user-data
+            mountPath: "/mnt"
+      volumes:
+      - name: jupyterhub-user-data
+        persistentVolumeClaim:
+          claimName: jupyterhub-user-data

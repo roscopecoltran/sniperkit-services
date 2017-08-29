@@ -1,0 +1,40 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: spark-worker-controller
+spec:
+  replicas: 3
+  selector:
+    component: spark-worker
+  template:
+    metadata:
+      labels:
+        component: spark-worker
+    spec:
+      containers:
+        - name: spark-worker
+          image: 81santi81/spark:2.1.1
+          imagePullPolicy: Always
+          command: ["/start-worker"]
+          ports:
+            - containerPort: 8081
+          resources:
+            requests:
+              cpu: 100m
+          volumeMounts:
+            - mountPath: /home/RawData
+              name: rawdata
+            - mountPath: /home/SharedContent
+              name: sharedcontent
+      volumes:
+       - name: rawdata
+         persistentVolumeClaim: 
+           claimName: jupyterhub-raw-data
+           readOnly : True
+       - name: sharedcontent
+         persistentVolumeClaim: 
+           claimName: jupyterhub-shared-data
+           readOnly : False
+            
+
+

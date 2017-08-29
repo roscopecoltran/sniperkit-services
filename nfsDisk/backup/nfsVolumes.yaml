@@ -1,0 +1,92 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jupyterhub-shared-data
+  labels:
+    volume: jupyterhub-shared-data
+spec:
+  capacity:
+    storage: 3Ti
+  accessModes:
+    - ReadWriteMany
+  claimRef:
+    namespace: jupyterhub
+    name: jupyterhub-shared-data
+  nfs:
+    # FIXME: use the right IP from service
+    server: 10.125.2.77
+    path: "/container_persistancy/s4h-ml-k8/SharedData"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: jupyterhub-shared-data
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 3Ti
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jupyterhub-raw-data
+  labels:
+    volume: jupyterhub-raw-data
+spec:
+  capacity:
+    storage: 3Ti
+  accessModes:
+    - ReadOnlyMany
+  claimRef:
+    namespace: jupyterhub
+    name: jupyterhub-raw-data
+  nfs:
+    # FIXME: use the right IP from service
+    server: 10.125.2.77
+    path: "/container_persistancy/s4h-ml-k8/RawData"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: jupyterhub-raw-data
+spec:
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 3Ti
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jupyterhub-user-data
+  labels:
+    volume: jupyterhub-user-data
+spec:
+  capacity:
+    storage: 3Ti
+  accessModes:
+    - ReadWriteMany
+  claimRef:
+    namespace: jupyterhub
+    name: jupyterhub-user-data
+  nfs:
+    # FIXME: use the right IP from service
+    server: 10.125.2.77
+    path: "/container_persistancy/s4h-ml-k8/UserData/"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: jupyterhub-user-data
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 3Ti
+
+
