@@ -1,0 +1,85 @@
+
+# services:
+#  db:
+#   networks:
+#    - seafar-net
+#   container_name: seafar-db
+#   hostname: db
+#   image: cheewai/postgis:postgres-9.6
+#   environment:
+#   - POSTGRES_UID=$user_uid
+#   - POSTGRES_GID=$user_gid
+#   - PGDATA=/var/lib/postgresql/data
+#   volumes:
+#    - ../config/db/0_db_init:/docker-entrypoint-initdb.d/0_db_init.sh:ro
+#    - ../config/db/pg_hba.conf:/etc/postgresql/9.6/main/pg_hba.conf
+#    - $persist_dir_postgres_data:$PGDATA
+#    - $persist_dir_backups:/backups
+#    - ./.env:/.env
+#   restart: always
+#   ports:
+#    - $db_host_port:$db_cont_port
+#   entrypoint:
+#   - /set-postgres-uid.sh 
+
+#  uwsgi:
+#   networks:
+#    - seafar-net
+#   container_name: seafar-uwsgi
+#   build:
+#      context: app/
+#      dockerfile: Dockerfile
+#   hostname: uwsgi
+#   working_dir: /home/web/django_project
+#   command: dockerize -wait tcp://db:$db_cont_port sh 0_app_init
+#   volumes:
+#    - ../django_project:/home/web/django_project
+#    - ../django_project/static:/home/web/static:rw
+#    - ../django_project/media:/home/web/media:rw
+#    - ../django_project/loginSystem:/home/web/loginSystem
+#    - ../config/app/0_app_init:/home/web/django_project/0_app_init:ro
+#    - .env:/home/web/django_project/.env:ro
+#    - $persist_dir_logs_app:/var/log/
+#   links:
+#    - db:db
+#   restart: always
+
+#  web:
+#   networks:
+#    - seafar-net
+#   container_name: seafar-web
+#   image: nginx:1-alpine
+#   hostname: nginx
+#   volumes:
+#    - ../config/nginx:/etc/nginx/conf.d:ro
+#    - ../django_project/static:/home/web/static:ro
+#    - ../django_project/media:/home/web/media:ro
+#    - $persist_dir_logs_nginx:/var/log/nginx
+#   ports:
+#    - $nginx_host_port:$nginx_cont_port
+#   links:
+#    - uwsgi:uwsgi
+#   restart: always
+
+#  ws:
+#   networks:
+#    - seafar-net
+#   container_name: seafar-ws
+#   build:
+#      context: ws/
+#      dockerfile: Dockerfile
+#   hostname: ws
+#   working_dir: /home/web/seafar-ws
+#   command: dockerize -wait http://uwsgi:8080 sh 0_ws_init
+#   volumes:
+#    - ../seafar-ws:/home/web/seafar-ws
+#    - ../config/ws/0_ws_init:/home/web/seafar-ws/0_ws_init:ro
+#    - .env:/home/web/seafar-ws/.env:ro
+#    - $persist_data_ws:/home/web/seafar-ws/ws
+#   ports:
+#    - $ws_host_port:$ws_cont_port
+#    - $api_host_port:$api_cont_port
+#   links:
+#    - uwsgi:uwsgi
+#    - db:db
+#   restart: always

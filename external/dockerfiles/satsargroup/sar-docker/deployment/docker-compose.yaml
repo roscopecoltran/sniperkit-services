@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+ tensorflow:
+  networks:
+   - sar-net
+  container_name: sar-tensorflow
+  hostname: tensorflow
+  build:
+   context: tensorflow/
+   dockerfile: Dockerfile
+  working_dir: /usr/local/bin/ 
+  command: init.sh
+  ports:
+   - $tensorflow_host_port:$tensorflow_cont_port
+  restart: always
+
+networks:
+ sar-net:
+  driver: bridge
