@@ -19,6 +19,8 @@ services:
     image: tianon/true
     volumes:
 
+    - "./dockerfiles/etcd/shared/logs:/shared/logs/etcd"
+    - "./dockerfiles/etcd/shared/data:/shared/data/etcd"
 
     - "./dockerfiles/krakend/shared/apps:/shared/apps"
     - "./dockerfiles/krakend/shared/conf.d:/etc/krakend"
@@ -26,9 +28,11 @@ services:
 
     - "./dockerfiles/aiohttp/admin/shared/dicts:/shared/dicts"
     - "./dockerfiles/aiohttp/admin/shared/utils:/scripts/utils"
+
     - "./dockerfiles/aiohttp/admin/shared/apps:/shared/apps"
     - "./dockerfiles/aiohttp/admin/shared/logs:/shared/logs/aiohttp_admin"
     - "./dockerfiles/aiohttp/admin/shared/data:/shared/data/aiohttp_admin"
+
     - "./dockerfiles/aiohttp/admin/shared/conf.d:/shared/data/conf.d"
 
 
@@ -89,6 +93,23 @@ services:
     - php
     - golang
     - nodejs
+
+  etcd:
+    image: "${DOCKER_HUB_ACCOUNT}/etcd:${ETCD_VERSION}-alpine3.6"
+    build:
+      context: "./dockerfiles/etcd"
+      dockerfile: "etcd-alpine.dockerfile"
+    container_name: "etcd-${ETCD_VERSION}"
+    volumes_from:
+    - data
+    ports:
+    - 2379:2379
+    - 2380:2380
+    expose:
+    - 2379
+    - 2380
+    env_file:
+    - "./dockerfiles/etcd/etcd.config.env"
 
   nodejs:
     image: "${DOCKER_HUB_ACCOUNT}/nodejs:${NODEJS_VERSION}-alpine3.6"

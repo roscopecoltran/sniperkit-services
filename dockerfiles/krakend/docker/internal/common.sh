@@ -49,6 +49,6 @@ function fix_python_symlinks_env {
 	PYTPIP_RESULT="  symlink created: ${PYPIP_EXECUTABLE} (${PYPIP_VERSION}) --> ${PYPIP_SYMLINKED}"
 }
 
-fix_python_symlinks_env 3
+# fix_python_symlinks_env 3
 
 
