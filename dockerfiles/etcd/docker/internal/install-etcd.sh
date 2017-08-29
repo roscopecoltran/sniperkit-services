@@ -27,7 +27,9 @@ pwd
 ls -l 
 glide install --strip-vendor
 gox -os="linux" -arch="amd64" -output="/usr/local/sbin/{{.Dir}}" $(glide novendor)
-gox -os="linux darwin" -arch="amd64" -output="/shared/apps/output/{{.Dir}}/{{.Dir}}_{{.OS}}_{{.Arch}}" $(glide novendor)
+
+mkdir -p /shared/apps/dist
+gox -os="linux darwin" -arch="amd64" -output="/shared/apps/dist/{{.Dir}}/{{.Dir}}_{{.OS}}_{{.Arch}}" $(glide novendor)
 
 # Cleanup GOPATH
 rm -r ${GOPATH}
