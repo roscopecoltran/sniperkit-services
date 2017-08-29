@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  jormungandr:
+    # we override the uwsgi command to activate the autoreload (every 3 seconds)
+    # note: the hot reload is not activated for the moment, it's way too long :(
+    # we'll need to work on this
+    # command: "uwsgi --mount /=jormungandr:app --http 0.0.0.0:80 --py-autoreload 10"
+    volumes:
+      - ${NAVITIA_PATH}/source/jormungandr/jormungandr:/usr/src/app/jormungandr

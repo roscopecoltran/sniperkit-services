@@ -1,0 +1,566 @@
+version: '2'
+
+services:
+
+  kraken-corr-02:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=corr-02
+        - KRAKEN_GENERAL_database=/srv/ed/output/corr-02.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-airport-01:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=airport-01
+        - KRAKEN_GENERAL_database=/srv/ed/output/airport-01.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-prolong-mano:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=prolong-mano
+        - KRAKEN_GENERAL_database=/srv/ed/output/prolong-mano.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-bibus:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=bibus
+        - KRAKEN_GENERAL_database=/srv/ed/output/bibus.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-mission:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=mission
+        - KRAKEN_GENERAL_database=/srv/ed/output/mission.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-test-02:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=test-02
+        - KRAKEN_GENERAL_database=/srv/ed/output/test-02.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-sherbrooke:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=sherbrooke
+        - KRAKEN_GENERAL_database=/srv/ed/output/sherbrooke.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-stif:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=stif
+        - KRAKEN_GENERAL_database=/srv/ed/output/stif.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-test-03:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=test-03
+        - KRAKEN_GENERAL_database=/srv/ed/output/test-03.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-nb-corr-05:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=nb-corr-05
+        - KRAKEN_GENERAL_database=/srv/ed/output/nb-corr-05.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-rebroussement:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=rebroussement
+        - KRAKEN_GENERAL_database=/srv/ed/output/rebroussement.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-map:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=map
+        - KRAKEN_GENERAL_database=/srv/ed/output/map.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-fr-pdl:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=fr-pdl
+        - KRAKEN_GENERAL_database=/srv/ed/output/fr-pdl.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-nb-corr-04:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=nb-corr-04
+        - KRAKEN_GENERAL_database=/srv/ed/output/nb-corr-04.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-freqgtfs:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=freqgtfs
+        - KRAKEN_GENERAL_database=/srv/ed/output/freqgtfs.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-corr-01:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=corr-01
+        - KRAKEN_GENERAL_database=/srv/ed/output/corr-01.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-passe-minuit-01:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=passe-minuit-01
+        - KRAKEN_GENERAL_database=/srv/ed/output/passe-minuit-01.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-guichet-unique:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=guichet-unique
+        - KRAKEN_GENERAL_database=/srv/ed/output/guichet-unique.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-freqparis:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=freqparis
+        - KRAKEN_GENERAL_database=/srv/ed/output/freqparis.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-itl:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=itl
+        - KRAKEN_GENERAL_database=/srv/ed/output/itl.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-poitiers:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=poitiers
+        - KRAKEN_GENERAL_database=/srv/ed/output/poitiers.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-test-01:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=test-01
+        - KRAKEN_GENERAL_database=/srv/ed/output/test-01.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-boucle-01:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=boucle-01
+        - KRAKEN_GENERAL_database=/srv/ed/output/boucle-01.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-paysdelaloire:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=paysdelaloire
+        - KRAKEN_GENERAL_database=/srv/ed/output/paysdelaloire.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-saintomer:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=saintomer
+        - KRAKEN_GENERAL_database=/srv/ed/output/saintomer.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-airport:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=airport
+        - KRAKEN_GENERAL_database=/srv/ed/output/airport.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-tcl:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=tcl
+        - KRAKEN_GENERAL_database=/srv/ed/output/tcl.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-passe-minuit-02:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=passe-minuit-02
+        - KRAKEN_GENERAL_database=/srv/ed/output/passe-minuit-02.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-nb-corr-01:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=nb-corr-01
+        - KRAKEN_GENERAL_database=/srv/ed/output/nb-corr-01.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-mdi:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=mdi
+        - KRAKEN_GENERAL_database=/srv/ed/output/mdi.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-nb-corr-03:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=nb-corr-03
+        - KRAKEN_GENERAL_database=/srv/ed/output/nb-corr-03.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-prolong-auto:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=prolong-auto
+        - KRAKEN_GENERAL_database=/srv/ed/output/prolong-auto.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-nb-corr-02:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=nb-corr-02
+        - KRAKEN_GENERAL_database=/srv/ed/output/nb-corr-02.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-freqsimple:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=freqsimple
+        - KRAKEN_GENERAL_database=/srv/ed/output/freqsimple.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-freqgtfs-01:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=freqgtfs-01
+        - KRAKEN_GENERAL_database=/srv/ed/output/freqgtfs-01.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-tad:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=tad
+        - KRAKEN_GENERAL_database=/srv/ed/output/tad.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  kraken-fr-auv:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=fr-auv
+        - KRAKEN_GENERAL_database=/srv/ed/output/fr-auv.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+
+  jormungandr:
+    environment:
+
+      - JORMUNGANDR_INSTANCE_corr-02={"key":"corr-02","zmq_socket":"tcp://kraken-corr-02:30000"}
+
+      - JORMUNGANDR_INSTANCE_airport-01={"key":"airport-01","zmq_socket":"tcp://kraken-airport-01:30000"}
+
+      - JORMUNGANDR_INSTANCE_prolong-mano={"key":"prolong-mano","zmq_socket":"tcp://kraken-prolong-mano:30000"}
+
+      - JORMUNGANDR_INSTANCE_bibus={"key":"bibus","zmq_socket":"tcp://kraken-bibus:30000"}
+
+      - JORMUNGANDR_INSTANCE_mission={"key":"mission","zmq_socket":"tcp://kraken-mission:30000"}
+
+      - JORMUNGANDR_INSTANCE_test-02={"key":"test-02","zmq_socket":"tcp://kraken-test-02:30000"}
+
+      - JORMUNGANDR_INSTANCE_sherbrooke={"key":"sherbrooke","zmq_socket":"tcp://kraken-sherbrooke:30000"}
+
+      - JORMUNGANDR_INSTANCE_stif={"key":"stif","zmq_socket":"tcp://kraken-stif:30000"}
+
+      - JORMUNGANDR_INSTANCE_test-03={"key":"test-03","zmq_socket":"tcp://kraken-test-03:30000"}
+
+      - JORMUNGANDR_INSTANCE_nb-corr-05={"key":"nb-corr-05","zmq_socket":"tcp://kraken-nb-corr-05:30000"}
+
+      - JORMUNGANDR_INSTANCE_rebroussement={"key":"rebroussement","zmq_socket":"tcp://kraken-rebroussement:30000"}
+
+      - JORMUNGANDR_INSTANCE_map={"key":"map","zmq_socket":"tcp://kraken-map:30000"}
+
+      - JORMUNGANDR_INSTANCE_fr-pdl={"key":"fr-pdl","zmq_socket":"tcp://kraken-fr-pdl:30000"}
+
+      - JORMUNGANDR_INSTANCE_nb-corr-04={"key":"nb-corr-04","zmq_socket":"tcp://kraken-nb-corr-04:30000"}
+
+      - JORMUNGANDR_INSTANCE_freqgtfs={"key":"freqgtfs","zmq_socket":"tcp://kraken-freqgtfs:30000"}
+
+      - JORMUNGANDR_INSTANCE_corr-01={"key":"corr-01","zmq_socket":"tcp://kraken-corr-01:30000"}
+
+      - JORMUNGANDR_INSTANCE_passe-minuit-01={"key":"passe-minuit-01","zmq_socket":"tcp://kraken-passe-minuit-01:30000"}
+
+      - JORMUNGANDR_INSTANCE_guichet-unique={"key":"guichet-unique","zmq_socket":"tcp://kraken-guichet-unique:30000"}
+
+      - JORMUNGANDR_INSTANCE_freqparis={"key":"freqparis","zmq_socket":"tcp://kraken-freqparis:30000"}
+
+      - JORMUNGANDR_INSTANCE_itl={"key":"itl","zmq_socket":"tcp://kraken-itl:30000"}
+
+      - JORMUNGANDR_INSTANCE_poitiers={"key":"poitiers","zmq_socket":"tcp://kraken-poitiers:30000"}
+
+      - JORMUNGANDR_INSTANCE_test-01={"key":"test-01","zmq_socket":"tcp://kraken-test-01:30000"}
+
+      - JORMUNGANDR_INSTANCE_boucle-01={"key":"boucle-01","zmq_socket":"tcp://kraken-boucle-01:30000"}
+
+      - JORMUNGANDR_INSTANCE_paysdelaloire={"key":"paysdelaloire","zmq_socket":"tcp://kraken-paysdelaloire:30000"}
+
+      - JORMUNGANDR_INSTANCE_saintomer={"key":"saintomer","zmq_socket":"tcp://kraken-saintomer:30000"}
+
+      - JORMUNGANDR_INSTANCE_airport={"key":"airport","zmq_socket":"tcp://kraken-airport:30000"}
+
+      - JORMUNGANDR_INSTANCE_tcl={"key":"tcl","zmq_socket":"tcp://kraken-tcl:30000"}
+
+      - JORMUNGANDR_INSTANCE_passe-minuit-02={"key":"passe-minuit-02","zmq_socket":"tcp://kraken-passe-minuit-02:30000"}
+
+      - JORMUNGANDR_INSTANCE_nb-corr-01={"key":"nb-corr-01","zmq_socket":"tcp://kraken-nb-corr-01:30000"}
+
+      - JORMUNGANDR_INSTANCE_mdi={"key":"mdi","zmq_socket":"tcp://kraken-mdi:30000"}
+
+      - JORMUNGANDR_INSTANCE_nb-corr-03={"key":"nb-corr-03","zmq_socket":"tcp://kraken-nb-corr-03:30000"}
+
+      - JORMUNGANDR_INSTANCE_prolong-auto={"key":"prolong-auto","zmq_socket":"tcp://kraken-prolong-auto:30000"}
+
+      - JORMUNGANDR_INSTANCE_nb-corr-02={"key":"nb-corr-02","zmq_socket":"tcp://kraken-nb-corr-02:30000"}
+
+      - JORMUNGANDR_INSTANCE_freqsimple={"key":"freqsimple","zmq_socket":"tcp://kraken-freqsimple:30000"}
+
+      - JORMUNGANDR_INSTANCE_freqgtfs-01={"key":"freqgtfs-01","zmq_socket":"tcp://kraken-freqgtfs-01:30000"}
+
+      - JORMUNGANDR_INSTANCE_tad={"key":"tad","zmq_socket":"tcp://kraken-tad:30000"}
+
+      - JORMUNGANDR_INSTANCE_fr-auv={"key":"fr-auv","zmq_socket":"tcp://kraken-fr-auv:30000"}
+
+
+  instances_configurator:
+    environment:
+
+      - INSTANCE_corr-02=
+
+      - INSTANCE_airport-01=
+
+      - INSTANCE_prolong-mano=
+
+      - INSTANCE_bibus=
+
+      - INSTANCE_mission=
+
+      - INSTANCE_test-02=
+
+      - INSTANCE_sherbrooke=
+
+      - INSTANCE_stif=
+
+      - INSTANCE_test-03=
+
+      - INSTANCE_nb-corr-05=
+
+      - INSTANCE_rebroussement=
+
+      - INSTANCE_map=
+
+      - INSTANCE_fr-pdl=
+
+      - INSTANCE_nb-corr-04=
+
+      - INSTANCE_freqgtfs=
+
+      - INSTANCE_corr-01=
+
+      - INSTANCE_passe-minuit-01=
+
+      - INSTANCE_guichet-unique=
+
+      - INSTANCE_freqparis=
+
+      - INSTANCE_itl=
+
+      - INSTANCE_poitiers=
+
+      - INSTANCE_test-01=
+
+      - INSTANCE_boucle-01=
+
+      - INSTANCE_paysdelaloire=
+
+      - INSTANCE_saintomer=
+
+      - INSTANCE_airport=
+
+      - INSTANCE_tcl=
+
+      - INSTANCE_passe-minuit-02=
+
+      - INSTANCE_nb-corr-01=
+
+      - INSTANCE_mdi=
+
+      - INSTANCE_nb-corr-03=
+
+      - INSTANCE_prolong-auto=
+
+      - INSTANCE_nb-corr-02=
+
+      - INSTANCE_freqsimple=
+
+      - INSTANCE_freqgtfs-01=
+
+      - INSTANCE_tad=
+
+      - INSTANCE_fr-auv=

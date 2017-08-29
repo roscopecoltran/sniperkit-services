@@ -1,0 +1,68 @@
+version: '2'
+
+services:
+  instances_configurator:
+    image: navitia/instances-configurator:latest
+    volumes_from:
+      - tyr_beat
+      - jormungandr
+    volumes:
+      - kraken_instance_conf:/srv/kraken
+    environment:
+      - INSTANCE_default=
+
+  database:
+    environment:
+      - POSTGRES_USER=navitia
+      - POSTGRES_PASSWORD=navitia
+      - POSTGRES_DB=jormungandr
+    image: mdillon/postgis:9.1
+
+  rabbitmq:
+    image: rabbitmq:management
+
+  redis:
+    image: redis:3-alpine
+
+  kraken-default:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name=default
+        - KRAKEN_GENERAL_database=/srv/ed/output/default.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+
+  jormungandr:
+    image: navitia/jormungandr:latest
+    environment:
+      - JORMUNGANDR_SQLALCHEMY_DATABASE_URI=postgresql://navitia:navitia@database/jormungandr
+      - JORMUNGANDR_INSTANCE_DEFAULT={"key":"default","zmq_socket":"tcp://kraken-default:30000"}
+    ports:
+      - "9191:80"
+
+  tyr_worker:
+    image: navitia/tyr-worker:latest
+    volumes_from:
+      - tyr_beat
+
+  tyr_beat:
+    image: navitia/tyr-beat:latest
+    volumes:
+      - tyr_data:/srv/ed
+      - tyr_instance_conf:/etc/tyr.d
+
+  tyr_web:
+    image: navitia/tyr-web:latest
+    volumes_from:
+      - tyr_beat
+    ports:
+      - '9898:80'
+
+volumes:
+  tyr_data:
+  tyr_instance_conf:
+  jormungandr_instance_conf:
+  kraken_instance_conf:
