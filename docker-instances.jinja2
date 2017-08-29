@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+{% for instance in instances %}
+  kraken-{{instance}}:
+    image: navitia/kraken:latest
+    environment:
+        - KRAKEN_GENERAL_instance_name={{instance}}
+        - KRAKEN_GENERAL_database=/srv/ed/output/{{instance}}.nav.lz4
+        - KRAKEN_BROKER_host=rabbitmq
+    volumes_from:
+      - tyr_beat:ro
+    expose:
+      - "30000"
+{% endfor %}
+
+  jormungandr:
+    environment:
+{% for instance in instances %}
+      - JORMUNGANDR_INSTANCE_{{instance}}={"key":"{{instance}}","zmq_socket":"tcp://kraken-{{instance}}:30000"}
+{% endfor %}
+
+  instances_configurator:
+    environment:
+{% for instance in instances %}
+      - INSTANCE_{{instance}}=
+{% endfor %}
