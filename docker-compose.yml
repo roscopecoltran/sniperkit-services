@@ -18,13 +18,25 @@ services:
   data:
     image: tianon/true
     volumes:
+
+
+    - "./dockerfiles/krakend/shared/apps:/shared/apps"
+    - "./dockerfiles/krakend/shared/conf.d:/etc/krakend"
+
+
+    - "./dockerfiles/aiohttp/admin/shared/dicts:/shared/dicts"
+    - "./dockerfiles/aiohttp/admin/shared/utils:/scripts/utils"
+    - "./dockerfiles/aiohttp/admin/shared/apps:/shared/apps"
+    - "./dockerfiles/aiohttp/admin/shared/logs:/shared/logs/aiohttp_admin"
+    - "./dockerfiles/aiohttp/admin/shared/data:/shared/data/aiohttp_admin"
+    - "./dockerfiles/aiohttp/admin/shared/conf.d:/shared/data/conf.d"
+
+
+    - "./shared/fake_api:/lwan/wwwroot"
     - "./shared/dicts:/shared/dicts"
     - "./shared/ssl:/shared/ssl"
     - "./shared/www:/var/www"
     - "./shared/html:/var/www/html"
-    - "./dockerfiles/aiohttp/admin/shared/logs:/shared/logs/aiohttp_admin"
-    - "./dockerfiles/aiohttp/admin/shared/data:/shared/data/aiohttp_admin"
-    - "./dockerfiles/aiohttp/admin/shared/conf.d:/shared/data/conf.d"
     - "./dockerfiles/mongodb/shared/logs:/shared/logs/mongodb"
     - "./dockerfiles/mongodb/shared/data:/shared/data/mongodb"
     - "./dockerfiles/mongodb/shared/conf.d:/shared/data/conf.d"
@@ -157,6 +169,28 @@ services:
     env_file:
     - "./dockerfiles/postgres/postgres.config.env"
 
+  krakend:
+    image: "${DOCKER_HUB_ACCOUNT}/krakend:${KRAKEND_VERSION}-alpine3.6"
+    container_name: krakend-${KRAKEND_VERSION}
+    build:
+      context: "./dockerfiles/krakend"
+      dockerfile: krakend-alpine.dockerfile
+    volumes_from:
+    - data
+    ports:
+    - "4242:4242"
+    links:
+    - fake_api
+    env_file:
+    - "./dockerfiles/krakend/krakend.config.env"
+
+  fake_api:
+    image: jaxgeller/lwan
+    volumes_from:
+    - data
+    ports:
+    - "8002:8080"
+
   mysql:
     image: "${DOCKER_HUB_ACCOUNT}/mysql:${MYSQL_VERSION}-alpine3.6"
     build:
@@ -246,6 +280,7 @@ services:
     build:
       context: "./dockerfiles/aiohttp/admin"
       dockerfile: aiohttp_admin-alpine.dockerfile
+    command: dev
     ports:
     - 9001:9001
     expose:
@@ -264,6 +299,11 @@ services:
     - mongodb
     volumes_from:
     - data
+    volumes:
+    - "./dockerfiles/aiohttp/admin/shared/apps:/shared/apps"
+    - "./dockerfiles/aiohttp/admin/shared/logs:/shared/logs/aiohttp_admin"
+    - "./dockerfiles/aiohttp/admin/shared/data:/shared/data/aiohttp_admin"
+    - "./dockerfiles/aiohttp/admin/shared/conf.d:/shared/data/conf.d"
     env_file:
     - "./dockerfiles/aiohttp/admin/aiohttp_admin.config.env"
 

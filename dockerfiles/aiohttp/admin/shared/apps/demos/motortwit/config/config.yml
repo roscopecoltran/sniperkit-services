@@ -1,5 +1,5 @@
 mongo:
-  host: 127.0.0.1
+  host: mongodb
   port: 27017
   database: "motortwit"
   max_pool_size: 5

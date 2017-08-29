@@ -12,24 +12,7 @@ if [[ -f  ${DIR}/common.sh ]]; then
 	. ${DIR}/common.sh
 fi
 
-function fix_python_symlinks_env {
-	PYTHON_VERSION_MAJOR=${1:-"2"}
-	PYTHON_EXPECTED=${2:-"/usr/bin/python$PYTHON_VERSION_MAJOR"}
-	PIP_EXPECTED=${3:-"/usr/bin/pip$PIP_EXPECTED"}
-	if [[ -f ${PYTHON_EXPECTED} ]]; then
-		ln -s ${PYTHON_EXPECTED} /usr/bin/python
-	else
-		echo -e " missing executable binary (for python v${PYTHON_VERSION_MAJOR}.x). expected: ${PYTHON_EXPECTED}"
-	fi
-	if [[ -f ${PIP_EXPECTED} ]]; then
-		ln -s ${PIP_EXPECTED} /usr/bin/pip
-	else
-		echo -e " missing executable binary (for py-pip v${PYTHON_VERSION_MAJOR}.x). expected: ${PIP_EXPECTED}"
-	fi
-}
-
-fix_python_symlinks_env 3
-exit 1
+# fix_python_symlinks_env 3
 
 if [[ -d ./$1 ]]; then
 	cd ./$1
@@ -47,6 +30,7 @@ function multisite_switcher {
 	fi
 }
 
+clear
 case "$1" in
 
   'interactive')
@@ -74,9 +58,38 @@ case "$1" in
   	exec /bin/bash
 	;;
 
-  'aiohttpdemo_*')
-		# aiohttpdemo_blog, aiohttpdemo_motortwit, aiohttpdemo_polls 
-  	exec $@ make run
+  aiohttpdemo_*)
+		c=0
+		for i in $(echo $1 | tr "_" " ")
+		# for i in $(echo $1 | tr "_" "\n")
+		do
+			if [ $c -eq 0 ]; then
+				DEMO_OWNER=$i
+			fi
+			if [ $c -eq 1 ]; then
+				DEMO_SLUG=$i
+			fi
+			c=$((c+1))
+		done
+		DEMO_EXPECTED_DIR="/app/aiohttp_admin/demos/${DEMO_SLUG}"
+		if [[ -d ${DEMO_EXPECTED_DIR} ]]; then
+			cd ${DEMO_EXPECTED_DIR}
+			pwd
+			ls -l 
+			# requirements-dev.txt
+			find . -name requirements*.txt -exec pip install --no-cache --no-cache-dir -r {} \;
+			if [[ -f ${DEMO_EXPECTED_DIR}/setup.py ]]; then	
+				pip install --no-cache --no-cache-dir -e .
+			else
+				exec python -m $1
+			fi
+			if [[ -f ${DEMO_EXPECTED_DIR}/Makefile ]]; then	
+				echo "luc"		
+				exec make run
+			else
+				exec python -m $1
+			fi
+		fi
 	;;
 
   'sniperkit')
@@ -98,7 +111,7 @@ case "$1" in
 	;;
 
   *)
-  	exec $@ make run
+  	exec $@ make run 
 	;;
 
 esac
