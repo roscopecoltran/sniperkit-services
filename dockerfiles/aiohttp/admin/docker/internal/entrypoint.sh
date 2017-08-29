@@ -29,7 +29,15 @@ function fix_python_symlinks_env {
 }
 
 fix_python_symlinks_env 3
-exit 1
+
+function test_args {
+	args_length=$(($#-1))
+	args_array=${@:1:$length}
+	args_shorter_array=${@:1:$#-1}
+	args_shorter_array2="files = ${@:1:-1}, name = ${@: -1}"
+	args_shorter_array3="${@:1:$(($#-1))}"
+	echo $args_array
+}
 
 if [[ -d ./$1 ]]; then
 	cd ./$1
