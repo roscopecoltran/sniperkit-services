@@ -1,0 +1,37 @@
+index:
+  number_of_replicas: 1
+  number_of_shards: 1
+  refresh_interval:  15s
+indices.fielddata.cache:
+  expire: 6h
+node:
+  data: true
+  master: true
+  name: datastorage  
+path:
+  data:
+      - /opt/elasticsearch/data/datastorage
+script:
+  inline: on
+  indexed: on
+marvel.agent.exporters:
+  id1:
+    type: http
+
+shield:
+  audit:
+    enabled: true
+    outputs: [index, logfile]
+  ssl:
+    keystore:
+      path: /opt/elasticsearch/config/shield/keystore.jks
+      password: atomic
+      key_password: atomic
+    hostname_verification: false
+    truststore:
+      path: /opt/elasticsearch/config/shield/truststore.jks
+      password: atomic
+  transport:
+    ssl: true
+  http:
+    ssl: true

@@ -1,0 +1,16 @@
+#  vi /etc/systemd/system/zookeeper.service
+[Unit]
+Description=Daemon for Zookeeper
+Requires=docker.service
+After=docker.service
+
+[Service]
+User=ubuntu
+Restart=on-failure
+RestartSec=10
+ExecStart=/home/ubuntu/start-zk.sh
+ExecStop=-/homr/ubuntu/stop-zk.sh
+
+[Install]
+WantedBy=multi-user.target
+

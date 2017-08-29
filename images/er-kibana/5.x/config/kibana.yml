@@ -1,0 +1,47 @@
+server:
+  # Kibana is served by a back end server. This controls which port to use.
+  port: 5601
+  # The host to bind the server to.
+  host: "0.0.0.0"
+  # SSL for outgoing requests from the Kibana Server (PEM formatted)
+  #ssl:
+  #  key: /opt/kibana/kibana5/kibana_pk.pem
+  #  cert: /opt/kibana/kibana5/kibana.crt
+
+kibana:
+  # Kibana uses an index in Elasticsearch to store saved searches, visualizations
+  # and dashboards. It will create a new index if it doesn't already exist.
+  index: ".kibana"
+  # The default application to load.
+  defaultAppId: "discover"
+
+elasticsearch:
+  # The user credentials used by the Kibana server to perform maintenance on the kibana_index at statup.
+  #username: kibana
+  #password: PASSWORD
+  # Set to false to have a complete disregard for the validity of the SSL certificate.
+  #ssl:
+  #  verify: false
+  #  ca: /opt/kibana/kibana5/ca.crt
+  # preserveHost true will send the hostname specified in `elasticsearch`. If you set it to false,
+  # then the host you use to connect to *this* Kibana instance will be sent.
+  preserveHost: true
+  # Time in milliseconds to wait for elasticsearch to respond to pings, defaults to request_timeout setting
+  pingTimeout: 1500
+  # Time in milliseconds to wait for responses from the back end or elasticsearch.# This must be > 0
+  requestTimeout: 300000
+  # Time in milliseconds for Elasticsearch to wait for responses from shards. Set to 0 to disable.
+  shardTimeout: 0
+  # Time in milliseconds to wait for Elasticsearch at Kibana startup before retrying
+  startupTimeout: 5000
+
+# log all events, including system usage information and all requests
+logging.verbose: false
+
+status.allowAnonymous: true
+
+xpack:
+  security:
+    enabled: false
+#    encryptionKey: "ice sendate wp3 key12345678901234"
+

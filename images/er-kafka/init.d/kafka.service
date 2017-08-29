@@ -1,0 +1,15 @@
+#  vi /etc/systemd/system/kafka.service
+[Unit]
+Description=Daemon for Kafka
+Requires=docker.service
+After=docker.service
+
+[Service]
+User=ubuntu
+Restart=on-failure
+RestartSec=10
+ExecStart=/home/ubuntu/start-kafka.sh
+ExecStop=/home/ubuntu/stop-kafka.sh
+
+[Install]
+WantedBy=multi-user.target
