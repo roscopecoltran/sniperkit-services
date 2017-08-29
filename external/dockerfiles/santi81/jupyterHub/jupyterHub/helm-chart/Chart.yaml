@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Kuberbetes based Jupyterhub deployment.
+name: helm-chart
+version: 0.1.1

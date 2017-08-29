@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: nfs-client-provisioner
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: nfs-client-provisioner
+    spec:
+      containers:
+        - name: nfs-client-provisioner
+          image: quay.io/external_storage/nfs-client-provisioner:v1
+          volumeMounts:
+            - name: nfs-client-root
+              mountPath: /persistentvolumes
+          env:
+            - name: PROVISIONER_NAME
+              value: "{{ .Values.nfsProvisioner }}"
+            - name: NFS_SERVER
+              value: "{{ .Values.nfsServer }}"
+            - name: NFS_PATH
+              value: "{{ .Values.path }}"
+      volumes:
+        - name: nfs-client-root
+          nfs:
+            server: "{{ .Values.nfsServer }}"
+            path: "{{ .Values.path }}"
+

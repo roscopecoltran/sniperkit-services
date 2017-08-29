@@ -1,0 +1,25 @@
+# Default values for nfsChart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+
+# Replace with the NFS Server 
+nfsServer: 10.39.240.209
+storage:
+  shared:
+    path: "/container_persistancy/s4h-ml-k8/SharedData/"
+    size: "3Ti"
+  readOnly:
+    path: "/container_persistancy/s4h-ml-k8/RawData"
+    size: "3Ti"
+  user:
+   path: "/container_persistancy/s4h-ml-k8/UserData"
+   size: "3Ti"
+nfsWeb:
+  serviceType:
+    type: NodePort
+    nodePort:
+      port: 32500
+    loadBalancer:
+      publicIP: null
+

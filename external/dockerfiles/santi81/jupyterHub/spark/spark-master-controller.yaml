@@ -1,0 +1,39 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: spark-master-controller
+spec:
+  replicas: 1
+  selector:
+    component: spark-master
+  template:
+    metadata:
+      labels:
+        component: spark-master
+    spec:
+      containers:
+        - name: spark-master
+          image: 81santi81/spark:2.1.1
+          imagePullPolicy: Always
+          command: ["/start-master"]
+          ports:
+            - containerPort: 7077
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: 100m
+          volumeMounts:
+            - mountPath: /home/Public
+              name: publicdata
+            - mountPath: /home/SharedContent
+              name: sharedcontent
+      volumes:
+       - name: publicdata
+         persistentVolumeClaim: 
+           claimName: jupyterhub-public-data
+           readOnly : True
+       - name: sharedcontent
+         persistentVolumeClaim: 
+           claimName: jupyterhub-shared-data
+           readOnly : False
+
