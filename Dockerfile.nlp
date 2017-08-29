@@ -1,0 +1,21 @@
+FROM local/jupyter
+
+ENV  NLTK_DATA_PATH  /usr/share/nltk_data
+
+RUN set -x \
+    && apk --no-cache add --virtual .builddeps \
+        build-base \
+    && pip3 install BeautifulSoup4 \
+    && pip3 install gensim \
+    && pip3 install nltk \
+    && python3 -m nltk.downloader stopwords -d ${NLTK_DATA_PATH} \
+    && python3 -m nltk.downloader punkt -d ${NLTK_DATA_PATH}  \
+    # ## fasttext
+    # && conda install cython \
+    # && apk --no-cache add --virtual .builddeps \
+    #     bulid-base \
+    # && pip install fasttext \
+    ## cleanup  
+    && apk del .builddeps \
+    && find /usr/lib/python3.5 -name __pycache__ | xargs rm -r \
+    && rm -rf /root/.[acpw]* 
