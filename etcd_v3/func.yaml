@@ -1,0 +1,4 @@
+name: hub.faas.pro/etcd_v3
+version: 0.0.1
+build:
+- ./build.sh
