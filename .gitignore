@@ -1,0 +1,6 @@
+.DS_Store
+*.bak
+*.ipynb
+*.png
+octave-workspace
+.vscode
