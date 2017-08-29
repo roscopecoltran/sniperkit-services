@@ -1,0 +1,11 @@
+--- build.sh.orig
++++ build.sh
+@@ -3,7 +3,7 @@
+ test -f configure || ./bootstrap
+ test -d build || mkdir build
+ cd build
+-test -f Makefile || ../configure "$@"
++test -f Makefile || ../configure --prefix=/usr --srcdir=$(pwd)/.. "$@"
+ MAKE=make
+ [ `uname -s` = "FreeBSD" ] && MAKE=gmake
+ exec ${MAKE} "$@"
