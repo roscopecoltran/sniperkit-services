@@ -1,0 +1,4 @@
+#! /bin/bash
+#scp -r /data0/docker core@$1:/home/core/
+scp /data0/docker/ssh/id_rsa core@$1:/home/core/.ssh/id_rsa
+scp /data0/docker/ssh/id_rsa.pub core@$1:/home/core/.ssh/id_rsa.pub

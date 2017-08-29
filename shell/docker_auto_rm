@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -it --rm ivories/$1:1.0 /bin/bash

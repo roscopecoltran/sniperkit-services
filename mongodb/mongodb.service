@@ -1,0 +1,18 @@
+[Unit]
+Description=mongodb
+After=autorun.service
+Requires=autorun.service
+
+[Service]
+Restart=always
+RestartSec=30
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill mongodb
+ExecStartPre=-/usr/bin/docker rm mongodb
+ExecStartPre=-/home/core/docker/shell/install_fleetctl mongodb
+ExecStart=/usr/bin/docker run --name mongodb -p 27017:27017 -p 28017:28017 -v /home/core/data/mongodb:/data/db ivories/mongodb:1.0
+ExecStop=/usr/bin/docker kill mongodb
+
+[Install]
+WantedBy=multi-user.target
+

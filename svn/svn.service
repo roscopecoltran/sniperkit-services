@@ -1,0 +1,16 @@
+[Unit]
+Description=svn
+After=autorun.service
+Requires=autorun.service
+
+[Service]
+Restart=always
+RestartSec=30
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill svn
+ExecStartPre=-/usr/bin/docker rm svn
+ExecStart=/usr/bin/docker run  --name svn -p 3690:3690 -v /home/core/data/svn:/svn ivories/svn:1.0
+ExecStop=/usr/bin/docker kill svn
+
+[Install]
+WantedBy=multi-user.target
