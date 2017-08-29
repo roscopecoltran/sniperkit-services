@@ -1,0 +1,4 @@
+name: hub.faas.pro/func-twitter
+version: 0.0.1
+build:
+- ./build.sh
