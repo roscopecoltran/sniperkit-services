@@ -1,0 +1,50 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/circulate
+    docker:
+      - image: docker:latest
+        environment:
+          VERSION: 1.0.1
+          BUILD_DATE: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          VCS_REF: ${CIRCLE_SHA1:0:7}
+          TAG: ${VERSION}-alpine
+          TAG_MINOR: ${VERSION%.*}-alpine
+          TAG_MAJOR: ${VERSION%%.*}-alpine
+    steps:
+      - run: 
+          name: Install System Packages
+          command: apk --no-cache add git openssh-client
+      - checkout
+      - setup_docker_engine    
+      - run: docker info
+      - run: docker version
+      - run: 
+          name: Build docker image
+          command: |
+            docker image build \
+            --build-arg BUILD_DATE=${BUILD_DATE} \
+            --build-arg VCS_REF=${VCS_REF} \
+            --build-arg VERSION=${VERSION} \
+            -t smizy/gensim:${TAG} .
+      - run: docker images | grep gensim
+      - run: docker inspect smizy/gensim:${TAG}
+      - run:
+          name: Test import gensim
+          command: docker run smizy/gensim:${TAG} python -c 'import gensim'
+      - deploy:
+          name: Deploy to Docker Hub
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker tag smizy/gensim:${TAG} smizy/gensim
+            docker tag smizy/gensim:${TAG} smizy/gensim:${TAG_MINOR}
+            docker tag smizy/gensim:${TAG} smizy/gensim:${TAG_MAJOR}
+            docker push smizy/gensim:${TAG}
+            docker push smizy/gensim:${TAG_MINOR}
+            docker push smizy/gensim:${TAG_MAJOR}
+            docker push smizy/gensim:latest
+            docker logout
+            curl -X POST 'https://hooks.microbadger.com/images/smizy/gensim/kZzvRF3AJodLAJeVZ8aVSKyupOI='
+
+       
