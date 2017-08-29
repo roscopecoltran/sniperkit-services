@@ -1,0 +1,12 @@
+version: "2"
+services:
+
+  jupyter:
+    image: smizy/jupyter
+    ports:
+      - 6006:6006
+      - 8888:8888
+    volumes:
+      - .:/home/jupyter
+    working_dir: /home/jupyter
+    command: jupyter notebook --ip=*

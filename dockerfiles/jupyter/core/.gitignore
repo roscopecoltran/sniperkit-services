@@ -1,0 +1,6 @@
+.DS_Store
+*.ipynb
+*.mat
+*.bak
+/mldata/
+/data/
