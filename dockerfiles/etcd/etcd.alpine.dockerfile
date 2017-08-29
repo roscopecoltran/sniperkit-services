@@ -22,6 +22,8 @@ ARG ETCD_VERSION=${ETCD_VERSION:-"3.2.6"}
 # Install Gosu to /usr/local/bin/gosu
 ADD https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64 /usr/local/sbin/gosu
 
+# Copy source code to the container & build it
+COPY ./docker/internal /scripts/
 WORKDIR /scripts
 
 # Install runtime dependencies & create runtime user
@@ -31,9 +33,6 @@ RUN chmod +x /usr/local/sbin/gosu \
  	&& cd /scripts \
 	&& ./install-etcd.sh \
     && rm -rf /var/cache/apk/*
-
-# Copy source code to the container & build it
-COPY ./docker/internal /scripts
 
 # Copy source code for experimental data-aggregator/api gateways & build it
 COPY ./shared /shared

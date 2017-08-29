@@ -98,7 +98,7 @@ services:
     image: "${DOCKER_HUB_ACCOUNT}/etcd:${ETCD_VERSION}-alpine3.6"
     build:
       context: "./dockerfiles/etcd"
-      dockerfile: "etcd-alpine.dockerfile"
+      dockerfile: "etcd.alpine.dockerfile"
     container_name: "etcd-${ETCD_VERSION}"
     volumes_from:
     - data
