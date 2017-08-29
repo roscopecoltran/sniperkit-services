@@ -1,0 +1,19 @@
+[Unit]
+Description=autorun
+
+After=docker.service
+Requires=docker.service
+
+After=autorun_mount.service
+Requires=autorun_mount.service
+
+[Service]
+Restart=always
+RestartSec=30
+TimeoutStartSec=0
+ExecStart=/home/core/docker/shell/autorun
+ExecStop=pkill autorun
+
+[Install]
+WantedBy=multi-user.target
+
