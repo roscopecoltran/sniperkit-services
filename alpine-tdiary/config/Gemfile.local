@@ -1,0 +1,13 @@
+# tDiary
+gem 'tdiary',              :github => 'tdiary/tdiary-core'
+gem 'tdiary-contrib',      :github => 'tdiary/tdiary-contrib'
+gem 'tdiary-io-mongodb',   :github => 'tdiary/tdiary-io-mongodb'
+gem 'tdiary-style-gfm',    :github => 'tdiary/tdiary-style-gfm'
+
+# Server
+gem 'puma'
+gem 'foreman'
+
+# NginxOmniauthAdapter
+gem 'nginx_omniauth_adapter'
+gem 'omniauth-github'

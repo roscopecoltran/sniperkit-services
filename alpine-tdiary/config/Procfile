@@ -1,0 +1,3 @@
+nginx: ${TDIARY_ROOT}/run_nginx.sh
+adapter: bundle exec rackup -p 18081 nginx_omniauth_adapter.ru
+tdiary: bundle exec rackup -s Puma --host 127.0.0.1 --port 18082 config.ru
