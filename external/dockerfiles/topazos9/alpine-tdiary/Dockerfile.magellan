@@ -1,0 +1,39 @@
+FROM asakaguchi/ngx-mruby
+MAINTAINER Akiyoshi Sakaguchi
+
+ENV TDIARY_ROOT=/opt/tdiary \
+    CONFIG=/root/config \
+    MAGELLAN_PROXY_VERSION=0.1.4
+
+COPY config ${CONFIG}/
+
+RUN set -x \
+  && apk --update add git \
+                      apache2-utils \
+                      ruby \
+                      build-base \
+                      ruby-bigdecimal \
+                      ruby-bundler \
+                      ruby-dev \
+                      ruby-io-console \
+                      ruby-json \
+  && gem update --no-document \
+  && gem install tdiary --no-document \
+  && tdiary new ${TDIARY_ROOT} --skip-bundle \
+  && cd ${TDIARY_ROOT} \
+  && cp ${CONFIG}/nginx* ${CONFIG}/Procfile ${CONFIG}/run_nginx.sh . \
+  && chmod +x run_nginx.sh \
+  && if [ -e ${CONFIG}/Gemfile.local ]; then cp ${CONFIG}/Gemfile.local .; fi \
+  && bundle install --without test development --jobs=4 --retry=3 \
+  && if [ -e ${CONFIG}/tdiary.conf ]; then cp ${CONFIG}/tdiary.conf .; fi \
+  && if [ -e ${CONFIG}/.htpasswd ]; then cp ${CONFIG}/.htpasswd .; else htpasswd -bcd .htpasswd tdiary tdiary; fi \
+  && git clone https://github.com/tdiary/tdiary-theme.git theme \
+  && apk del git apache2-utils build-base ruby-dev \
+  && rm -rf /var/cache/apk/*
+
+WORKDIR /opt/tdiary
+
+ADD https://github.com/groovenauts/magellan-proxy/releases/download/v${MAGELLAN_PROXY_VERSION}/magellan-proxy-${MAGELLAN_PROXY_VERSION}_linux-amd64 /usr/local/bin/magellan-proxy
+RUN chmod +x /usr/local/bin/magellan-proxy
+
+CMD ["/usr/local/bin/magellan-proxy", "--port", "18080", "bundle", "exec", "foreman", "start"]

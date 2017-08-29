@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+# NginxOmniauthAdapter
+gem 'nginx_omniauth_adapter'
+gem 'omniauth-github'
+
+gem 'puma'
