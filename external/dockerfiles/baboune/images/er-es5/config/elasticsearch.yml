@@ -1,0 +1,48 @@
+#bootstrap.memory_lock: true
+cluster.name: ${CLUSTER_NAME}
+discovery.zen:
+  minimum_master_nodes:  ${MINIMUM_MASTER_NODES}
+  ping.unicast.hosts: ${PING_UNICAST_HOSTS}
+
+#indices.fielddata.cache.size =
+
+network.host: ${ES_NETWORK_HOST}
+
+node:
+  data: ${NODE.DATA}
+  master: ${NODE.MASTER}
+  name: ${HOSTNAME}
+
+
+path:
+  data:
+    - ${ES_HOME}/data/icestorage
+  logs: ${ES_HOME}/data/icestorage
+
+script:
+  inline: on
+
+xpack:
+  monitoring:
+    exporters.my_local:
+      type: local
+  #ssl:
+  #  keystore:      
+  #    path:         /etc/elasticsearch/xpack/keystore.jks
+  #    password:     atomic
+  #    key_password: atomic
+  #  verification_mode: none
+  #  truststore:
+  #    path: /etc/elasticsearch/xpack/truststore.jks
+  #    password: atomic
+
+  security:
+    enabled: false
+
+#    transport.ssl.enabled: true
+#    http.ssl.enabled: false
+#    authc:
+#      anonymous:
+#        username: guest
+#        roles: kibana_user, monitoring_user
+#        authz_exception: true
