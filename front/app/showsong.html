@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+    <div ng-show="showMessage" class="well">
+        {{message}}
+    </div>
+    <div class="panel-heading" ng-show="!showMessage">
+        <div class="col-xs-9">
+            <big>{{song.artist}} - {{song.title}} </big>
+        </div>
+        <div ng-attr-class="col-xs-3 text-align-right" id="propButton" ng-show="inGroup">
+            <button ng-show="!isLeader" ng-attr-class="{{isProposed(song.id) ? 'btn btn-info btn-xs pull-right disabled ' : 'btn btn-info pull-right btn-xs'}}" ng-click="propose(song)">
+                Propose
+            </button>
+            <button ng-show="isLeader" class="btn btn-info pull-right btn-xs" ng-click="propose(song)">
+                Play
+            </button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <div class="song-text">
+            <p>
+                {{song.text}}
+            </p>
+        </div>
+    </div>
+</div>

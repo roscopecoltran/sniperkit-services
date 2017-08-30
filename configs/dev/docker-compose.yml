@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  redis:
+    image: redis:latest
+
+  elastic:
+    build: ./elastic/
+    volumes:
+      - ./elastic/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+
+  postgres:
+    image: postgres:9.3
+    env_file:
+      - ./configs/dev/environment
+    volumes:
+      - ./db_data:/docker-entrypoint-initdb.d
+    depends_on:
+      - elastic
+
+  nginx:
+    restart: always
+    build: ./nginx/
+    ports:
+      - "80:80"
+    depends_on:
+      - aiohttp
+    volumes:
+      - ./front/app:/static
+      - ./front/node_modules:/static/node_modules
+      - ./front/bower_components:/static/bower_components
+
+  aiohttp:
+    build: ./sps
+    env_file:
+      - ./configs/dev/environment
+    environment:
+      - PYTHONUNBUFFERED=0
+    volumes:
+      - ./sps:/project
+    depends_on:
+      - postgres
+      - redis
+      - elastic
+    ports:
+      - "4000:4000"

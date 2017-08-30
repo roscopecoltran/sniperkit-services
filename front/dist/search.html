@@ -1,0 +1,28 @@
+<div ng-controller="SearchController">
+    <div ng-show="found">
+        <div class="panel panel-default">
+            <table class="table table-responsive table-hover table-striped">
+                <tbody>
+                    <tr dir-paginate="song in songs| itemsPerPage: 10" total-items="totalItems">
+                        <td>
+                            <a href="#/songs/{{song.id}}">{{song.artist}} - {{song.title}}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <dir-pagination-controls boundary-links="true"
+            on-page-change="searcher(newPageNumber)" 
+            template-url="./pagination-panel.html" 
+            src="./pagination-panel.html">
+        </dir-pagination-controls>
+    </div>
+    <div ng-hide="found">
+        <div class="alert alert-dismissible alert-warning">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <h4>Nothing found</h4>
+
+          <p>Try again with a different query</p>
+        </div>
+    </div>
+</div>

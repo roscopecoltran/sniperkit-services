@@ -1,0 +1,27 @@
+{
+  "name": "sps",
+  "authors": [
+    "ffluffyhedgehog",
+    "maqquettex",
+    "revan730"
+  ],
+  "description": "song party service",
+  "main": "app/index.html",
+  "license": "MIT",
+  "homepage": "app/index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.7",
+    "angular": "^1.5.8",
+    "glyphicons": "^0.0.2",
+    "angular-route": "^1.5.8",
+    "Ionicons": "ionicons#^2.0.1",
+    "angular-websocket": "^2.0.0"
+  }
+}
