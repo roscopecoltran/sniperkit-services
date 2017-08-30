@@ -1,6 +1,12 @@
 ---
 docker:
-	pull:
-		images:
+  crane:
+    list:
+      - find . -name crane.yml > .cranelist.txt
+  compose:
+    list:
+      - find . -name docker-compose.yml -name docker-compose.yaml -name docker-compose.dev.yml > .docker-compose.list.txt
+  images:
+  	pull:
 		- beniz/deepdetect_${PROCESSOR_COMPUTATION_TYPE}
     - floydhub/dl-docker:${PROCESSOR_COMPUTATION_TYPE}
