@@ -1,0 +1,9 @@
+{
+    "display_name": "Scala 2.11",
+    "language": "scala",
+    "argv": [
+        "/opt/toree-kernel/bin/run.sh",
+        "--profile",
+        "{connection_file}"
+    ]
+}
