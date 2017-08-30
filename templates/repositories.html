@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ super() }}: repositories{% endblock %}
+{% block header %}Repositories{% endblock %}
+
+{% block content %}
+<div class="container">
+
+<div class="row">
+{% for column in reponames|slice(2) %}
+	<div class="col-md-6">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th class="text-right">Repository</th>
+					<th>Metapackage lists</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for reponame in column %}
+				<tr id="{{ reponame }}">
+					<td class="text-right"><a href="{{ url_for('repository', repo=reponame) }}">{{ repometadata[reponame].desc }}</a></td>
+					<td class="text-nowrap">
+						<a href="{{ url_for('metapackages_in_repo', repo=reponame) }}">Present</a>
+						<a href="{{ url_for('metapackages_not_in_repo', repo=reponame) }}">Absent</a>
+						<a href="{{ url_for('metapackages_outdated_in_repo', repo=reponame) }}">Outdated</a>
+						<a href="{{ url_for('metapackages_candidates_for_repo', repo=reponame) }}">Candidates</a>
+						<a href="{{ url_for('metapackages_unique_in_repo', repo=reponame) }}">Unique</a>
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endfor %}
+</div> {#- row #}
+
+</div> {#- container #}
+{% endblock %}

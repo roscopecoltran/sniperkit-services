@@ -1,0 +1,120 @@
+{%- macro format_time_interval(value) -%}
+	{%- with seconds = value.total_seconds() | int -%}
+	{%- if seconds == 1 -%}
+		a second
+	{%- elif seconds < 60 -%}
+		{{ seconds }} seconds
+	{%- elif seconds // 60 == 1 -%}
+		a minute
+	{%- elif seconds < 60 * 60 -%}
+		{{ seconds // 60 }} minutes
+	{%- elif seconds // (60 * 60) == 1 -%}
+		an hour
+	{%- elif seconds < 60 * 60 * 24 -%}
+		{{ seconds // (60 * 60) }} hours
+	{%- elif seconds // (60 * 60 * 24) == 1 -%}
+		a day
+	{%- else -%}
+		{{ seconds // (60 * 60 * 24) }} days
+	{%- endif -%}
+	{%- endwith -%}
+{%- endmacro -%}
+
+{%- macro package_link(package, text) -%}
+	{%- if repometadata[package.repo].packagelinks -%}
+		<a href="{{ repometadata[package.repo].packagelinks[0].url|pkg_format(package) }}">{{ text }}</a>
+	{%- else -%}
+		{{ text }}
+	{%- endif -%}
+{%- endmacro -%}
+
+{%- macro link_status(link, link_statuses) -%}
+	{%- if link in link_statuses and link_statuses[link].status -%}
+		<div class="popup-container">
+		{%- if link_statuses[link].status == 200 -%}
+		{%- if link_statuses[link].redirect == 301 -%}
+			<sup class="link_status link_status_warning">R</sup>
+			<span class="popup-container-inner">
+				<sup class="popup">Link check passed, but there's permanent redirect {# #}
+				{%- if link_statuses[link].location -%}
+					to <a href="{{ link_statuses[link].location }}">{{ link_statuses[link].location }}</a>
+				{%- endif -%}
+		{%- else -%}
+			<sup class="link_status link_status_ok">✔</sup>
+			<span class="popup-container-inner">
+				<sup class="popup">Link check passed
+		{%- endif -%}
+				{%- if link_statuses[link].size -%}
+					, target size is <b>{{ link_statuses[link].size }}</b> bytes
+				{%- endif -%}
+				</sup>
+			</span>
+		{%- elif link_statuses[link].status == -1 -%}
+			<sup class="link_status link_status_error">✘</sup>
+			<span class="popup-container-inner">
+				<sup class="popup">Link check failed, connect timed out (60 seconds)</sup>
+			</span>
+		{%- elif link_statuses[link].status == -2 -%}
+			<sup class="link_status link_status_error">✘</sup>
+			<span class="popup-container-inner">
+				<sup class="popup">Link check failed, too many redirects</sup>
+			</span>
+		{%- elif link_statuses[link].status == -3 -%}
+			<sup class="link_status link_status_error">✘</sup>
+			<span class="popup-container-inner">
+				<sup class="popup">Link check failed, unknown error</sup>
+			</span>
+		{%- elif link_statuses[link].status == -4 -%}
+			<sup class="link_status link_status_error">✘</sup>
+			<span class="popup-container-inner">
+				<sup class="popup">Link check failed, could not connect</sup>
+			</span>
+		{%- elif link_statuses[link].status == -5 -%}
+			<sup class="link_status link_status_error">✘</sup>
+			<span class="popup-container-inner">
+				<sup class="popup">Link check failed, invalid URL</sup>
+			</span>
+		{%- elif link_statuses[link].status == -6 -%}
+			<sup class="link_status link_status_error">✘</sup>
+			<span class="popup-container-inner">
+				<sup class="popup">Link check failed, DNS problem</sup>
+			</span>
+		{%- else -%}
+			<sup class="link_status link_status_error">✘</sup>
+			<span class="popup-container-inner">
+				<sup class="popup">Link check failed, bad HTTP response {{ link_statuses[link].status }}</sup>
+			</span>
+		{%- endif -%}
+		</div>
+	{%- endif -%}
+{%- endmacro -%}
+
+{%- macro safe_percent(value, total, round=1) -%}
+	{%- if total == 0 -%}
+		-
+	{%- else -%}
+	{%- if round > 0 -%}
+		{{ (value/total*100.0)|round(round) }}%
+	{%- else -%}
+		{{ (value/total*100.0)|int }}%
+	{%- endif -%}
+	{%- endif -%}
+{%- endmacro -%}
+
+{%- macro value_with_delta(value, old_value) -%}
+	{%- if old_value is defined -%}
+		{%- if value > old_value -%}
+		<div class="popup-container">
+			{{- value -}}
+			<span class="popup-container-inner"><sup class="popup delta-positive">+{{ value - old_value }} in last week</sup></span></div>
+		{%- elif value < old_value -%}
+		<div class="popup-container">
+			{{- value -}}
+			<span class="popup-container-inner"><sup class="popup delta-negative">-{{ old_value - value }} in last week</sup></span></div>
+		{%- else -%}
+		{{- value -}}
+		{%- endif -%}
+	{%- else -%}
+	{{- value -}}
+	{%- endif -%}
+{%- endmacro -%}

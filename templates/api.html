@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ super() }}: API
+{% endblock %}
+
+{% block header %}
+API
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+<article>
+
+<h3>Introduction</h3>
+
+<p>API always returns a list of <em>packages</em>. <em>Package</em> is a dictionary of the following format:</p>
+
+<pre>
+{
+	"repo": "freebsd",
+	"name": "firefox",
+	"version": "50.1.0",
+	"origversion": "50.1.0_4,1",
+	"summary": "Widely used web browser",
+	"categories": ["www"],
+	"licenses": ["GPLv2+"],
+	"maintainers": ["gecko@FreeBSD.org"],
+	"www": ["http://www.mozilla.com/firefox"],
+	"downloads": ["http://download.cdn.mozilla.net/pub/firefox/releases/50.1.0/source/firefox-50.1.0.source.tar.xz"]
+}
+</pre>
+
+<p>Fields are:</p>
+<dl class="dl-horizontal">
+	<dt>repo</dt><dd>name of repository for this package</dd>
+	<dt>subrepo</dt><dd>name of subrepository (if applicable; for example, <em>main</em> or <em>contrib</em> or <em>non-free</em> for Debian)</dd>
+	<dt>name</dt><dd>package name as in repository</dd>
+	<dt>version</dt><dd>package version (sanitized) </dd>
+	<dt>origversion</dt><dd>package version as in repository (if different from <b>version</b>)</dd>
+	<dt>summary</dt><dd>one-line description of the package</dd>
+	<dt>categories</dt><dd>list of package categories</dd>
+	<dt>licenses</dt><dd>list of package licenses</dd>
+	<dt>maintainers</dt><dd>list of package maintainers</dd>
+	<dt>www</dt><dd>list of package webpages</dd>
+	<dt>downloads</dt><dd>list of package downloads</dd>
+</dl>
+
+<p>
+Mandatory fields are <b>repo</b>, <b>name</b> and <b>version</b>, all other fields are optional.
+</p>
+
+<p><em>Metapackage</em> is a group of related <em>packages</em> from different repositories (though it may contain multiple <em>packages</em> from the same repository). <em>Metapackage</em> has its own name which is derived from <em>package</em> names. In most cases it's the same, but sometimes different <em>package</em> names are transformed into a single <em>metapackage</em> name to coalesce differently named <em>packages</em> from different repositories.</p>
+
+<p>API allows to request <em>packages</em> for a single <em>metapackage</em> or for a range of <em>metapackages</em>.</p>
+
+<h3>Single metapackage</h3>
+
+<p>Get list of <em>packages</em> for specific <em>metapackage</em> (here, firefox):</p>
+<pre>
+{{ url_for('api_v1_metapackage', name='firefox') }}
+</pre>
+
+<h3>Multiple metapackages</h3>
+
+<p>Following requests return data for multiple <em>metapackages</em> in form of <em>metapackage</em> name → list of <em>packages</em> dictionary. You may set a range of names to retrieve by specifying first or last name in range(inclusive or exclisive). API returns no more than {{ per_page }} <em>metapackages</em> per request. By taking last (alphanumerically) <em>name</em> from a request and making another request with <em>&gt;name</em> you can iterate through all metapackages. Empty output means end of data.</p>
+
+<p>Get first {{ per_page }} metapackages:</p>
+<pre>
+{{ url_for('api_v1_metapackages_all') }}
+</pre>
+
+<p>Get first {{ per_page }} metapackages starting with <b>firefox</b> (inclusive):</p>
+<pre>
+{{ url_for('api_v1_metapackages_all', bound='firefox') }}
+</pre>
+
+<p>Get first {{ per_page }} metapackages after <b>firefox</b> (exclusive, e.g. <b>firefox</b> not included):</p>
+<pre>
+{{ url_for('api_v1_metapackages_all', bound='>firefox')|replace('%3E', '>') }}
+</pre>
+
+<p>Get first {{ per_page }} metapackages just before <b>firefox</b> (exclusive, e.g. <b>firefox</b> not included):</p>
+<pre>
+{{ url_for('api_v1_metapackages_all', bound='<firefox')|replace('%3C', '<') }}
+</pre>
+
+<p>All <em>metapackages</em> requests support <b>&lt;</b> and <b>&gt;</b> syntax.</p>
+
+<h3>Filtered metapackages</h3>
+
+<p>Get metapackages present in specific repository (e.g. containing a <em>package</em> from that repository):</p>
+<pre>
+{{ url_for('api_v1_metapackages_in_repo', repo='freebsd') }}
+{{ url_for('api_v1_metapackages_in_repo', repo='freebsd', bound='firefox') }}
+{{ url_for('api_v1_metapackages_in_repo', repo='freebsd', bound='>firefox')|replace('%3E', '>') }}
+{{ url_for('api_v1_metapackages_in_repo', repo='freebsd', bound='<firefox')|replace('%3C', '<') }}
+</pre>
+
+<p>Get metapackages not present in specific repository:</p>
+<pre>
+{{ url_for('api_v1_metapackages_not_in_repo', repo='freebsd') }}
+{{ url_for('api_v1_metapackages_not_in_repo', repo='freebsd', bound='firefox') }}
+{{ url_for('api_v1_metapackages_not_in_repo', repo='freebsd', bound='>firefox')|replace('%3E', '>') }}
+{{ url_for('api_v1_metapackages_not_in_repo', repo='freebsd', bound='<firefox')|replace('%3C', '<') }}
+</pre>
+
+<p>Get metapackages outdated in specific repository:</p>
+<pre>
+{{ url_for('api_v1_metapackages_outdated_in_repo', repo='freebsd') }}
+{{ url_for('api_v1_metapackages_outdated_in_repo', repo='freebsd', bound='firefox') }}
+{{ url_for('api_v1_metapackages_outdated_in_repo', repo='freebsd', bound='>firefox')|replace('%3E', '>') }}
+{{ url_for('api_v1_metapackages_outdated_in_repo', repo='freebsd', bound='<firefox')|replace('%3C', '<') }}
+</pre>
+
+<p>Get metapackages for specific maintainer (e.g. containing a <em>package</em> with specific maintainer):</p>
+<pre>
+{{ url_for('api_v1_metapackages_by_maintainer', maintainer='amdmi3@FreeBSD.org') }}
+{{ url_for('api_v1_metapackages_by_maintainer', maintainer='amdmi3@FreeBSD.org', bound='firefox') }}
+{{ url_for('api_v1_metapackages_by_maintainer', maintainer='amdmi3@FreeBSD.org', bound='>firefox')|replace('%3E', '>') }}
+{{ url_for('api_v1_metapackages_by_maintainer', maintainer='amdmi3@FreeBSD.org', bound='<firefox')|replace('%3C', '<') }}
+</pre>
+
+<p>Get metapackages which are outdated for specific maintainer:</p>
+<pre>
+{{ url_for('api_v1_metapackages_outdated_by_maintainer', maintainer='amdmi3@FreeBSD.org') }}
+{{ url_for('api_v1_metapackages_outdated_by_maintainer', maintainer='amdmi3@FreeBSD.org', bound='firefox') }}
+{{ url_for('api_v1_metapackages_outdated_by_maintainer', maintainer='amdmi3@FreeBSD.org', bound='>firefox')|replace('%3E', '>') }}
+{{ url_for('api_v1_metapackages_outdated_by_maintainer', maintainer='amdmi3@FreeBSD.org', bound='<firefox')|replace('%3C', '<') }}
+</pre>
+
+<h3>Problems</h3>
+
+<p>Get problems for specific repository or maintainer:</p>
+<pre>
+{{ url_for('api_v1_repository_problems', repo='freebsd') }}
+{{ url_for('api_v1_maintainer_problems', maintainer='ports@freebsd.org')|replace('%40', '@') }}
+</pre>
+
+Output is an array of entries of the following format:
+
+<pre>
+{
+	"repo": "freebsd",
+	"name": "abby",
+	"effname": "abby",
+	"maintainer": "ports@freebsd.org",
+	"problem": "Homepage link \"https://code.google.com/archive/p/abby/\" points to Google Code which was discontinued. The link should be updated (probably along with download URLs). If this link is still alive, it may point to a new project homepage."
+}
+</pre>
+
+<p>Fields are:</p>
+<dl class="dl-horizontal">
+	<dt>repo</dt><dd>repository name</dd>
+	<dt>name</dt><dd>package name as in repository</dd>
+	<dt>effname</dt><dd>repology metapackage name</dd>
+	<dt>maintainer</dt><dd>package maintainer associated with the problem; may be null; note that if there are multiple package maintainers, problem is duplicated for each one</dd>
+	<dt>problem</dt><dd>textual description of the problem</dd>
+</dl>
+
+</article>
+
+</div>
+{% endblock %}

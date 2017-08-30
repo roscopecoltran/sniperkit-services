@@ -1,0 +1,62 @@
+{% extends "metapackage.html" %}
+
+{% block title %}{{ super() }}: badges for {{ name }}{% endblock %}
+{% block header %}Badges for <strong>{{ name }}</strong>{% endblock %}
+{% block description %}SVG badges with packaging information for metapackage {{ name }}{% endblock %}
+{% block keywords %}{{ super() }}, badge{% endblock %}
+
+{% macro badge_example(badge_type, alt="Packaging status", badge_args={}) %}
+<p><a href="{{ REPOLOGY_HOME }}{{ url_for('metapackage', name=name) }}"><img src="{{ url_for(badge_type, name=name, **badge_args) }}" alt="{{ alt }}"></a></p>
+
+<p>Markdown code:</p>
+<pre>
+[![{{ alt }}]({{ REPOLOGY_HOME }}{{ url_for(badge_type, name=name, **badge_args) }})]({{ REPOLOGY_HOME }}{{ url_for('metapackage', name=name) }})
+</pre>
+
+<p>HTML code:</p>
+<pre>
+&lt;a href=&quot;{{ REPOLOGY_HOME }}{{ url_for('metapackage', name=name) }}&quot;&gt;
+    &lt;img src=&quot;{{ REPOLOGY_HOME }}{{ url_for(badge_type, name=name, **badge_args)}}&quot; alt=&quot;{{ alt }}&quot;&gt;
+&lt;/a&gt;
+</pre>
+{% endmacro %}
+
+{% block content %}
+<div class="container">
+
+<article>
+
+<h2>Big badge</h2>
+
+<p>This shows versions and up to date status of this package in all known repositories.</p>
+
+{{ badge_example('badge_vertical_allrepos') }}
+
+<p>When using HTML code, you can also right-align the big badge by adding <code>align="right"</code> attribute (works on GitHub as well). When the badge is right-aligned, space to the left of it can be occupied by other content, and is not wasted as it would be otherwise, so it's recommended way of embedding the big badge.</p>
+
+<p>HTML code for right-aligned badge:</p>
+<pre>
+&lt;a href=&quot;{{ REPOLOGY_HOME }}{{ url_for('metapackage', name=name) }}&quot;&gt;
+    &lt;img src=&quot;{{ REPOLOGY_HOME }}{{ url_for('badge_vertical_allrepos', name=name)}}&quot; alt=&quot;Packaging status&quot; <strong>align=&quot;right&quot;</strong>&gt;
+&lt;/a&gt;
+</pre>
+
+<h2>Tiny badge with number of repositories</h2>
+
+<p>This shows total number of repository families featuring this package. Repository family is an aggregation of related repositories, e.g. Debian Stable, Testing, Unstable and Experimental all belong to a single family and are thus only counted once.</p>
+
+{{ badge_example('badge_tiny_repos') }}
+
+<h2>Tiny per-repository badges with version</h2>
+
+<p>These show version in specific repository. Pick as many as you want!</p>
+
+{% for repo in repos %}
+<h3>{{ repometadata[repo].desc }}</h3>
+{{ badge_example('badge_version_for_repo', alt=repometadata[repo].desc + " package", badge_args={"repo":repo}) }}
+{% endfor %}
+
+</article>
+
+</div> {#- container #}
+{% endblock %}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="{% block description %}Multiple package repositories analyzer{% endblock %}">
+	<meta name="keywords" content="{% block keywords %}repository, package, packages, version{% endblock %}">
+	<meta name="author" content="Dmitry Marakasov">
+{% block extrameta %}
+{% endblock %}
+	<title>{% block title %}Repology{% endblock %}</title>
+	<link rel="stylesheet" href="{{ url_for("static", filename="bootstrap.min.v3.3.7.css") }}">
+	<link rel="stylesheet" href="{{ url_for("static", filename="repology.v2.css") }}">
+	<link rel="icon" href="{{ url_for("static", filename="repology.v1.ico") }}" sizes="16x16 32x32 64x64" type="image/x-icon">
+	<link rel="search" type="application/opensearchdescription+xml" title="Repology packages" href="{{ url_for("opensearch_metapackage") }}">
+	<link rel="search" type="application/opensearchdescription+xml" title="Repology maintainers" href="{{ url_for("opensearch_maintainer") }}">
+</head>
+<body>
+{% macro classactive_if_endpoint(endpoint) -%}
+	{%- if request.endpoint == endpoint %} class="active"{%- endif -%}
+{%- endmacro %}
+{% macro active_if_endpoint(endpoint) -%}
+	{%- if request.endpoint == endpoint %} active{%- endif -%}
+{%- endmacro %}
+<header>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#repology-navbar-collapse" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{{ url_for("index") }}">
+					<img alt="Repology" src="{{ url_for("static", filename="repology40x40.v1.png") }}" width="40" height="40">
+				</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="repology-navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li{{ classactive_if_endpoint('metapackages_all') }}><a href="{{ url_for('metapackages_all') }}">All metapackages</a></li>
+					<li{{ classactive_if_endpoint('metapackages_unique') }}><a href="{{ url_for('metapackages_unique') }}">Unique</a></li>
+					<li{{ classactive_if_endpoint('metapackages_widespread') }}><a href="{{ url_for('metapackages_widespread') }}">Widespread</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-separator-at-left">
+					<li{{ classactive_if_endpoint('maintainers') }}><a href="{{ url_for('maintainers') }}">Maintainers</a></li>
+					<li{{ classactive_if_endpoint('repositories') }}><a href="{{ url_for('repositories') }}">Repositories</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li{{ classactive_if_endpoint('news') }}><a href="{{ url_for('news') }}">News</a></li>
+					<li{{ classactive_if_endpoint('statistics') }}><a href="{{ url_for('statistics') }}">Statistics</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+
+{% block pageheader %}
+<div class="container">
+	{% block preheader %}{% endblock %}
+	<h1 class="page-header">{% block header %}{% endblock %}</h1>
+</div>
+{% endblock %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="container">
+{% for category, message in messages %}
+	<div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
+{% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+{% block content %}
+{% endblock %}
+
+<footer class="footer">
+	<div class="container">
+		<ul class="footer-links">
+			<li><a href="{{ url_for('about') }}">About</a></li>
+			<li><a href="{{ url_for('api_v1') }}">API</a></li>
+			<li class="footer-links-right"><a href="https://github.com/repology/repology">GitHub</a></li>
+		</ul>
+		<p>
+			Copyright (C) 2016-2017 Dmitry Marakasov &lt;<a href="mailto:amdmi3@amdmi3.ru">amdmi3@amdmi3.ru</a>&gt;.<br>
+			Code licensed under GPLv3+.
+		</p>
+	</div>
+</footer>
+
+<script src="{{ url_for("static", filename="jquery-3.1.1.min.js") }}"></script>
+<script src="{{ url_for("static", filename="bootstrap.min.v3.3.7.js") }}"></script>
+
+</body>
+</html>
