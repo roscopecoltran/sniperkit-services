@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Luc Michalski - 2017
+
+DOCKER_COMPOSE_FILES=$(find . -name docker-compose*\\.y*)
+for dcf in ${DOCKER_COMPOSE_FILES}; do
+	DCF_DIR=$(dirname ${dcf})
+	if [ ! -f ${DCF_DIR}/crane.yml ]; then
+		echo -e "services:" > ${DCF_DIR}/crane.yml
+	fi
+done

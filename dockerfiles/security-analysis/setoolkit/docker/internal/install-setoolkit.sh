@@ -28,6 +28,7 @@ fi
 git clone -b ${SETOOLKIT_VCS_BRANCH} --recursive --depth ${SETOOLKIT_VCS_CLONE_DEPTH} -- ${SETOOLKIT_VCS_URL} ${SETOOLKIT_VCS_CLONE_PATH}
 cd ${SETOOLKIT_VCS_CLONE_PATH}
 
-pip install -r /shared/conf.d/pip/requirements.txt
-pip install --no-cache --no-cache-dir -e .
+pip install --no-cache --no-cache-dir -r /shared/conf.d/pip/requirements.txt
+python setup.py install
+
 

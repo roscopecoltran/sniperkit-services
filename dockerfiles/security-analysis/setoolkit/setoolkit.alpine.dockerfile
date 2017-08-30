@@ -66,7 +66,8 @@ ARG DOCKER_SERVICES=${DOCKER_SERVICES:-"$APP_USER"}
 ARG APP_DIR_SHARED_LABEL="${APP_DIR_SHARED_LABEL:-"shared"}"
 
 # List of app-specific APK(s) packages required to install and compile the main component
-ARG APK_BUILD_CUSTOM=${APK_BUILD_CUSTOM:-"  py${SETOOLKIT_PY_VERSION_MAJOR}-pexpect \
+ARG APK_BUILD_CUSTOM=${APK_BUILD_CUSTOM:-"  python${SETOOLKIT_PY_VERSION_MAJOR}-dev \
+                                            py${SETOOLKIT_PY_VERSION_MAJOR}-pexpect \
                                             py${SETOOLKIT_PY_VERSION_MAJOR}-pefile \
                                             py${SETOOLKIT_PY_VERSION_MAJOR}-openssl \
                                             py${SETOOLKIT_PY_VERSION_MAJOR}-cryptography"}

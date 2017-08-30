@@ -1,10 +1,7 @@
 ---
 version: '2.1'
 
-# beniz/deepdetect_${PROCESSOR_COMPUTATION_TYPE}
-# floydhub/dl-docker:${PROCESSOR_COMPUTATION_TYPE}
-# docker-compose build --no-cache nodejs sphinx golang php postgres memcached neo4j gitsome setoolkit sqlmap
-# docker-compose build --no-cache searx aiohttp_admin mysql mariadb mongodb etcd crane krakend
+# https://docs.docker.com/compose/extends/#understanding-multiple-compose-files
 
 # version: '3'
 # extra_hosts:
@@ -24,6 +21,10 @@ services:
     image: tianon/true
     volumes:
 
+    # docker
+    - /etc/docker:/etc/docker
+    - /var/run/docker.sock:/var/run/docker.sock
+
     # root dir
     - "./shared/models:/shared/models"
     - "./shared/dicts:/shared/dicts"
@@ -38,9 +39,9 @@ services:
     - "./dockerfiles/data-storage/kvs/etcd/shared/data:/shared/data/etcd"
 
     # krakend
-    - "./dockerfiles/krakend/shared/conf.d:/shared/conf.d"
-    - "./dockerfiles/krakend/shared/apps:/shared/apps"
-    - "./dockerfiles/krakend/shared/logs:/shared/logs/krakend"
+    - "./dockerfiles/data-aggregation/krakend/shared/conf.d:/shared/conf.d"
+    - "./dockerfiles/data-aggregation/krakend/shared/apps:/shared/apps"
+    - "./dockerfiles/data-aggregation/krakend/shared/logs:/shared/logs/krakend"
 
     # crane
     - "./dockerfiles/moby/local/crane/shared/logs:/shared/logs/crane"
@@ -524,6 +525,10 @@ services:
       dockerfile: crane.alpine.dockerfile
     volumes_from:
     - data
+    environment:
+      - DOCKER_HOST
+      - DOCKER_SOCKET
+      - DOCKER_CURL_OPTION
     env_file:
     - "./dockerfiles/moby/local/crane/crane.config.env"
     entrypoint: /usr/local/sbin/crane

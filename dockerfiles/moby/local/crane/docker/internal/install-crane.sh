@@ -13,8 +13,8 @@ export USE_GOLANG_MAKEFILE_TARGETS=${USE_GOLANG_MAKEFILE_TARGETS:-"deps"}
 
 export USE_GOLANG_GET=${USE_GOLANG_GET:-"FALSE"}
 export USE_GOLANG_GOX=${USE_GOLANG_GOX:-"TRUE"}
-export USE_GOLANG_GLIDE=${USE_GOLANG_GLIDE:-"FALSE"}
-export USE_GOLANG_GLIDE_INSTALL=${USE_GOLANG_GLIDE_INSTALL:-"FALSE"}
+export USE_GOLANG_GLIDE=${USE_GOLANG_GLIDE:-"TRUE"}
+export USE_GOLANG_GLIDE_INSTALL=${USE_GOLANG_GLIDE_INSTALL:-"TRUE"}
 export USE_GOLANG_GOM=${USE_GOLANG_GOM:-"FALSE"}
 export USE_GOLANG_GOPKG=${USE_GOLANG_GOPKG:-"FALSE"}
 export USE_GOLANG_TOOLS_FROM_SRC=${USE_GOLANG_TOOLS_FROM_SRC:-"FALSE"}
@@ -59,7 +59,7 @@ pwd
 export APK_BUILD_GOLANG=${APK_BUILD_GOLANG:-"go git openssl ca-certificates libssh2 make"}
 export APK_BUILD_GOLANG_CGO=${APK_BUILD_GOLANG_CGO:-"gcc g++ musl-dev"}
 export APK_BUILD_GOLANG_TOOLS=${APK_BUILD_GOLANG_TOOLS:-""} # go-tools
-export APK_BUILD_GOLANG_CROSS=${APK_BUILD_GOLANG_CROSS:-"go-cross-darwin"} # go-cross-windows go-cross-freebsd go-cross-openbsd
+export APK_BUILD_GOLANG_CROSS=${APK_BUILD_GOLANG_CROSS:-""} # go-cross-windows go-cross-freebsd go-cross-openbsd go-cross-darwin
 
 ### APK #######################################################################################################
 
@@ -167,7 +167,7 @@ if [ "$USE_GOLANG_GLIDE" == "TRUE" ]; then
 
 	if [ "${USE_GOLANG_GLIDE_INSTALL}" == "TRUE" ]; then
 		if [ -f ${GLIDE_CONF_FN} ]; then
-			glide install ${GLIDE_INSTALL_ARGS:-"--force --strip-vendor --skip-test"}
+			glide install --force --strip-vendor
 		fi
 	fi
 
@@ -197,27 +197,29 @@ export GOLANG_BUILD_BIN_SRC_DIR=${GOLANG_BUILD_BIN_SRC_DIR:-"\$(glide novendor)"
 
 ### GOX ########################################################################################################
 
-if [ "USE_GOLANG_GOX" == "TRUE" ]; then
+if [ "$USE_GOLANG_GOX" == "TRUE" ]; then
 	if [ "IS_GOLANG_XBUILD" == "TRUE" ]; then
-		gox -os="linux darwin windows" -arch="amd64" -output="/shared/dist/{{.Dir}}/{{.Dir}}_{{.OS}}_{{.ARCH}}" $(glide novendor)
+		gox -verbose -os="linux darwin windows" -arch="amd64" -output="/shared/dist/{{.Dir}}/{{.Dir}}_{{.OS}}_{{.ARCH}}" $(glide novendor)
 	else
-		gox -os="linux" -arch="amd64" -output="/shared/dist/{{.Dir}}" $(glide novendor)
+		gox -verbose -os="linux" -arch="amd64" -output="/shared/dist/{{.Dir}}" $(glide novendor)
 		mkdir -p /usr/bin/
 		export PATH=${PATH}:${GOPATH}/bin:/usr/bin/sbin/
 		cp -Rf /shared/dist/* /usr/bin/sbin/
 	fi
+else
+	go build $(glide novendor)
 fi
 
 ### DIST #######################################################################################################
 
-if [ "IS_GOLANG_XBUILD" == "TRUE" ]; then
+if [ "$IS_GOLANG_XBUILD" == "TRUE" ]; then
 	## Copy to dist files [optional]
 	share_recent_dist_files
 fi
 
 ### CLEAN #######################################################################################################
 
-if [ "IS_GOLANG_CLEAN" == "TRUE" ]; then
+if [ "$IS_GOLANG_CLEAN" == "TRUE" ]; then
 	# Cleanup GOPATH
 	rm -Rf ${GOPATH}
 fi

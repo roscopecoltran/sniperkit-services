@@ -1,0 +1,5 @@
+# ref. https://docs.docker.com/compose/extends/#understanding-multiple-compose-files
+version: '2.1'
+cache:
+  environment:
+    TTL: '500'
