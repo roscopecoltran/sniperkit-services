@@ -1,0 +1,32 @@
+language: c
+
+sudo: required
+
+services:
+  - docker
+
+branches:
+  only:
+    - master
+    - staging
+    - develop
+
+before_install:
+  - make login
+
+script:
+  - make lint build tag test
+
+deploy:
+  provider: script
+  script: make push
+  skip_cleanup: true
+  on:
+    branch: master
+
+notifications:
+  email:
+    recipients:
+      - ssemichev@gmail.com
+    on_success: always
+    on_failure: always
