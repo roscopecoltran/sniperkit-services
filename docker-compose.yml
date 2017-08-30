@@ -526,5 +526,7 @@ services:
     - data
     env_file:
     - "./dockerfiles/moby/local/crane/crane.config.env"
+    entrypoint: /usr/local/sbin/crane
+    command: ["--help"]
 
 

@@ -17,7 +17,7 @@ echo "$DIR"
 export SETOOLKIT_VCS_URL=${SETOOLKIT_VCS_URL:-"https://github.com/trustedsec/social-engineer-toolkit.git"}
 export SETOOLKIT_VCS_BRANCH=${SETOOLKIT_VCS_BRANCH:-"7.7.1"}
 export SETOOLKIT_VCS_CLONE_DEPTH=${SETOOLKIT_VCS_CLONE_DEPTH:-"1"}
-export SETOOLKIT_VCS_CLONE_PATH=${SETOOLKIT_VCS_CLONE_PATH:-"/app/sqlmap"}
+export SETOOLKIT_VCS_CLONE_PATH=${SETOOLKIT_VCS_CLONE_PATH:-"/app/setoolkit"}
 export PATH=${SETOOLKIT_VCS_CLONE_PATH}:$PATH
 
 if [[ -d ${SETOOLKIT_VCS_CLONE_PATH} ]]; then

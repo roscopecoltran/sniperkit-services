@@ -36,7 +36,7 @@ case "$1" in
 	;;
 
   *)
-  	exec $@ make run
+  	exec $@
 	;;
 
 esac

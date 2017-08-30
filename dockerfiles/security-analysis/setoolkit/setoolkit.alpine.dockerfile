@@ -29,12 +29,14 @@ ARG APP_EXEC_PATH_FILE=${APP_EXEC_PATH_FILE:-"$APP_EXEC_PATH_PREFIX$APP_EXEC_FIL
 
 # main component - config
 # local
-ARG APP_CONF_LOCAL_FILENAME=${APP_CONF_LOCAL_FILENAME:-"settings-default.yml"}                         
-ARG APP_CONF_LOCAL_FILEPATH=${APP_CONF_LOCAL_FILEPATH:-"./shared/conf.d/$APP_CONF_LOCAL_FILENAME"}
+ARG APP_CONF_LOCAL_FILENAME=${APP_CONF_LOCAL_FILENAME:-"settings-default.yml"}                    
+ARG APP_CONF_LOCAL_DIR=${APP_CONF_LOCAL_DIR:-"./shared/conf.d"}     
+ARG APP_CONF_LOCAL_FILEPATH=${APP_CONF_LOCAL_FILEPATH:-"${APP_CONF_LOCAL_DIR}/$APP_CONF_LOCAL_FILENAME"}
 
 # remote
 ARG APP_CONF_REMOTE_FILENAME=${APP_CONF_REMOTE_FILENAME:-"settings.yml"}                         
-ARG APP_CONF_REMOTE_FILEPATH=${APP_CONF_REMOTE_FILEPATH:-"/shared/conf.d/$APP_CONF_REMOTE_FILENAME"}
+ARG APP_CONF_REMOTE_DIR=${APP_CONF_REMOTE_DIR:-"/shared/conf.d"}
+ARG APP_CONF_REMOTE_FILEPATH=${APP_CONF_REMOTE_FILEPATH:-"$APP_CONF_REMOTE_DIR/$APP_CONF_REMOTE_FILENAME"}
 
 # install script (will look after install-{SCRIPT_SLUG}.sh)
 ARG APP_INSTALL_SCRIPTS=${APP_INSTALL_SCRIPTS:-"setoolkit"}                                  
@@ -184,6 +186,7 @@ ENV PYTHONUNBUFFERED=1 \
 
 # Copy the main configuration file to a recurrent and specific destination filepath.
 ADD ${APP_CONF_LOCAL_FILEPATH} ${APP_CONF_REMOTE_FILEPATH}
+COPY ${APP_CONF_LOCAL_DIR} ${APP_CONF_REMOTE_DIR}
 
 # Copy any specific or generic script/helpers to the container. (nb, need to keep only the ENTRYPOINT script, and its deps, in prod)
 COPY ./docker/internal /scripts

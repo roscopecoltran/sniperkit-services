@@ -2,10 +2,16 @@
 docker:
   crane:
     list:
-      - find . -name crane*\\.y* > .cranelist.txt
+      - find . -name crane*\\.y* > .crane.list.txt
   compose:
     list:
-      - find . -name docker-compose*\\.y*
+      - echo "# docker-compose files" > .dockerfiles.list.txt
+      - find . -name docker-compose*\\.y* > .docker-compose.list.txt
+  dockerfiles:
+    list:
+      - echo "# dockerfiles" > .dockerfiles.list.txt
+      - find . -name *.dockerfile* >> .dockerfiles.list.txt
+      - find . -name *Dockerfile* >> .dockerfiles.list.txt
   images:
   	pull:
 		- beniz/deepdetect_${PROCESSOR_COMPUTATION_TYPE}

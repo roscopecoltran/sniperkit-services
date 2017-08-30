@@ -45,6 +45,6 @@ WORKDIR /app
 # Container configuration
 # VOLUME ["/data", "/shared/data"]
 # CMD ["/usr/local/sbin/gosu", "app", "/app/crane"]
-ENTRYPOINT ["crane"]
+ENTRYPOINT ["/usr/local/sbin/crane"]
 CMD [""]
 

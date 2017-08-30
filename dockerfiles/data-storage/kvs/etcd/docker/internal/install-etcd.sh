@@ -7,7 +7,7 @@ echo
 
 ### ACTIONS ####################################################################################################
 
-export USE_GOLANG_MAKEFILE=${USE_GOLANG_MAKEFILE:-"TRUE"}
+export USE_GOLANG_MAKEFILE=${USE_GOLANG_MAKEFILE:-"FALSE"}
 export USE_GOLANG_MAKEFILE_FN=${USE_GOLANG_MAKEFILE_FN:-"Makefile"}
 export USE_GOLANG_MAKEFILE_TARGETS=${USE_GOLANG_MAKEFILE_TARGETS:-"deps"}
 
