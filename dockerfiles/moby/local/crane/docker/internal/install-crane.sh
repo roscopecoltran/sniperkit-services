@@ -201,10 +201,7 @@ if [ "$USE_GOLANG_GOX" == "TRUE" ]; then
 	if [ "IS_GOLANG_XBUILD" == "TRUE" ]; then
 		gox -verbose -os="linux darwin windows" -arch="amd64" -output="/shared/dist/{{.Dir}}/{{.Dir}}_{{.OS}}_{{.ARCH}}" $(glide novendor)
 	else
-		gox -verbose -os="linux" -arch="amd64" -output="/shared/dist/{{.Dir}}" $(glide novendor)
-		mkdir -p /usr/bin/
-		export PATH=${PATH}:${GOPATH}/bin:/usr/bin/sbin/
-		cp -Rf /shared/dist/* /usr/bin/sbin/
+		gox -verbose -os="linux" -arch="amd64" -output="/usr/local/sbin/{{.Dir}}" $(glide novendor)
 	fi
 else
 	go build $(glide novendor)
