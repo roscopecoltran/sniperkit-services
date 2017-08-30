@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+{% block page %}
+
+<script>
+function selectEngine() {
+    var filter, engines, engineName, engineCategory, i;
+    filter = document.getElementById("engine-search").value.toUpperCase();
+    engines = document.getElementsByClassName("engine-container");
+
+    for (i = 0; i < engines.length; i++) {
+        engineName = engines[i].getElementsByTagName("h2")[0];
+        engineCategory = engines[i].getElementsByClassName("engine-category")[0];
+        if (engineName.innerHTML.toUpperCase().indexOf(filter) > -1
+                || engineCategory.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            engines[i].style.display = "";
+        } else {
+            engines[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+<div class="mdl-grid">
+    <input id="engine-search" class="mdl-textfield__input" type="text" placeholder="Filter engine by name or category" oninput="selectEngine()">
+</div>
+
+<div class="mdl-grid">
+    {% for engine in engines.values()|sort(attribute='name') %}
+    <div class="engine-container">
+        <div class="mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">{{ engine.name }}</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="{{ engine.name }}-state">
+                    <input type="checkbox" id="{{ engine.name }}-state" class="mdl-switch__input" {% if not engine.disabled %}checked{% endif %}>
+                    <span class="mdl-switch__label"></span>
+                </label>
+                <p></p>
+                <div>Shortcut: !{{ engine.shortcut }}</div>
+                <div>Categories: <span class="engine-category">{{ engine.categories|join(', ') }}</span></div>
+                <div>Timeout: {{ engine.timeout }}</div>
+            </div>
+            <div class="mdl-card__menu">
+                    <a href="{{ url_for("edit_engine", engine_name=engine.name) }}"><i class="material-icons">mode_edit</i></a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

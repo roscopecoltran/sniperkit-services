@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="user-event-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">{{ _('Register') }}</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <form action="{{ url_for_security('register') }}" method="POST" name="register_user_form">
+    {{ register_user_form.hidden_tag() }}
+    {% if register_user_form.email.errors %}
+      {% for error in register_user_form.email.errors %}
+      <div class="user-event-error mdl-color-text--accent">
+            <label class="mdl-button mdl-button--icon"><i class="material-icons">error</i></label>{{ error }}
+      </div>
+      {% endfor %}
+    {% endif %}
+    {% if register_user_form.password.errors %}
+      {% for error in register_user_form.password.errors %}
+      <div class="user-event-error mdl-color-text--accent">
+            <label class="mdl-button mdl-button--icon"><i class="material-icons">error</i></label>{{ error }}
+      </div>
+      {% endfor %}
+    {% endif %}
+    <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="email">Email Address</label>
+        <input class="mdl-textfield__input" id="email" name="email" type="text" value="">
+    </div>
+    <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="password">Password</label>
+        <input class="mdl-textfield__input" id="password" name="password" type="password" value="">
+    </div>
+    <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="password_confirm">Retype password</label>
+        <input class="mdl-textfield__input" id="password_confirm" name="password_confirm" type="password" value="">
+    </div>
+    <p><input class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary" id="submit" name="submit" type="submit" value="Register"></p>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
