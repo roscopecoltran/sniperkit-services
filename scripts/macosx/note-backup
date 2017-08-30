@@ -1,0 +1,10 @@
+#!/bin/bash
+set -ex
+now=`date +%Y%m%d%H%M%S`
+
+cd ~
+
+name=note-$now.tar.gz
+tar -cvzf ~/share_bak/$name wiki
+
+echo "done: bak_name: $name"

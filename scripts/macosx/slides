@@ -1,0 +1,21 @@
+#!/bin/bash
+
+git clone https://github.com/hakimel/reveal.js > /dev/null 2>&1
+
+rm -rf $1.html > /dev/null 2>&1
+
+# -o :输出文件, 可以根据后缀进行判断
+# --toc: 生成TOC
+# -t 使用的引擎, 最好使用revealjs
+# --mathjax: 支持数据公式
+# -s: 生成单个html文件
+# -V: 指定变量
+# 	theme: 这里指定主题:beige, black, blood, league, moon, night, serif, simple, sky, solarized, white
+#	transition: 这里指定幻灯片切换效果: slide, fade, convex, concave, zoom
+# --highlight-style: 语法高亮主题: zenburn, pygments, kate, monochrome, espresso, haddock, tango
+pandoc $1.md -o $1.html  -t revealjs --mathjax -s -V theme=sky -V transition=convex --highlight-style=zenburn \
+  --wrap=preserve \
+  --columns=1200 \
+  --css=my.css
+
+# open $1.html

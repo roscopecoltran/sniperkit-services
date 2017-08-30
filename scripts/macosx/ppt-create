@@ -1,0 +1,2 @@
+#!/bin/bash
+slides $1 && open $1.html

@@ -1,0 +1,6 @@
+#!/bin/bash
+# extract public key from ssh private key
+# public key format: PEM
+ca_file=$1
+test $# -ne 1 && echo "usage: $(basename $0) certificate-file" && exit 1
+openssl x509 -in $ca_file -noout -pubkey 

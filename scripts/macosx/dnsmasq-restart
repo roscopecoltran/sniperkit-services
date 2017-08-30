@@ -1,0 +1,4 @@
+#!/bin/bash
+brew services stop dnsmasq
+brew services start dnsmasq
+dns-clean

@@ -1,0 +1,7 @@
+#!/bin/bash
+# extract public key from ssh private key
+# return ssh public key
+
+ssh_private_key=$1
+test $# -ne 1 && echo "usage: $(basename $0) ssh-prikey-file" && exit 1
+ssh-keygen -f $ssh_private_key -y

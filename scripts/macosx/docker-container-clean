@@ -1,0 +1,2 @@
+#!/bin/bash
+docker rm -fv $(docker ps -aq -f status=exited)

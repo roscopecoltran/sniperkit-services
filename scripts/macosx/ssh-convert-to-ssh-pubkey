@@ -1,0 +1,6 @@
+#!/bin/bash
+# get ssh public key from pem public key
+# pem public key format: PEM
+pem_public_key=$1
+test $# -ne 1 && echo "usage: $(basename $0) pem-pubkey-file" && exit 1
+ssh-keygen -i -m PKCS8 -f $pem_public_key 

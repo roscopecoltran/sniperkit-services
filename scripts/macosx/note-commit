@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+msg=${1:-none}
+
+echo $msg
+
+workdir=`pwd`
+
+cd ~/wiki
+find . -name .DS_Store |xargs rm -f {}\;
+git add -A
+git commit -m $msg
+
+# cd $workdir
+# prefix="/Users/baotingfang/wiki"
+# page=http://wiki.home:8888/pages${workdir#$prefix}/
+# open $page

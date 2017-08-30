@@ -1,0 +1,11 @@
+#!/bin/bash
+# OPT AND HOME
+export OPT=/Users/baotingfang/opt
+export HOME=/Users/baotingfang
+export PATH=$PATH:$HOME/bin/:/usr/local/sbin
+
+export CONCOURSE_TARGET=local
+export EDITOR=vim
+
+export LANG=zh_CN.UTF-8
+export LC_CTYPE=zh_CN.UTF-8

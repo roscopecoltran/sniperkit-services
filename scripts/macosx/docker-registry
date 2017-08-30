@@ -1,0 +1,11 @@
+#!/bin/bash
+# docker run -d -p 5000:5000 --name docker-registry -v /Users/baotingfang/opt/docker/var/:/var/lib/registry registry:2
+# echo "docker registry started"
+
+# echo "pulling registry:2 image...."
+# docker pull registry:2
+# echo "Got Registry:2 Image [done]"
+
+cd ~/opt/docker/instances/docker-registry/
+docker-compose  $*
+echo "docker-registry done!"

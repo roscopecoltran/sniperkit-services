@@ -1,0 +1,19 @@
+#!/bin/bash
+source ~/bin/docker-images
+
+for image in $images 
+do
+	echo ""
+	echo "pulling $image ............"
+	docker pull "$image"
+
+	# echo ""
+	# echo "push $image to docker-registry............"
+	# tag="docker-registry.home:5000/$image"
+
+	echo ""
+	echo "TAG: $tag"
+	# docker tag "$image" "$tag"
+	# docker push "$tag"
+	# docker rmi "$tag"
+done

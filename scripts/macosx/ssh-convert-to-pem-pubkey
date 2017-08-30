@@ -1,0 +1,5 @@
+#!/bin/bash
+# CONVERT SSH PUB KEY TO PEM PUB KEY
+ssh_public_key=$1
+test $# -ne 1 && echo "usage: $(basename $0) ssh-pubkey-file" && exit 1
+ssh-keygen -f $ssh_public_key -e -m pem

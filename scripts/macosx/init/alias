@@ -1,0 +1,47 @@
+#!/bin/bash
+
+alias gopath='cd $GOPATH'
+alias gows='cd $GOPATH/src/github.com/baotingfang'
+
+
+#enbles colorin the terminal bash shell export
+# CLICOLOR=1
+
+#sets up thecolor scheme for list export
+# LSCOLORS=gxfxcxdxbxegedabagacad
+
+#sets up theprompt color (currently a green similar to linux terminal)
+# export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
+
+#enables colorfor iTerm
+# export TERM=xterm-color
+
+alias uzsh='source ~/.zshrc'
+alias ls='ls -G'
+alias ll='ls -alF'
+alias rm='rm -i'
+alias gv='govendor'
+# alias gcc='gcc-6'
+# alias g++='g++-6'
+alias wb='cd ~/workspace'
+
+alias cat='ccat'
+alias dog='ccat'
+
+
+# for zsh
+alias rake='noglob rake'
+alias tf='/Users/baotingfang/go-projects/bin/terraform'
+
+# for git
+alias git-diff-from-pre-commit='git diff HEAD^!'
+
+alias ggo='ginkgo --trace -cover -compilers=0 --failFast -notify --afterSuiteHook="echo '美好生活由此开始,小贝....:\)'"'
+alias ggw='ginkgo watch --depth=0'
+
+# bosh
+alias bosh='bosh2'
+
+# goagent
+alias goproxy='export http_proxy=http://127.0.0.1:8087 https_proxy=http://127.0.0.1:8087'
+alias disproxy='unset http_proxy https_proxy'
