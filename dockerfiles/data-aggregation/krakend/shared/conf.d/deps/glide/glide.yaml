@@ -1,0 +1,31 @@
+package: github.com/devopsfaith/krakend
+import:
+- package: github.com/aviddiviner/gin-limit
+- package: github.com/clbanning/mxj
+- package: github.com/coreos/etcd
+  subpackages:
+  - client
+- package: github.com/dgrijalva/jwt-go
+- package: github.com/geekypanda/httpcache
+- package: github.com/gin-gonic/contrib
+  subpackages:
+  - cache
+  - jwt
+  - secure
+- package: github.com/gin-gonic/gin
+- package: github.com/gorilla/mux
+- package: github.com/gregjones/httpcache
+- package: github.com/mmcdole/gofeed
+- package: github.com/op/go-logging
+- package: github.com/prometheus/client_golang
+  subpackages:
+  - prometheus
+- package: github.com/spf13/viper
+- package: github.com/urfave/negroni
+- package: github.com/zbindenren/negroni-prometheus
+- package: gopkg.in/gin-contrib/cors.v1
+- package: gopkg.in/unrolled/secure.v1
+testImport:
+- package: golang.org/x/net
+  subpackages:
+  - context
