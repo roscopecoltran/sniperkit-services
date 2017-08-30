@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+
+  redis:
+    restart: always
+    image: redis:latest
+
+  nginx:
+    restart: always
+    build: ./nginx/
+    ports:
+      - "80:80"
+    depends_on:
+      - aiohttp
+    volumes:
+      - ./front/dist:/static
+
+  postgres:
+    restart: always
+    image: postgres:9.3
+    env_file:
+      - ./configs/prod/environment
+
+  aiohttp:
+    restart: always
+    build: ./sps/
+    env_file:
+      - ./configs/prod/environment
+    environment:
+      - PYTHONUNBUFFERED=0
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "4000:4000"

@@ -1,0 +1,48 @@
+.sharp {
+  border: 0px;
+  border-radius: 0px;
+}
+p {
+    margin: 0px;
+}
+.song-text {
+    white-space:pre-line;
+    margin-left: 10px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+.container-padding {
+    padding-top: 30px;
+}
+.search-limiter {
+    max-height: 300px;
+    overflow-y: auto;
+}
+.centered-content {
+    text-align: center;
+}
+.nopadding {
+    padding: 0;
+}
+.proposed-info {
+    width: 85%;
+}
+.proposed-button {
+    width: 15%;
+    position: absolute;
+    top: 0;
+    right:0;
+    height: 100%;
+    text-align: center;
+}
+.song-text {
+    margin: 5px;
+}
+.icon {
+    width: 100%;
+}
+.affix {
+    top:50px;
+    position:fixed;
+}
