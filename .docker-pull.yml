@@ -2,10 +2,10 @@
 docker:
   crane:
     list:
-      - find . -name crane.yml > .cranelist.txt
+      - find . -name crane*\\.y* > .cranelist.txt
   compose:
     list:
-      - find . -name docker-compose.yml -name docker-compose.yaml -name docker-compose.dev.yml > .docker-compose.list.txt
+      - find . -name docker-compose*\\.y*
   images:
   	pull:
 		- beniz/deepdetect_${PROCESSOR_COMPUTATION_TYPE}
