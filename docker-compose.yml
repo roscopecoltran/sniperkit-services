@@ -1,6 +1,11 @@
 ---
 version: '2.1'
 
+# beniz/deepdetect_${PROCESSOR_COMPUTATION_TYPE}
+# floydhub/dl-docker:${PROCESSOR_COMPUTATION_TYPE}
+# docker-compose build --no-cache nodejs sphinx golang php postgres memcached neo4j gitsome setoolkit sqlmap
+# docker-compose build --no-cache searx aiohttp_admin mysql mariadb mongodb etcd crane krakend
+
 # version: '3'
 # extra_hosts:
 #  - "cassandra:${CASSANDRA_IP:-localhost}"
@@ -19,61 +24,93 @@ services:
     image: tianon/true
     volumes:
 
-    - "./dockerfiles/etcd/shared/logs:/shared/logs/etcd"
-    - "./dockerfiles/etcd/shared/data:/shared/data/etcd"
-
-    - "./dockerfiles/krakend/shared/apps:/shared/apps"
-    - "./dockerfiles/krakend/shared/conf.d:/etc/krakend"
-
-
-    - "./dockerfiles/aiohttp/admin/shared/dicts:/shared/dicts"
-    - "./dockerfiles/aiohttp/admin/shared/utils:/scripts/utils"
-
-    - "./dockerfiles/aiohttp/admin/shared/apps:/shared/apps"
-    - "./dockerfiles/aiohttp/admin/shared/logs:/shared/logs/aiohttp_admin"
-    - "./dockerfiles/aiohttp/admin/shared/data:/shared/data/aiohttp_admin"
-
-    - "./dockerfiles/aiohttp/admin/shared/conf.d:/shared/data/conf.d"
-
-
-    - "./shared/fake_api:/lwan/wwwroot"
+    # root dir
+    - "./shared/models:/shared/models"
     - "./shared/dicts:/shared/dicts"
     - "./shared/ssl:/shared/ssl"
     - "./shared/www:/var/www"
     - "./shared/html:/var/www/html"
+    - "./shared/fake_api:/lwan/wwwroot"
+
+    # etcd
+    - "./dockerfiles/coreos/etcd/shared/conf.d:/shared/conf.d"
+    - "./dockerfiles/coreos/etcd/shared/logs:/shared/logs/etcd"
+    - "./dockerfiles/coreos/etcd/shared/data:/shared/data/etcd"
+
+    # krakend
+    - "./dockerfiles/krakend/shared/conf.d:/shared/conf.d"
+    - "./dockerfiles/krakend/shared/apps:/shared/apps"
+    - "./dockerfiles/krakend/shared/logs:/shared/logs/krakend"
+
+    # crane
+    - "./dockerfiles/moby/local/crane/shared/logs:/shared/logs/crane"
+    - "./dockerfiles/moby/local/crane/shared/apps:/shared/apps/crane"
+    - "./dockerfiles/moby/local/crane/shared/conf.d:/shared/conf.d/crane"
+
+    # aiohttp_admin
+    - "./dockerfiles/aiohttp/admin/shared/dicts:/shared/dicts"
+    - "./dockerfiles/aiohttp/admin/shared/utils:/scripts/utils"
+    - "./dockerfiles/aiohttp/admin/shared/apps:/shared/apps"
+    - "./dockerfiles/aiohttp/admin/shared/logs:/shared/logs/aiohttp_admin"
+    - "./dockerfiles/aiohttp/admin/shared/data:/shared/data/aiohttp_admin"
+    - "./dockerfiles/aiohttp/admin/shared/conf.d:/shared/data/conf.d"
+
+    # mongodb
     - "./dockerfiles/mongodb/shared/logs:/shared/logs/mongodb"
     - "./dockerfiles/mongodb/shared/data:/shared/data/mongodb"
     - "./dockerfiles/mongodb/shared/conf.d:/shared/data/conf.d"
+
+    # mariadb
     - "./dockerfiles/mariadb/shared/logs:/shared/logs/mariadb"
     - "./dockerfiles/mariadb/shared/data:/shared/data/mariadb"
     - "./dockerfiles/mariadb/shared/conf.d:/shared/data/conf.d"
+
+    # mysql
     - "./dockerfiles/mysql/shared/logs:/shared/logs/mysql"
     - "./dockerfiles/mysql/shared/data:/shared/data/mysql"
     - "./dockerfiles/mysql/shared/conf.d:/shared/data/conf.d"
+
+    # postgres
     - "./dockerfiles/postgres/shared/logs:/shared/logs/postgres"
     - "./dockerfiles/postgres/shared/data:/shared/data/postgres"
     - "./dockerfiles/postgres/shared/conf.d:/shared/data/conf.d"
+
+    # redis
     - "./dockerfiles/redis/shared/logs:/shared/logs/redis"
     - "./dockerfiles/redis/shared/data:/shared/data/redis"
     - "./dockerfiles/redis/shared/conf.d:/shared/data/conf.d"
+
+    # webdis
     - "./dockerfiles/webdis/shared/logs:/shared/logs/webdis"
     - "./dockerfiles/webdis/shared/data:/shared/data/webdis"
     - "./dockerfiles/webdis/shared/conf.d:/shared/data/conf.d"
+
+    # nodejs
     - "./dockerfiles/nodejs/shared/logs:/shared/logs/nodejs"
     - "./dockerfiles/nodejs/shared/data:/shared/data/nodejs"
     - "./dockerfiles/nodejs/shared/conf.d:/shared/data/conf.d"
+
+    # sphinx
     - "./dockerfiles/sphinx/shared/logs:/shared/logs/sphinx"
     - "./dockerfiles/sphinx/shared/data:/shared/data/sphinx"
     - "./dockerfiles/sphinx/shared/conf.d:/shared/data/conf.d"
+
+    # gitsome
     - "./dockerfiles/gitsome/shared/logs:/shared/logs/gitsome"
     - "./dockerfiles/gitsome/shared/data:/shared/data/gitsome"
     - "./dockerfiles/gitsome/shared/conf.d:/shared/data/conf.d"
+
+    # sqlmap
     - "./dockerfiles/sqlmap/shared/logs:/shared/logs/sqlmap"
     - "./dockerfiles/sqlmap/shared/data:/shared/data/sqlmap"
     - "./dockerfiles/sqlmap/shared/conf.d:/shared/data/conf.d"
+
+    # setoolkit
     - "./dockerfiles/setoolkit/shared/logs:/shared/logs/setoolkit"
     - "./dockerfiles/setoolkit/shared/data:/shared/data/setoolkit"
     - "./dockerfiles/setoolkit/shared/conf.d:/shared/data/conf.d"
+
+    # celery
     - "./dockerfiles/celery/shared/logs:/shared/logs/celery"
     - "./dockerfiles/celery/shared/data:/shared/data/celery"
     - "./dockerfiles/celery/shared/conf.d:/shared/data/conf.d"
@@ -95,9 +132,9 @@ services:
     - nodejs
 
   etcd:
-    image: "${DOCKER_HUB_ACCOUNT}/etcd:${ETCD_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/etcd:${ETCD_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     build:
-      context: "./dockerfiles/etcd"
+      context: "./dockerfiles/coreos/etcd"
       dockerfile: "etcd.alpine.dockerfile"
     container_name: "etcd-${ETCD_VERSION}"
     volumes_from:
@@ -109,10 +146,10 @@ services:
     - 2379
     - 2380
     env_file:
-    - "./dockerfiles/etcd/etcd.config.env"
+    - "./dockerfiles/coreos/etcd/etcd.config.env"
 
   nodejs:
-    image: "${DOCKER_HUB_ACCOUNT}/nodejs:${NODEJS_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/nodejs:${NODEJS_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     build:
       context: "./dockerfiles/nodejs"
       dockerfile: "nodejs${NODEJS_VERSION}-alpine.dockerfile"
@@ -134,7 +171,7 @@ services:
     - "./dockerfiles/nodejs/nodejs.config.env"
 
   golang:
-    image: "${DOCKER_HUB_ACCOUNT}/golang:${GOLANG_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/golang:${GOLANG_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     build:
       context: "./dockerfiles/golang"
       dockerfile: "golang${GOLANG_VERSION}-alpine.dockerfile"
@@ -155,7 +192,7 @@ services:
     - "./dockerfiles/golang/golang.config.env"
 
   php:
-    image: "${DOCKER_HUB_ACCOUNT}/php-fpm:7.0-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/php-fpm:7.0-alpine${ALPINE_DEFAULT_VERSION}"
     build:
       context: "./dockerfiles/php"
       dockerfile: php-7.0-fpm-alpine.dockerfile
@@ -176,7 +213,7 @@ services:
     - "./dockerfiles/php/php.config.env"
 
   postgres:
-    image: "${DOCKER_HUB_ACCOUNT}/postgres:${POSTGRES_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/postgres:${POSTGRES_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     build:
       context: "./dockerfiles/postgres"
       dockerfile: postgres${POSTGRES_VERSION}-alpine.dockerfile
@@ -191,7 +228,7 @@ services:
     - "./dockerfiles/postgres/postgres.config.env"
 
   krakend:
-    image: "${DOCKER_HUB_ACCOUNT}/krakend:${KRAKEND_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/krakend:${KRAKEND_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     container_name: krakend-${KRAKEND_VERSION}
     build:
       context: "./dockerfiles/krakend"
@@ -213,7 +250,7 @@ services:
     - "8002:8080"
 
   mysql:
-    image: "${DOCKER_HUB_ACCOUNT}/mysql:${MYSQL_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/mysql:${MYSQL_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     build:
       context: "./dockerfiles/mysql"
       dockerfile: mysql${MYSQL_VERSION}-alpine.dockerfile
@@ -228,7 +265,7 @@ services:
     - "./dockerfiles/mysql/mysql.config.env"
 
   mariadb:
-    image: "${DOCKER_HUB_ACCOUNT}/mariadb:${MARIADB_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/mariadb:${MARIADB_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     container_name: "mariadb-${MARIADB_VERSION}"
     build:
       context: "./dockerfiles/mariadb"
@@ -243,7 +280,7 @@ services:
     - "./dockerfiles/mariadb/mariadb.config.env"
 
   celery:
-    image: "${DOCKER_HUB_ACCOUNT}/celery:apk${CELERY_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/celery:apk${CELERY_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     container_name: "celery-${CELERY_VERSION}"
     build:
       context: "./dockerfiles/celery"
@@ -258,7 +295,7 @@ services:
     - redis
 
   memcached:
-    image: "${DOCKER_HUB_ACCOUNT}/memcached:${MEMCACHED_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/memcached:${MEMCACHED_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     container_name: memcached-${MEMCACHED_VERSION}
     build:
       context: "./dockerfiles/memcached"
@@ -275,7 +312,7 @@ services:
   neo4j:
     container_name: neo4j
     #image: neo4j:3.2
-    image: "${DOCKER_HUB_ACCOUNT}/neo4j:${NEO4J_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/neo4j:${NEO4J_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     build:
       context: "./dockerfiles/neo4j"
       dockerfile: neo4j-alpine.dockerfile
@@ -296,7 +333,7 @@ services:
     - "./dockerfiles/neo4j/neo4j.config.env"
 
   aiohttp_admin:
-    image: "${DOCKER_HUB_ACCOUNT}/aiohttp_admin-${AIOHTTP_ADMIN_VERSION}:py3.6-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/aiohttp_admin-${AIOHTTP_ADMIN_VERSION}:py3.6-alpine${ALPINE_DEFAULT_VERSION}"
     container_name: aiohttp-admin-${AIOHTTP_ADMIN_VERSION}
     build:
       context: "./dockerfiles/aiohttp/admin"
@@ -329,7 +366,7 @@ services:
     - "./dockerfiles/aiohttp/admin/aiohttp_admin.config.env"
 
   mongodb:
-    image: "${DOCKER_HUB_ACCOUNT}/mongo:${MONGODB_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/mongo:${MONGODB_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     container_name: "mongodb-${MONGODB_VERSION}"
     build:
       context: "./dockerfiles/mongodb"
@@ -369,7 +406,26 @@ services:
     - dev
 
   searx:
-    image: ${DOCKER_HUB_ACCOUNT}/searx:latest-alpine3.6
+    image: ${DOCKER_HUB_ACCOUNT}/searx:latest-alpine${ALPINE_DEFAULT_VERSION}
+    container_name: searx
+    build:
+      context: "./dockerfiles/searx"
+      dockerfile: "searx-alpine.dockerfile"
+    ports:
+    - 8888:8888
+    - 8889:8889
+    expose:
+    - 8888
+    - 8889
+    volumes_from:
+    - data
+    env_file:
+    - "./dockerfiles/searx/searx.config.env"
+    command:
+    - dev
+
+  searx:
+    image: ${DOCKER_HUB_ACCOUNT}/searx:latest-alpine${ALPINE_DEFAULT_VERSION}
     container_name: searx
     build:
       context: "./dockerfiles/searx"
@@ -388,7 +444,7 @@ services:
     - dev
 
   redis:
-    image: "${DOCKER_HUB_ACCOUNT}/redis:${REDIS_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/redis:${REDIS_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     container_name: redis-${REDIS_VERSION}
     build:
       context: "./dockerfiles/redis"
@@ -403,7 +459,7 @@ services:
     - "./dockerfiles/redis/redis.config.env"
 
   webdis:
-    image: "${DOCKER_HUB_ACCOUNT}/webdis:latest-${WEBDIS_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/webdis:latest-${WEBDIS_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     container_name: webdis-${WEBDIS_VERSION}
     build:
       context: "./dockerfiles/webdis"
@@ -418,7 +474,7 @@ services:
     - "./dockerfiles/webdis/webdis.config.env"
 
   sphinx:
-    image: "${DOCKER_HUB_ACCOUNT}/sphinx:${SPHINX_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/sphinx:${SPHINX_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     container_name: sphinx-${SPHINX_VERSION}
     build:
       context: "./dockerfiles/sphinx"
@@ -457,7 +513,7 @@ services:
     - "./dockerfiles/gogs/gogs.config.env"
 
   setoolkit:
-    image: "${DOCKER_HUB_ACCOUNT}/setoolkit:${SETOOLKIT_VERSION}-py${SETOOLKIT_PY_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/setoolkit:${SETOOLKIT_VERSION}-py${SETOOLKIT_PY_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     container_name: "setoolkit-${SETOOLKIT_VERSION}"
     build:
       context: "./dockerfiles/setoolkit"
@@ -468,7 +524,7 @@ services:
     - "./dockerfiles/setoolkit/setoolkit.config.env"
 
   sqlmap:
-    image: "${DOCKER_HUB_ACCOUNT}/sqlmap:${SQLMAP_VERSION}-py${SQLMAP_PY_VERSION}-alpine3.6"
+    image: "${DOCKER_HUB_ACCOUNT}/sqlmap:${SQLMAP_VERSION}-py${SQLMAP_PY_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     container_name: sqlmap-${SQLMAP_VERSION}
     build:
       context: "./dockerfiles/sqlmap"
@@ -477,3 +533,16 @@ services:
     - data
     env_file:
     - "./dockerfiles/sqlmap/sqlmap.config.env"
+
+  crane:
+    image: "${DOCKER_HUB_ACCOUNT}/crane:${CRANE_VERSION}-go${ALPINE_GOLANG_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
+    container_name: crane-${SQLMAP_VERSION}
+    build:
+      context: "./dockerfiles/moby/local/crane"
+      dockerfile: crane-alpine.dockerfile
+    volumes_from:
+    - data
+    env_file:
+    - "./dockerfiles/moby/local/crane/crane.config.env"
+
+

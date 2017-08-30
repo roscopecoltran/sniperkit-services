@@ -15,10 +15,24 @@
 FROM alpine:3.6
 LABEL maintainer "Luc Michalski <michalski.luc@gmail.com>"
 
-# ARG APP_USER=${APP_USER:-"app"}
-ARG GOSU_VERSION=${GOSU_VERSION:-"1.10"}
+### golang
+ARG APK_BUILD_GOLANG_CROSS
+ARG APK_BUILD_GOLANG
+ARG APK_BUILD_GOLANG_CGO
+ARG APK_BUILD_GOLANG_TOOLS
+ARG APK_BUILD_GOLANG_CROSS
+
+### kraken
 ARG KRAKEND_VERSION=${KRAKEND_VERSION:-"head"}
-ARG BUILD_DATE=${BUILD_DATE:-"2017-08-30T00:00:00Z"}
+ARG KRAKEND_VCS_URI
+ARG KRAKEND_VCS_BRANCH
+ARG KRAKEND_VCS_DEPTH
+
+### build
+ARG BUILD_DATE
+
+### sec
+ARG GOSU_VERSION=${GOSU_VERSION:-"1.10"}
 
 # Install Gosu to /usr/local/bin/gosu
 ADD https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64 /usr/local/sbin/gosu
