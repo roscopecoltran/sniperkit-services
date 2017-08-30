@@ -8,7 +8,7 @@ variables:
   TAG_MAJOR: 2-cpu-alpine
   VCS_REF: ${CI_BUILD_REF}
   EXTRA_BAZEL_ARGS: "--local_resources 3072,1.0,1.0"
-    # BUILD_DATE: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    # BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
     # VCS_REF: ${CIRCLE_SHA1:0:7}
     # TAG: ${VERSION}-cpu-alpine
     # TAG_MINOR: ${VERSION%.*}-cpu-alpine

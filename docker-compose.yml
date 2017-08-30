@@ -199,7 +199,7 @@ services:
     volumes_from:
     - data
     ports:
-    - "4242:4242"
+    - "8096:8096"
     links:
     - fake_api
     env_file:
@@ -296,8 +296,8 @@ services:
     - "./dockerfiles/neo4j/neo4j.config.env"
 
   aiohttp_admin:
-    image: "${DOCKER_HUB_ACCOUNT}/aiohttp_admin:py3.6-alpine3.6"
-    container_name: aiohttp-admin
+    image: "${DOCKER_HUB_ACCOUNT}/aiohttp_admin-${AIOHTTP_ADMIN_VERSION}:py3.6-alpine3.6"
+    container_name: aiohttp-admin-${AIOHTTP_ADMIN_VERSION}
     build:
       context: "./dockerfiles/aiohttp/admin"
       dockerfile: aiohttp_admin-alpine.dockerfile

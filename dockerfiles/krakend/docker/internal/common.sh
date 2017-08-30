@@ -14,41 +14,20 @@ function ensure_dir {
 	echo -e " "
 }
 
-# usage: 
-#  - for python2: fix_python_symlinks_env 2
-#  - for python3: fix_python_symlinks_env 3
-function fix_python_symlinks_env {
-	PYTHON_VERSION_MAJOR=${1:-"2"}
-	PYTHON_EXPECTED=${2:-"/usr/bin/python$PYTHON_VERSION_MAJOR"}
-	PYPIP_EXPECTED=${3:-"/usr/bin/pip$PYTHON_VERSION_MAJOR"}
-	PYTHON_SYMLINKED=${4:-"/usr/bin/python"}
-	PYPIP_SYMLINKED=${5:-"/usr/bin/pip"}
-	if [[ -f ${PYTHON_EXPECTED} ]]; then
-		if [[ ! -f /usr/bin/python ]]; then
-			ln -s ${PYTHON_EXPECTED} /usr/bin/python
-		else
-			local PYTHON_EXECUTABLE=$(which python)
-			local PYTHON_VERSION=$(${PYTHON_EXECUTABLE} --version)
-			SUCCESS_PY=" [ok] symlink already exists for 'python'. found: ${PYTHON_EXECUTABLE}"
-		fi
-	else
-		ERROR_PY=" missing executable binary for 'python' - v${PYTHON_VERSION_MAJOR}.x). expected: ${PYTHON_EXPECTED}"
-	fi
-	if [[ -f ${PYPIP_EXPECTED} ]]; then
-		if [[ ! -f ${PYPIP_SYMLINKED} ]]; then
-			ln -s ${PYPIP_EXPECTED} ${PYPIP_SYMLINKED}
-		else
-			local PYPIP_EXECUTABLE=$(which pip)
-			local PYPIP_VERSION=$(${PYPIP_EXECUTABLE} --version)
-			SUCCESS_PYPIP=" [ok] symlink already exists for 'py-pip'. found: ${PYPIP_EXECUTABLE}"
-		fi
-	else
-		ERROR_PYPIP=" missing executable binary for 'py-pip' - v${PYTHON_VERSION_MAJOR}.x). expected: ${PIP_EXPECTED}"
-	fi
-	PYTHON_RESULT="  symlink created: ${PYTHON_EXECUTABLE} (${PYTHON_VERSION}) --> ${PYTHON_SYMLINKED}"
-	PYTPIP_RESULT="  symlink created: ${PYPIP_EXECUTABLE} (${PYPIP_VERSION}) --> ${PYPIP_SYMLINKED}"
+function touch_all {
+	local TOUCH_DIR=${1:-"."}
+	find ${TOUCH_DIR}/* -exec touch {} \;
+	# or
+	# find . | xargs touch
 }
 
-# fix_python_symlinks_env 3
-
+# usage
+# copy_recent_files 10
+function share_recent_dist_files {
+	APP_LOCAL_SBIN=${APP_LOCAL_SBIN:-"/usr/local/sbin/"}
+	APP_SHARED_DIST=${APP_SHARED_DIST:-"/shared/dist"}
+	APP_TIMESCOPE_AS_NEW_DIST=${APP_TIMESCOPE_AS_NEW_DIST:-"5"}
+	mkdir -p ${APP_SHARED_DIST}
+	find ${APP_LOCAL_SBIN} -ctime -${APP_TIMESCOPE_AS_NEW_DIST} -exec cp -Rf ${APP_SHARED_DIST}
+}
 

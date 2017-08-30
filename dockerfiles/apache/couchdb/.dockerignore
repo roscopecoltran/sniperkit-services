@@ -1,0 +1,35 @@
+# git files
+.git
+.git/**
+.github/
+.github/**
+
+# config(s)
+*.config.env.example
+*.example
+
+# meta
+*.md
+
+# generated data
+./shared/conf.d/*.example
+
+# generated data
+./shared/data/*
+./shared/data/*/
+./shared/data/*/**
+
+# generated logs
+./shared/logs/*
+./shared/logs/*/
+./shared/logs/*/**
+
+*.cert
+*.csr
+
+./shared/ssl
+./shared/ssl/
+./shared/ssl/**
+
+# generated data
+./shared/conf.d/*.example

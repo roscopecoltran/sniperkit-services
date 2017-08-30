@@ -12,7 +12,7 @@ jobs:
       # TAG: ${VERSION}-alpine
       # TAG_MINOR: ${VERSION%.*}-alpine
       # TAG_MAJOR: ${VERSION%%.*}-alpine 
-      # BUILD_DATE: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+      # BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
       VCS_REF: ${CIRCLE_SHA1}
       BATS_VER: "0.4.0"  
 
