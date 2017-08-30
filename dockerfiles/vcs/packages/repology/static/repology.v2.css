@@ -1,0 +1,238 @@
+.package-repository {
+    float: right;
+    text-align: right;
+}
+
+.package-name {
+    margin: 0;
+}
+
+.package-version {
+    margin-left: 1em;
+}
+
+.list-package-details {
+    padding-left: 0;
+    list-style: none;
+}
+
+.list-jumbotron-items {
+    padding-left: 10px;
+}
+
+.jumbotron-badge {
+    display: block;
+    margin: 10px auto 0px;
+}
+
+.panel-heading-link, .panel-heading-link:hover, .panel-heading-link:active, .panel-heading-link:visited {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.panel-heading-link:hover {
+    text-decoration: none;
+}
+
+.footer {
+    background-color: #2A2730;
+    color: #99979C;
+    margin-top: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.footer a:link, .footer-links a:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer a:hover, .footer-links a:active {
+    text-decoration: underline;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin-right: 1em;
+}
+
+.footer-links-right {
+    float: right;
+}
+
+/* color copied from bootstrap */
+.navbar-separator-at-right {
+    border-right: 1px dotted #e7e7e7;
+}
+
+.navbar-separator-at-left {
+    border-left: 1px dotted #e7e7e7;
+}
+
+/* copied from bootstrap .label */
+.version {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+
+    text-shadow: 0px 1px 1px black;
+    color: white;
+}
+
+.version-cell {
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+
+    text-shadow: 0px 1px 1px black;
+    color: white;
+}
+
+.version-cell :link, .version-cell :visited {
+    color: white;
+}
+
+.version-big {
+    font-size: 100%;
+}
+
+.list-sparse {
+    line-height: 2;
+}
+
+.version a {
+    color: white;
+}
+
+.version-newest {
+    background-color: #5cb85c;
+}
+
+.version-outdated {
+    background-color: #d9534f;
+}
+
+.version-mixed {
+    background-color: #f0ad4e;
+}
+
+.version-unique {
+    background-color: #5bc0de;
+}
+
+.version-ignored {
+    background-color: #777777;
+}
+
+.medal {
+    display: inline-block;
+    border-radius: 50%;
+    width: 1.25em;
+    height: 1.25em;
+    box-shadow: inset 1px 1px 0px 0px #ffffffc0, inset -1px -1px 0px 0px #00000080;
+    text-align: center;
+    margin-left: 0.1em;
+}
+
+.medal-gold {
+    color: gold;
+    background-color: gold;
+}
+
+.medal-silver {
+    background-color: silver;
+}
+
+.medal-bronze {
+    background-color: #CD7F32;
+}
+
+.popup-container {
+    position: relative;
+    display: inline;
+}
+
+.popup-container-inner {
+    position: absolute;
+    display: none;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.popup-container:hover .popup-container-inner {
+    display: inline;
+}
+
+.popup {
+    background-color: #dddddd;
+    border-radius: 0.25em;
+    padding: .1em .3em;
+    text-shadow: none;
+}
+
+.delta-negative {
+    color: red;
+}
+
+.delta-positive {
+    color: green;
+}
+
+.link_status {
+    padding: 0.1em 0.3em;
+    border-radius: 0.5em;
+    font-weight: bold;
+}
+
+.link_status_ok {
+    color: white;
+    background-color: #5cb85c;
+}
+
+.link_status_warning {
+    color: white;
+    background-color: #f0ad4e;
+}
+
+.link_status_error {
+    color: white;
+    background-color: #d9534f;
+}
+
+/* XXX: check if bootstrap h1.pageheader margin is always 40px */
+.pageheader-right {
+	float: right;
+	margin-top: 40px;
+}
+
+.break-word {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.navbar-brand img {
+    margin: -10px -10px -10px 0px;
+}
+
+.time-bold {
+    font-weight: bold;
+}
+
+.news-summary-time {
+    font-weight: bold;
+    margin-right: 10px;
+}

@@ -1,0 +1,27 @@
+###########################################################################
+# OpenBSD
+###########################################################################
+- name: openbsd
+  type: repository
+  desc: OpenBSD Ports
+  family: openbsd
+  color: 'f8e808'
+  sources:
+    - name: INDEX
+      fetcher: File
+      parser: OpenBSDIndex
+      url: 'http://cvsweb.openbsd.org/cgi-bin/cvsweb/~checkout~/ports/INDEX?content-type=text/plain'
+  repolinks:
+    - desc: 'OpenBSD FAQ: Packages and Ports'
+      url: https://www.openbsd.org/faq/faq15.html
+    - desc: openports.se
+      url: http://openports.se/
+    - desc: OpenBSD ports CVS repository
+      url: http://cvsweb.openbsd.org/cgi-bin/cvsweb/ports/
+  packagelinks:
+    - desc: OpenPorts.se page
+      url: 'http://openports.se/{origin}'
+    - desc: Port CVS directory
+      url: 'http://cvsweb.openbsd.org/cgi-bin/cvsweb/ports/{origin}'
+    # XXX: no Makefile link is Makefile would just refer to subports
+  tags: [ all, production ]

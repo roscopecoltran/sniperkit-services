@@ -1,0 +1,29 @@
+###########################################################################
+# Arch
+###########################################################################
+- name: arch
+  type: repository
+  desc: Arch
+  family: arch
+  color: '0088cc'
+  sources:
+    - name: [ core, extra, community ]
+      fetcher: WgetTar
+      parser: ArchDB
+      url: 'http://delta.archlinux.fr/{source}/os/x86_64/{source}.db.tar.gz'
+      subrepo: '{source}'
+  repolinks:
+    - desc: Arch Linux home
+      url: https://www.archlinux.org/
+    - desc: Arch Linux Packages
+      url: https://www.archlinux.org/packages/
+  packagelinks:
+    # XXX: there are only two git repos: "packages" and "community", so these do
+    # not map 1:1 onto subrepos and some links are broken; not sure on the fix yet
+    - desc: Git repository
+      url: 'https://git.archlinux.org/svntogit/{subrepo}.git/tree/trunk?h=packages/{name}'
+    - desc: PKGBUILD
+      url: 'https://git.archlinux.org/svntogit/{subrepo}.git/tree/trunk/PKGBUILD?h=packages/{name}'
+    - desc: Package information
+      url: 'https://www.archlinux.org/packages/{subrepo}/x86_64/{name}/'
+  tags: [ all, production, have_testdata ]

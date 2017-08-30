@@ -1,0 +1,18 @@
+###########################################################################
+# GNU Guix
+###########################################################################
+- name: gnuguix
+  type: repository
+  desc: GNU Guix
+  family: guix
+  sources:
+    - name: guix
+      fetcher: Guix
+      parser: Guix
+      url: https://www.gnu.org/software/guix/packages/
+  repolinks:
+    - desc: GNU Guix home
+      url: https://www.gnu.org/software/guix/
+    - desc: GNU Guix packages
+      url: https://www.gnu.org/software/guix/packages/
+  tags: [ all, production ]

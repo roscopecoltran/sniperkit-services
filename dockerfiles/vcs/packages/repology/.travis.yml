@@ -1,0 +1,56 @@
+language: python
+sudo: true
+dist: trusty
+services:
+  - postgresql
+addons:
+  postgresql: "9.6"
+python:
+  - 3.6
+before_install:
+  - pip install Jinja2
+  - pip install PyYAML
+  - pip install coveralls
+  - pip install flake8
+  - pip install flake8-builtins
+  - pip install flake8-import-order
+  - pip install flake8-quotes
+  - pip install flask
+  - pip install lxml
+  - pip install psycopg2
+  - pip install pytidylib # uses newer libtidy installed below
+  - pip install requests
+  - pip install rubymarshal
+  - pip install voluptuous
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq librpm-dev
+  - wget -qO- https://github.com/repology/libversion/archive/1.2.0.tar.gz | tar -xzf- && ( cd libversion-1.2.0 && cmake . && make && sudo make install )
+  - git clone --depth=1 https://github.com/htacg/tidy-html5.git && ( cd tidy-html5 && cmake . && make && sudo make install )
+  - sudo ldconfig
+before_script:
+  - psql -U postgres -c "CREATE DATABASE repology_test;"
+  - psql -U postgres -c "CREATE USER repology_test WITH PASSWORD 'repology_test'"
+  - psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE repology_test TO repology_test"
+  - psql -U postgres -d repology_test -c "CREATE EXTENSION IF NOT EXISTS pg_trgm"
+  - export REPOLOGY_CONFIG=repology-test.conf.default
+script:
+  # test buidling C utils
+  - make
+
+  # check yaml schemas
+  - make check
+
+  # check python syntax
+  - make flake8
+
+  # fill database with test data
+  - ./repology-update.py --parse --initdb --database
+
+  # smoke test bit
+  - ./repology-dump.py --help
+
+  # run unit tests with coverage
+  - coverage run --source="repology,repology-app" --omit="repology/fetcher/*" -m unittest discover
+
+after_success:
+  - coveralls

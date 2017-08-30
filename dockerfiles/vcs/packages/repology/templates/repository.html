@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+{% import "macros.html" as macros %}
+
+{% block extrameta %}
+	<meta http-equiv="refresh" content="3600">
+{% endblock %}
+
+{% block title %}Repology: repository {{ repometadata[repo].desc }}{% endblock %}
+{% block header %}Repository <strong>{{ repometadata[repo].desc }}</strong>{% endblock %}
+{% block description %}Information on repository {{ repometadata[repo].desc }}{% endblock %}
+{% block keywords %}{{ super()}}, repository{% endblock %}
+
+{% block content %}
+<div class="container">
+
+{% if repometadata[repo].repolinks %}
+<h2>Links</h2>
+<ul>
+{% for link in repometadata[repo].repolinks %}
+	<li><a href="{{ link.url }}">{{ link.desc }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<h2>Packages</h2>
+<div class="row">
+	<div class="col-md-3">
+		<div class="panel panel-primary">
+			<div class="panel-heading"><h3>Total</h3></div>
+			<div class="panel-body">
+				{{ repo_info.num_packages }}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-success">
+			<div class="panel-heading"><h3>Newest</h3></div>
+			<div class="panel-body">
+				{{ repo_info.num_packages_newest }}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-danger">
+			<div class="panel-heading"><h3>Outdated</h3></div>
+			<div class="panel-body">
+				{{ repo_info.num_packages_outdated }}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-default">
+			<div class="panel-heading"><h3>Ignored</h3></div>
+			<div class="panel-body">
+				{{ repo_info.num_packages_ignored }}
+			</div>
+		</div>
+	</div>
+</div>
+
+<h2>Metapackages</h2>
+<div class="row">
+	<div class="col-md-3">
+		<div class="panel panel-primary">
+			<div class="panel-heading"><h3>Total</h3></div>
+			<div class="panel-body">
+				<a href="{{ url_for('metapackages_in_repo', repo=repo) }}">
+					{{ repo_info.num_metapackages }}
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-success">
+			<div class="panel-heading"><h3>Newest</h3></div>
+			<div class="panel-body">
+				{{ repo_info.num_metapackages_newest }}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-danger">
+			<div class="panel-heading"><h3>Outdated</h3></div>
+			<div class="panel-body">
+				<a href="{{ url_for('metapackages_outdated_in_repo', repo=repo) }}">
+					{{ repo_info.num_metapackages_outdated }}
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-info">
+			<div class="panel-heading"><h3>Unique</h3></div>
+			<div class="panel-body">
+				<a href="{{ url_for('metapackages_unique_in_repo', repo=repo) }}">
+					{{ repo_info.num_metapackages_unique }}
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h2>Maintainers</h2>
+
+<p>There are {{ repo_info.num_maintainers }} maintainers for this repository</p>
+
+{% if repo_info.num_problems %}
+<h2>Problems</h2>
+
+<p>There are <a href="{{ url_for('repository_problems', repo=repo) }}">{{ repo_info.num_problems }} known problems</a> for packages in this repository</p>
+{% endif %}
+
+<h2>Graphs</h2>
+<h3>Total metapackages</h3>
+<img src="{{ url_for('graph_repo_metapackages_total', repo=repo) }}" alt="Total metapackages graph">
+
+<h3>Newest metapackages</h3>
+<img src="{{ url_for('graph_repo_metapackages_newest', repo=repo) }}" alt="Newest metapackages graph">
+
+<h3>Newest metapackages percentage</h3>
+<img src="{{ url_for('graph_repo_metapackages_newest_percent', repo=repo) }}" alt="Newest metapackages percentage graph">
+
+<h3>Outdated metapackages</h3>
+<img src="{{ url_for('graph_repo_metapackages_outdated', repo=repo) }}" alt="Outdated metapackages graph">
+
+<h3>Outdated metapackages percentage</h3>
+<img src="{{ url_for('graph_repo_metapackages_outdated_percent', repo=repo) }}" alt="Outdated metapackages percentage graph">
+
+<h3>Unique metapackages</h3>
+<img src="{{ url_for('graph_repo_metapackages_unique', repo=repo) }}" alt="Unique metapackages graph">
+
+<h3>Unique metapackages percentage</h3>
+<img src="{{ url_for('graph_repo_metapackages_unique_percent', repo=repo) }}" alt="Unique metapackages percentage graph">
+
+<h3>Maintainers</h3>
+<img src="{{ url_for('graph_repo_maintainers', repo=repo) }}" alt="Maintainers graph">
+
+<h3>Problems</h3>
+<img src="{{ url_for('graph_repo_problems', repo=repo) }}" alt="Problems graph">
+
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+###########################################################################
+# Ravenports
+###########################################################################
+- name: ravenports
+  type: repository
+  desc: Ravenports
+  family: ravenports
+  sources:
+    - name: repology.json
+      fetcher: File
+      parser: RavenportsJson
+      url: https://raw.githubusercontent.com/jrmarino/Ravenports/master/Mk/Misc/repology.json
+  repolinks:
+    - desc: Ravenports Catalog
+      url: http://ravenports.ironwolf.systems/catalog/
+    - desc: Ravenports GitHub repository
+      url: https://github.com/jrmarino/Ravenports
+  packagelinks:
+    - desc: Ravenports Catalog entry
+      url: 'http://ravenports.ironwolf.systems/catalog/bucket_{bucket}/{name}/{variant}/'
+    - desc: Port buildsheet
+      url: 'https://github.com/jrmarino/Ravenports/blob/master/bucket_{bucket}/{name}'
+  tags: [ all, production ]

@@ -1,0 +1,32 @@
+###########################################################################
+# EPEL
+###########################################################################
+- name: epel_6
+  type: repository
+  desc: EPEL 6
+  family: fedora
+  color: 'ff0000'
+  sources:
+    - name: data
+      fetcher: Repodata
+      parser: Repodata
+      url: https://dl.fedoraproject.org/pub/epel/6/SRPMS/
+  repolinks:
+    - desc: EPEL wiki page
+      url: https://fedoraproject.org/wiki/EPEL
+  tags: [ all, production, epel ]
+
+- name: epel_7
+  type: repository
+  desc: EPEL 7
+  family: fedora
+  color: 'ff0000'
+  sources:
+    - name: data
+      fetcher: Repodata
+      parser: Repodata
+      url: https://dl.fedoraproject.org/pub/epel/7/SRPMS/
+  repolinks:
+    - desc: EPEL wiki page
+      url: https://fedoraproject.org/wiki/EPEL
+  tags: [ all, production, epel ]

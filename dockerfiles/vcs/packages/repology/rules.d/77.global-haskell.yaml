@@ -1,0 +1,24 @@
+# vim: tabstop=39 expandtab softtabstop=39
+
+# Haskell
+- {                                    setname: "haskell:$0", family: [ hackage ] }
+- { namepat: "haskell-(.*)",           setname: "haskell:$1", family: [ debuntu, arch, slackbuilds, gobolinux ] }
+- { namepat: "hs-(.*)",                setname: "haskell:$1", family: [ freebsd, pkgsrc, openbsd, macports ] }
+- { namepat: "ghc-(.*)",               setname: "haskell:$1", family: [ opensuse, fedora, guix, rosa ] }
+- { category: dev-haskell,             setname: "haskell:$0", family: [ gentoo ] }
+- { namepat: "ghc[0-9.]+-(.*)",        setname: "haskell:$1", family: [ sisyphus ] }
+
+# Force modules
+- name:
+    - haxml
+    - hpc-coveralls
+    - hspec-discover
+    - hspec-setup
+    - lentil-setup
+    - yackage
+  setname: "haskell:$0"
+
+# APPS, not modules
+- { name: "haskell:darcs",             setname: darcs              }
+- { name: "haskell:xmobar",            setname: xmobar             }
+- { name: "haskell:xmonad",            setname: xmonad             }
