@@ -1,0 +1,6 @@
+#!/bin/bash
+curl https://docker-registry.home:5000/v2/_catalog -k | jq
+
+if [ -n "$1" ];then
+	curl https://docker-registry.home:5000/v2/$1/tags/list -k | jq
+fi

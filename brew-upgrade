@@ -1,0 +1,7 @@
+#!/bin/sh
+
+brew update
+brew upgrade
+# Remove unused packages
+brew cleanup
+brew cask cleanup

@@ -1,0 +1,6 @@
+#!/bin/bash
+test $# -ne 2 && echo "usage: $(basename $0) private_key ca_file_name" && exit 1
+
+private_key=$1
+ca_file_name=$2
+openssl req -x509 -days 365 -new -key $private_key -out $ca_file_name

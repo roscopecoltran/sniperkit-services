@@ -1,0 +1,31 @@
+#!/bin/bash
+ps -ef|grep gollum|grep -v 'grep' |awk '{print $2}'|xargs kill -9
+cd ~/wiki/
+
+# --show-all, --base-path doc
+# --adapter rugged \
+# --no-edit \
+# --live-preview
+
+source ~/.rvm/scripts/rvm
+rvm use 2.4.0@wiki
+nohup gollum --host 127.0.0.1 \
+ 	--port 8888 \
+ 	--ref master \
+	--no-edit \
+	--show-all \
+ 	--adapter rugged \
+ 	--show-all \
+ 	--collapse-tree > /dev/null 2>&1 &
+
+
+#   gollum --host 0.0.0.0 \
+#   	--port 8888 \
+#   	--ref master \
+#   	--live-preview \
+#   	--adapter rugged \
+#   	--show-all \
+#   	--collapse-tree 
+ 
+open http://wiki.home:8888/pages/
+

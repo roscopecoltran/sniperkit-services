@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -d /Users/baotingfang/bin/init/profile.d ]; then
+	for i in /Users/baotingfang/bin/init/profile.d/*.sh; do
+		if [ -r $i ]; then
+			. $i
+		fi
+	done
+	unset i
+fi

@@ -1,0 +1,15 @@
+#!/bin/bash
+images="
+registry:2
+concourse/concourse
+ubuntu
+centos
+memcached
+redis
+mysql
+ruby
+nginx
+golang
+postgres
+python
+"

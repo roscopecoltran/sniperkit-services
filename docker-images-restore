@@ -1,0 +1,12 @@
+#!/bin/bash
+source ~/bin/docker-images
+
+for image in $images 
+do
+	echo ""
+	echo "pulling $image ............"
+	name="docker-registry.home:5000/$image"
+	docker pull "$name"
+	docker tag "$name" "$image"
+	docker rmi "$name"
+done

@@ -1,0 +1,3 @@
+#!/bin/bash
+killall IntelliJIDEALicenseServer_darwin_amd64
+nohup ~/opt/crack/jls/IntelliJIDEALicenseServer_darwin_amd64 -l 127.0.0.1 -p 1024 -prolongationPeriod 607875500 -u baotingfang >/dev/null 2>&1 &

@@ -1,0 +1,5 @@
+#!/bin/bash
+# extract public key from ssh private key
+# public key format: PEM
+test $# -ne 1 && echo "usage: $(basename $0) private-key-file" && exit 1
+openssl rsa -in $1 -pubout 2>/dev/null

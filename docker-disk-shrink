@@ -1,0 +1,4 @@
+cd ~/opt/docker/
+/usr/local/bin/qemu-img convert -O qcow2 Docker.qcow2 Docker2.qcow2
+mv Docker2.qcow2 Docker.qcow2
+echo "done!"

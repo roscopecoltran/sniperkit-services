@@ -1,0 +1,2 @@
+#git duet
+export GIT_DUET_SECONDS_AGO_STALE=30

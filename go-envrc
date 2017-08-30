@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cat << "EOF" > .envrc
+export GOPATH=$PWD
+export PATH=$GOPATH/bin:$PATH
+EOF
+
+mkdir pkg src bin

@@ -1,0 +1,3 @@
+#!/bin/bash
+ps -ef |grep 'godoc'|grep -v 'grep'|grep '127.0.0.1'|awk '{print $2}' | xargs kill -9
+echo "stoped all godoc server!"

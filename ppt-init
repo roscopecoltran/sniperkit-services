@@ -1,0 +1,2 @@
+#!/bin/bash
+ln -s ~/github/reveal.js reveal.js

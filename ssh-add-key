@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh-add ~/workspace/prod-keys/id_rsa_baotingfang

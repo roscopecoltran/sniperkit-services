@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd ~/workspace/cn-wiki
+
+rm -rf *
+
+cp -R ~/wiki/0000.Pivotal/* .
+git add -A
+git commit -m "sync operation: `now`"
+git push

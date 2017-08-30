@@ -1,0 +1,8 @@
+#!/bin/bash
+
+docker run -d \
+  --name redis-server \
+  -v $HOME/opt/data/redis:/data  \
+  -p 6379:6379 \
+  redis \
+  redis-server --appendonly yes
