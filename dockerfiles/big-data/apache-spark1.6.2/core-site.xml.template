@@ -1,0 +1,7 @@
+<configuration>
+<property>
+  <name>fs.defaultFS</name>
+  <value>hdfs://HDFS_HOSTNAME:8020</value>
+  <description>Use HDFS as file storage engine</description>
+</property>
+</configuration>
