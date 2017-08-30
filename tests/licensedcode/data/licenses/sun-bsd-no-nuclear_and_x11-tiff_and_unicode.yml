@@ -1,0 +1,5 @@
+licenses:
+    - bsd-3-clause-no-nuclear-warranty
+    - x11-tiff
+    - unicode-data-software
+notes: intertwined license mentions

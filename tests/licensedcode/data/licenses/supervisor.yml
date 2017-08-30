@@ -1,0 +1,6 @@
+licenses:
+    - repoze
+    - bsd-new
+    - historical
+    - zpl-2.1
+notes: this is a composite license.
