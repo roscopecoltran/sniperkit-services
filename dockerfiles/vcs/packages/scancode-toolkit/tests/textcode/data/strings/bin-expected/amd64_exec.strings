@@ -1,0 +1,739 @@
+ELF
+/lib64/ld-linux-x86-64.so.2
+GNU
+pFQ
+pFQ
+XKQ
+librt.so.1
+clock_gettime
+_Jv_RegisterClasses
+__gmon_start__
+libacl.so.1
+acl_entries
+acl_get_file
+_DYNAMIC
+acl_set_file
+acl_delete_def_file
+_init
+_fini
+acl_from_text
+acl_free
+acl_extended_file
+libc.so.6
+strcpy
+ioctl
+stdout
+sigemptyset
+memmove
+getopt_long
+__fpending
+getgrgid
+getenv
+iswcntrl
+qsort
+memcpy
+readlink
+__overflow
+mbrtowc
+malloc
+isatty
+optarg
+_obstack_newchunk
+readdir
+__strtoul_internal
+mempcpy
+fclose
+sigaddset
+abort
+chmod
+__lxstat
+iswprint
+strrchr
+__ctype_tolower_loc
+_obstack_begin
+calloc
+write
+__ctype_get_mb_cur_max
+fputs_unlocked
+dcgettext
+optind
+mktime
+dirfd
+strcoll
+strncmp
+strncpy
+wcwidth
+realloc
+__strdup
+sigaction
+gettimeofday
+localtime
+memset
+opendir
+__assert_fail
+strcmp
+getpwuid
+getpwnam
+sprintf
+setlocale
+stderr
+error
+__ctype_b_loc
+strftime
+fwrite_unlocked
+__xstat
+__errno_location
+fnmatch
+__fxstat
+localeconv
+bindtextdomain
+getgrnam
+_setjmp
+__ctype_toupper_loc
+strverscmp
+__libc_start_main
+strlen
+strchr
+closedir
+vfprintf
+raise
+mbsinit
+__cxa_atexit
+_edata
+__bss_start
+_end
+GLIBC_2.2.5
+ACL_1.0
+GLIBC_2.3
+0BQ
+8BQ
+HBQ
+PBQ
+XBQ
+hBQ
+pBQ
+xBQ
+0CQ
+8CQ
+HCQ
+PCQ
+XCQ
+hCQ
+pCQ
+xCQ
+0DQ
+8DQ
+HDQ
+PDQ
+XDQ
+hDQ
+pDQ
+xDQ
+PTI
+H9W
+USH
+upH
+ATL
+uHH
+AWA
+AVAUI
+ATUSH
+tCL
+WpH9Vp
+WxH9Vx|
+W`H9V`
+WhH9Vh|
+WPH9VP
+WXH9VX|
+W8H9V8
+t7M
+uM1
+AWAVI
+AUI
+ATSH
+rLL
+tJH
+t%ff
+AWAVA
+AUATUSH
+vpH
+uQH
+[]A\A]A^A_H
+L9o
+v8H
+t4H
+AVAUATI
+pIQ
+0[]A\A]A^
+0[]A\A]A^
+0[]A\A]A^
+pIQ
+tKL
+t0H
+USH
+G(H9
+G(H;G0r
+0EQ
+uHH
+H;C wBH
+ATUSH
+t|H9
+F0L
+F Hc
+G(H;G0s!
+ATH9
+G(H;G0s]
+G(I9
+G(H;G0s/
+G(H;G0s
+uID
+AWAVAUATL
+B0H
+tdD
+PpH
+PPH
+AWAVAUATUSH
+G(H;G0
+G(H;G0
+G(H;G0
+G(H;G0
+L9t$
+G(H;G0
+pE1
+G(H;G0
+G(H;G0
+AWI
+AVAUATS
+eHH
+E0H
+uMH
+AWI
+AVA
+AUATUSH
+tZ1
+G(H;G0
+G(H;G0
+G(H;G0
+G(H;G0
+W8H9V8
+WpH9Vp
+WxH9Vx|
+W`H9V`
+WhH9Vh|
+WPH9VP
+WXH9VX|
+AUI
+ATA
+USH
+uLL
+&tPA
+_tJL
+4$t]M
+4$t]M
+AWAVAUATUSH
+I0H
+D$LH
+D$(H+D$XH
+D$XL
+D$(H+D$XI9
+l$XL
+D$XH
+wQE1
+ED$L
+D$(H+D$XI9
+ulIc
+d$XL
+D$lf
+D$(H+D$XI9
+ED$PH
+D$PH
+D$(H+D$XI9
+t$PHc
+tqD
+D$(H+D$XHc
+D$XH
+D$(H+D$XI9
+D$p@	A
+T$pD
+L+d$XA
+T$pH
+d$xH
+D$0H
+D$XE
+D$pI	A
+D$(H+D$XH9D$@
+D$(H+D$XH9
+l$XL
+DD$l
+DD$xE1
+D$(H+D$XH9
+gfff
+A0H
+gfffffffM
+D$(H+D$XH9
+HdA
+D$p7	A
+D$(H+D$XIc
+t$PHc
+t$PHc
+D$8H
+D$(H+D$XH9D$8
+|$l0ff
+t6Hc
+L$8H
+H9O
+ATI
+U0H
+s0H
+tEH
+ATUH
+S0H
+t4I9
+s8I
+s6H
+t*fff
+sGzE
+G(0A
+u0H
+tjH
+RI9
+k0L
+s8H
+AVAUATUH
+tYI
+EHH
+ATI
+USH
+uqI
+WHH
+GHH
+GHH
+U0H
+tGE
+tcH
+AWAVAUATUSH
+H8H
+P0H
+BHL
+D$HH
+tQL
+T$0H
+D$HH
+AWI
+AVAUI
+ATU
+thH
+taH
+t#Hct$
+4$M9
+AWI
+AVI
+AUATE1
+tzH
+,0tJE
+G(H;G0s
+USH
+xW1
+AWAVAUI
+ATUH
+T$0H
+T$HH
+D$PH
+C\$XH
+H9l$
+T$8H
+D$4E1
+T$HH
+l$8H
+toE
+D$8H
+T$8H
+l$8A
+uZA
+D$4H9
+T$HH
+H+l$HH
+6ff
+t$XL)
+T$PI9
+|$0E1
+H9T$
+t$4E1
+l$8H9
+tRH
+t$4A
+P9D$4w
+9D$4
+tjE
+l$8E1
+A0H
+H+l$HH
+T$HH
+l$8H
+tUE
+t$0H
+ATI
+USH
+@8/tQH
+ATI
+USH
+@8/tQH
+xBH
+gfffffffI
+A0H
+gfffffff
+AWAVAUL
+,7ATUSH
+r%E1
+0E1
+AWAVAUATUSH
+t$8H
+T$0H
+D$Hw
+D$0L
+d$0K
+L$pH
+$tOH
+L;L$8s	H
+D$WtZL;L$8s
+H
+H9T$8v
+H9T$8v
+p0I
+L;L$8s	H
+D$0B
+t1H
+L;L$8s
+L;L$8
+L;L$8A
+H9D$8v	H
+H9D$8v	H
+t5D
+L;L$8s
+H
+T$0H
+t$8H
+L;L$8s
+H
+H9D$8v	H
+H9D$8v	H
+L;L$8s
+H
+H9D$8v	H
+H9D$8v	H
+H9D$(sYH
+T$0L
+L$0H
+L9L$8v
+H
+H9l$(v
+u.E1
+H;L$(s
+L9L$8v	H
+D$X8
+D$X8
+wQH
+l$0L
+t$8L
+PFQ
+tAH
+ATA
+L$0H
+D$0H
+D$8H
+L$0H
+D$0H
+D$8H
+d$hL
+l$pH
+ATI
+A0H
+ATE1
+C(H;C0
+C(H;C0
+L$HJ
+6t.1
+wEH
+AUI
+ATA
+wVH
+tXH
+l$0L
+t$8L
+l$0L
+t$8L
+full-iso
+%b %e  %Y
+%b %e %H:%M
+escape
+directory
+dired
+full-time
+human-readable
+inode
+kilobytes
+numeric-uid-gid
+no-group
+hide-control-chars
+reverse
+width
+almost-all
+ignore-backups
+classify
+file-type
+dereference-command-line
+ignore
+dereference
+literal
+quote-name
+recursive
+show-control-chars
+tabsize
+time-style
+block-size
+author
+help
+version
+none
+yes
+force
+never
+auto
+if-tty
+verbose
+commas
+horizontal
+across
+vertical
+single-column
+atime
+access
+use
+ctime
+status
+extension
+User name too long
+Report bugs to <%s>.
+bug-coreutils@gnu.org
+QUOTING_STYLE
+LS_BLOCK_SIZE
+COLUMNS
+POSIXLY_CORRECT
+TABSIZE
+invalid line width: %s
+invalid tab size: %s
+--sort
+--time
+--format
+--color
+--indicator-style
+--quoting-style
+vdir
+David MacKenzie
+Richard Stallman
+coreutils
+TIME_STYLE
+posix-long-iso
+invalid time style format %s
+time style
+%Y-%m-%d %H:%M:%S.%N %z
+%Y-%m-%d %H:%M
+%Y-%m-%d
+cannot read symbolic link %s
+Group name too long
+/usr/share/locale
+LS_COLORS
+unrecognized prefix: %s
+target
+ls.c
+found
+reading directory %s
+total
+//DIRED//
+//SUBDIRED//
+posix-
+dev_ino_pop
+main
+dereference-command-line-symlink-to-dir
+Try `%s --help' for more information.
+Usage: %s [OPTION]... [FILE]...
+List information about the FILEs (the current directory by default).
+Sort entries alphabetically if none of -cftuSUX nor --sort.
+Mandatory arguments to long options are mandatory for short options too.
+-a, --all                  do not hide entries starting with .
+  -A, --almost-all           do not list implied . and ..
+      --author               print the author of each file
+  -b, --escape               print octal escapes for nongraphic characters
+--block-size=SIZE      use SIZE-byte blocks
+  -B, --ignore-backups       do not list implied entries ending with ~
+  -c                         with -lt: sort by, and show, ctime (time of last
+                               modification of file status information)
+                               with -l: show ctime and sort by name
+                               otherwise: sort by ctime
+-C                         list entries by columns
+      --color[=WHEN]         control whether color is used to distinguish file
+                               types.  WHEN may be `never', `always', or `auto'
+  -d, --directory            list directory entries instead of contents,
+                               and do not dereference symbolic links
+  -D, --dired                generate output designed for Emacs' dired mode
+-f                         do not sort, enable -aU, disable -lst
+  -F, --classify             append indicator (one of */=@|) to entries
+      --format=WORD          across -x, commas -m, horizontal -x, long -l,
+                               single-column -1, verbose -l, vertical -C
+      --full-time            like -l --time-style=full-iso
+-g                         like -l, but do not list owner
+  -G, --no-group             inhibit display of group information
+  -h, --human-readable  print sizes in human readable format (e.g., 1K 234M 2G)
+      --si                   likewise, but use powers of 1000 not 1024
+  -H, --dereference-command-line
+                             follow symbolic links listed on the command line
+      --dereference-command-line-symlink-to-dir
+                             follow each command line symbolic link
+                               that points to a directory
+--indicator-style=WORD append indicator with style WORD to entry names:
+                               none (default), classify (-F), file-type (-p)
+  -i, --inode                print index number of each file
+  -I, --ignore=PATTERN       do not list implied entries matching shell PATTERN
+  -k                         like --block-size=1K
+-l                         use a long listing format
+  -L, --dereference          when showing file information for a symbolic
+                               link, show information for the file the link
+                               references rather than for the link itself
+  -m                         fill width with a comma separated list of entries
+-n, --numeric-uid-gid      like -l, but list numeric UIDs and GIDs
+  -N, --literal              print raw entry names (don't treat e.g. control
+                               characters specially)
+  -o                         like -l, but do not list group information
+  -p, --file-type            append indicator (one of /=@|) to entries
+-q, --hide-control-chars   print ? instead of non graphic characters
+      --show-control-chars   show non graphic characters as-is (default
+                             unless program is `ls' and output is a terminal)
+  -Q, --quote-name           enclose entry names in double quotes
+      --quoting-style=WORD   use quoting style WORD for entry names:
+                               literal, locale, shell, shell-always, c, escape
+-r, --reverse              reverse order while sorting
+  -R, --recursive            list subdirectories recursively
+  -s, --size                 print size of each file, in blocks
+-S                         sort by file size
+      --sort=WORD            extension -X, none -U, size -S, time -t,
+                               version -v
+                             status -c, time -t, atime -u, access -u, use -u
+      --time=WORD            show time as WORD instead of modification time:
+                               atime, access, use, ctime or status; use
+                               specified time as sort key if --sort=time
+--time-style=STYLE     show times using style STYLE:
+                               full-iso, long-iso, iso, locale, +FORMAT
+                             FORMAT is interpreted like `date'; if FORMAT is
+                             FORMAT1<newline>FORMAT2, FORMAT1 applies to
+                             non-recent files and FORMAT2 to recent files;
+                             if STYLE is prefixed with `posix-', STYLE
+                             takes effect only outside the POSIX locale
+  -t                         sort by modification time
+  -T, --tabsize=COLS         assume tab stops at each COLS instead of 8
+-u                         with -lt: sort by, and show, access time
+                               with -l: show access time and sort by name
+                               otherwise: sort by access time
+  -U                         do not sort; list entries in directory order
+  -v                         sort by version
+-w, --width=COLS           assume screen width instead of current value
+  -x                         list entries by lines instead of by columns
+  -X                         sort alphabetically by entry extension
+  -1                         list one file per line
+--help     display this help and exit
+--version  output version information and exit
+SIZE may be (or may be an integer optionally followed by) one of following:
+kB 1000, K 1024, MB 1000*1000, M 1024*1024, and so on for G, T, P, E, Z, Y.
+By default, color is not used to distinguish types of files.  That is
+equivalent to using --color=none.  Using the --color option without the
+optional WHEN argument is equivalent to using --color=always.  With
+--color=auto, color codes are output only if standard output is connected
+to a terminal (tty).
+ignoring invalid value of environment variable QUOTING_STYLE: %s
+ignoring invalid width in environment variable COLUMNS: %s
+ignoring invalid tab size in environment variable TABSIZE: %s
+abcdfghiklmnopqrstuvw:xABCDFGHI:LNQRST:UX1
+unparsable value for LS_COLORS environment variable
+sizeof (struct dev_ino) <= __extension__ ({ struct obstack const *__o = (&dev_ino_obstack); (unsigned) (__o->next_free - __o->object_base); })
+cannot determine device and inode of %s
+not listing already-listed directory: %s
+//DIRED-OPTIONS// --quoting-style=%s
+hash_get_n_entries (active_dir_set) == 0
+setting permissions for %s
+preserving permissions for %s
+u::---,g::---,o::---
+%H:%M:%S
+%m/%d/%y
+%Y-%m-%d
+# entries:         %lu
+# buckets:         %lu
+max bucket length: %lu
+# buckets used:    %lu (%.2f%%)
+_invalid argument %s for %s
+ambiguous argument %s for %s
+Valid arguments are:
+write error
+POSIX
+%.0Lf
+%.1Lf
+eEgGkKmMpPtTyYzZ0
+block size
+invalid %s `%s'
+%s `%s' too large
+KMGTPEZY
+invalid character following %s in `%s'
+shell
+shell-always
+clocale
+Copyright (C) 2004 Free Software Foundation, Inc.
+Written by %s, %s, %s,
+and %s.
+Written by %s, %s, %s,
+%s, and %s.
+Written by %s, %s, %s,
+%s, %s, and %s.
+Written by %s, %s, %s,
+%s, %s, %s, and %s.
+Written by %s, %s, %s,
+%s, %s, %s, %s,
+and %s.
+Written by %s, %s, %s,
+%s, %s, %s, %s,
+%s, and %s.
+Written by %s, %s, %s,
+%s, %s, %s, %s,
+%s, %s, and others.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Written by %s.
+Written by %s and %s.
+Written by %s, %s, and %s.
+memory exhausted
+xstrtoul
+xstrtol.c
+0 <= strtol_base && strtol_base <= 36
+xstrtoumax
+PFQ
+.shstrtab
+.interp
+.note.ABI-tag
+.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.init
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.ctors
+.dtors
+.jcr
+.dynamic
+.got
+.got.plt
+.data
+.bss

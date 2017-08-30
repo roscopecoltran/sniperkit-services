@@ -1,0 +1,5 @@
+[metadata]
+license_file = NOTICE
+
+[aliases]
+release = clean --all sdist --formats=bztar,zip bdist_wheel

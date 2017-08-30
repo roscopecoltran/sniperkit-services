@@ -1,0 +1,30 @@
+licenses:
+    - proprietary
+    - proprietary
+    - proprietary
+    - proprietary
+    - proprietary
+    - proprietary
+    - proprietary
+    - bsd-original
+    - x11-lucent
+    - bsd-new
+    - carnegie-mellon-contributors
+    - paul-mackerras
+    - cmu-computing-services
+    - brian-clapper
+    - historical
+    - cmu-computing-services
+    - bsd-new
+    #
+    - x11-fsf
+    - bsd-new
+    - zlib
+    - bsd-new
+    - brian-gladman-dual
+    #
+    #
+    - bsd-new
+
+expected_failure: yes
+notes: this is a notice from an iPhone 2

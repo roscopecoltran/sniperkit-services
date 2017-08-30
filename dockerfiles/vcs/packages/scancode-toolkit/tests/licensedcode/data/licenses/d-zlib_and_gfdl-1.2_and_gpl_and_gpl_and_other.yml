@@ -1,0 +1,22 @@
+licenses:
+    - gpl-2.0-plus
+    - gpl-3.0-plus
+    - gpl-2.0-glibc
+    - gpl-2.0-plus-ada
+    - gpl-1.0-plus
+    - gpl-1.0-plus
+    - gpl-2.0-gcc-compiler-exception
+    - classpath-exception-2.0
+    - gpl-2.0-gcc
+    - gpl-2.0-plus-linking
+    - gpl-2.0-gcc
+    - gpl-2.0-plus-linking
+    - gpl-2.0-plus
+    - d-zlib
+    - lgpl-2.0-plus
+    - gpl-2.0-plus-linking
+    - mit
+    - gfdl-1.2
+notes: TODO refine expectations
+expected_failure: yes
+

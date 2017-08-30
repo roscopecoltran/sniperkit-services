@@ -1,0 +1,4 @@
+licenses:
+    - proprietary
+minimum_coverage: 100
+notes: Found in some old debian specs

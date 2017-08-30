@@ -1,0 +1,13 @@
+licenses:
+    - lgpl-2.1-plus
+    - gpl-2.0-plus
+    - bsd-original-uc
+    - historical
+    - bsd-new
+    - carnegie-mellon-contributors
+    - bsd-new
+    - bsd-new
+    - inner-net-2.0
+notes: todo refine expectations
+expected_failure: yes
+

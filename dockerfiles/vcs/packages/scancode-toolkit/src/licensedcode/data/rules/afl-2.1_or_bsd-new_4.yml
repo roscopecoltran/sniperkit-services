@@ -1,0 +1,5 @@
+licenses:
+    - afl-2.1
+    - bsd-new
+minimum_coverage: 100
+license_choice: yes

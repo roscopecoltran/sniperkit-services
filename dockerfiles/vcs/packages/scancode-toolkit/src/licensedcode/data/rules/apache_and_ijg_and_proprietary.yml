@@ -1,0 +1,5 @@
+licenses:
+    - apache-2.0
+    - proprietary
+    - ijg
+notes: found in SUN/Oracle JREs
