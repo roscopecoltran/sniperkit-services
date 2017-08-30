@@ -1,0 +1,4 @@
+nginx:
+  image: qubestash/jenkins:alpine
+  ports:
+    - "8080:8080"
