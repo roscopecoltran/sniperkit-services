@@ -34,3 +34,7 @@ core/**
 ./shared/playground/*
 ./shared/playground/*/
 ./shared/playground/*/**
+
+core
+core/**
+core/

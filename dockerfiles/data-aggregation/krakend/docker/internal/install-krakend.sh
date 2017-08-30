@@ -13,7 +13,7 @@ export USE_GOLANG_MAKEFILE_TARGETS=${USE_GOLANG_MAKEFILE_TARGETS:-"deps"}
 
 export USE_GOLANG_GET=${USE_GOLANG_GET:-"TRUE"}
 export USE_GOLANG_GOX=${USE_GOLANG_GOX:-"TRUE"}
-export USE_GOLANG_GLIDE=${USE_GOLANG_GLIDE:-"TRUE"}
+export USE_GOLANG_GLIDE=${USE_GOLANG_GLIDE:-"FALSE"}
 export USE_GOLANG_GLIDE_INSTALL=${USE_GOLANG_GLIDE_INSTALL:-"FALSE"}
 export USE_GOLANG_GOM=${USE_GOLANG_GOM:-"FALSE"}
 export USE_GOLANG_GOPKG=${USE_GOLANG_GOPKG:-"FALSE"}
@@ -135,11 +135,17 @@ fi
 ### MAKEFILE ###################################################################################################
 
 if [ "$USE_GOLANG_MAKEFILE" == "TRUE" ]; then
-	if [ -f ${USE_GOLANG_MAKEFILE_FN} ]; then
-		for target in $USE_GOLANG_MAKEFILE_TARGETS; do	
-			make ${target}
-		done
-	fi
+	MAKEFILE_FILES=$(find ${GOLANG_BUILD_BIN_SRC_DIR} -name docker-compose*\\.y*)
+	for mkf in ${MAKEFILE_FILES}; do
+		MKF_DIR=$(dirname ${mkf})
+		cd ${MKF_DIR}
+		if [ -f ${USE_GOLANG_MAKEFILE_FN} ]; then
+			for target in $USE_GOLANG_MAKEFILE_TARGETS; do	
+				make ${target}
+			done
+		fi
+	done
+	cd ${KRAKEND_VCS_CLONE_PATH}
 fi
 
 ### GOPKG #######################################################################################################
@@ -199,12 +205,12 @@ export GOLANG_BUILD_BIN_SRC_DIR=${GOLANG_BUILD_BIN_SRC_DIR:-"\$(glide novendor)"
 
 if [ "$USE_GOLANG_GOX" == "TRUE" ]; then
 	if [ "IS_GOLANG_XBUILD" == "TRUE" ]; then
-		gox -verbose -os="linux darwin windows" -arch="amd64" -output="/shared/dist/{{.Dir}}/{{.Dir}}_{{.OS}}_{{.ARCH}}" $(glide novendor)
+		gox -verbose -os="linux darwin windows" -arch="amd64" -output="/shared/dist/{{.Dir}}/{{.Dir}}_{{.OS}}_{{.ARCH}}" ${KRAKEND_GOLANG_BUILD_BIN_SRC_DIR}
 	else
-		gox -verbose -os="linux" -arch="amd64" -output="/usr/local/sbin/{{.Dir}}" $(glide novendor)
+		gox -verbose -os="linux" -arch="amd64" -output="/usr/local/sbin/{{.Dir}}" ${KRAKEND_GOLANG_BUILD_BIN_SRC_DIR}
 	fi
 else
-	go build $(glide novendor)
+	go build ${KRAKEND_GOLANG_BUILD_BIN_SRC_DIR}
 fi
 
 ### DIST #######################################################################################################

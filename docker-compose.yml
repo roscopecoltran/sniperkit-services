@@ -397,12 +397,12 @@ services:
     image: "${DOCKER_HUB_ACCOUNT}/gitsome:${GITSOME_VERSION}-py3.5-alpine3.4"
     container_name: "gitsome-${GITSOME_VERSION}"
     build:
-      context: "./dockerfiles/vcs/gitsome"
-      dockerfile: gitsome-alpine.dockerfile
+      context: "./dockerfiles/vcs/managers/gitsome"
+      dockerfile: gitsome.alpine.dockerfile
     volumes_from:
     - data
     env_file:
-    - "./dockerfiles/vcs/gitsome/gitsome.config.env"
+    - "./dockerfiles/vcs/managers/gitsome/gitsome.config.env"
     command:
     - dev
 
@@ -482,8 +482,8 @@ services:
     # image: "${DOCKER_HUB_ACCOUNT}/gogs:${GOGS_VERSION}-py${GOGS_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
     image: bhuisgen/alpine-gogs
     build:
-      context: "./dockerfiles/vcs/gogs"
-      dockerfile: gogs-alpine.dockerfile
+      context: "./dockerfiles/vcs/managers/gogs"
+      dockerfile: gogs.alpine.dockerfile
     ports:
       - "3000:3000"
       - "2222:22"
@@ -493,7 +493,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     #    #- /srv/data:/var/lib/gogs
     env_file:
-    - "./dockerfiles/vcs/gogs/gogs.config.env"
+    - "./dockerfiles/vcs/managers/gogs/gogs.config.env"
 
   setoolkit:
     image: "${DOCKER_HUB_ACCOUNT}/setoolkit:${SETOOLKIT_VERSION}-py${SETOOLKIT_PY_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
