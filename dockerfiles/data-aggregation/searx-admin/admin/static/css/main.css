@@ -1,0 +1,67 @@
+select {
+  font-family: inherit;
+  background-color: transparent;
+  width: 100%;
+  padding: 4px 0;
+  font-size: 16px;
+  color: black;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+select:focus {
+  outline: none}
+
+.mdl-selectfield label {display: none;}
+.mdl-selectfield select {appearance: none}
+.mdl-selectfield {
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  position: relative;
+    &:after {
+        position: absolute;
+        top: 0.75em;
+        right: 0.5em;
+        /* Styling the down arrow */
+        width: 0;
+        height: 0;
+        padding: 0;
+        content: '';
+        border-left: .25em solid transparent;
+        border-right: .25em solid transparent;
+        border-top: .375em solid black;
+        pointer-events: none;
+    }
+}
+
+#engine-search {
+    padding: 10px;
+    border: 1px solid #999999;
+}
+
+.menubutton, .menubutton {
+    color: #DDDDFF;
+}
+
+.engine-container {
+    display: inline-block;
+    margin-left: 1.0rem;
+    margin-top: 1.0rem;
+}
+
+.user-event-card-wide.mdl-card {
+    width: 30.0rem;
+    margin: auto;
+    margin-top: 10.0rem;
+    padding: 2.0rem;
+}
+.user-event-error {
+    font-weight: bold;
+}
+.page-content {
+    padding: 0 2em;
+}
+
+.mdl-layout-title > a {
+    color: #606060;
+    text-decoration: none;
+}

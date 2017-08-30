@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>searx admin</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/material.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <script src="{{ url_for('static', filename='js/material.min.js') }}"></script>
+        <!-- ??? Font could be downloaded from https://getmdl.io/styles/index.html -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

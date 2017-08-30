@@ -1,0 +1,6 @@
+pyyaml
+flask
+flask-sqlalchemy
+flask-security
+bcrypt
+requests

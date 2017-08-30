@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+.mdl-layout__header a {
+    color: #fff;
+}
+</style>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+        {% if instance.is_running() %}
+            <div><a href="http://{{ instance.settings['server']['bind_address'] }}:{{ instance.settings['server']['port'] }}/">Searx</a> is running</div>
+            <a href="{{ url_for('stop_instance') }}">
+              <button class="mdl-button mdl-js-button menubutton">
+                <i class="material-icons">stop</i> STOP
+              </button>
+            </a>
+            <a href="{{ url_for('reload_instance') }}">
+                <button class="mdl-button mdl-js-button menubutton">
+                    <i class="material-icons">replay</i> RELOAD
+                </button>
+            </a>
+        {% else %}
+            <div>Searx has been stopped<div>
+            <a href="{{ url_for('start_instance') }}">
+                <button class="mdl-button mdl-js-button menubutton">
+                    <i class="material-icons">play_arrow</i> START
+                </button>
+            </a>
+        {% endif %}
+            <a href="{{ url_for('update') }}">
+                <button class="mdl-button mdl-js-button menubutton">
+                    <i class="material-icons">update</i> UPDATE
+                </button>
+            </a>
+            <div class="mdl-layout-spacer"></div>
+            <a href="{{ url_for_security('logout') }}">
+                <label class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">exit_to_app</i>
+                </label>
+            </a>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title"><a href="{{ url_for('index') }}">Searx Admin</a></span>
+        <nav class="mdl-navigation">
+          {% for endpoint, menu_name in menu_items %}
+          <a class="mdl-navigation__link {% if request.url_rule.endpoint == endpoint %}mdl-navigation__link--current{% endif %}" href="{{ url_for(endpoint) }}">{{ menu_name }}</a>
+          {% endfor %}
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="page-content">
+        {% block page %}
+        {% endblock %}
+        </div>
+    </main>
+</div>
+{% endblock %}
