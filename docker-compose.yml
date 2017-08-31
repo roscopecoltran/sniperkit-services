@@ -48,6 +48,11 @@ services:
     - "./dockerfiles/moby/local/crane/shared/apps:/shared/apps/crane"
     - "./dockerfiles/moby/local/crane/shared/conf.d:/shared/conf.d/crane"
 
+    # crane
+    - "./dockerfiles/moby/local/nut/shared/logs:/shared/logs/nut"
+    - "./dockerfiles/moby/local/nut/shared/apps:/shared/apps/nut"
+    - "./dockerfiles/moby/local/nut/shared/conf.d:/shared/conf.d/nut"
+
     # aiohttp_admin
     - "./dockerfiles/front-end/admin-interface/aiohttp/admin/shared/dicts:/shared/dicts"
     - "./dockerfiles/front-end/admin-interface/aiohttp/admin/shared/utils:/scripts/utils"
@@ -527,6 +532,9 @@ services:
       dockerfile: crane.alpine.dockerfile
     volumes_from:
     - data
+    volumes:
+    - /etc/docker:/etc/docker
+    - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - DOCKER_HOST
       - DOCKER_SOCKET
@@ -536,4 +544,23 @@ services:
     entrypoint: /usr/local/sbin/crane
     command: ["--help"]
 
+  nut:
+    image: "${DOCKER_HUB_ACCOUNT}/crane:${NUT_VERSION}-go${ALPINE_GOLANG_VERSION}-alpine${ALPINE_DEFAULT_VERSION}"
+    container_name: crane-${SQLMAP_VERSION}
+    build:
+      context: "./dockerfiles/moby/image/nut"
+      dockerfile: nut.alpine.dockerfile
+    volumes_from:
+    - data
+    volumes:
+    - /etc/docker:/etc/docker
+    - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DOCKER_HOST
+      - DOCKER_SOCKET
+      - DOCKER_CURL_OPTION
+    env_file:
+    - "./dockerfiles/moby/image/nut/nut.config.env"
+    entrypoint: nut
+    command: ["--help"]
 
