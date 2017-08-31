@@ -1,0 +1,5 @@
+syntax_version: "6"
+project_name: go
+based_on:
+  github: matthieudelaro/nutfile_go1.5
+docker_image: "golang:latest"

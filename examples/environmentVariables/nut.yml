@@ -1,0 +1,10 @@
+syntax_version: "6"
+project_name: nut
+based_on:
+  github: matthieudelaro/nutfile_go1.6
+environment:
+  GREAT: Hello World!
+macros:
+  great:
+    actions:
+    - "echo Nut greats: $GREAT"

@@ -1,0 +1,17 @@
+.DS_Store
+nut
+nutLinux
+nutOSX
+nutWindows
+nutWindows.exe
+nut.exe
+nut.sublime-project
+nut.sublime-workspace
+.nut
+*.a
+debug*
+.vscode
+vendor/*
+!vendor/vendor.json
+
+nut.override.yml

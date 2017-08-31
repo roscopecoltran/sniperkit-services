@@ -1,0 +1,47 @@
+syntax_version: "6"
+project_name: go
+docker_image: golang:1.5
+macros:
+  build:
+    usage: build the project
+    actions:
+    - go build -o `pwd | xargs basename`
+  build-all:
+    usage: build the project for linux, OSX, and for Windows
+    actions:
+    - export dirName=`pwd | xargs basename`
+    - echo Building for linux...
+    - env GOOS=linux GOARCH=amd64 go build -o `echo $dirName`Linux
+    - echo Building for OSX...
+    - env GOOS=darwin GOARCH=amd64 go build -o `echo $dirName`OSX
+    - echo Building for Windows...
+    - env GOOS=windows GOARCH=amd64 go build -o `echo $dirName`Windows
+    aliases:
+    - ba
+  build-linux:
+    usage: build the project for Linux
+    actions:
+    - env GOOS=linux GOARCH=amd64 go build -o `pwd | xargs basename`Linux
+    aliases:
+    - bl
+  build-osx:
+    usage: build the project for OSX
+    actions:
+    - env GOOS=darwin GOARCH=amd64 go build -o `pwd | xargs basename`OSX
+    aliases:
+    - bo
+    description: cross-compile the project to run on OSX, with architecture amd64.
+  build-windows:
+    usage: build the project for Windows
+    actions:
+    - env GOOS=windows GOARCH=amd64 go build -o `pwd | xargs basename`Windows
+    aliases:
+    - bw
+  run:
+    usage: run the project in the container
+    actions:
+    - ./`pwd | xargs basename`
+  test:
+    usage: test the project
+    actions:
+    - go test

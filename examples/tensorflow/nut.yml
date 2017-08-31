@@ -1,0 +1,19 @@
+syntax_version: "6"
+project_name: tensorflow
+docker_image: b.gcr.io/tensorflow/tensorflow:latest-devel-gpu
+enable_nvidia_devices: true
+container_working_directory: /nut/tensorflow
+mount:
+  main:
+    - .
+    - /nut/tensorflow
+macros:
+  train-mnist:
+    usage: test TensorFlow by training on MNIST dataset
+    actions:
+    - python -m tensorflow.models.image.mnist.convolutional
+  run:
+    usage: start tensorflow interactive session
+    actions:
+    - python -i -c 'import tensorflow as tf; sess = tf.InteractiveSession()'
+
