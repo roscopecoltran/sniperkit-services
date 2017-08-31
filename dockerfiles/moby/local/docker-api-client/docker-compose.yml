@@ -1,0 +1,11 @@
+version: '2'
+services:
+  docker-api-client:
+    build: .
+    environment:
+      - DOCKER_HOST
+      - DOCKER_SOCKET
+      - DOCKER_CURL_OPTION
+    volumes:
+      - /etc/docker:/etc/docker
+      - /var/run/docker.sock:/var/run/docker.sock
