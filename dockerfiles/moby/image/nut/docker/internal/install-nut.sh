@@ -5,22 +5,39 @@ set -e
 clear
 echo
 
+### DEFINITIONS ################################################################################################
+
+export FN_MAKEFILE=${FN_MAKEFILE:-"Makefile"}
+export FN_GOLANG_GLIDE=${FN_GOLANG_GLIDE:-"glide.yaml"}
+export FN_GOLANG_GOM=${FN_GOLANG_GOM:-"Gomfile"}
+export FN_GOLANG_GOPKG=${FN_GOLANG_GOPKG:-"Gopkg.toml"}
+
 ### ACTIONS ####################################################################################################
 
-export USE_GOLANG_MAKEFILE=${USE_GOLANG_MAKEFILE:-"FALSE"}
-export USE_GOLANG_MAKEFILE_FN=${USE_GOLANG_MAKEFILE_FN:-"Makefile"}
-export USE_GOLANG_MAKEFILE_TARGETS=${USE_GOLANG_MAKEFILE_TARGETS:-"deps"}
-
+## golang
 export USE_GOLANG_GET=${USE_GOLANG_GET:-"FALSE"}
-export USE_GOLANG_GOX=${USE_GOLANG_GOX:-"TRUE"}
-export USE_GOLANG_GLIDE=${USE_GOLANG_GLIDE:-"TRUE"}
-export USE_GOLANG_GLIDE_INSTALL=${USE_GOLANG_GLIDE_INSTALL:-"TRUE"}
-export USE_GOLANG_GOM=${USE_GOLANG_GOM:-"FALSE"}
-export USE_GOLANG_GOPKG=${USE_GOLANG_GOPKG:-"FALSE"}
 export USE_GOLANG_TOOLS_FROM_SRC=${USE_GOLANG_TOOLS_FROM_SRC:-"FALSE"}
-
 export IS_GOLANG_XBUILD=${IS_GOLANG_XBUILD:-"FALSE"}
 export IS_GOLANG_CLEAN=${IS_GOLANG_CLEAN:-"TRUE"}
+
+### gox
+export USE_GOLANG_GOX=${USE_GOLANG_GOX:-"TRUE"}
+
+### glide
+export USE_GOLANG_GLIDE=${USE_GOLANG_GLIDE:-"TRUE"}
+export USE_GOLANG_GLIDE_INSTALL=${USE_GOLANG_GLIDE_INSTALL:-"TRUE"}
+
+### gom
+export USE_GOLANG_GOM=${USE_GOLANG_GOM:-"FALSE"}
+
+### gopkg
+export USE_GOLANG_GOPKG=${USE_GOLANG_GOPKG:-"FALSE"}
+
+### MAKFILE ####################################################################################################
+# note: prefered way to build targets
+
+export USE_GOLANG_MAKEFILE=${USE_GOLANG_MAKEFILE:-"FALSE"}
+export USE_GOLANG_MAKEFILE_TARGETS=${USE_GOLANG_MAKEFILE_TARGETS:-"deps"} # trigger the targets (separated by spaces)
 
 ### GOLANG ####################################################################################################
 
@@ -30,17 +47,16 @@ export PKG_CONFIG_PATH="/usr/lib/pkgconfig/:/usr/local/lib/pkgconfig/"
 
 ### PROJECT ####################################################################################################
 
-export CRANE_VCS_URI=${CRANE_VCS_URI:-"github.com/matthieudelaro/nut"}
+export NUT_VCS_URI=${NUT_VCS_URI:-"github.com/matthieudelaro/nut"}
+export NUT_VCS_BRANCH=${NUT_VCS_BRANCH:-"master"}
+export NUT_VCS_DEPTH=${NUT_VCS_DEPTH:-"1"}
 
-export CRANE_VCS_BRANCH=${CRANE_VCS_BRANCH:-"master"}
-export CRANE_VCS_DEPTH=${CRANE_VCS_DEPTH:-"1"}
-
-export CRANE_VCS_CLONE_PATH=${GOPATH}/src/${CRANE_VCS_URI}
-export CRANE_BUILD_DATE=${CRANE_BUILD_DATE:-"$BUILD_DATE"}
+export NUT_VCS_CLONE_PATH=${GOPATH}/src/${NUT_VCS_URI}
+export NUT_BUILD_DATE=${NUT_BUILD_DATE:-"$BUILD_DATE"}
 
 ### PRE_CHECK #################################################################################################
 
-if [ "${CRANE_VCS_URI}" == '' ]; then
+if [ "${NUT_VCS_URI}" == '' ]; then
 	exit 1
 fi
 
@@ -71,11 +87,11 @@ apk add --no-cache --no-progress --update --virtual .go-cross-deps ${APK_BUILD_G
 ### VCS #######################################################################################################
 
 # Compile & Install libgit2 (v0.23)
-git clone -b ${CRANE_VCS_BRANCH} --depth ${CRANE_VCS_DEPTH} -- https://${CRANE_VCS_URI} ${CRANE_VCS_CLONE_PATH}
-cd ${CRANE_VCS_CLONE_PATH}
+git clone -b ${NUT_VCS_BRANCH} --depth ${NUT_VCS_DEPTH} -- https://${NUT_VCS_URI} ${NUT_VCS_CLONE_PATH}
+cd ${NUT_VCS_CLONE_PATH}
 pwd
 ls -l 
-export CRANE_VCS_VERSION=$(git ${BUILD_VCS_VERSION_ARGS:-"describe --always --long --dirty --tags"})
+export NUT_VCS_VERSION=$(git ${BUILD_VCS_VERSION_ARGS:-"describe --always --long --dirty --tags"})
 
 ### SCRIPTS #######################################################################################################
 
@@ -165,9 +181,29 @@ if [ "$USE_GOLANG_GLIDE" == "TRUE" ]; then
 		yes no | glide create 
 	fi
 
+	if [ ! -f ${GLIDE_CONF_FN} ]; then
+		yes no | glide create
+		cat glide.yaml 
+	fi
+
+	# logrus-fix
+	# glide-install
 	if [ "${USE_GOLANG_GLIDE_INSTALL}" == "TRUE" ]; then
 		if [ -f ${GLIDE_CONF_FN} ]; then
 			glide install --force --strip-vendor
+		fi 
+	fi
+
+	# ref.
+	#  - https://github.com/rai-project/plini/blob/master/.travis.yml#L17-L21
+	#  - https://github.com/rai-project/caffe2/blob/master/Makefile#L10-L15
+	if [ -d vendor/github.com/Sirupsen ]; then	
+		rm -fr vendor/github.com/Sirupsen 
+		# find . -name glide.yaml -exec sed -i 's/Sirupsen/sirupsen/g' {} +
+		find ${GOPATH} -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
+		find . -type f -exec sed -i 's/Sirupsen/sirupsen/g' {} +
+		if [ -f ${GLIDE_CONF_FN} ]; then
+			cat glide.yaml
 		fi
 	fi
 

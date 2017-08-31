@@ -533,12 +533,9 @@ services:
     volumes_from:
     - data
     volumes:
-    - /etc/docker:/etc/docker
     - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - DOCKER_HOST
-      - DOCKER_SOCKET
-      - DOCKER_CURL_OPTION
+    - DOCKER_SOCKET
     env_file:
     - "./dockerfiles/moby/local/crane/crane.config.env"
     entrypoint: /usr/local/sbin/crane
@@ -550,15 +547,14 @@ services:
     build:
       context: "./dockerfiles/moby/image/nut"
       dockerfile: nut.alpine.dockerfile
+      # dockerfile: nut-release.alpine.dockerfile
+      # dockerfile: nut-source.alpine.dockerfile
     volumes_from:
     - data
     volumes:
-    - /etc/docker:/etc/docker
     - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - DOCKER_HOST
-      - DOCKER_SOCKET
-      - DOCKER_CURL_OPTION
+    - DOCKER_SOCKET
     env_file:
     - "./dockerfiles/moby/image/nut/nut.config.env"
     entrypoint: nut
