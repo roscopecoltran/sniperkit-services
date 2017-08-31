@@ -13,7 +13,7 @@ export USE_GOLANG_MAKEFILE_TARGETS=${USE_GOLANG_MAKEFILE_TARGETS:-"deps"}
 
 export USE_GOLANG_GET=${USE_GOLANG_GET:-"TRUE"}
 export USE_GOLANG_GOX=${USE_GOLANG_GOX:-"TRUE"}
-export USE_GOLANG_GLIDE=${USE_GOLANG_GLIDE:-"FALSE"}
+export USE_GOLANG_GLIDE=${USE_GOLANG_GLIDE:-"TRUE"}
 export USE_GOLANG_GLIDE_INSTALL=${USE_GOLANG_GLIDE_INSTALL:-"FALSE"}
 export USE_GOLANG_GOM=${USE_GOLANG_GOM:-"FALSE"}
 export USE_GOLANG_GOPKG=${USE_GOLANG_GOPKG:-"FALSE"}
@@ -167,11 +167,10 @@ if [ "$USE_GOLANG_GLIDE" == "TRUE" ]; then
 	mkdir -p ${GLIDE_TMP}
 	mkdir -p ${GLIDE_HOME}
 
-	if [ ! -f ${GLIDE_CONF_FN} ]; then
-		yes no | glide create 
-	fi
-
 	if [ "${USE_GOLANG_GLIDE_INSTALL}" == "TRUE" ]; then
+		if [ ! -f ${GLIDE_CONF_FN} ]; then
+			yes no | glide create 
+		fi
 		if [ -f ${GLIDE_CONF_FN} ]; then
 			glide install ${GLIDE_INSTALL_ARGS:-"--force --strip-vendor --skip-test"}
 		fi

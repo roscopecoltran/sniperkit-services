@@ -8,10 +8,13 @@ echo
 DIR=$(dirname "$0")
 echo "$DIR"
 cd /scripts
-. ./common.sh
+if [ -f ${DIR}/common.sh ]; then
+	. ${DIR}/common.sh
+fi
 
-alias python=python3
-alias pip=pip3
+if [ -f ${DIR}/aliases.sh ]; then
+	. ${DIR}/aliases.sh
+fi
 
 # Set temp environment vars
 export SEARX_VCS_URI=${SEARX_VCS_URI:-"github.com/asciimoo/searx.git"}
@@ -43,3 +46,14 @@ fi
 ln -s /shared/conf.d/settings-default.yml /app/searx/searx/settings.yml
 
 ls -l /app/searx/searx/*.yml
+
+rm /etc/supervisord.conf
+mkdir -p /shared/uwsgi/
+ln -s /shared/conf.d/uwsgi/searx.ini /etc/uwsgi/
+
+
+ln -s /shared/conf.d/supervisor/supervisord.conf /etc/
+
+rm -f /etc/nginx/conf.d/default.conf
+# cp /shared/conf.d/nginx/default.conf /etc/nginx/conf.d/
+ln -s /shared/conf.d/nginx/default.conf /etc/nginx/conf.d/

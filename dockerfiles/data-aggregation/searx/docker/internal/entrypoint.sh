@@ -8,7 +8,13 @@ echo
 DIR=$(dirname "$0")
 echo "$DIR"
 cd /scripts
-. ./common.sh
+if [ -f ${DIR}/common.sh ]; then
+	. ${DIR}/common.sh
+fi
+
+if [ -f ${DIR}/aliases.sh ]; then
+	. ${DIR}/aliases.sh
+fi
 
 pwd
 
@@ -58,8 +64,33 @@ case "$1" in
 	python /app/searx/searx/utils/google_search.py	
 	;;
 
-  'standalone_searx')
+  'searx_standalone')
 	python /app/searx/searx/utils/standalone_searx.py
+	;;
+
+  'searx_admin')
+	python /app/searx-admin/admin/webapp.py
+	;;
+
+  'searx_self_signed')
+		if [ ! -f /usr/local/searx/ssl/searx.key ]
+		then
+		    mkdir -p /shared/ssl
+		    openssl req \
+		       -subj "/C=${COUNRTY:-''}/ST=${STATE:-''}/L=${LOCALITY:-''}/O=${ORG:-''}/OU=${ORG_UNIT:=''}/CN=${COMMON_NAME:-''}" \
+		       -newkey rsa:4096 -nodes -keyout /shared/ssl/searx.key \
+		       -x509 -days 3650 -out /shared/ssl/searx.crt
+		fi
+		sed -i -e "s|base_url : False|base_url : ${BASE_URL}|g" \
+		       -e "s/image_proxy : False/image_proxy : ${IMAGE_PROXY}/g" \
+		       -e "s/ultrasecretkey/$(openssl rand -hex 16)/g" \
+		       /usr/local/searx/searx/settings.yml
+		supervisord -c /etc/supervisord.conf
+	;;
+
+	# https://github.com/adeweever91/searx_ss
+  'supervisor')
+	/usr/bin/supervisord
 	;;
 
   'update-translations')
@@ -75,10 +106,9 @@ case "$1" in
   'tini-run')
 	exec /sbin/tini -- /app/searx/searx/webapp.py
 	;;
-
   *)
 
-  	exec /sbin/tini -- /app/searx/searx/webapp.py
+  	exec $@
 	;;
 
 esac

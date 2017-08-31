@@ -415,6 +415,8 @@ services:
     ports:
     - 8888:8888
     - 8889:8889
+    # - 80:80/tcp
+    # - 443:443/tcp
     expose:
     - 8888
     - 8889
@@ -460,7 +462,7 @@ services:
     container_name: sphinx-${SPHINX_VERSION}
     build:
       context: "./dockerfiles/search-engines/sphinx"
-      dockerfile: sphinx-alpine.dockerfile
+      dockerfile: sphinx.alpine.dockerfile
     volumes_from:
     - data
     links:

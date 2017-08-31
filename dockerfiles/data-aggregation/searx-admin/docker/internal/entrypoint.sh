@@ -8,6 +8,7 @@ echo
 DIR=$(dirname "$0")
 echo "$DIR"
 cd /scripts
+
 if [ -f ${DIR}/common.sh ]; then
 	. ${DIR}/common.sh
 fi
@@ -50,17 +51,16 @@ case "$1" in
   	exec /bin/bash
 	;;
 
-  'search')
-	exec searchd --nodetach "${@:2}"
+  'run')
+	exec python /app/searx-admin/admin/webapp.py
 	;;
 
-  'indexer')
-	exec indexer --all --rotate "${@:2}"
+  'tini-run')
+	exec /sbin/tini -- /app/searx-admin/admin/webapp.py
 	;;
 
   *)
-
-  	exec $@
+		$@
 	;;
 
 esac

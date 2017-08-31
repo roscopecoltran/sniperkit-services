@@ -7,8 +7,13 @@ echo
 
 DIR=$(dirname "$0")
 echo "$DIR"
-. ${DIR}/common.sh
-. ${DIR}/aliases.sh
+if [ -f ${DIR}/common.sh ]; then
+	. ${DIR}/common.sh
+fi
+
+if [ -f ${DIR}/aliases.sh ]; then
+	. ${DIR}/aliases.sh
+fi
 
 # refs:
 #  - https://github.com/trustedsec/social-engineer-toolkit

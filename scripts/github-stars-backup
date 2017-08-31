@@ -1,0 +1,37 @@
+#!/bin/bash
+# Description: Backup starred repositories for a Github user, output to JSON and plain text
+# License: WTFPL
+# Authors: nodiscc <nodiscc@gmail.com>
+# TODO: output as markdown/HTML
+
+set -e
+USAGE="$0 USERNAME"
+
+if [ "$1" == "" ]; then
+	echo -e "ERROR: no username provided.\nUSAGE: $USAGE"; exit 1
+	else user="$1"
+fi
+
+function download_starred() {
+	i="1"
+	response=$(curl https://api.github.com/users/"$user"/starred?per_page=100\&page=$i)
+	echo "$response" >| github-stars.json
+
+	until [[ "$response" = "[
+
+]" ]]; do
+    	i=$(( "$i" +1 ))
+    	response=$(curl https://api.github.com/users/"$user"/starred?per_page=100\&page=$i)
+    	echo "$response" >> github-stars.json
+	done
+}
+
+function json_to_txt() {
+	repos=$(grep full_name github-stars.json | cut -d"\"" -f4)
+	for i in $repos; do
+		echo "https://github.com/$i"
+	done >| github-stars.txt
+}
+
+download_starred
+json_to_txt

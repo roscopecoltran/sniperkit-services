@@ -16,6 +16,9 @@ if [ -f ${DIR}/aliases.sh ]; then
 	. ${DIR}/aliases.sh
 fi
 
+alias python=python3
+alias pip=pip3
+
 # Set temp environment vars
 export SEARX_ADMIN_VCS_URI=${SEARX_ADMIN_VCS_URI:-"github.com/kvch/searx-admin.git"}
 export SEARX_ADMIN_VCS_BRANCH=${SEARX_ADMIN_VCS_BRANCH:-"master"}
@@ -33,6 +36,3 @@ git clone -b ${SEARX_ADMIN_VCS_BRANCH} --recursive --depth ${SEARX_ADMIN_VCS_CLO
 cd ${SEARX_ADMIN_VCS_CLONE_PATH}
 
 pip install --no-cache --no-cache-dir -r ./requirements.txt
-
-mkdir -p /shared/uwsgi/
-ln -s /shared/conf.d/uwsgi/searx-admin.ini /etc/uwsgi/ 

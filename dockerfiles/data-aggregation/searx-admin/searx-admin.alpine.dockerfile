@@ -1,12 +1,12 @@
 ###########################################################################
 #         
 #  Build the image:                                                       
-#    $ docker build -t searx --no-cache .                                   # longer but more accurate
-#    $ docker build -t searx .                                              # faster but increase mistakes
+#    $ docker build -t searx-admin --no-cache .                                   # longer but more accurate
+#    $ docker build -t searx-admin .                                              # faster but increase mistakes
 #                                                                         
 #  Run the container:                                                     
-#    $ docker run -it --rm -v $(pwd)/shared:/shared -p 8888:8888 searx
-#    $ docker run -d --name searx -p 8888:8888 -v $(pwd)/shared:/shared searx
+#    $ docker run -it --rm -v $(pwd)/shared:/shared -p 8888:8888 searx-admin
+#    $ docker run -d --name searx-admin -p 8888:8888 -v $(pwd)/shared:/shared searx-admin
 #                                                                     
 ###########################################################################
 
@@ -16,7 +16,7 @@ FROM alpine:3.6
 LABEL maintainer "Luc Michalski <michalski.luc@gmail.com>"
 
 # restricted user
-ARG APP_USER=${APP_USER:-"searx"}
+ARG APP_USER=${APP_USER:-"searx-admin"}
 ARG APP_HOME=${APP_HOME:-"/app"}
 
 # main component - config file
@@ -27,10 +27,11 @@ ARG APP_CONF_REMOTE_FILENAME=${APP_CONF_REMOTE_FILENAME:-"settings.yml"}
 ARG APP_CONF_REMOTE_FILEPATH=${APP_CONF_REMOTE_FILEPATH:-"/shared/conf.d/$APP_CONF_REMOTE_FILENAME"}
 
 ## container runtime
+
 WORKDIR ${APP_HOME}/${APP_USER}                                                            
 
 # exposed port(s)
-EXPOSE 8888 8889 80 443
+EXPOSE 8888 8889
 
 # shared volume(s)
 # VOLUME ["/shared/data/$APP_USER", "/shared/logs/$APP_USER", "/shared/conf.d"]     
@@ -43,7 +44,7 @@ ENTRYPOINT ["/scripts/entrypoint.sh"]
 ## LEVEL2 ###############################################################################################################
 
 # List of directories and sub-folders to pre-create in the container image
-ARG DOCKER_SERVICES=${DOCKER_SERVICES:-"$APP_USER"}
+ARG DOCKER_SERVICES=${DOCKER_SERVICES:-""}
 ARG DOCKER_SHARED_FOLDERS=${DOCKER_SHARED_FOLDERS:-"ssl,load,conf.d,logs,data"}
 
 # key dirs
@@ -83,14 +84,14 @@ ARG APP_CONF_FILEPATH=${APP_CONF_FILEPATH:-"$APP_DIR_SHARED/conf.d/$APP_CONF_FIL
 
 # install script (will look after install-{SCRIPT_SLUG}.sh)
 # list of component(s) to install
-ARG APP_INSTALL_SCRIPTS=${APP_INSTALL_SCRIPTS:-"pip3 libgit2 searx searx-admin"}       
+ARG APP_INSTALL_SCRIPTS=${APP_INSTALL_SCRIPTS:-"pip3 libgit2 searx-admin searx-admin-admin"}       
 
 # List of app-specific APK(s) packages required to install and compile the main component
 ARG APK_BUILD_CUSTOM=${APK_BUILD_CUSTOM:-"  tree build-base libffi-dev openssl-dev libxslt-dev libxml2-dev openssl-dev \
-                                            python3-dev py3-pip pcre-dev tar"}
+                                            python3-dev py3-pip"}
 
 # List of app-specific APK(s) packages required by the main component during the runtime
-ARG APK_RUNTIME_CUSTOM=${APK_RUNTIME_CUSTOM:-"make python3 libxml2 libxslt tini supervisor su-exec nginx"}
+ARG APK_RUNTIME_CUSTOM=${APK_RUNTIME_CUSTOM:-"make python3 libxml2 libxslt tini"}
 
 # List of app-specific APK(s) packages required by the developers while working inside the project container
 ARG APK_INTERACTIVE_CUSTOM=${APK_INTERACTIVE_CUSTOM:-"nano jq"}
@@ -150,12 +151,10 @@ ENV PYTHONUNBUFFERED=1 \
 # Copy the main configuration file to a recurrent and specific destination filepath.
 ADD ${APP_CONF_LOCAL_FILEPATH} ${APP_CONF_REMOTE_FILEPATH}
 
+COPY ./src /app/searx-admin
+
 # Copy any specific or generic script/helpers to the container. (nb, need to keep only the ENTRYPOINT script, and its deps, in prod)
 COPY ./docker/internal /scripts
-
-COPY ./shared/conf.d/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-COPY ./shared/conf.d/nginx/default.conf /etc/supervisor/conf.d/supervisord.conf
 
 ## LEVEL5 ###############################################################################################################
 
@@ -168,6 +167,10 @@ RUN \
     set -x \
     && set -e \
     && chmod +x ${HELPER_GOSU_FILEPATH} \
+    \
+    && echo -e " *** SEARX_PY_VERSION_MAJOR=${SEARX_PY_VERSION_MAJOR}" \
+    && alias python=python${SQLMAP_PY_VERSION_MAJOR:-"3"} \
+    && alias pip=pip${SQLMAP_PY_VERSION_MAJOR:-"3"} \
     \
     && if [ "${HAS_USER}" == "TRUE" ]; then \
         adduser -D ${APP_USER} -h ${APP_HOME} -s /bin/sh ; fi \

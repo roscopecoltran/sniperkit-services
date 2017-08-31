@@ -14,7 +14,7 @@ FROM alpine:edge
 LABEL maintainer "Luc Michalski <michalski.luc@gmail.com>"
 
 # Set env variables
-ARG DOCKER_SERVICES=${DOCKER_SERVICES:-"sphinx"}
+ARG DOCKER_SERVICES=${DOCKER_SERVICES:-""}
 ARG DOCKER_SHARED_FOLDERS=${DOCKER_SHARED_FOLDERS:-"ssl,load,conf.d,logs,data,plugins"}
 
 # Install Gosu to /usr/local/bin/gosu
@@ -32,11 +32,10 @@ ARG APK_INTERACTIVE=${APK_INTERACTIVE:-"nano bash tree jq"}
 ADD ./shared/conf.d/sphinx.conf /shared/conf.d/sphinx.conf
 
 # Copy the internal shell script(s) (eg. entrypoints, maintenance...)
-ADD ./docker/internal/indexall.sh /scripts/indexall.sh
-ADD ./docker/internal/wait-for-it.sh /scripts/wait-for-it.sh
+COPY ./shared/ /shared/
 
 COPY ./docker/internal/ /scripts
-COPY ./shared/ /shared/
+WORKDIR /scripts
 
 # apk add --update --no-cache --no-progress --virtual interactive-deps ${APK_INTERACTIVE}
 # apk add --update --no-cache --no-progress --virtual build-deps ${APK_BUILD}
@@ -48,10 +47,11 @@ RUN chmod +x /usr/local/sbin/gosu \
 	&& apk add --update --no-cache --no-progress ${RUNTIME_APK} \
 	&& apk add --update --no-cache --no-progress --virtual interactive-deps ${APK_INTERACTIVE} \
 	\
-	&& for SERVICE in ${DOCKER_SERVICES}; do mkdir -p ${DOCKER_SHARED_FOLDERS}/${SERVICE} ; done \
+	&& chmod a+x /scripts/*.sh \
 	\
-	&& chmod a+x /scripts/indexall.sh \
-	&& chmod a+x /scripts/wait-for-it.sh \
+	&& for SERVICE in ${DOCKER_SERVICES}; do ./install-${SERVICE}.sh ;mkdir -p ${DOCKER_SHARED_FOLDERS}/${SERVICE} ; done \
+	\
+	&& chmod a+x /scripts/*.sh \
 	\
 	&& rm -rf /var/cache/apk/*
 
@@ -59,9 +59,8 @@ RUN chmod +x /usr/local/sbin/gosu \
 # 9306 SphinxQL Port
 EXPOSE 9312 9306
 
-WORKDIR /scripts
-
-CMD ["./indexall.sh", "--nodetach", "--config", "/shared/conf.d/sphinx/sphinx.conf"]
+ENTRYPOINT ["./entrypoint.sh"]
+# CMD ["./indexall.sh", "--nodetach", "--config", "/shared/conf.d/sphinx/sphinx.conf"]
 # CMD ["./indexall.sh", "/shared/conf.d/sphinx.conf"]
 # /usr/bin/searchd --config /shared/conf.d/sphinx.conf
 # searchd --nodetach --config /shared/conf.d/sphinx.conf

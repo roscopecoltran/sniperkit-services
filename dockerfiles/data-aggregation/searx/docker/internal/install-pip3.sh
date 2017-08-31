@@ -8,10 +8,13 @@ echo
 DIR=$(dirname "$0")
 echo "$DIR"
 cd /scripts
-. ./common.sh
+if [ -f ${DIR}/common.sh ]; then
+	. ${DIR}/common.sh
+fi
 
-alias python=python3
-alias pip=pip3
+if [ -f ${DIR}/aliases.sh ]; then
+	. ${DIR}/aliases.sh
+fi
 
 ## #################################################################
 ## global env variables
