@@ -1,0 +1,142 @@
+* pg-sphinx
+
+  [[https://travis-ci.org/andy128k/pg-sphinx][https://travis-ci.org/andy128k/pg-sphinx.svg?branch=master]]
+
+  Pg-sphinx is an extension for PostgreSQL which allows to integrate Sphinx search engine.
+
+** Installation
+
+*** Compile
+
+  #+BEGIN_SRC sh
+  make
+  #+END_SRC
+
+*** Install
+  
+  #+BEGIN_SRC sh
+  sudo make install
+  #+END_SRC
+
+*** Define sphinx functions in your database
+
+  Superuser is required.
+
+  #+BEGIN_SRC sh
+  echo 'CREATE EXTENSION sphinx;' | psql -U postgres mydatabase
+  #+END_SRC
+
+*** Uninstall
+
+  #+BEGIN_SRC sh
+  sudo make uninstall
+  #+END_SRC
+
+** Configuration
+
+   Extension can be configured by modifying corresponding rows in table sphinx_config.
+   Following options are available: 'host', 'post', 'username', 'password', 'prefix'.
+
+   'Prefix' is a string which is prepended to index names. This option is useful to simulate
+   namespaces. For example, if prefix is 'test_' and index name in a request is 'blog_posts',
+   real request will be addressed to index named 'test_blog_posts'.
+
+
+** Functions
+
+*** Search query
+
+  #+BEGIN_SRC sql
+  sphinx_select(
+      /*index*/     varchar,
+      /*query*/     varchar,
+      /*condition*/ varchar,
+      /*order*/     varchar,
+      /*offset*/    int,
+      /*limit*/     int,
+      /*options*/   varchar)
+  #+END_SRC
+
+  Returns pairs (id, weight).
+
+*** Update data
+
+  #+BEGIN_SRC sql
+  sphinx_replace(
+      /*index*/     varchar,
+      /*id*/        int,
+      /*data*/      varchar[])
+  #+END_SRC
+
+  Updates document with specified id. Data array must have following format:
+  ARRAY['key1', 'value2', ...]
+
+*** Delete data
+
+  #+BEGIN_SRC sql
+  sphinx_delete(
+      /*index*/     varchar,
+      /*id*/        int)
+  #+END_SRC
+
+  Removes specified document.
+
+*** Get snippet
+
+  #+BEGIN_SRC sql
+  sphinx_snippet(
+      /*index*/     varchar,
+      /*query*/     varchar,
+      /*data*/      varchar,
+      /*before*/    varchar,
+      /*after*/     varchar)
+  #+END_SRC
+
+  Returns snippets for a given data and search query.
+
+  Example:
+
+  #+BEGIN_SRC sql
+  SELECT sphinx_snippet('blog_posts', 'photo', 'There are photos from monday meeting', '<b>', '</b>')
+  #+END_SRC
+
+  This query will return following text:
+
+  #+BEGIN_SRC sql
+  'There are <b>photos</b> from monday meeting'
+  #+END_SRC
+
+
+  #+BEGIN_SRC sql
+  sphinx_snippet_options(
+      /*index*/     varchar,
+      /*query*/     varchar,
+      /*data*/      varchar,
+      /*options*/   varchar[])
+  #+END_SRC
+
+  Returns snippets for a given data and search query. This function is similar to sphinx_snippet but it also accepts
+  a list of additional options.
+
+  Because of array type limitations all values must be represented as text.
+  Integer values have to be represented as decimal values (e. g. '19').
+  For boolean values '1', 't', 'true', 'y', and 'yes' are recognized as true, any other value is considered as false.
+
+  Example (similar to previous one):
+
+  #+BEGIN_SRC sql
+  SELECT sphinx_snippet_options('blog_posts', 'photo', 'There are photos from monday meeting',
+                                ARRAY['before_match', '<b>',
+                                      'after_match', '</b>'])
+  #+END_SRC
+
+  One more example:
+
+  #+BEGIN_SRC sql
+  SELECT sphinx_snippet_options('blog_posts', 'photo', 'There are photos from monday meeting',
+                                ARRAY['before_match', '<b>',
+                                      'after_match', '</b>',
+                                      'query_mode', 'yes'])
+  #+END_SRC
+
+
