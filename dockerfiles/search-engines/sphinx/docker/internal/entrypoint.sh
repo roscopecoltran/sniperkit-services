@@ -58,9 +58,20 @@ case "$1" in
 	exec indexer --all --rotate "${@:2}"
 	;;
 
-  *)
+  'bootsrap')
+	exec indexer --all "$@" && searchd && while true; do indexer --all --rotate "$@"; sleep 5; done
+	;;
 
-  	exec $@
+  *)
+	echo "=====> sleep 5"
+	sleep 5
+
+	echo "=====> indexer --rotate --all"
+	indexer --all --rotate "$@"
+
+	echo "=====> searchd"
+	exec searchd --nodetach "$@"
+  	# exec searchd --nodetach $@
 	;;
 
 esac
