@@ -1,0 +1,19 @@
+syntax_version: "6"
+project_name: docker
+docker_image: dry-run-test
+privileged: true
+container_working_directory: /go/src/github.com/docker/docker
+mount:
+  main: # mount current directory
+  - ./docker
+  - /go/src/github.com/docker/docker
+macros:
+  build:
+    usage: build docker in the container
+    actions:
+    - hack/make.sh binary
+  run:
+    usage: run docker in the container
+    actions:
+    - cp bundles/latest/binary/docker /usr/bin
+    - docker daemon -D & (sleep 5; docker run --rm hello-world) # start daemon in Debug mode, and run hello-world image

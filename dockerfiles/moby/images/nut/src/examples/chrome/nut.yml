@@ -1,0 +1,10 @@
+syntax_version: "6"
+project_name: chrome
+macros:
+  run:
+    usage: run chrome in the container
+    docker_image: jess/chrome
+    # privileged: true
+    enable_gui: true
+    security_opts:
+    - seccomp=unconfined

@@ -1,0 +1,10 @@
+syntax_version: "6"
+project_name: nginx
+docker_image: nginx
+ports:
+  - "80:80"  # <host>:<container>
+  # - "80"   # or <host = container>
+macros:
+  nginx:
+    usage: nginx
+    actions:

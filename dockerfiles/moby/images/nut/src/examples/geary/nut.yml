@@ -1,0 +1,9 @@
+syntax_version: "6"
+project_name: geary
+docker_image: jess/geary
+enable_gui: true
+macros:
+  run:
+    usage: run geary in the container
+  geary:
+    usage: DEPRECATED. Use run instead.

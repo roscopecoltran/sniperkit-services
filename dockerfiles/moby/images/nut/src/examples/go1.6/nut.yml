@@ -1,0 +1,5 @@
+syntax_version: "6"
+project_name: nut
+based_on:
+  nut_file_path: ../go1.5/nut.yml
+docker_image: golang:1.6
